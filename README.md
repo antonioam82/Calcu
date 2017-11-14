@@ -1,4 +1,4 @@
-# Calcu
+#Calcu
 print("CALCULADORA BASICA")
 from VALID import OK, ns, OKP
 from math import *
@@ -196,6 +196,12 @@ while True:
     continu=ns(input("¿Desea efectuar mas operaciones?: "))
     if continu==("n"):
         break
+
+
+
+
+
+
 
 
 
