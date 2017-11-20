@@ -12,7 +12,7 @@ def OKP(n): #ESTA FUNCION ES COMO "OK" SOLO QUE ADMITE EL NÚMERO "pi".
         try:
             n=float(n)
         except:
-            n=OKP(input("Caracter ni válido: "))
+            n=OKP(input("Caracter no válido: "))
     else:
         n=pi
     return n
