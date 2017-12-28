@@ -29,6 +29,15 @@ Boton7=Button(ventana,text="7",width=ancho_boton,height=alto_boton,command=lambd
 Boton8=Button(ventana,text="8",width=ancho_boton,height=alto_boton,command=lambda:btnClik(8)).place(x=17,y=300)
 Boton9=Button(ventana,text="9",width=ancho_boton,height=alto_boton,command=lambda:btnClik(9)).place(x=107,y=300)
 BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=300)#LO DE "saludo" ES PROVISIONAL (SOLO PARA QUE NO DE ERROR)
+BotonComa=Button(ventana,text=",",width=ancho_boton,height=alto_boton,command=lambda:btnClik(",")).place(x=287,y=300)
+BotonSuma=Button(ventana,text="+",width=ancho_boton,height=alto_boton,command=saludo).place(x=17,y=360)
+BotonResta=Button(ventana,text="-",width=ancho_boton,height=alto_boton,command=saludo).place(x=107,y=360)
+BotonMulti=Button(ventana,text="*",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=360)
+BotonDiv=Button(ventana,text="/",width=ancho_boton,height=alto_boton,command=saludo).place(x=287,y=360)
+BotonSqrt=Button(ventana,text="√",width=ancho_boton,height=alto_boton,command=saludo).place(x=17,y=420)
+BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=saludo).place(x=107,y=420)
+BotonExp=Button(ventana,text="EXP",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=420)
+BotonResul=Button(ventana,text="=",width=ancho_boton,height=alto_boton,command=saludo).place(x=287,y=420)
 #BotonSum=Button(ventana,text="+",command=print(Salida)).place(x=110,y=50)
 
 #Salida=Text(ventana,width=20,height=1)
@@ -36,4 +45,6 @@ BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=salud
 #Salida.place(x=10,y=218)
 Salida=Entry(ventana,font=('arial',20,'bold'),width=22,textvariable=input_text,bd=20,insertwidth=4,bg="powder blue",justify="right").place(x=10,y=60)
 ventana.mainloop()
+
+
 
