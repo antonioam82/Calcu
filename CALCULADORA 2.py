@@ -9,7 +9,7 @@ def btnClik(num):
     input_text.set(operador)
 
 def saludo():
-    print("Hola")
+    print("Hola")#ESTO ES SOLO PROVISIONAL
 
 ancho_boton=11
 alto_boton=3
