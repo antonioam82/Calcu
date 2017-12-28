@@ -27,7 +27,7 @@ Boton6=Button(ventana,text="6",width=ancho_boton,height=alto_boton,command=lambd
 Boton7=Button(ventana,text="7",width=ancho_boton,height=alto_boton,command=lambda:btnClik(7)).place(x=287,y=240)
 Boton8=Button(ventana,text="8",width=ancho_boton,height=alto_boton,command=lambda:btnClik(8)).place(x=17,y=300)
 Boton9=Button(ventana,text="9",width=ancho_boton,height=alto_boton,command=lambda:btnClik(9)).place(x=107,y=300)
-BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,commnad=saludo).place(x=197,y=300)
+BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=300)
 
 #BotonSum=Button(ventana,text="+",command=print(Salida)).place(x=110,y=50)
 
