@@ -109,7 +109,10 @@ VISUALIZAR RESULTADO                       OPERADOR("=")
                 print(VALOR)
         if o==("exp"):
             n=OKP(input("Indicar valor del exponente: "))
-            VALOR**=n
+            try:
+                VALOR**=n
+            except:
+                print("Operación no soportada")
             if r==("s"):
                 print(VALOR)
         if o==("sin"):
@@ -199,6 +202,10 @@ VISUALIZAR RESULTADO                       OPERADOR("=")
         break
     else:
         subprocess.call(["cmd.exe","/C","cls"])
+
+
+
+
 
 
 
