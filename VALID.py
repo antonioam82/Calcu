@@ -33,24 +33,29 @@ def ns(c):
 def ER(n):#SE PUEDE RESUMIR/MEJORAR
     strn=str(n)
     lstrn=len(strn)
-    if not (".") in strn:
-        if ("-") in strn:#AQUI SE TIENE EN CUENTA LA POSIBILIDAD DE LOS NUMEROS NEGATIVOS
-            lstrn=len(strn)-1
-        
-        if lstrn>=4 and lstrn<=18:
-            if lstrn>=4 and lstrn<=6:
-                res=("mil"+str(lstrn-3))
-            if lstrn>=7 and lstrn<=9:
-                res=("millon"+str(lstrn-6))
-            if lstrn>=10 and lstrn<=12:
-                res=("mil millon"+str(lstrn-9))
-            if lstrn>=13 and lstrn<=15:
-                res=("billon"+str(lstrn-12))
-            if lstrn>=16 and lstrn<=18:
-                res=("trillon"+str(lstrn-15))
-            return("("+res+")")
-        else:
-            return("")
+    if (".") in strn or ("-") in strn:
+        lstrn=0
+        for i in strn:
+            if i!=("."):
+                lstrn+=1
+            else:
+                break
+        if ("-") in strn:
+            lstrn-=1
+            
+    if lstrn>=4 and lstrn<=18:
+        if lstrn>=4 and lstrn<=6:
+            res=("mil"+str(lstrn-3))
+        if lstrn>=7 and lstrn<=9:
+            res=("millon"+str(lstrn-6))
+        if lstrn>=10 and lstrn<=12:
+            res=("mil millon"+str(lstrn-9))
+        if lstrn>=13 and lstrn<=15:
+            res=("billon"+str(lstrn-12))
+        if lstrn>=16 and lstrn<=18:
+            res=("trillon"+str(lstrn-15))
+
+        return("("+res+")")
     else:
         return("")
 
@@ -89,6 +94,9 @@ def oper(ress):#SE PUEDE USAR EN "calculadora_cadena.py"
     except:
         ress=oper(str(input("Operación no válida: ")))
     return ress
+
+        
+
 
         
 
