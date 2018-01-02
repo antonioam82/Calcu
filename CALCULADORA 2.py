@@ -2,6 +2,7 @@ from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA")
 ventana.geometry("392x600")
+from math import *
 
 def btnClik(num):
     global operador
@@ -11,7 +12,13 @@ def btnClik(num):
 def saludo():
     print("HOLA")
 
+def raiz_cuad():
     
+    Salida2=Text(ventana,font=('arial',20,'bold'),width=22,bd=20,height=1,insertwidth=4,bg="powder blue")
+    #Salida2.insert(INSERT,"")
+    Salida2.place(x=10,y=60)
+    solucion=sqrt(int(input_text.get()))
+    Salida2.insert(INSERT,solucion)
 
 ancho_boton=11
 alto_boton=3
@@ -34,7 +41,7 @@ BotonSuma=Button(ventana,text="+",width=ancho_boton,height=alto_boton,command=sa
 BotonResta=Button(ventana,text="-",width=ancho_boton,height=alto_boton,command=saludo).place(x=107,y=360)
 BotonMulti=Button(ventana,text="*",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=360)
 BotonDiv=Button(ventana,text="/",width=ancho_boton,height=alto_boton,command=saludo).place(x=287,y=360)
-BotonSqrt=Button(ventana,text="√",width=ancho_boton,height=alto_boton,command=saludo).place(x=17,y=420)
+BotonSqrt=Button(ventana,text="√",width=ancho_boton,height=alto_boton,command=raiz_cuad).place(x=17,y=420)
 BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=saludo).place(x=107,y=420)
 BotonExp=Button(ventana,text="EXP",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=420)
 BotonResul=Button(ventana,text="=",width=ancho_boton,height=alto_boton,command=saludo).place(x=287,y=420)
@@ -44,7 +51,8 @@ BotonResul=Button(ventana,text="=",width=ancho_boton,height=alto_boton,command=s
 #Salida.insert(INSERT,"")
 #Salida.place(x=10,y=218)
 Salida=Entry(ventana,font=('arial',20,'bold'),width=22,textvariable=input_text,bd=20,insertwidth=4,bg="powder blue",justify="right").place(x=10,y=60)
-ventana.mainloop()
 
+
+ventana.mainloop()
 
 
