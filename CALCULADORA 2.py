@@ -9,17 +9,26 @@ def btnClik(num):
     operador=operador+str(num)
     input_text.set(operador)
 
+def clear():
+    global operador
+    operador=("")
+    input_text.set(operador)
+
+def operacion():
+    global operador
+    opera=str(eval(operador))
+    input_text.set(opera)
+
+
 def saludo():
     print("HOLA")
 
 def raiz_cuad():
-    
-    Salida2=Text(ventana,font=('arial',20,'bold'),width=22,bd=20,height=1,insertwidth=4,bg="powder blue")
-    #Salida2.insert(INSERT,"")
-    Salida2.place(x=10,y=60)
-    solucion=sqrt(int(input_text.get()))
-    Salida2.insert(INSERT,solucion)
+    #global operador
+    opera=sqrt(int(input_text.get()))
+    input_text.set(opera)
 
+    
 ancho_boton=11
 alto_boton=3
 
@@ -35,16 +44,16 @@ Boton6=Button(ventana,text="6",width=ancho_boton,height=alto_boton,command=lambd
 Boton7=Button(ventana,text="7",width=ancho_boton,height=alto_boton,command=lambda:btnClik(7)).place(x=287,y=240)
 Boton8=Button(ventana,text="8",width=ancho_boton,height=alto_boton,command=lambda:btnClik(8)).place(x=17,y=300)
 Boton9=Button(ventana,text="9",width=ancho_boton,height=alto_boton,command=lambda:btnClik(9)).place(x=107,y=300)
-BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=300)#LO DE "saludo" ES PROVISIONAL (SOLO PARA QUE NO DE ERROR)
-BotonComa=Button(ventana,text=",",width=ancho_boton,height=alto_boton,command=lambda:btnClik(",")).place(x=287,y=300)
-BotonSuma=Button(ventana,text="+",width=ancho_boton,height=alto_boton,command=saludo).place(x=17,y=360)
-BotonResta=Button(ventana,text="-",width=ancho_boton,height=alto_boton,command=saludo).place(x=107,y=360)
-BotonMulti=Button(ventana,text="*",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=360)
-BotonDiv=Button(ventana,text="/",width=ancho_boton,height=alto_boton,command=saludo).place(x=287,y=360)
+BotonC=Button(ventana,text="AC",width=ancho_boton,height=alto_boton,command=clear).place(x=197,y=300)
+BotonComa=Button(ventana,text=",",width=ancho_boton,height=alto_boton,command=lambda:btnClik(".")).place(x=287,y=300)
+BotonSuma=Button(ventana,text="+",width=ancho_boton,height=alto_boton,command=lambda:btnClik("+")).place(x=17,y=360)
+BotonResta=Button(ventana,text="-",width=ancho_boton,height=alto_boton,command=lambda:btnClik("-")).place(x=107,y=360)
+BotonMulti=Button(ventana,text="*",width=ancho_boton,height=alto_boton,command=lambda:btnClik("*")).place(x=197,y=360)
+BotonDiv=Button(ventana,text="/",width=ancho_boton,height=alto_boton,command=lambda:btnClik("/")).place(x=287,y=360)
 BotonSqrt=Button(ventana,text="√",width=ancho_boton,height=alto_boton,command=raiz_cuad).place(x=17,y=420)
-BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=saludo).place(x=107,y=420)
-BotonExp=Button(ventana,text="EXP",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=420)
-BotonResul=Button(ventana,text="=",width=ancho_boton,height=alto_boton,command=saludo).place(x=287,y=420)
+BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=clear).place(x=107,y=420)#Quiero que sea "0"
+BotonExp=Button(ventana,text="EXP",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=420)#LO DE "saludo" ES PROVISIONAL (SOLO PARA QUE NO DE ERROR)
+BotonResul=Button(ventana,text="=",width=ancho_boton,height=alto_boton,command=operacion).place(x=287,y=420)
 #BotonSum=Button(ventana,text="+",command=print(Salida)).place(x=110,y=50)
 
 #Salida=Text(ventana,width=20,height=1)
