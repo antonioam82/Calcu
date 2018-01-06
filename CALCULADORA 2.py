@@ -21,8 +21,13 @@ def clear():
 
 def operacion():
     global operador
-    opera=str(eval(operador))
-    input_text.set(opera)
+    try:
+        opera=str(eval(operador))
+        input_text.set(opera)
+    except:
+        clear()
+        opera=("ERROR")
+        input_text.set(opera)
 
 
 def saludo():
@@ -55,6 +60,8 @@ BotonResta=Button(ventana,text="-",width=ancho_boton,height=alto_boton,command=l
 BotonMulti=Button(ventana,text="*",width=ancho_boton,height=alto_boton,command=lambda:btnClik("*")).place(x=197,y=360)
 BotonDiv=Button(ventana,text="/",width=ancho_boton,height=alto_boton,command=lambda:btnClik("/")).place(x=287,y=360)
 BotonSqrt=Button(ventana,text="√",width=ancho_boton,height=alto_boton,command=raiz_cuad).place(x=17,y=420)
+BotonParen1=Button(ventana,text="(",width=ancho_boton,height=alto_boton,command=lambda:btnClik("(")).place(x=17,y=480)
+BotonParen2=Button(ventana,text=")",width=ancho_boton,height=alto_boton,command=lambda:btnClik(")")).place(x=107,y=480)
 BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=clear).place(x=107,y=420)#Quiero que sea "0"
 BotonExp=Button(ventana,text="EXP",width=ancho_boton,height=alto_boton,command=lambda:btnClik("**")).place(x=197,y=420)#LO DE "saludo" ES PROVISIONAL (SOLO PARA QUE NO DE ERROR)
 BotonResul=Button(ventana,text="=",width=ancho_boton,height=alto_boton,command=operacion).place(x=287,y=420)
@@ -63,6 +70,7 @@ Salida=Entry(ventana,font=('arial',20,'bold'),width=22,textvariable=input_text,b
 
 
 ventana.mainloop()
+
 
 
 
