@@ -14,6 +14,11 @@ def clear():
     operador=("")
     input_text.set(operador)
 
+#def cero(n):
+    #global operador
+    #operador=str(n)
+    #input_text.set(operador)
+
 def operacion():
     global operador
     opera=str(eval(operador))
@@ -24,7 +29,6 @@ def saludo():
     print("HOLA")
 
 def raiz_cuad():
-    #global operador
     opera=sqrt(int(input_text.get()))
     input_text.set(opera)
 
@@ -52,16 +56,13 @@ BotonMulti=Button(ventana,text="*",width=ancho_boton,height=alto_boton,command=l
 BotonDiv=Button(ventana,text="/",width=ancho_boton,height=alto_boton,command=lambda:btnClik("/")).place(x=287,y=360)
 BotonSqrt=Button(ventana,text="√",width=ancho_boton,height=alto_boton,command=raiz_cuad).place(x=17,y=420)
 BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=clear).place(x=107,y=420)#Quiero que sea "0"
-BotonExp=Button(ventana,text="EXP",width=ancho_boton,height=alto_boton,command=saludo).place(x=197,y=420)#LO DE "saludo" ES PROVISIONAL (SOLO PARA QUE NO DE ERROR)
+BotonExp=Button(ventana,text="EXP",width=ancho_boton,height=alto_boton,command=lambda:btnClik("**")).place(x=197,y=420)#LO DE "saludo" ES PROVISIONAL (SOLO PARA QUE NO DE ERROR)
 BotonResul=Button(ventana,text="=",width=ancho_boton,height=alto_boton,command=operacion).place(x=287,y=420)
-#BotonSum=Button(ventana,text="+",command=print(Salida)).place(x=110,y=50)
 
-#Salida=Text(ventana,width=20,height=1)
-#Salida.insert(INSERT,"")
-#Salida.place(x=10,y=218)
 Salida=Entry(ventana,font=('arial',20,'bold'),width=22,textvariable=input_text,bd=20,insertwidth=4,bg="powder blue",justify="right").place(x=10,y=60)
 
 
 ventana.mainloop()
+
 
 
