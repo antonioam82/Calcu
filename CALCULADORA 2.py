@@ -30,9 +30,6 @@ def operacion():
         input_text.set(opera)
 
 
-def saludo():
-    print("HOLA")
-
 def raiz_cuad():
     opera=sqrt(int(input_text.get()))
     input_text.set(opera)
