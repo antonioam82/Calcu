@@ -20,8 +20,6 @@ def clear():
     #operador=("0")
     #input_text.set(operador)
 
-
-
 def operacion():
     global operador
     try:
@@ -32,13 +30,6 @@ def operacion():
         opera=("ERROR")
         input_text.set(opera)
 
-
-def raiz_cuad():
-    try:
-        opera=sqrt(int(input_text.get()))
-        input_text.set(opera)
-    except:
-        clear()
 
     
 ancho_boton=11
@@ -56,13 +47,13 @@ Boton6=Button(ventana,text="6",width=ancho_boton,height=alto_boton,command=lambd
 Boton7=Button(ventana,text="7",width=ancho_boton,height=alto_boton,command=lambda:btnClik(7)).place(x=287,y=240)
 Boton8=Button(ventana,text="8",width=ancho_boton,height=alto_boton,command=lambda:btnClik(8)).place(x=17,y=300)
 Boton9=Button(ventana,text="9",width=ancho_boton,height=alto_boton,command=lambda:btnClik(9)).place(x=107,y=300)
-BotonC=Button(ventana,text="AC",width=ancho_boton,height=alto_boton,command=clear).place(x=197,y=300)
+BotonC=Button(ventana,text="π",width=ancho_boton,height=alto_boton,command=lambda:btnClik("pi")).place(x=197,y=300)
 BotonComa=Button(ventana,text=",",width=ancho_boton,height=alto_boton,command=lambda:btnClik(".")).place(x=287,y=300)
 BotonSuma=Button(ventana,text="+",width=ancho_boton,height=alto_boton,command=lambda:btnClik("+")).place(x=17,y=360)
 BotonResta=Button(ventana,text="-",width=ancho_boton,height=alto_boton,command=lambda:btnClik("-")).place(x=107,y=360)
 BotonMulti=Button(ventana,text="*",width=ancho_boton,height=alto_boton,command=lambda:btnClik("*")).place(x=197,y=360)
 BotonDiv=Button(ventana,text="/",width=ancho_boton,height=alto_boton,command=lambda:btnClik("/")).place(x=287,y=360)
-BotonSqrt=Button(ventana,text="√",width=ancho_boton,height=alto_boton,command=raiz_cuad).place(x=17,y=420)
+BotonSqrt=Button(ventana,text="√",width=ancho_boton,height=alto_boton,command=lambda:btnClik("sqrt")).place(x=17,y=420)
 BotonParen1=Button(ventana,text="(",width=ancho_boton,height=alto_boton,command=lambda:btnClik("(")).place(x=17,y=480)
 BotonParen2=Button(ventana,text=")",width=ancho_boton,height=alto_boton,command=lambda:btnClik(")")).place(x=107,y=480)
 BotonC=Button(ventana,text="C",width=ancho_boton,height=alto_boton,command=clear).place(x=107,y=420)#Quiero que sea "0"
@@ -73,7 +64,3 @@ Salida=Entry(ventana,font=('arial',20,'bold'),width=22,textvariable=input_text,b
 
 
 ventana.mainloop()
-
-
-
-
