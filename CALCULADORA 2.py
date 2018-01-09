@@ -8,16 +8,19 @@ def btnClik(num):
     global operador
     operador=operador+str(num)
     input_text.set(operador)
+    
 
 def clear():
     global operador
     operador=("")
     input_text.set(operador)
 
-#def cero(n):
+#def cero():
     #global operador
-    #operador=str(n)
+    #operador=("0")
     #input_text.set(operador)
+
+
 
 def operacion():
     global operador
@@ -31,8 +34,11 @@ def operacion():
 
 
 def raiz_cuad():
-    opera=sqrt(int(input_text.get()))
-    input_text.set(opera)
+    try:
+        opera=sqrt(int(input_text.get()))
+        input_text.set(opera)
+    except:
+        clear()
 
     
 ancho_boton=11
