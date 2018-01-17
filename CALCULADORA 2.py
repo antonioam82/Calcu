@@ -2,7 +2,7 @@ from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA")
 ventana.geometry("392x600")
-ventana.configure(background="dark grey")
+ventana.configure(background="SkyBlue4")
 color_doton=("light grey")
 from math import *
 
