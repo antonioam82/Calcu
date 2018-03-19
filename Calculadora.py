@@ -1,4 +1,3 @@
-from VALID import OK, ns, OKP
 from math import *
 import subprocess
 
@@ -7,10 +6,15 @@ def ve(op):
         op=input("Introduce un operador de la \'TABLA DE OPERADORES\': ")
     return op
 
-def oper(o):
-    while o!=("+(") and o!=("-(") and o!=("*(") and o!=("/(") and o!=("/") and o!=("+") and o!=("-") and o!=("*") and o!=("/") and o!=("sqrt") and o!=("exp") and o!=("C") and o!=("R") and o!=("=") and o!=("sin") and o!=("cos") and o!=("tan") and o!=("log") and o!=("exp+") and o!=("exp-") and o!=("exp*") and o!=("exp/") and o!=("sqrt+") and o!=("sqrt-") and o!=("sqrt*") and o!=("sqrt/"):
-        o=input("Introduce un operador válido: ")
-    return o
+#def oper(o): (FUNCIÓN SUSTITUIDA POR LA FUNCIÓN "opera_val")
+    #while o!=("+(") and o!=("-(") and o!=("*(") and o!=("/(") and o!=("/") and o!=("+") and o!=("-") and o!=("*") and o!=("/") and o!=("sqrt") and o!=("exp") and o!=("C") and o!=("R") and o!=("=") and o!=("sin") and o!=("cos") and o!=("tan") and o!=("log") and o!=("exp+") and o!=("exp-") and o!=("exp*") and o!=("exp/") and o!=("sqrt+") and o!=("sqrt-") and o!=("sqrt*") and o!=("sqrt/"):
+        #o=input("Introduce un operador válido: ")
+    #return o
+
+def opera_val(n,l):
+    while n not in l:
+        n=input("Introduce un operador válido: ")
+    return n
 
 def num(n):
     if n!=("pi"):
@@ -195,17 +199,13 @@ VISUALIZAR RESULTADO                       OPERADOR("=")
     
         
         
-        o=oper(input("Introduce operador: "))
+        o=opera_val(input("Introduce operador: "),["+","-","*","/","sqrt","exp","C","R","log","tan","sin","cos","(",")","=","+(","-(","*(","/(","exp+","exp-","exp/","exp*","sqrt+","sqrt-","sqrt/","sqrt*"])
     print("RESULTADO FINAL: ",VALOR)
     continu=ns(input("¿Desea efectuar mas operaciones?: "))
     if continu==("n"):
         break
     else:
         subprocess.call(["cmd.exe","/C","cls"])
-
-
-
-
 
 
 
