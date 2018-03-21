@@ -4,10 +4,10 @@ import subprocess
 
 def opera_val(op,p):
     if p==("A"):
-        while op!=("+") and op!=("-") and op!=("*") and op!=("/") and op!=(")") and op!=("exp/") and op!=("exp*") and op!=("exp-") and op!=("exp+") and op!=("exp") and op!=("sqrt") and op!=("sqrt+") and op!=("sqrt-") and op!=("sqrt*") and op!=("sqrt/"):
+        while op!=("+") and op!=("-") and op!=("*") and op!=("log") and op!=("/") and op!=("ln") and op!=("R") and op!=(")") and op!=("exp/") and op!=("exp*") and op!=("exp-") and op!=("exp+") and op!=("exp") and op!=("sqrt") and op!=("sqrt+") and op!=("sqrt-") and op!=("sqrt*") and op!=("sqrt/"):
             op=input("Introduce un operador de la \'TABLA DE OPERADORES\': ")
     else:
-        while op!=("+(") and op!=("-(") and op!=("*(") and op!=("/(") and op!=("/") and op!=("+") and op!=("-") and op!=("*") and op!=("/") and op!=("sqrt") and op!=("exp") and op!=("C") and op!=("R") and op!=("=") and op!=("sin") and op!=("cos") and op!=("tan") and op!=("log") and op!=("exp+") and op!=("exp-") and op!=("exp*") and op!=("exp/") and op!=("sqrt+") and op!=("sqrt-") and op!=("sqrt*") and op!=("sqrt/"):
+        while op!=("+(") and op!=("-(") and op!=("*(") and op!=("/(") and op!=("/") and op!=("log") and op!=("+") and op!=("-") and op!=("*") and op!=("/") and op!=("sqrt") and op!=("exp") and op!=("C") and op!=("R") and op!=("=") and op!=("sin") and op!=("cos") and op!=("tan") and op!=("ln") and op!=("exp+") and op!=("exp-") and op!=("exp*") and op!=("exp/") and op!=("sqrt+") and op!=("sqrt-") and op!=("sqrt*") and op!=("sqrt/"):
             op=input("Introduce un operador válido: ")
     return op
 
@@ -64,6 +64,7 @@ CALCULO SENO                               OPERADOR("sin")
 CALCULO COSENO                             OPERADOR("cos")
 CALCULO TANGENTE                           OPERADOR("tan")
 LOGARITMO                                  OPERADOR("log")
+LOGARITMO NATURAL                          OPERADOR("ln")
 REDONDEAR CIFRA                            OPERADOR("R")
 NUMERO "PI"                                OPERADOR("pi")
 HACER VALOR IGUAL A 0                      OPERADOR("C")
@@ -126,8 +127,13 @@ VISUALIZAR RESULTADO                       OPERADOR("=")
             VALOR=tan(VALOR)
             if r==("s"):
                 print(VALOR)
-        if o==("log"):
+        if o==("ln"):
             VALOR=log(VALOR)
+            if r==("s"):
+                print(VALOR)
+        if o==("log"):
+            base=OKP(input("Indique la base del logaritmo: "))
+            VALOR=log(VALOR)/log(base)
             if r==("s"):
                 print(VALOR)
         if o==("exp+") or o==("exp-") or o==("exp*") or o==("exp/"):
@@ -151,6 +157,13 @@ VISUALIZAR RESULTADO                       OPERADOR("=")
                 if operad==("*"):
                     n=OKP(input("Introduce número: "))
                     VAL*=n
+                if operad==("R"):
+                    VAL=round(VAL)
+                if operad==("log"):
+                    base=OKP(input("Indique la base del logaritmo: "))
+                    VAL=log(VAL)/log(base)
+                if operad==("ln"):
+                    VAL=log(VAL)
                 if operad==("sqrt+") or operad==("sqrt-") or operad==("sqrt*") or operad==("sqrt/"):
                     VAL=exponent2(operad,VAL)#REVISAR
                 if operad==("sqrt"):
@@ -201,3 +214,7 @@ VISUALIZAR RESULTADO                       OPERADOR("=")
         break
     else:
         subprocess.call(["cmd.exe","/C","cls"])
+
+
+
+
