@@ -1,15 +1,16 @@
 from tkinter import *
+from math import *
 ventana=Tk()
 ventana.title("CALCULADORA")
 ventana.geometry("392x600")
 ventana.configure(background="SkyBlue4")
 color_doton=("gray77")
-from math import *
+
 
 def btnClik(num):
     global operador
     operador=operador+str(num)
-    input_text.set(operador)
+    input_text.set(operador) #ESTA PARTE SIRVE PARA VISUALIZAR LA OPERACION EN LA PANTALLA
     
 
 def clear():
@@ -17,14 +18,20 @@ def clear():
     operador=("")
     input_text.set(operador)
 
+#def cero():
+    #global operador
+    #operador=("0")
+    #input_text.set(operador)
+
 def operacion():
     global operador
     try:
-        opera=str(eval(operador))
+        opera=str(eval(operador))#SIRVE PARA REALIZAR LA OPERACIÓN PREVIAMENTE VISUALIZADA EN PANTALLA
     except:
         clear()
         opera=("ERROR")
-    input_text.set(opera)
+    input_text.set(opera)#MUESTRA EL RESULTADO
+
 
     
 ancho_boton=11
@@ -52,6 +59,7 @@ BotonSqrt=Button(ventana,text="√",bg=color_doton,width=ancho_boton,height=alto
 BotonParen1=Button(ventana,text="(",bg=color_doton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("(")).place(x=17,y=480)
 BotonParen2=Button(ventana,text=")",bg=color_doton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(")")).place(x=107,y=480)
 BotonResto=Button(ventana,text="%",bg=color_doton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("%")).place(x=197,y=480)
+Botonln=Button(ventana,text="ln",bg=color_doton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("log")).place(x=287,y=480)
 BotonC=Button(ventana,text="C",bg=color_doton,width=ancho_boton,height=alto_boton,command=clear).place(x=107,y=420)
 BotonExp=Button(ventana,text="EXP",bg=color_doton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("**")).place(x=197,y=420)
 BotonResul=Button(ventana,text="=",bg=color_doton,width=ancho_boton,height=alto_boton,command=operacion).place(x=287,y=420)
