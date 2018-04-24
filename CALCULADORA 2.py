@@ -18,11 +18,6 @@ def clear():
     operador=("")
     input_text.set(operador)
 
-#def cero():
-    #global operador
-    #operador=("0")
-    #input_text.set(operador)
-
 def operacion():
     global operador
     try:
