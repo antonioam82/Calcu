@@ -4,10 +4,14 @@ import subprocess
 
 def opera_val(op,p):
     if p==("A"):
-        while op!=("+") and op!=("-") and op!=("*") and op!=("log") and op!=("/") and op!=("ln") and op!=("R") and op!=(")") and op!=("exp/") and op!=("exp*") and op!=("exp-") and op!=("exp+") and op!=("exp") and op!=("sqrt") and op!=("sqrt+") and op!=("sqrt-") and op!=("sqrt*") and op!=("sqrt/"):
+        operadores=["+","-","*","log","/","ln","R",")","exp/","exp*","exp-","exp+","exp","sqrt","sqrt+","sqrt-","sqrt*","sqrt/"]
+        #while op!=("+") and op!=("-") and op!=("*") and op!=("log") and op!=("/") and op!=("ln") and op!=("R") and op!=(")") and op!=("exp/") and op!=("exp*") and op!=("exp-") and op!=("exp+") and op!=("exp") and op!=("sqrt") and op!=("sqrt+") and op!=("sqrt-") and op!=("sqrt*") and op!=("sqrt/"):
+        while op not in operadores:
             op=input("Introduce un operador de la \'TABLA DE OPERADORES\': ")
     else:
-        while op!=("+(") and op!=("-(") and op!=("*(") and op!=("/(") and op!=("/") and op!=("log") and op!=("+") and op!=("-") and op!=("*") and op!=("/") and op!=("sqrt") and op!=("exp") and op!=("C") and op!=("R") and op!=("=") and op!=("sin") and op!=("cos") and op!=("tan") and op!=("ln") and op!=("exp+") and op!=("exp-") and op!=("exp*") and op!=("exp/") and op!=("sqrt+") and op!=("sqrt-") and op!=("sqrt*") and op!=("sqrt/"):
+        operadores=["+(","-(","*(","/(","/","log","+","-","*","sqrt","exp","C","R","=","sin","cos","tan","ln","exp+","exp-","exp*","exp/","sqrt+","sqrt-","sqrt*","sqrt/"]
+        #while op!=("+(") and op!=("-(") and op!=("*(") and op!=("/(") and op!=("/") and op!=("log") and op!=("+") and op!=("-") and op!=("*") and op!=("sqrt") and op!=("exp") and op!=("C") and op!=("R") and op!=("=") and op!=("sin") and op!=("cos") and op!=("tan") and op!=("ln") and op!=("exp+") and op!=("exp-") and op!=("exp*") and op!=("exp/") and op!=("sqrt+") and op!=("sqrt-") and op!=("sqrt*") and op!=("sqrt/"):
+        while op not in operadores:
             op=input("Introduce un operador válido: ")
     return op
 
@@ -214,7 +218,3 @@ VISUALIZAR RESULTADO                       OPERADOR("=")
         break
     else:
         subprocess.call(["cmd.exe","/C","cls"])
-
-
-
-
