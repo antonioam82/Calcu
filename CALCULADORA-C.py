@@ -15,7 +15,12 @@ def btnClik(num):
 def clear():
     global operador
     operador=("")
-    input_text.set(operador)
+    input_text.set("0")
+
+#def cero():
+    #global operador
+    #clear()
+    #input_text.set("0")
 
 def redondeo():
     global operador
@@ -43,6 +48,7 @@ alto_boton=2
 
 input_text=StringVar()
 operador=""
+clear()#MUESTRA VALOR "0" AL INICIAR LA CALCULADORA
 bd=10
 Boton0=Button(ventana,text="0",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(0)).place(x=21,y=180)#+10
 Boton1=Button(ventana,text="1",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(1)).place(x=89-9,y=180)#-9
@@ -69,6 +75,7 @@ BotonSn=Button(ventana,text="sin",bg=color_boton,width=ancho_boton,height=alto_b
 BotonCs=Button(ventana,text="cos",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("cos")).place(x=316,y=324)
 BotonTn=Button(ventana,text="tan",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("tan")).place(x=21,y=372)
 BotonR=Button(ventana,text="R",bg=color_boton,width=ancho_boton,height=alto_boton,command=redondeo).place(x=80,y=372)
+BotonCE=Button(ventana,text="CE",bg=color_boton,width=ancho_boton,height=alto_boton,command=clear).place(x=139,y=372)
 BotonC=Button(ventana,text="C",bg=color_boton,width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=276)
 BotonExp=Button(ventana,text="EXP",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("**")).place(x=139,y=324)
 BotonResul=Button(ventana,text="=",bg=color_boton,width=ancho_boton,height=alto_boton,command=operacion).place(x=287,y=420)
