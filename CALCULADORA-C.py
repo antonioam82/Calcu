@@ -17,10 +17,30 @@ def clear():
     operador=("")
     input_text.set("0")
 
+def cambio_signo(): #NO USAR AÚN
+    global operador
+    try:
+        opera=float(eval(operador))
+        operador=str(opera*(-1))
+    except:
+        input_text.set("ERROR")
+    input_text.set(operador)    
+        
+
 #def cero():
     #global operador
     #clear()
     #input_text.set("0")
+
+def tange(): #NO USAR AÚN
+    global operador
+    print(operador)
+    try:
+        opera=eval("tan("+operador+")")
+    except:
+        clear()
+        opera=("ERROR")
+    input_text.set(opera)
 
 def redondeo():
     global operador
@@ -76,6 +96,7 @@ BotonCs=Button(ventana,text="cos",bg=color_boton,width=ancho_boton,height=alto_b
 BotonTn=Button(ventana,text="tan",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("tan")).place(x=21,y=372)
 BotonR=Button(ventana,text="R",bg=color_boton,width=ancho_boton,height=alto_boton,command=redondeo).place(x=80,y=372)
 BotonCE=Button(ventana,text="CE",bg=color_boton,width=ancho_boton,height=alto_boton,command=clear).place(x=139,y=372)
+BotonCS=Button(ventana,text="+/-",bg=color_boton,width=ancho_boton,height=alto_boton).place(x=198,y=372)#,command=cambio_signo
 BotonC=Button(ventana,text="C",bg=color_boton,width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=276)
 BotonExp=Button(ventana,text="EXP",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("**")).place(x=139,y=324)
 BotonResul=Button(ventana,text="=",bg=color_boton,width=ancho_boton,height=alto_boton,command=operacion).place(x=287,y=420)
