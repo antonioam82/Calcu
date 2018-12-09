@@ -16,6 +16,8 @@ def btnClik(num):
 
 def funci(op):
     global operador
+    if operador=="":
+        operador="0"
     try:
         operador=str(eval(op+"("+operador+")"))
     except:
@@ -90,7 +92,7 @@ BotonSn=Button(ventana,text="sin",bg=color_boton,width=ancho_boton,height=alto_b
 BotonCs=Button(ventana,text="cos",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:funci("cos")).place(x=139,y=372)
 BotonTn=Button(ventana,text="tan",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:funci("tan")).place(x=198,y=372)
 BotonR=Button(ventana,text="R",bg=color_boton,width=ancho_boton,height=alto_boton,command=redondeo).place(x=263-6,y=372)
-BotonCE=Button(ventana,text="CE",bg="red",fg="white",width=ancho_boton,height=alto_boton,command=clear).place(x=263-6,y=180)
+BotonCE=Button(ventana,text="CE",bg="red",fg="white",width=ancho_boton,height=alto_boton).place(x=263-6,y=180)
 BotonCS=Button(ventana,text="+/-",bg=color_boton,width=ancho_boton,height=alto_boton,command=cambio_signo).place(x=139,y=324)##############316,276
 BotonC=Button(ventana,text="C",bg="red",fg="white",width=ancho_boton,height=alto_boton,command=clear).place(x=321-5,y=180)########################198,372
 BotonExp=Button(ventana,text="EXP",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("**")).place(x=321-5,y=324)
@@ -101,3 +103,7 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 #22,10
 
 ventana.mainloop()
+
+#BotonMode=Button(ventana,text="MODE",bg=color_boton,width=ancho_boton,heigh=alto_boton).place(x=316,y=276)
+
+
