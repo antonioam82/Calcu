@@ -16,7 +16,7 @@ def btnClik(num):
 def clear():
     global operador
     operador=("")
-    input_text.set(operador)
+    input_text.set("0")
 
 def operacion():
     global operador
@@ -31,9 +31,9 @@ def operacion():
     
 ancho_boton=11
 alto_boton=3
-
 input_text=StringVar()
 operador=""
+clear()
 Boton0=Button(ventana,text="0",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(0)).place(x=17,y=180)
 Boton1=Button(ventana,text="1",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(1)).place(x=107,y=180)
 Boton2=Button(ventana,text="2",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(2)).place(x=197,y=180)
