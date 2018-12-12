@@ -1,23 +1,38 @@
 from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA-C")
-ventana.configure(background="gray18")
+ventana.configure(background="gray20")
 ventana.geometry("392x488")#600
 color_boton=("gray50")
 cn=("white")
 from math import *
 
+signs=["+","-","*","/","(",")","%"]
 
 def btnClik(num):
     global operador
+    global digitos
     if operador=="ERROR":
         input_text.set(operador)
         operador=("")
     operador=operador+str(num)
+    if num not in signs:
+        digitos=digitos+(str(num))
+    else:
+        digitos=("")
     input_text.set(operador)
+
+def clear_error():
+    global operador
+    global digitos
+    n_operador=(digitos).replace(digitos,"")
+    operador=operador.replace(digitos,n_operador)
+    input_text.set(operador+("0"))
+    digitos=("")
 
 def funci(op):
     global operador
+    global digitos
     if operador=="":
         operador="0"
     try:
@@ -25,6 +40,7 @@ def funci(op):
     except:
         clear()
         operador=("ERROR")
+    digitos=("")
     input_text.set(operador)
 
 def clear():
@@ -66,7 +82,7 @@ def operacion():
   
 ancho_boton=6
 alto_boton=2
-
+digitos=("")
 input_text=StringVar()
 operador=""
 clear()#MUESTRA VALOR "0" AL INICIAR LA CALCULADORA
@@ -96,7 +112,7 @@ BotonSn=Button(ventana,text="sin",bg=color_boton,fg=cn,width=ancho_boton,height=
 BotonCs=Button(ventana,text="cos",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("cos")).place(x=139,y=372)
 BotonTn=Button(ventana,text="tan",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("tan")).place(x=198,y=372)
 BotonR=Button(ventana,text="R",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=redondeo).place(x=263-6,y=372)
-BotonCE=Button(ventana,text="CE",bg="red",fg=cn,width=ancho_boton,height=alto_boton).place(x=263-6,y=180)
+BotonCE=Button(ventana,text="CE",bg="red",fg=cn,width=ancho_boton,height=alto_boton,command=clear_error).place(x=263-6,y=180)
 BotonCS=Button(ventana,text="+/-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=cambio_signo).place(x=139,y=324)##############316,276
 BotonC=Button(ventana,text="C",bg="red",fg=cn,width=ancho_boton,height=alto_boton,command=clear).place(x=321-5,y=180)########################198,372
 BotonExp=Button(ventana,text="EXP",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClik("**")).place(x=321-5,y=324)
@@ -109,4 +125,5 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 ventana.mainloop()
 
 #BotonMode=Button(ventana,text="MODE",bg=color_boton,width=ancho_boton,heigh=alto_boton).place(x=316,y=276)
+
 
