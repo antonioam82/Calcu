@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 from VALID import OK, ns, OKP
 from math import *
 import subprocess
