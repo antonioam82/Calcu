@@ -25,10 +25,11 @@ def btnClik(num):
 def clear_error():
     global operador
     global digitos
-    n_operador=(digitos).replace(digitos,"")
-    operador=operador.replace(digitos,n_operador)
-    input_text.set(operador+("0"))
-    digitos=("")
+    if digitos!=(""):
+        n_operador=(digitos).replace(digitos,"")
+        operador=operador.replace(digitos,n_operador)
+        input_text.set(operador+("0"))
+        digitos=("")
 
 def funci(op):
     global operador
@@ -61,22 +62,25 @@ def cambio_signo():
 
 def redondeo():
     global operador
+    global digitos
     try:
         operador=str(eval("round("+operador+")"))
     except:
         clear()
         operador=("ERROR")#Error "ERROR+operador"
     input_text.set(operador)
-
+    digitos=("")
 
 def operacion():
     global operador
+    global digitos
     try:
         opera=str(eval(operador))
     except:
         clear()
         opera=("ERROR")
     input_text.set(opera)
+    digitos=("")
 
 
   
@@ -124,6 +128,4 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 
 ventana.mainloop()
 
-#BotonMode=Button(ventana,text="MODE",bg=color_boton,width=ancho_boton,heigh=alto_boton).place(x=316,y=276)
-
-
+#BotonMode=Button(ventana,text="MODE",bg=color_boton,width=ancho_boton,heigh=al
