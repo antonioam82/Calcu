@@ -123,7 +123,7 @@ BotonExp=Button(ventana,text="EXP",bg=color_boton,fg=cn,width=ancho_boton,height
 BotonResul=Button(ventana,text="=",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=operacion).place(x=321-5,y=372)
 
 
-Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="powder blue",justify="right").place(x=16,y=60)
+Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
 #22,10
 
 ventana.mainloop()
