@@ -18,7 +18,7 @@ def btnClik(num):
     n_operador=operador+" "+str(num)
     operador=operador+str(num)
     if str(num).isdigit() or num=="pi":
-        digitos=digitos+(str(num)) #digitos=digitos+(" "+str(num))) aquí no
+        digitos=digitos+(str(num)) 
     else:
         digitos=("")
     input_text.set(operador)
