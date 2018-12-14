@@ -7,7 +7,6 @@ color_boton=("gray50")
 cn=("white")
 from math import *
 
-signs=["+","-","*","/","(",")","%"]
 
 def btnClik(num):
     global operador
@@ -16,7 +15,7 @@ def btnClik(num):
         input_text.set(operador)
         operador=("")
     operador=operador+str(num)
-    if num not in signs:
+    if str(num).isdigit():
         digitos=digitos+(str(num))
     else:
         digitos=("")
