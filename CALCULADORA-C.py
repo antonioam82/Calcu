@@ -11,23 +11,33 @@ from math import *
 def btnClik(num):
     global operador
     global digitos
+    global n_operador
     if operador=="ERROR":
         input_text.set(operador)
         operador=("")
+    n_operador=operador+" "+str(num)
     operador=operador+str(num)
     if str(num).isdigit():
-        digitos=digitos+(str(num))
+        digitos=digitos+(str(num)) #digitos=digitos+(" "+str(num))) aquí no
     else:
         digitos=("")
     input_text.set(operador)
 
+def conv(l):
+    tup=("")
+    for i in l:
+        tup=tup+i
+    return tup
+
 def clear_error():
     global operador
     global digitos
+    global n_operador
     if digitos!=(""):
-        n_operador=(digitos).replace(digitos,"")
-        operador=operador.replace(digitos,n_operador)
-        input_text.set(operador+("0"))
+        l_operador=n_operador.split(" ")
+        l_operador[-1]=""
+        operador=conv(l_operador)
+        input_text.set(operador+"0")
         digitos=("")
 
 def funci(op):
