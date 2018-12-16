@@ -15,11 +15,11 @@ def digit(n):
 def enter():
     global numero
     l_numeros.append(numero)
-    input_text.set("0")
+    input_text.set(numero)
     #print(l_numeros)
     numero=""
 
-def clear():#adaptar
+def clear():
     global numero
     numero=""
     input_text.set("0")
