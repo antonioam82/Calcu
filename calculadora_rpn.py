@@ -23,7 +23,7 @@ def enter():
 def cambia_signo():
     global numero
     if numero!="0" and numero!="":
-        numero=eval(numero+"*(-1)")
+        numero=str(eval(numero+"*(-1)"))
         input_text.set(numero)
 
 def clear():#adaptar
