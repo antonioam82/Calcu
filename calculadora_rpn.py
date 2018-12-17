@@ -9,16 +9,34 @@ from math import *
 
 def digit(n):
     global numero
-    numero=numero+n
-    input_text.set(numero)
+    global l_numeros
+    if len(l_numeros)<2:
+        numero=numero+n
+        input_text.set(numero)
 
 def enter():
     global numero
+    global l_numeros
     if numero!="":
         l_numeros.append(numero)
         input_text.set(numero)
         print(l_numeros)
         numero=""
+
+def operacion(s): #error: numero-->"ENTER"-->"/"
+    global numero
+    global l_numeros
+    if len(l_numeros)==1 or len(l_numeros)==2:
+        if len(l_numeros)==2:
+            numero=str(eval(l_numeros[0]+s+l_numeros[1]))
+        else:
+            numero=str(eval(s+"("+l_numeros[0]+")"))
+        input_text.set(numero)
+        l_numeros[0]=numero
+        l_numeros.pop()
+        numero=""
+        #print(l_numeros)
+
 
 def cambia_signo():
     global numero
@@ -28,7 +46,9 @@ def cambia_signo():
 
 def clear():#adaptar
     global numero
+    global l_numeros
     numero=""
+    l_numeros=[]
     input_text.set("0")
 
 def clear_error():
@@ -37,9 +57,6 @@ def clear_error():
     input_text.set("0")
 
 
-
-
-  
 ancho_boton=6
 numero=("")
 l_numeros=[]
@@ -58,24 +75,24 @@ Boton7=Button(ventana,text="7",bg=color_boton,fg=cn,width=ancho_boton,height=alt
 Boton8=Button(ventana,text="8",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("8")).place(x=263-6,y=228)
 Boton9=Button(ventana,text="9",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("9")).place(x=321-5,y=228)
 BotonC=Button(ventana,text="π",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit(str(pi))).place(x=21,y=276)
-BotonComa=Button(ventana,text=",",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=80,y=276)
-BotonSuma=Button(ventana,text="+",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=139,y=276)
-BotonResta=Button(ventana,text="-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=198,y=276)
-BotonMulti=Button(ventana,text="*",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=263-6,y=276)
-BotonDiv=Button(ventana,text="/",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=321-5,y=276)
-BotonSqrt=Button(ventana,text="√",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=21,y=324)
+BotonComa=Button(ventana,text=",",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit(".")).place(x=80,y=276)
+BotonSuma=Button(ventana,text="+",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("+")).place(x=139,y=276)
+BotonResta=Button(ventana,text="-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("-")).place(x=198,y=276)
+BotonMulti=Button(ventana,text="*",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("*")).place(x=263-6,y=276)
+BotonDiv=Button(ventana,text="/",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("/")).place(x=321-5,y=276)
+BotonSqrt=Button(ventana,text="√",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("sqrt")).place(x=21,y=324)
 BotonParen1=Button(ventana,text="1/x",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=198,y=324)
 BotonParen2=Button(ventana,text="log",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=263-6,y=324)
-BotonResto=Button(ventana,text="%",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=80,y=324)
-Botonln=Button(ventana,text="ln",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=21,y=372)
-BotonSn=Button(ventana,text="sin",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=80,y=372)
-BotonCs=Button(ventana,text="cos",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=139,y=372)
-BotonTn=Button(ventana,text="tan",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=198,y=372)
-BotonR=Button(ventana,text="R",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=263-6,y=372)
+BotonResto=Button(ventana,text="%",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("%")).place(x=80,y=324)
+Botonln=Button(ventana,text="ln",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("log")).place(x=21,y=372)
+BotonSn=Button(ventana,text="sin",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("sin")).place(x=80,y=372)
+BotonCs=Button(ventana,text="cos",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("cos")).place(x=139,y=372)
+BotonTn=Button(ventana,text="tan",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("tan")).place(x=198,y=372)
+BotonR=Button(ventana,text="R",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("round")).place(x=263-6,y=372)
 BotonCE=Button(ventana,text="CE",bg="red",fg=cn,width=ancho_boton,height=alto_boton,command=clear_error).place(x=263-6,y=180)
 BotonCS=Button(ventana,text="+/-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=cambia_signo).place(x=139,y=324)##############316,276
-BotonC=Button(ventana,text="C",bg="red",fg=cn,width=ancho_boton,height=alto_boton).place(x=321-5,y=180)########################198,372
-BotonExp=Button(ventana,text="EXP",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=321-5,y=324)
+BotonC=Button(ventana,text="C",bg="red",fg=cn,width=ancho_boton,height=alto_boton,command=clear).place(x=321-5,y=180)########################198,372
+BotonExp=Button(ventana,text="EXP",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("**")).place(x=321-5,y=324)
 BotonResul=Button(ventana,text="ENTER",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=enter).place(x=321-5,y=372)
 
 
@@ -85,3 +102,5 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 ventana.mainloop()
 
 #BotonMode=Button(ventana,text="MODE",bg=color_boton,width=ancho_boton,heigh=al
+
+
