@@ -14,12 +14,19 @@ def digit(n):
 
 def enter():
     global numero
-    l_numeros.append(numero)
-    input_text.set(numero)
-    #print(l_numeros)
-    numero=""
+    if numero!="":
+        l_numeros.append(numero)
+        input_text.set(numero)
+        print(l_numeros)
+        numero=""
 
-def clear():
+def cambia_signo():
+    global numero
+    if numero!="0" and numero!="":
+        numero=eval(numero+"*(-1)")
+        input_text.set(numero)
+
+def clear():#adaptar
     global numero
     numero=""
     input_text.set("0")
@@ -66,7 +73,7 @@ BotonCs=Button(ventana,text="cos",bg=color_boton,fg=cn,width=ancho_boton,height=
 BotonTn=Button(ventana,text="tan",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=198,y=372)
 BotonR=Button(ventana,text="R",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=263-6,y=372)
 BotonCE=Button(ventana,text="CE",bg="red",fg=cn,width=ancho_boton,height=alto_boton,command=clear_error).place(x=263-6,y=180)
-BotonCS=Button(ventana,text="+/-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=139,y=324)##############316,276
+BotonCS=Button(ventana,text="+/-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=cambia_signo).place(x=139,y=324)##############316,276
 BotonC=Button(ventana,text="C",bg="red",fg=cn,width=ancho_boton,height=alto_boton).place(x=321-5,y=180)########################198,372
 BotonExp=Button(ventana,text="EXP",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=321-5,y=324)
 BotonResul=Button(ventana,text="ENTER",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=enter).place(x=321-5,y=372)
@@ -78,4 +85,3 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 ventana.mainloop()
 
 #BotonMode=Button(ventana,text="MODE",bg=color_boton,width=ancho_boton,heigh=al
-
