@@ -7,7 +7,7 @@ color_boton=("gray50")
 cn=("white")
 from math import *
 
-def digit(n): #error "."-->"ENTER"-->
+def digit(n): 
     global numero
     global l_numeros
     long=len(l_numeros)
