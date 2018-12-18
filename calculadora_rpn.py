@@ -15,16 +15,26 @@ def digit(n): #error "."-->"ENTER"-->
         numero=numero+n
         input_text.set(numero)
 
+def coma():
+    global numero
+    global comas
+    if numero!="" and comas==0:
+        numero=numero+"."
+        input_text.set(numero)
+        comas+=1
+
 def enter():
     global numero
     global l_numeros
+    global comas
     if numero!="":
         l_numeros.append(numero)
         input_text.set(numero)
         print(l_numeros)
         numero=""
+        comas=0
 
-def operacion(s): 
+def operacion(s):#error -0.0
     global numero
     global l_numeros
     if len(l_numeros)==2:
@@ -61,18 +71,23 @@ def cambia_signo(): #error/none numero-->"ENTER"-->numero-->"ENTER"-->s-->"+/-"
 def clear():
     global numero
     global l_numeros
+    global comas
     numero=""
     l_numeros=[]
     input_text.set("0")
+    comas=0
 
 def clear_error():
     global numero
+    global comas
     numero=""
     input_text.set("0")
+    comas=0
 
 
 ancho_boton=6
 numero=("")
+comas=0
 #l_numeros=[]
 alto_boton=2
 input_text=StringVar()
@@ -89,7 +104,7 @@ Boton7=Button(ventana,text="7",bg=color_boton,fg=cn,width=ancho_boton,height=alt
 Boton8=Button(ventana,text="8",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("8")).place(x=263-6,y=228)
 Boton9=Button(ventana,text="9",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("9")).place(x=321-5,y=228)
 BotonC=Button(ventana,text="π",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit(str(pi))).place(x=21,y=276)
-BotonComa=Button(ventana,text=",",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit(".")).place(x=80,y=276)
+BotonComa=Button(ventana,text=".",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=coma).place(x=80,y=276)
 BotonSuma=Button(ventana,text="+",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("+")).place(x=139,y=276)
 BotonResta=Button(ventana,text="-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("-")).place(x=198,y=276)
 BotonMulti=Button(ventana,text="*",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("*")).place(x=263-6,y=276)
