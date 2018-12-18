@@ -2,15 +2,16 @@ from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA-RPN")
 ventana.configure(background="gray20")
-ventana.geometry("392x488")#600
+ventana.geometry("392x488")
 color_boton=("gray50")
 cn=("white")
 from math import *
 
-def digit(n):
+def digit(n): #error "."-->"ENTER"-->
     global numero
     global l_numeros
-    if len(l_numeros)<2:
+    long=len(l_numeros)
+    if long<2:
         numero=numero+n
         input_text.set(numero)
 
@@ -23,28 +24,41 @@ def enter():
         print(l_numeros)
         numero=""
 
-def operacion(s): #error: numero-->"ENTER"-->"/"
+def operacion(s): 
     global numero
     global l_numeros
-    if len(l_numeros)==1 or len(l_numeros)==2:
-        if len(l_numeros)==2:
+    if len(l_numeros)==2:
+        try:
             numero=str(eval(l_numeros[0]+s+l_numeros[1]))
-        else:
-            numero=str(eval(s+"("+l_numeros[0]+")"))
-        input_text.set(numero)
-        l_numeros[0]=numero
-        l_numeros.pop()
+            input_text.set(numero)
+            l_numeros[0]=numero
+            l_numeros.pop()
+        except:
+            input_text.set("ERROR")
+            l_numeros=[]
         numero=""
         #print(l_numeros)
 
-
-def cambia_signo():
+def funci(s):
+    global numero
+    global l_numeros
+    if len(l_numeros)==1:
+        try:
+            numero=str(eval(s+"("+l_numeros[0]+")"))
+            input_text.set(numero)
+            l_numeros[0]=numero
+        except:
+            input_text.set("ERROR")
+            l_numeros=[]
+        numero=""
+    
+def cambia_signo(): #error/none numero-->"ENTER"-->numero-->"ENTER"-->s-->"+/-"
     global numero
     if numero!="0" and numero!="":
         numero=str(eval(numero+"*(-1)"))
         input_text.set(numero)
 
-def clear():#adaptar
+def clear():
     global numero
     global l_numeros
     numero=""
@@ -59,7 +73,7 @@ def clear_error():
 
 ancho_boton=6
 numero=("")
-l_numeros=[]
+#l_numeros=[]
 alto_boton=2
 input_text=StringVar()
 clear()#MUESTRA VALOR "0" AL INICIAR LA CALCULADORA
@@ -80,15 +94,15 @@ BotonSuma=Button(ventana,text="+",bg=color_boton,fg=cn,width=ancho_boton,height=
 BotonResta=Button(ventana,text="-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("-")).place(x=198,y=276)
 BotonMulti=Button(ventana,text="*",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("*")).place(x=263-6,y=276)
 BotonDiv=Button(ventana,text="/",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("/")).place(x=321-5,y=276)
-BotonSqrt=Button(ventana,text="√",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("sqrt")).place(x=21,y=324)
-BotonParen1=Button(ventana,text="1/x",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=198,y=324)
+BotonSqrt=Button(ventana,text="√",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("sqrt")).place(x=21,y=324)
+BotonParen1=Button(ventana,text="1/x",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("1/")).place(x=198,y=324)
 BotonParen2=Button(ventana,text="log",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=263-6,y=324)
 BotonResto=Button(ventana,text="%",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("%")).place(x=80,y=324)
-Botonln=Button(ventana,text="ln",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("log")).place(x=21,y=372)
-BotonSn=Button(ventana,text="sin",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("sin")).place(x=80,y=372)
-BotonCs=Button(ventana,text="cos",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("cos")).place(x=139,y=372)
-BotonTn=Button(ventana,text="tan",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("tan")).place(x=198,y=372)
-BotonR=Button(ventana,text="R",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("round")).place(x=263-6,y=372)
+Botonln=Button(ventana,text="ln",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("log")).place(x=21,y=372)
+BotonSn=Button(ventana,text="sin",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("sin")).place(x=80,y=372)
+BotonCs=Button(ventana,text="cos",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("cos")).place(x=139,y=372)
+BotonTn=Button(ventana,text="tan",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("tan")).place(x=198,y=372)
+BotonR=Button(ventana,text="R",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("round")).place(x=263-6,y=372)
 BotonCE=Button(ventana,text="CE",bg="red",fg=cn,width=ancho_boton,height=alto_boton,command=clear_error).place(x=263-6,y=180)
 BotonCS=Button(ventana,text="+/-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=cambia_signo).place(x=139,y=324)##############316,276
 BotonC=Button(ventana,text="C",bg="red",fg=cn,width=ancho_boton,height=alto_boton,command=clear).place(x=321-5,y=180)########################198,372
