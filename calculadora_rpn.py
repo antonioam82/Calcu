@@ -7,13 +7,22 @@ color_boton=("gray50")
 cn=("white")
 from math import *
 
-def digit(n): 
+def digit(n): #error 0numero
     global numero
     global l_numeros
     long=len(l_numeros)
     if long<2:
         numero=numero+n
         input_text.set(numero)
+
+def pee():
+    global numero
+    global l_numeros
+    global comas
+    if len(l_numeros)<2 and numero=="":
+        numero=str(pi)
+        input_text.set(numero)
+        comas+=1
 
 def coma():
     global numero
@@ -64,6 +73,7 @@ def funci(s):
     
 def cambia_signo(): #error/none numero-->"ENTER"-->numero-->"ENTER"-->s-->"+/-"
     global numero
+    global l_numeros
     if numero!="0" and numero!="":
         numero=str(eval(numero+"*(-1)"))
         input_text.set(numero)
@@ -103,7 +113,7 @@ Boton6=Button(ventana,text="6",bg=color_boton,fg=cn,width=ancho_boton,height=alt
 Boton7=Button(ventana,text="7",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("7")).place(x=198,y=228)
 Boton8=Button(ventana,text="8",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("8")).place(x=263-6,y=228)
 Boton9=Button(ventana,text="9",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("9")).place(x=321-5,y=228)
-BotonC=Button(ventana,text="π",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit(str(pi))).place(x=21,y=276)
+BotonC=Button(ventana,text="π",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=pee).place(x=21,y=276)
 BotonComa=Button(ventana,text=".",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=coma).place(x=80,y=276)
 BotonSuma=Button(ventana,text="+",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("+")).place(x=139,y=276)
 BotonResta=Button(ventana,text="-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("-")).place(x=198,y=276)
@@ -131,5 +141,6 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 ventana.mainloop()
 
 #BotonMode=Button(ventana,text="MODE",bg=color_boton,width=ancho_boton,heigh=al
+
 
 
