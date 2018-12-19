@@ -4,7 +4,7 @@ ventana.title("CALCULADORA-RPN")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
-cn=("white")
+cn=("white")#log(x)/log(B))
 from math import *
 
 def digit(n): #error 0numero
@@ -14,6 +14,16 @@ def digit(n): #error 0numero
     if long<2:
         numero=numero+n
         input_text.set(numero)
+
+def loga():
+    global l_numeros
+    global numero
+    if len(l_numeros)==2:
+        numero=str(eval("log("+l_numeros[0]+")/log("+l_numeros[1]+")"))
+        input_text.set(numero)
+        l_numeros[0]=numero
+        numero=""
+        l_numeros.pop()
 
 def pee():
     global numero
@@ -121,7 +131,7 @@ BotonMulti=Button(ventana,text="*",bg=color_boton,fg=cn,width=ancho_boton,height
 BotonDiv=Button(ventana,text="/",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("/")).place(x=321-5,y=276)
 BotonSqrt=Button(ventana,text="√",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("sqrt")).place(x=21,y=324)
 BotonParen1=Button(ventana,text="1/x",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("1/")).place(x=198,y=324)
-BotonParen2=Button(ventana,text="log",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=263-6,y=324)
+BotonParen2=Button(ventana,text="log",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=loga).place(x=263-6,y=324)
 BotonResto=Button(ventana,text="%",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("%")).place(x=80,y=324)
 Botonln=Button(ventana,text="ln",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("log")).place(x=21,y=372)
 BotonSn=Button(ventana,text="sin",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:funci("sin")).place(x=80,y=372)
@@ -139,8 +149,5 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 #22,10
 
 ventana.mainloop()
-
-#BotonMode=Button(ventana,text="MODE",bg=color_boton,width=ancho_boton,heigh=al
-
 
 
