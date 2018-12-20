@@ -11,7 +11,7 @@ def digit(n): #error 0numero
     global numero
     global l_numeros
     long=len(l_numeros)
-    if long<2:
+    if long<2 and numero!=str(pi):
         numero=numero+n
         input_text.set(numero)
 
@@ -154,5 +154,9 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 #22,10
 
 ventana.mainloop()
+
+#BotonMode=Button(ventana,text="MODE",bg=color_boton,width=ancho_boton,heigh=al
+
+
 
 
