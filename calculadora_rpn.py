@@ -22,7 +22,7 @@ def loga():
     global numero
     if len(l_numeros)==2:
         try:
-            numero=str(eval("log("+l_numeros[0]+")/log("+l_numeros[1]+")"))
+            numero=str(eval("log("+l_numeros[0]+")/log("+l_numeros[1]+")")) #l_numeros[0] es el numero y l_numeros[1] es la base
             input_text.set(numero)
             l_numeros[0]=numero
             l_numeros.pop()
