@@ -19,11 +19,16 @@ def loga():
     global l_numeros
     global numero
     if len(l_numeros)==2:
-        numero=str(eval("log("+l_numeros[0]+")/log("+l_numeros[1]+")"))
-        input_text.set(numero)
-        l_numeros[0]=numero
+        try:
+            numero=str(eval("log("+l_numeros[0]+")/log("+l_numeros[1]+")"))
+            input_text.set(numero)
+            l_numeros[0]=numero
+            l_numeros.pop()
+        except:
+            input_text.set("ERROR")
+            l_numeros=[]
         numero=""
-        l_numeros.pop()
+        #l_numeros.pop()
 
 def pee():
     global numero
