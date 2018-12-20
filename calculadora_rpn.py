@@ -4,12 +4,14 @@ ventana.title("CALCULADORA-RPN")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
-cn=("white")
+cn=("white")#log(x)/log(B))
 from math import *
 
 def digit(n): #error 0numero
     global numero
     global l_numeros
+    global blocked_ce
+    blocked_ce=False
     long=len(l_numeros)
     if long<2 and numero!=str(pi):
         numero=numero+n
@@ -51,12 +53,14 @@ def enter():
     global numero
     global l_numeros
     global comas
+    global blocked_ce
     if numero!="":
         l_numeros.append(numero)
         input_text.set(numero)
         print(l_numeros)
         numero=""
         comas=0
+        blocked_ce=True
 
 def operacion(s):#error -0.0
     global numero
@@ -105,13 +109,20 @@ def clear():
 def clear_error():
     global numero
     global comas
-    numero=""
-    input_text.set("0")
-    comas=0
+    global blocked_ce
+    if blocked_ce==False:
+        numero=""
+        input_text.set("0")
+        comas=0
+        blocked_ce=True
+    #if l_numeros!=[]:
+        #l_numeros.pop()
+    
 
 
 ancho_boton=6
 numero=("")
+blocked_ce=False
 comas=0
 #l_numeros=[]
 alto_boton=2
@@ -151,7 +162,7 @@ BotonResul=Button(ventana,text="ENTER",bg=color_boton,fg=cn,width=ancho_boton,he
 
 
 Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
-
+#22,10
 
 ventana.mainloop()
 
