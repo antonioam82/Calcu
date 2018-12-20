@@ -36,10 +36,12 @@ def pee():
     global numero
     global l_numeros
     global comas
+    global blocked_ce
     if len(l_numeros)<2 and numero=="":
         numero=str(pi)
         input_text.set(numero)
         comas+=1
+        blocked_ce=False
 
 def coma():
     global numero
