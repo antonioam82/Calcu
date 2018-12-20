@@ -4,7 +4,7 @@ ventana.title("CALCULADORA-RPN")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
-cn=("white")#log(x)/log(B))
+cn=("white")
 from math import *
 
 def digit(n): #error 0numero
@@ -167,7 +167,6 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 #22,10
 
 ventana.mainloop()
-
 
 
 
