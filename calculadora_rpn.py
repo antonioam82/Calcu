@@ -94,7 +94,6 @@ def funci(s):
     
 def cambia_signo():
     global numero
-    global l_numeros
     if numero!="0" and numero!="":
         numero=str(eval(numero+"*(-1)"))
         input_text.set(numero)
