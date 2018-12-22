@@ -124,7 +124,6 @@ ancho_boton=6
 numero=("")
 blocked_ce=False
 comas=0
-#l_numeros=[]
 alto_boton=2
 input_text=StringVar()
 clear()#MUESTRA VALOR "0" AL INICIAR LA CALCULADORA
