@@ -7,21 +7,18 @@ color_boton=("gray50")
 cn=("white")#log(x)/log(B))
 from math import *
 
-def digit(n): #error 0numero
+def digit(n):
     global numero
     global l_numeros
     global blocked_ce
     blocked_ce=False
     long=len(l_numeros)
-    #print("nume: ", numero)
-    #print("n: ",n)
     if long<2 and numero!=str(pi):
         if numero=="0":
             numero=numero.replace("0",n)
-            input_text.set(numero)
         else:
             numero=numero+n
-            input_text.set(numero)
+        input_text.set(numero)
 
 def loga():
     global l_numeros
