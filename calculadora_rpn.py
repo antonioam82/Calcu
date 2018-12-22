@@ -4,7 +4,7 @@ ventana.title("CALCULADORA-RPN")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
-cn=("white")
+cn=("white")#log(x)/log(B))
 from math import *
 
 def digit(n): #error 0numero
@@ -13,9 +13,15 @@ def digit(n): #error 0numero
     global blocked_ce
     blocked_ce=False
     long=len(l_numeros)
+    #print("nume: ", numero)
+    #print("n: ",n)
     if long<2 and numero!=str(pi):
-        numero=numero+n
-        input_text.set(numero)
+        if numero=="0":
+            numero=numero.replace("0",n)
+            input_text.set(numero)
+        else:
+            numero=numero+n
+            input_text.set(numero)
 
 def loga():
     global l_numeros
@@ -91,7 +97,7 @@ def funci(s):
             l_numeros=[]
         numero=""
     
-def cambia_signo(): 
+def cambia_signo(): #error/none numero-->"ENTER"-->numero-->"ENTER"-->s-->"+/-"
     global numero
     if numero!="0" and numero!="":
         numero=str(eval(numero+"*(-1)"))
@@ -164,6 +170,5 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 #22,10
 
 ventana.mainloop()
-
 
 
