@@ -4,7 +4,7 @@ ventana.title("CALCULADORA-RPN")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
-cn=("white")
+cn=("white")#log(x)/log(B))
 from math import *
 
 def digit(n):
@@ -58,7 +58,7 @@ def enter():
     global l_numeros
     global comas
     global blocked_ce
-    if numero!="":
+    if numero!="" and numero!="0.":
         l_numeros.append(numero)
         input_text.set(numero)
         print(l_numeros)
