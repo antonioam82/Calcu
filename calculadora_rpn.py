@@ -120,10 +120,6 @@ def clear_error():
         input_text.set("0")
         comas=0
         blocked_ce=True
-    #if l_numeros!=[]:
-        #l_numeros.pop()
-    
-
 
 ancho_boton=6
 numero=("")
