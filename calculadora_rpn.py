@@ -96,7 +96,7 @@ def funci(s):
             l_numeros=[]
         numero=""
     
-def cambia_signo(): #error/none numero-->"ENTER"-->numero-->"ENTER"-->s-->"+/-"
+def cambia_signo(): 
     global numero
     if numero!="0" and numero!="":
         numero=str(eval(numero+"*(-1)"))
