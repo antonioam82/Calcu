@@ -68,7 +68,7 @@ def enter():
         comas=0
         blocked_ce=True
 
-def operacion(s):#error -0.0
+def operacion(s):
     global numero
     global l_numeros
     if len(l_numeros)==2:
