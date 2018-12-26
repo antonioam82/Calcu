@@ -77,11 +77,11 @@ BotonSqrt=Button(ventana,text="√",bg=color_boton,fg=cn,width=ancho_boton,heigh
 BotonParen1=Button(ventana,text="(",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClik("(")).place(x=198,y=324)
 BotonParen2=Button(ventana,text=")",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClik(")")).place(x=263-6,y=324)
 BotonResto=Button(ventana,text="%",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClik("%")).place(x=80,y=324)
-Botonln=Button(ventana,text="ln",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClick("log")).place(x=21,y=372)
-BotonSn=Button(ventana,text="sin",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClick("sin")).place(x=80,y=372)
-BotonCs=Button(ventana,text="cos",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClick("cos")).place(x=139,y=372)
-BotonTn=Button(ventana,text="tan",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClick("tan")).place(x=198,y=372)
-BotonR=Button(ventana,text="R",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClick("round")).place(x=263-6,y=372)
+Botonln=Button(ventana,text="ln",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClik("log")).place(x=21,y=372)
+BotonSn=Button(ventana,text="sin",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClik("sin")).place(x=80,y=372)
+BotonCs=Button(ventana,text="cos",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClik("cos")).place(x=139,y=372)
+BotonTn=Button(ventana,text="tan",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClik("tan")).place(x=198,y=372)
+BotonR=Button(ventana,text="R",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:btnClik("round")).place(x=263-6,y=372)
 BotonCE=Button(ventana,text="CE",bg="red",fg=cn,width=ancho_boton,height=alto_boton).place(x=263-6,y=180)
 BotonCS=Button(ventana,text="+/-",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=139,y=324)##############316,276
 BotonC=Button(ventana,text="C",bg="red",fg=cn,width=ancho_boton,height=alto_boton,command=clear).place(x=321-5,y=180)########################198,372
