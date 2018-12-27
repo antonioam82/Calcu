@@ -66,7 +66,7 @@ def enter():
         numero=""
         comas=0
         blocked_ce=True
-       
+        print(l_numeros)
 
 def operacion(s):
     global numero
@@ -81,7 +81,7 @@ def operacion(s):
             input_text.set("ERROR")
             l_numeros=[]
         numero=""
-       
+        print(l_numeros)
 
 def funci(s):
     global numero
@@ -95,7 +95,7 @@ def funci(s):
             input_text.set("ERROR")
             l_numeros=[]
         numero=""
-       
+        print(l_numeros)
     
 def cambia_signo(): 
     global numero
@@ -103,10 +103,10 @@ def cambia_signo():
     if numero!="0" and numero!="":
         numero=str(eval(numero+"*(-1)"))
         input_text.set(numero)
-    elif numero=="" and l_numeros!=[]: #nuevo
-        if l_numeros[-1]!="0":
-            l_numeros[-1]=str(eval(l_numeros[-1]+"*(-1)"))
-            input_text.set(l_numeros[-1])
+    elif numero=="" and len(l_numeros)==1: #nuevo
+        if l_numeros[0]!="0":
+            l_numeros[0]=str(eval(l_numeros[0]+"*(-1)"))
+            input_text.set(l_numeros[0])
 
 def clear():
     global numero
@@ -168,10 +168,9 @@ BotonResul=Button(ventana,text="ENTER",bg=color_boton,fg=cn,width=ancho_boton,he
 
 
 Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
-#22,10
+
 
 ventana.mainloop()
-
 
 
 
