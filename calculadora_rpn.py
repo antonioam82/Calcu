@@ -66,6 +66,7 @@ def enter():
         numero=""
         comas=0
         blocked_ce=True
+       
 
 def operacion(s):
     global numero
@@ -80,6 +81,7 @@ def operacion(s):
             input_text.set("ERROR")
             l_numeros=[]
         numero=""
+       
 
 def funci(s):
     global numero
@@ -93,12 +95,18 @@ def funci(s):
             input_text.set("ERROR")
             l_numeros=[]
         numero=""
+       
     
 def cambia_signo(): 
     global numero
+    global l_numeros
     if numero!="0" and numero!="":
         numero=str(eval(numero+"*(-1)"))
         input_text.set(numero)
+    elif numero=="" and l_numeros!=[]: #nuevo
+        if l_numeros[-1]!="0":
+            l_numeros[-1]=str(eval(l_numeros[-1]+"*(-1)"))
+            input_text.set(l_numeros[-1])
 
 def clear():
     global numero
@@ -163,5 +171,8 @@ Salida=Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,b
 #22,10
 
 ventana.mainloop()
+
+
+
 
 
