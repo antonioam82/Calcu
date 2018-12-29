@@ -7,7 +7,7 @@ ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
 cn=("white")
-from math import pi
+from math import *
 
 def digit(n):
     global numero
