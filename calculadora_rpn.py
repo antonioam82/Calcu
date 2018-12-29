@@ -166,9 +166,7 @@ Button(ventana,text="C",bg="red",fg=cn,width=ancho_boton,height=alto_boton,comma
 Button(ventana,text="EXP",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:operacion("**")).place(x=316,y=324)
 Button(ventana,text="ENTER",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=enter).place(x=316,y=372)
 
-
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
-
 
 ventana.mainloop()
 
