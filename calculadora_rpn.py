@@ -162,9 +162,9 @@ Button(ventana,text="sin",bg=color_boton,fg=cn,activebackground=actb,width=ancho
 Button(ventana,text="cos",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("cos")).place(x=139,y=372)
 Button(ventana,text="tan",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("tan")).place(x=198,y=372)
 Button(ventana,text="R",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("round")).place(x=257,y=372)
-Button(ventana,text="CE",bg="red",fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=clear_error).place(x=257,y=180)
+Button(ventana,text="CE",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear_error).place(x=257,y=180)
 Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=cambia_signo).place(x=139,y=324)
-Button(ventana,text="C",bg="red",fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=180)
+Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=180)
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:operacion("**")).place(x=316,y=324)
 Button(ventana,text="ENTER",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=enter).place(x=316,y=372)
 
@@ -173,6 +173,10 @@ Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,in
 
 
 ventana.mainloop()
+
+
+
+
 
 
 
