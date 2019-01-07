@@ -68,7 +68,6 @@ def enter():
         numero=""
         comas=0
         blocked_ce=True
-        print(l_numeros)
 
 def operacion(s):
     global numero
@@ -83,7 +82,6 @@ def operacion(s):
             input_text.set("ERROR")
             l_numeros=[]
         numero=""
-        print(l_numeros)
 
 def funci(s):
     global numero
@@ -97,7 +95,6 @@ def funci(s):
             input_text.set("ERROR")
             l_numeros=[]
         numero=""
-        print(l_numeros)
     
 def cambia_signo(): 
     global numero
