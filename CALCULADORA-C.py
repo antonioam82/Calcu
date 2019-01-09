@@ -1,3 +1,4 @@
+
 from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA-C")
@@ -7,24 +8,30 @@ color_boton=("gray50")
 cn=("white")
 from math import *
 
+def digit(n):
+    global numero
+    numero=numero+n
+    input_text.set(numero)
 
+def clear():
+    input_text.set("0")
 
 ancho_boton=6
 alto_boton=2
 input_text=StringVar()
-opera=""
-
+numero=""
+clear()
 bd=10
-Boton0=Button(ventana,text="0",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=21,y=180)
-Boton1=Button(ventana,text="1",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=89-9,y=180)
-Boton2=Button(ventana,text="2",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=147-8,y=180)
-Boton3=Button(ventana,text="3",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=205-7,y=180)
-Boton4=Button(ventana,text="4",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=21,y=228)
-Boton5=Button(ventana,text="5",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=80,y=228)
-Boton6=Button(ventana,text="6",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=139,y=228)
-Boton7=Button(ventana,text="7",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=198,y=228)
-Boton8=Button(ventana,text="8",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=263-6,y=228)
-Boton9=Button(ventana,text="9",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=321-5,y=228)
+Boton0=Button(ventana,text="0",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("0")).place(x=21,y=180)
+Boton1=Button(ventana,text="1",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("1")).place(x=89-9,y=180)
+Boton2=Button(ventana,text="2",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("2")).place(x=147-8,y=180)
+Boton3=Button(ventana,text="3",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("3")).place(x=205-7,y=180)
+Boton4=Button(ventana,text="4",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("4")).place(x=21,y=228)
+Boton5=Button(ventana,text="5",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("5")).place(x=80,y=228)
+Boton6=Button(ventana,text="6",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("6")).place(x=139,y=228)
+Boton7=Button(ventana,text="7",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("7")).place(x=198,y=228)
+Boton8=Button(ventana,text="8",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("8")).place(x=263-6,y=228)
+Boton9=Button(ventana,text="9",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton,command=lambda:digit("9")).place(x=321-5,y=228)
 BotonC=Button(ventana,text="π",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=21,y=276)
 BotonComa=Button(ventana,text=",",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=80,y=276)
 BotonSuma=Button(ventana,text="+",bg=color_boton,fg=cn,width=ancho_boton,height=alto_boton).place(x=139,y=276)
