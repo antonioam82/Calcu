@@ -79,6 +79,8 @@ def operacion(s):
             input_text.set(numero)
             l_numeros[0]=numero
             l_numeros.pop()
+            memory=l_numeros[0]
+            print(memory)
         except:
             input_text.set("ERROR")
             l_numeros=[]
@@ -119,8 +121,10 @@ def clear():
     global numero
     global l_numeros
     global comas
+    global memory
     numero=""
     l_numeros=[]
+    print(memory)#
     input_text.set("0")
     comas=0
 
@@ -138,6 +142,7 @@ ancho_boton=6
 #numero=("")
 blocked_ce=False
 comas=0
+memory=""
 alto_boton=2
 input_text=StringVar()
 clear()#MUESTRA VALOR "0" AL INICIAR LA CALCULADORA
@@ -179,3 +184,4 @@ Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,in
 
 
 ventana.mainloop()
+
