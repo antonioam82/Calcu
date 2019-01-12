@@ -2,7 +2,7 @@
 #PARA 2+8-3: "2"-->"ENTER"-->"8"-->"ENTER"-->"+"-->"3"-->"ENTER"-->"-"
 from tkinter import *
 ventana=Tk()
-ventana.title("RPN CALCULATOR")
+ventana.title("CALCULADORA-RPN")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
