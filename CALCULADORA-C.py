@@ -101,10 +101,10 @@ def funci(s):
 
 def memo():
     global l_numeros
-    if len(l_numeros)==1:
-        memory=[]
-        memory.append(l_numeros[0])
-        print(memory)
+    global memory
+    if len(l_numeros)<=2:
+        l_numeros.append(memory)
+        input_text.set(memory)
     
 def cambia_signo(): 
     global numero
@@ -184,4 +184,5 @@ Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,in
 
 
 ventana.mainloop()
+
 
