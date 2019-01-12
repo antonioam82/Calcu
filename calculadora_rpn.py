@@ -7,8 +7,7 @@ ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
 cn=("white")
-actb="LightCyan3"
-#activebackground
+actb="LightCyan3" #activebackground
 from math import *
 
 def digit(n):
@@ -170,6 +169,10 @@ Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,in
 
 
 ventana.mainloop()
+
+
+
+
 
 
 
