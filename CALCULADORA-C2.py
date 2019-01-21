@@ -54,6 +54,7 @@ Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho
 Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton).place(x=316,y=200)
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=344)
 Button(ventana,text="=",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=392)
+#MEMORIZAR RESULTADOS
 Button(ventana,text="MEM1",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=21,y=166)
 Button(ventana,text="MEM2",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=80,y=166)
 Button(ventana,text="MEM3",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=139,y=166)
