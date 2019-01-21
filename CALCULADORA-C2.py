@@ -9,7 +9,11 @@ actb="LightCyan3"
 from math import *
 
 
-
+def clear():
+    global oper
+    oper=""
+    input_texto.set("0")
+    
 
 input_texto=StringVar()
 ancho_boton=6
@@ -19,7 +23,7 @@ alto_mem=1
 ancho_mem=6
 input_text=StringVar()
 bd=10
-
+clear()
 Button(ventana,text="0",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=21,y=200)
 Button(ventana,text="1",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=80,y=200)
 Button(ventana,text="2",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=139,y=200)
@@ -37,8 +41,8 @@ Button(ventana,text="-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_b
 Button(ventana,text="*",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=257,y=296)
 Button(ventana,text="/",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=296)
 Button(ventana,text="√",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=21,y=344)
-Button(ventana,text="1/x",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=198,y=344)
-Button(ventana,text="log",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=257,y=344)
+Button(ventana,text="(",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=198,y=344)
+Button(ventana,text=")",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=257,y=344)
 Button(ventana,text="%",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=80,y=344)
 Button(ventana,text="ln",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=21,y=392)
 Button(ventana,text="sin",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=80,y=392)
@@ -49,7 +53,7 @@ Button(ventana,text="CE",bg="red",fg=cn,activebackground="indianred1",width=anch
 Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=139,y=344)
 Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton).place(x=316,y=200)
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=344)
-Button(ventana,text="ENTER",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=392)
+Button(ventana,text="=",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=392)
 Button(ventana,text="MEM1",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=21,y=166)
 Button(ventana,text="MEM2",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=80,y=166)
 Button(ventana,text="MEM3",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=139,y=166)
@@ -58,3 +62,4 @@ Button(ventana,text="MEM5",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).pl
 Button(ventana,text="MEM6",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=316,y=166)
 
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_texto,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=50)
+
