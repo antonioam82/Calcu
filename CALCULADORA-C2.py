@@ -8,19 +8,34 @@ cn=("white")
 actb="LightCyan3"
 from math import *
 
+def mem1():
+    global to_mem
+    global active_mem
+    if active_mem==True:
+        memory1=str(to_mem)
+        input_texto.set(memory1+"-->MEM1")
+        active_mem=False
+    
 def entrada(n):
     global oper
     oper=oper+n
     input_texto.set(oper)
 
+def memorize():
+    global result
+    global to_mem
+    global active_mem
+    active_mem=True
+    to_mem=result
+
 def resultado():
     global oper
+    global result
     try:
         result=eval(oper)
     except:
         result="ERROR"
     input_texto.set(result)
-
 
 def clear():
     global oper
@@ -30,8 +45,11 @@ def clear():
 
 input_texto=StringVar()
 ancho_boton=6
+to_mem=""
+result=0
 #numero=("")
 alto_boton=2
+active_mem=False
 alto_mem=1
 ancho_mem=6
 bd=10
@@ -60,13 +78,13 @@ Button(ventana,text="ln",bg=color_boton,fg=cn,activebackground=actb,width=ancho_
 Button(ventana,text="sin",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("sin")).place(x=80,y=392)
 Button(ventana,text="cos",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("cos")).place(x=139,y=392)
 Button(ventana,text="tan",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("tan")).place(x=198,y=392)
-Button(ventana,text="MEM",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=257,y=392)
+Button(ventana,text="MEM",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=memorize).place(x=257,y=392)
 Button(ventana,text="CE",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton).place(x=257,y=200)
 Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=139,y=344)
 Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=200)
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("**")).place(x=316,y=344)
 Button(ventana,text="=",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=resultado).place(x=316,y=392)
-Button(ventana,text="MEM1",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=21,y=166)
+Button(ventana,text="MEM1",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=mem1).place(x=21,y=166)
 Button(ventana,text="MEM2",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=80,y=166)
 Button(ventana,text="MEM3",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=139,y=166)
 Button(ventana,text="MEM4",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=198,y=166)
