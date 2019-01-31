@@ -8,13 +8,15 @@ cn=("white")
 actb="LightCyan3"
 from math import *
 
-def mem1():
-    global to_mem
-    global active_mem
+def mem1(n):
+    global to_mem, active_mem, lista_memoria
     if active_mem==True:
-        memory1=str(eval(to_mem))
-        input_texto.set(memory1+" ==> MEM1")
-        active_mem=False
+        try:
+            salida=(str(eval(to_mem)))+("==>MEM")+str(n+1)
+            lista_memoria[n]=str(eval(to_mem))
+        except:
+            salida="ERROR"
+        input_texto.set(salida)
     
 def entrada(n):
     global oper, to_mem
@@ -45,6 +47,7 @@ def clear():
 
 input_texto=StringVar()
 ancho_boton=6
+lista_memoria=["","","","",""]
 result=0
 #numero=("")
 alto_boton=2
@@ -83,12 +86,14 @@ Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho
 Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=200)
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("**")).place(x=316,y=344)
 Button(ventana,text="=",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=resultado).place(x=316,y=392)
-Button(ventana,text="MEM1",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=mem1).place(x=21,y=166)
-Button(ventana,text="MEM2",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=80,y=166)
-Button(ventana,text="MEM3",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=139,y=166)
-Button(ventana,text="MEM4",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=198,y=166)
-Button(ventana,text="MEM5",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=257,y=166)
+Button(ventana,text="MEM1",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(0)).place(x=21,y=166)
+Button(ventana,text="MEM2",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(1)).place(x=80,y=166)
+Button(ventana,text="MEM3",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(2)).place(x=139,y=166)
+Button(ventana,text="MEM4",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(3)).place(x=198,y=166)
+Button(ventana,text="MEM5",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(4)).place(x=257,y=166)
 Button(ventana,text="DEL",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=316,y=166)
 
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_texto,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=50)
+
+ventana.mainloop()
 
