@@ -12,21 +12,19 @@ def mem1():
     global to_mem
     global active_mem
     if active_mem==True:
-        memory1=str(to_mem)
-        input_texto.set(memory1+"-->MEM1")
+        memory1=str(eval(to_mem))
+        input_texto.set(memory1+" ==> MEM1")
         active_mem=False
     
 def entrada(n):
-    global oper
+    global oper, to_mem
     oper=oper+n
+    to_mem=oper
     input_texto.set(oper)
 
 def memorize():
-    global result
-    global to_mem
     global active_mem
     active_mem=True
-    to_mem=result
 
 def resultado():
     global oper
@@ -39,13 +37,14 @@ def resultado():
 
 def clear():
     global oper
+    global to_mem
     oper=""
+    to_mem=""
     input_texto.set("0")
     
 
 input_texto=StringVar()
 ancho_boton=6
-to_mem=""
 result=0
 #numero=("")
 alto_boton=2
@@ -89,9 +88,7 @@ Button(ventana,text="MEM2",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).pl
 Button(ventana,text="MEM3",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=139,y=166)
 Button(ventana,text="MEM4",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=198,y=166)
 Button(ventana,text="MEM5",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=257,y=166)
-Button(ventana,text="MEM6",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=316,y=166)
+Button(ventana,text="DEL",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=316,y=166)
 
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_texto,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=50)
-
-
 
