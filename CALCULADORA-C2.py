@@ -9,14 +9,19 @@ actb="LightCyan3"
 from math import *
 
 def mem1(n):
-    global to_mem, active_mem, lista_memoria
+    global to_mem, active_mem, lista_memoria, active_del,oper
     if active_mem==True:
         try:
-            salida=(str(eval(to_mem)))+("==>MEM")+str(n+1)
+            salida=(str(eval(to_mem)))+("(MEM")+str(n+1)+(")")
             lista_memoria[n]=str(eval(to_mem))
         except:
             salida="ERROR"
         input_texto.set(salida)
+        active_mem=False
+    else:
+        if lista_memoria[n]!=(""):
+            oper=oper+str(lista_memoria[n])
+            input_texto.set(oper)
     
 def entrada(n):
     global oper, to_mem
@@ -40,8 +45,10 @@ def resultado():
 def clear():
     global oper
     global to_mem
+    global active_del
     oper=""
     to_mem=""
+    active_del=False
     input_texto.set("0")
     
 
@@ -96,4 +103,3 @@ Button(ventana,text="DEL",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).pla
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_texto,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=50)
 
 ventana.mainloop()
-
