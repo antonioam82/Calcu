@@ -10,7 +10,7 @@ from math import *
 
 def mem1(n):
     global to_mem, active_mem, lista_memoria, active_del,oper
-    if active_mem==True:
+    if active_mem==True and active_del==False:
         try:
             salida=(str(eval(to_mem)))+("(MEM")+str(n+1)+(")")
             lista_memoria[n]=str(eval(to_mem))
@@ -18,10 +18,20 @@ def mem1(n):
             salida="ERROR"
         input_texto.set(salida)
         active_mem=False
+        #print(lista_memoria)
     else:
-        if lista_memoria[n]!=(""):
-            oper=oper+str(lista_memoria[n])
-            input_texto.set(oper)
+        if active_del==True:
+            lista_memoria[n]=""
+            #print(lista_memoria)
+            active_del==False
+        else:
+            if lista_memoria[n]!="":
+                oper=oper+str(lista_memoria[n])
+                input_texto.set(oper)
+
+def deletion():
+    global active_del
+    active_del=True
     
 def entrada(n):
     global oper, to_mem
@@ -98,7 +108,7 @@ Button(ventana,text="MEM2",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,com
 Button(ventana,text="MEM3",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(2)).place(x=139,y=166)
 Button(ventana,text="MEM4",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(3)).place(x=198,y=166)
 Button(ventana,text="MEM5",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(4)).place(x=257,y=166)
-Button(ventana,text="DEL",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem).place(x=316,y=166)
+Button(ventana,text="DEL",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=deletion).place(x=316,y=166)
 
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_texto,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=50)
 
