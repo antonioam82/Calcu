@@ -18,11 +18,11 @@ def mem1(n):
             salida="ERROR"
         input_texto.set(salida)
         active_mem=False
-        print(lista_memoria)
+        #print(lista_memoria)
     else:
         if active_del==True:
             lista_memoria[n]=""
-            print(lista_memoria)
+            #print(lista_memoria)
             active_del==False
         else:
             if lista_memoria[n]!="":
