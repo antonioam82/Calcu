@@ -1,10 +1,10 @@
 from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA-C2")
-ventana.configure(background="gray20")
+ventana.configure(background="dark slate gray")
 ventana.geometry("392x488")
-color_boton=("gray50")
-cn=("white")
+color_boton=("gray60")
+cn=("black")
 actb="LightCyan3"
 from math import *
 
@@ -18,11 +18,11 @@ def mem1(n):
             salida="ERROR"
         input_texto.set(salida)
         active_mem=False
-        #print(lista_memoria)
+        print(lista_memoria)
     else:
         if active_del==True:
             lista_memoria[n]=""
-            #print(lista_memoria)
+            print(lista_memoria)
             active_del==False
         else:
             if lista_memoria[n]!="":
@@ -103,13 +103,14 @@ Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho
 Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=200)
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("**")).place(x=316,y=344)
 Button(ventana,text="=",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=resultado).place(x=316,y=392)
-Button(ventana,text="MEM1",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(0)).place(x=21,y=166)
-Button(ventana,text="MEM2",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(1)).place(x=80,y=166)
-Button(ventana,text="MEM3",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(2)).place(x=139,y=166)
-Button(ventana,text="MEM4",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(3)).place(x=198,y=166)
-Button(ventana,text="MEM5",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(4)).place(x=257,y=166)
-Button(ventana,text="DEL",bg="gray13",fg=cn,width=ancho_mem,height=alto_mem,command=deletion).place(x=316,y=166)
+Button(ventana,text="MEM1",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(0)).place(x=21,y=166)
+Button(ventana,text="MEM2",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(1)).place(x=80,y=166)
+Button(ventana,text="MEM3",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(2)).place(x=139,y=166)
+Button(ventana,text="MEM4",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(3)).place(x=198,y=166)
+Button(ventana,text="MEM5",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem,command=lambda:mem1(4)).place(x=257,y=166)
+Button(ventana,text="DEL",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem,command=deletion).place(x=316,y=166)
 
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_texto,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=50)
 
 ventana.mainloop()
+
