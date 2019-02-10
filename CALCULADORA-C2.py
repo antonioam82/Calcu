@@ -18,16 +18,23 @@ def mem1(n):
             salida="ERROR"
         input_texto.set(salida)
         active_mem=False
-        #print(lista_memoria)
+        print(lista_memoria)
     else:
         if active_del==True:
             lista_memoria[n]=""
-            #print(lista_memoria)
+            print(lista_memoria)
             active_del==False
         else:
             if lista_memoria[n]!="":
                 oper=oper+str(lista_memoria[n])
                 input_texto.set(oper)
+                
+def cambio_signo():
+    global result, to_mem
+    if result!="ERROR" and result!="" and result!=0:
+        result=result*(-1)
+        to_mem=str(result*(-1))
+        input_texto.set(to_mem)
 
 def deletion():
     global active_del
@@ -99,7 +106,7 @@ Button(ventana,text="cos",bg=color_boton,fg=cn,activebackground=actb,width=ancho
 Button(ventana,text="tan",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("tan")).place(x=198,y=392)
 Button(ventana,text="MEM",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=memorize).place(x=257,y=392)
 Button(ventana,text="CE",bg="firebrick1",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton).place(x=257,y=200)
-Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=139,y=344)
+Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=cambio_signo).place(x=139,y=344)
 Button(ventana,text="C",bg="firebrick1",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=200)
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("**")).place(x=316,y=344)
 Button(ventana,text="=",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=resultado).place(x=316,y=392)
