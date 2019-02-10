@@ -33,7 +33,7 @@ def cambio_signo():
     global result, to_mem
     if result!="ERROR" and result!="" and result!=0:
         result=result*(-1)
-        to_mem=str(result*(-1))
+        to_mem=str(result)
         input_texto.set(to_mem)
 
 def deletion():
