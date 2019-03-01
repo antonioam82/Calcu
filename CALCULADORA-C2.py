@@ -47,8 +47,14 @@ def entrada(n):
     input_texto.set(oper)
 
 def memorize():
-    global active_mem
+    global active_mem, oper, to_mem
     active_mem=True
+    if oper!="":
+        try:
+            to_mem=str(eval(oper))
+        except:
+            imput_texto.set("ERROR")
+        oper=""
 
 def resultado():
     global oper
