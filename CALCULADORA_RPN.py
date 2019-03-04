@@ -87,12 +87,21 @@ def funci(s):
     global l_numeros
     if len(l_numeros)==1:
         try:
-            numero=str(eval(s+"("+l_numeros[0]+")"))
+            numero=str(eval(s+"("+l_numeros[0]+")"))#[0]
             input_text.set(numero)
             l_numeros[0]=numero
         except:
             input_text.set("ERROR")
             l_numeros=[]
+        numero=""
+
+def rounded():
+    global numero
+    global l_numeros
+    if numero!="" and len(l_numeros)<=2:
+        numero=str(eval("round("+numero+")"))
+        l_numeros.append(numero)
+        input_text.set(l_numeros[-1])
         numero=""
     
 def cambia_signo(): 
@@ -157,7 +166,7 @@ Button(ventana,text="ln",bg=color_boton,fg=cn,activebackground=actb,width=ancho_
 Button(ventana,text="sin",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("sin")).place(x=80,y=372)
 Button(ventana,text="cos",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("cos")).place(x=139,y=372)
 Button(ventana,text="tan",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("tan")).place(x=198,y=372)
-Button(ventana,text="R",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("round")).place(x=257,y=372)
+Button(ventana,text="R",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=rounded).place(x=257,y=372)
 Button(ventana,text="CE",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear_error).place(x=257,y=180)
 Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=cambia_signo).place(x=139,y=324)
 Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=180)
@@ -169,6 +178,9 @@ Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,in
 
 
 ventana.mainloop()
+
+
+
 
 
 
