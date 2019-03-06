@@ -94,15 +94,6 @@ def funci(s):
             input_text.set("ERROR")
             l_numeros=[]
         numero=""
-
-def rounded():
-    global numero
-    global l_numeros
-    if numero!="" and len(l_numeros)<=2:
-        numero=str(eval("round("+numero+")"))
-        l_numeros.append(numero)
-        input_text.set(l_numeros[-1])
-        numero=""
     
 def cambia_signo(): 
     global numero
