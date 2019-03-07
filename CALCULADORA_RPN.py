@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#EJEMPLO INTRODUCCIÓN DE DATOS EN NOTACIÓN POLACA INVERSA: 
+#PARA 2+8-3: "2"-->"ENTER"-->"8"-->"ENTER"-->"+"-->"3"-->"ENTER"-->"-"
 from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA-RPN")
@@ -61,27 +61,19 @@ def enter():
     global l_numeros
     global comas
     global blocked_ce
+    global active_round
     if numero!="" and numero!="0.":
-        l_numeros.append(numero)
+        if active_round==True:
+            numero=str(eval("round("+numero+")"))
+            l_numeros.append(numero)
+            active_round=False
+        else:
+            l_numeros.append(numero)
         input_text.set(numero)
         numero=""
         comas=0
         blocked_ce=True
 
-def max_div():
-    global numero
-    global l_numeros
-    if len(l_numeros)==2:
-        try:
-            numero=str(eval("gcd("+l_numeros[0]+","+l_numeros[1]+")"))
-            input_text.set(numero)
-            l_numeros[0]=numero
-            l_numeros.pop()
-        except:
-            input_text.set("ERROR")
-            l_numeros=[]
-        numero=""
-        
 def operacion(s):
     global numero
     global l_numeros
@@ -108,6 +100,17 @@ def funci(s):
             input_text.set("ERROR")
             l_numeros=[]
         numero=""
+
+def rounded():
+    global numero
+    global active_round
+    global l_numeros
+    active_round=True
+    if numero!="":
+        input_text.set(eval("round("+numero+")"))
+    else:
+        l_numeros[-1]=str(eval("round("+l_numeros[-1]+")"))
+        input_text.set(l_numeros[-1])
     
 def cambia_signo(): 
     global numero
@@ -140,6 +143,7 @@ def clear_error():
         blocked_ce=True
 
 ancho_boton=6
+active_round=False
 numero=("")
 blocked_ce=False
 comas=0
@@ -171,7 +175,7 @@ Button(ventana,text="ln",bg=color_boton,fg=cn,activebackground=actb,width=ancho_
 Button(ventana,text="sin",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("sin")).place(x=80,y=372)
 Button(ventana,text="cos",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("cos")).place(x=139,y=372)
 Button(ventana,text="tan",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("tan")).place(x=198,y=372)
-Button(ventana,text="MAX",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=max_div).place(x=257,y=372)
+Button(ventana,text="R",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=rounded).place(x=257,y=372)
 Button(ventana,text="CE",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear_error).place(x=257,y=180)
 Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=cambia_signo).place(x=139,y=324)
 Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=180)
@@ -183,7 +187,6 @@ Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,in
 
 
 ventana.mainloop()
-
 
 
 
