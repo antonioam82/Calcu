@@ -105,12 +105,13 @@ def rounded():
     global numero
     global active_round
     global l_numeros
-    active_round=True
-    if numero!="":
-        input_text.set(eval("round("+numero+")"))
-    else:
-        l_numeros[-1]=str(eval("round("+l_numeros[-1]+")"))
-        input_text.set(l_numeros[-1])
+    if not numero.endswith("."):
+        active_round=True
+        if numero!="":
+            input_text.set(eval("round("+numero+")"))
+        else:
+            l_numeros[-1]=str(eval("round("+l_numeros[-1]+")"))
+            input_text.set(l_numeros[-1])
     
 def cambia_signo(): 
     global numero
@@ -187,6 +188,7 @@ Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,in
 
 
 ventana.mainloop()
+
 
 
 
