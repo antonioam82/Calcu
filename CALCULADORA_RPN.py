@@ -1,5 +1,6 @@
-#EJEMPLO INTRODUCCIÓN DE DATOS EN NOTACIÓN POLACA INVERSA: 
-#PARA 2+8-3: "2"-->"ENTER"-->"8"-->"ENTER"-->"+"-->"3"-->"ENTER"-->"-"
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import os, sys
 from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA-RPN")
