@@ -68,6 +68,20 @@ def enter():
         comas=0
         blocked_ce=True
 
+def max_div():
+    global numero
+    global l_numeros
+    if len(l_numeros)==2:
+        try:
+            numero=str(eval("gcd("+l_numeros[0]+","+l_numeros[1]+")"))
+            input_text.set(numero)
+            l_numeros[0]=numero
+            l_numeros.pop()
+        except:
+            input_text.set("ERROR")
+            l_numeros=[]
+        numero=""
+        
 def operacion(s):
     global numero
     global l_numeros
@@ -157,7 +171,7 @@ Button(ventana,text="ln",bg=color_boton,fg=cn,activebackground=actb,width=ancho_
 Button(ventana,text="sin",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("sin")).place(x=80,y=372)
 Button(ventana,text="cos",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("cos")).place(x=139,y=372)
 Button(ventana,text="tan",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:funci("tan")).place(x=198,y=372)
-Button(ventana,text="R",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=rounded).place(x=257,y=372)
+Button(ventana,text="MAX",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=max_div).place(x=257,y=372)
 Button(ventana,text="CE",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear_error).place(x=257,y=180)
 Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=cambia_signo).place(x=139,y=324)
 Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=180)
