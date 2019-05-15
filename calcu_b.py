@@ -15,7 +15,7 @@ def numeroPulsado(num):
     global operacion
     if operacion!="":
         numeroPantalla.set(num)
-        operacion=""
+        #operacion=""
     else:
         numeroPantalla.set(numeroPantalla.get()+num)
 
@@ -38,6 +38,7 @@ def resta(num):
 
 def el_resultado():
     global resultado
+    print(resultado)
     if operacion=="suma":
         numeroPantalla.set(resultado+float(numeroPantalla.get()))
     else:
