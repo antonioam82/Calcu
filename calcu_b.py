@@ -22,20 +22,26 @@ def numeroPulsado(num):
 def suma(num):
     global resultado
     global operacion
-    resultado+=float(num)
     operacion="suma"
+    resultado+=float(num)
     numeroPantalla.set(resultado)
 
 def resta(num):
     global resultado
     global operacion
-    resultado-=float(num)
     operacion="resta"
+    if resultado!=0:
+        resultado-=float(num)
+    else:
+        resultado+=float(num)
     numeroPantalla.set(resultado)
 
 def el_resultado():
     global resultado
-    numeroPantalla.set(resultado+float(numeroPantalla.get()))
+    if operacion=="suma":
+        numeroPantalla.set(resultado+float(numeroPantalla.get()))
+    else:
+        numeroPantalla.set(resultado-float(numeroPantalla.get()))
     resultado=0
 
 boton7=Button(miFrame, text="7", width=3, command=lambda:numeroPulsado("7"))
@@ -76,3 +82,4 @@ botonDiv.grid(row=5, column=4)
 
 
 raiz.mainloop()
+
