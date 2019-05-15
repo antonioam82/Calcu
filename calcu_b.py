@@ -19,6 +19,16 @@ def numeroPulsado(num):
     else:
         numeroPantalla.set(numeroPantalla.get()+num)
 
+def multiplic(num):
+    global resultado
+    global operacion
+    operacion="multi"
+    if resultado!=0:
+        resultado*=float(num)
+    else:
+        resultado+=float(num)
+    numeroPantalla.set(resultado)
+
 def suma(num):
     global resultado
     global operacion
@@ -38,11 +48,12 @@ def resta(num):
 
 def el_resultado():
     global resultado
-    print(resultado)
     if operacion=="suma":
         numeroPantalla.set(resultado+float(numeroPantalla.get()))
-    else:
+    if: operacion=="resta":
         numeroPantalla.set(resultado-float(numeroPantalla.get()))
+    if operacion=="multi":
+        numeroPantalla.set(resultado*float(numeroPantalla.get()))
     resultado=0
 
 boton7=Button(miFrame, text="7", width=3, command=lambda:numeroPulsado("7"))
@@ -69,7 +80,7 @@ boton2=Button(miFrame, text="2", width=3, command=lambda:numeroPulsado("2"))
 boton2.grid(row=4, column=2)
 boton3=Button(miFrame, text="3", width=3, command=lambda:numeroPulsado("3"))
 boton3.grid(row=4, column=3)
-botonMult=Button(miFrame, text="x", width=3)
+botonMult=Button(miFrame, text="x", width=3, command=lambda:multiplic(numeroPantalla.get()))
 botonMult.grid(row=4, column=4)
 
 boton0=Button(miFrame, text="0", width=3, command=lambda:numeroPulsado("0"))
