@@ -2,9 +2,9 @@ from tkinter import *
 raiz=Tk()
 miFrame=Frame(raiz)
 miFrame.pack()
-
-operacion=""
-resultado=0
+#raiz.geometry("392x488")
+#operacion=""
+#resultado=0
 
 numeroPantalla=StringVar()
 pantalla=Entry(miFrame, textvariable=numeroPantalla)
@@ -19,6 +19,13 @@ def numeroPulsado(num):
     else:
         numeroPantalla.set(numeroPantalla.get()+num)
 
+def clear():
+    global operacion
+    global resultado
+    operacion=""
+    resultado=0
+    numeroPantalla.set(resultado)
+    
 def division(num):
     global resultado
     global operacion
@@ -67,6 +74,8 @@ def el_resultado():
     if operacion=="divi":
         numeroPantalla.set(resultado/float(numeroPantalla.get()))
     resultado=0
+    
+clear()
 
 boton7=Button(miFrame, text="7", width=3, command=lambda:numeroPulsado("7"))
 boton7.grid(row=2, column=1)
@@ -103,6 +112,8 @@ botonResul=Button(miFrame, text="=", width=3, command=lambda:el_resultado())
 botonResul.grid(row=5, column=3)
 botonDiv=Button(miFrame, text="/", width=3, command=lambda:division(numeroPantalla.get()))
 botonDiv.grid(row=5, column=4)
+botonclear=Button(miFrame, text="C", width=3, command=clear)
+botonclear.grid(row=6,column=1)
 
 
 raiz.mainloop()
