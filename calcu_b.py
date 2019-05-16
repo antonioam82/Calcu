@@ -5,6 +5,7 @@ miFrame.pack()
 #raiz.geometry("392x488")
 #operacion=""
 #resultado=0
+oper=False
 
 numeroPantalla=StringVar()
 pantalla=Entry(miFrame, textvariable=numeroPantalla)
@@ -13,23 +14,27 @@ pantalla.config(bg="black", fg="#03f943", justify="right")
 
 def numeroPulsado(num):
     global operacion
-    if operacion!="":
+    global oper
+    if oper==True:
         numeroPantalla.set(num)
-        #operacion=""
+        oper=False
     else:
         numeroPantalla.set(numeroPantalla.get()+num)
-            #cleare=False
 
 def clear():
     global operacion
     global resultado
+    global oper
     operacion=""
     resultado=0
+    oper=False
     numeroPantalla.set(resultado)
     
 def division(num):
     global resultado
     global operacion
+    global oper
+    oper=True
     operacion="divi"
     if resultado!=0:
         resultado/=float(num)
@@ -40,6 +45,8 @@ def division(num):
 def multiplic(num):
     global resultado
     global operacion
+    global oper
+    oper=True
     operacion="multi"
     if resultado!=0:
         resultado*=float(num)
@@ -50,6 +57,8 @@ def multiplic(num):
 def suma(num):
     global resultado
     global operacion
+    global oper
+    oper=True
     operacion="suma"
     resultado+=float(num)
     numeroPantalla.set(resultado)
@@ -57,6 +66,8 @@ def suma(num):
 def resta(num):
     global resultado
     global operacion
+    global oper
+    oper=True
     operacion="resta"
     if resultado!=0:
         resultado-=float(num)
@@ -115,7 +126,6 @@ botonDiv=Button(miFrame, text="/", width=3, command=lambda:division(numeroPantal
 botonDiv.grid(row=5, column=4)
 botonclear=Button(miFrame, text="C", width=3, command=clear)
 botonclear.grid(row=6,column=1)
-
 
 raiz.mainloop()
 
