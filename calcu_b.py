@@ -17,10 +17,8 @@ def numeroPulsado(num):
         numeroPantalla.set(num)
         #operacion=""
     else:
-        if numeroPantalla.get()=="0":
-            numeroPantalla.set(num)
-        else:
-            numeroPantalla.set(numeroPantalla.get()+num)
+        numeroPantalla.set(numeroPantalla.get()+num)
+            #cleare=False
 
 def clear():
     global operacion
