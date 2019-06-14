@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA-C2")
@@ -12,7 +10,6 @@ from math import *
 oper=""
 numero=""
 opera=[]
-resultado=0
 numeroPantalla=StringVar()
 
 
@@ -35,10 +32,16 @@ def suma():
         numeroPantalla.set(opera[0])
     numero=""
 
-
-def calculo(l):
-    global resultado
+def resultadoo():
     global opera
+    global numero
+    opera.append(numero)
+    if len(opera)==2:
+        opera[0]=float(opera[0])+float(opera[1])
+    numeroPantalla.set(opera[0])
+    opera=[]
+    numero=""
+
 
 
 
@@ -92,9 +95,7 @@ def clear():
     global resultado
     global oper
     operacion=""
-    resultado=0
-    oper=False
-    numeroPantalla.set(resultado)
+    numeroPantalla.set("0")
     
 
 
@@ -116,7 +117,7 @@ alto_boton=2
 alto_mem=1
 ancho_mem=6
 bd=10
-clear()
+
 Button(ventana,text="0",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("0")).place(x=21,y=200+15)
 Button(ventana,text="1",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("1")).place(x=80,y=200+15)
 Button(ventana,text="2",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("2")).place(x=139,y=200+15)
@@ -146,7 +147,7 @@ Button(ventana,text="CE",bg="firebrick1",fg=cn,activebackground="indianred1",wid
 Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=139,y=344+15)
 Button(ventana,text="C",bg="firebrick1",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=200+15)
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=344+15)
-Button(ventana,text="=",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=392+15)
+Button(ventana,text="=",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=resultadoo).place(x=316,y=392+15)
 Button(ventana,text="MEM1",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem).place(x=21,y=166+15)
 Button(ventana,text="MEM2",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem).place(x=80,y=166+15)
 Button(ventana,text="MEM3",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem).place(x=139,y=166+15)
