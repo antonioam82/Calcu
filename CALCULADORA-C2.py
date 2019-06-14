@@ -16,6 +16,7 @@ def entrada(num):
     numero=numero+num
     numeroPantalla.set(numero)
     
+    
 
 #def mem1(n):
     #global to_mem, active_mem, lista_memoria, active_del,oper
