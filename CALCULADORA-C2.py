@@ -25,7 +25,6 @@ def entrada(num):
 def suma():
     global opera
     global resultado
-    global oper
     global numero
     opera.append(numero)
     if len(opera)==2:
