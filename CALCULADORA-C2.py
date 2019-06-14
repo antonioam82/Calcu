@@ -7,15 +7,46 @@ color_boton=("gray60")
 cn=("black")
 actb="LightCyan3"
 from math import *
-oper=True
-numeroPantalla=StringVar()
+oper=""
 numero=""
+opera=[]
+resultado=0
+numeroPantalla=StringVar()
+
 
 def entrada(num):
     global numero
     numero=numero+num
     numeroPantalla.set(numero)
-    
+
+
+def suma():
+    global opera
+    global resultado
+    global oper
+    global numero
+    opera.append(numero)
+    if len(opera)==2:
+        opera[0]=float(opera[0])+float(opera[1])
+        numeroPantalla.set(opera[0])
+        opera.pop()
+    elif len(opera)==1:
+        numeroPantalla.set(opera[0])
+    numero=""
+
+
+def calculo(l):
+    global resultado
+    global opera
+
+
+
+#def resta(num):
+
+
+
+#def resultado_final():
+
     
 
 #def mem1(n):
@@ -97,7 +128,7 @@ Button(ventana,text="8",bg=color_boton,fg=cn,activebackground=actb,width=ancho_b
 Button(ventana,text="9",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("9")).place(x=316,y=248+15)
 Button(ventana,text="π",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada(str(pi))).place(x=21,y=296+15)
 Button(ventana,text=".",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=80,y=296+15)
-Button(ventana,text="+",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=139,y=296+15)
+Button(ventana,text="+",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=suma).place(x=139,y=296+15)
 Button(ventana,text="-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=198,y=296+15)
 Button(ventana,text="*",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=257,y=296+15)
 Button(ventana,text="/",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=296+15)
