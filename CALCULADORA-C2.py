@@ -1,6 +1,6 @@
-#!/usr/bin/python
-# -*- coding: latin-1 -*-from tkinter import *
-from Tkinter import *
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA-C2")
 ventana.configure(background="dark slate gray")
@@ -28,15 +28,15 @@ def operaciooon(s):
     global numero, sign
     opera.append(numero)
     if len(opera)==2 and sign==s:
-		if s=="+":
-			resultado=float(opera[0])+float(opera[1])
-			#numeroPantalla.set(opera[0])
-			opera[0]=resultado
-			opera.pop()
-		elif s=="-":
-			resultado=float(opera[0])-float(opera[1])
-			opera[0]=resultado
-			opera.pop()
+        if s=="+":
+            resultado=float(opera[0])+float(opera[1])
+	    #numeroPantalla.set(opera[0])
+            opera[0]=resultado
+            opera.pop()
+        elif s=="-":
+            resultado=float(opera[0])-float(opera[1])
+            opera[0]=resultado
+            opera.pop()
     numeroPantalla.set(resultado)
     sign=s
     numero=""
