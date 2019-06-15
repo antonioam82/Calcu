@@ -1,4 +1,6 @@
-from tkinter import *
+#!/usr/bin/python
+# -*- coding: latin-1 -*-from tkinter import *
+from Tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA-C2")
 ventana.configure(background="dark slate gray")
@@ -9,9 +11,10 @@ actb="LightCyan3"
 from math import *
 oper=""
 numero=""
+resultado=0
+sign=""
 opera=[]
 numeroPantalla=StringVar()
-
 
 def entrada(num):
     global numero
@@ -19,82 +22,44 @@ def entrada(num):
     numeroPantalla.set(numero)
 
 
-def suma():
+def operaciooon(s):
     global opera
     global resultado
-    global numero
+    global numero, sign
     opera.append(numero)
-    if len(opera)==2:
-        opera[0]=float(opera[0])+float(opera[1])
-        numeroPantalla.set(opera[0])
-        opera.pop()
-    elif len(opera)==1:
-        numeroPantalla.set(opera[0])
+    if len(opera)==2 and sign==s:
+		if s=="+":
+			resultado=float(opera[0])+float(opera[1])
+			#numeroPantalla.set(opera[0])
+			opera[0]=resultado
+			opera.pop()
+		elif s=="-":
+			resultado=float(opera[0])-float(opera[1])
+			opera[0]=resultado
+			opera.pop()
+    numeroPantalla.set(resultado)
+    sign=s
     numero=""
 
 def resultadoo():
     global opera
     global numero
+    global resultado
     opera.append(numero)
     if len(opera)==2:
-        opera[0]=float(opera[0])+float(opera[1])
+        resultado=float(opera[0])+float(opera[1])
+        opera[0]=resultado
     numeroPantalla.set(opera[0])
-    opera=[]
+    #opera=[]
     numero=""
-
-
-
-
-#def resta(num):
-
-
-
-#def resultado_final():
-
-    
-
-#def mem1(n):
-    #global to_mem, active_mem, lista_memoria, active_del,oper
-    #if active_mem==True and active_del==False:
-        #try:
-            #salida=(str(eval(to_mem)))+("(MEM")+str(n+1)+(")")
-            #lista_memoria[n]=str(eval(to_mem))
-        #except:
-            #salida="ERROR"
-        #input_texto.set(salida)
-        #active_mem=False
-        #print(lista_memoria)
-    #else:
-        #if active_del==True:
-            #lista_memoria[n]=""
-            #print(lista_memoria)
-            #active_del==False
-        #else:
-            #if lista_memoria[n]!="":
-                #oper=oper+str(lista_memoria[n])
-                #input_texto.set(oper)
-                
-#def deletion():
-    #global active_del
-    #active_del=True
-    
-
-#def memorize():
-    #global active_mem, oper, to_mem
-    #active_mem=True
-    #if oper!="":
-        #try:
-            #to_mem=str(eval(oper))
-        #except:
-            #imput_texto.set("ERROR")
-        #oper=""
 
 
 def clear():
     global operacion
     global resultado
-    global oper
+    global numero
     operacion=""
+    numero=""
     numeroPantalla.set("0")
     
 
@@ -130,8 +95,8 @@ Button(ventana,text="8",bg=color_boton,fg=cn,activebackground=actb,width=ancho_b
 Button(ventana,text="9",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("9")).place(x=316,y=248+15)
 Button(ventana,text="π",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada(str(pi))).place(x=21,y=296+15)
 Button(ventana,text=".",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=80,y=296+15)
-Button(ventana,text="+",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=suma).place(x=139,y=296+15)
-Button(ventana,text="-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=198,y=296+15)
+Button(ventana,text="+",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:operaciooon("+")).place(x=139,y=296+15)
+Button(ventana,text="-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:operaciooon("-")).place(x=198,y=296+15)
 Button(ventana,text="*",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=257,y=296+15)
 Button(ventana,text="/",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=296+15)
 Button(ventana,text="√",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=21,y=344+15)
