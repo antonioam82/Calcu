@@ -19,39 +19,31 @@ numeroPantalla=StringVar()
 def entrada(num):
     global numero
     numero=numero+num
-    numeroPantalla.set(numero)
+    if numero.isdigit():
+        numeroPantalla.set(numero)
+    operaciooon()
 
-
-def operaciooon(s):
+def operaciooon():
     global opera
     global resultado
     global numero, sign
+    if len(opera)==3:
+        cal=("").join(opera)
+        opera[0]=str(eval(cal))
+        opera.pop()
+        opera.pop()
+        numeroPantalla.set(opera[0])
     opera.append(numero)
-    if len(opera)==2 and sign==s:
-        if s=="+":
-            resultado=float(opera[0])+float(opera[1])
-	    #numeroPantalla.set(opera[0])
-            opera[0]=resultado
-            opera.pop()
-        elif s=="-":
-            resultado=float(opera[0])-float(opera[1])
-            opera[0]=resultado
-            opera.pop()
-    numeroPantalla.set(resultado)
-    sign=s
+    print(opera)
     numero=""
+
 
 def resultadoo():
     global opera
     global numero
     global resultado
     opera.append(numero)
-    if len(opera)==2:
-        resultado=float(opera[0])+float(opera[1])
-        opera[0]=resultado
-    numeroPantalla.set(opera[0])
-    #opera=[]
-    numero=""
+
 
 
 def clear():
@@ -95,10 +87,10 @@ Button(ventana,text="8",bg=color_boton,fg=cn,activebackground=actb,width=ancho_b
 Button(ventana,text="9",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("9")).place(x=316,y=248+15)
 Button(ventana,text="π",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada(str(pi))).place(x=21,y=296+15)
 Button(ventana,text=".",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=80,y=296+15)
-Button(ventana,text="+",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:operaciooon("+")).place(x=139,y=296+15)
-Button(ventana,text="-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:operaciooon("-")).place(x=198,y=296+15)
+Button(ventana,text="+",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("+")).place(x=139,y=296+15)
+Button(ventana,text="-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("-")).place(x=198,y=296+15)
 Button(ventana,text="*",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=257,y=296+15)
-Button(ventana,text="/",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=296+15)
+Button(ventana,text="/",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:entrada("/")).place(x=316,y=296+15)
 Button(ventana,text="√",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=21,y=344+15)
 Button(ventana,text="(",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=198,y=344+15)
 Button(ventana,text=")",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=257,y=344+15)
