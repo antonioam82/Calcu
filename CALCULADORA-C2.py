@@ -34,7 +34,10 @@ def operaciooon():
         opera.pop()
         numeroPantalla.set(opera[0])
     opera.append(numero)
-    print(opera)
+    if len(opera)>=2:
+        if opera[1]=="":
+            opera.pop()
+    #print(opera)
     numero=""
 
 
@@ -42,7 +45,9 @@ def resultadoo():
     global opera
     global numero
     global resultado
-    opera.append(numero)
+    opera.pop()
+    print(opera)
+    numeroPantalla.set(opera[0])
 
 
 
@@ -104,7 +109,7 @@ Button(ventana,text="CE",bg="firebrick1",fg=cn,activebackground="indianred1",wid
 Button(ventana,text="+/-",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=139,y=344+15)
 Button(ventana,text="C",bg="firebrick1",fg=cn,activebackground="indianred1",width=ancho_boton,height=alto_boton,command=clear).place(x=316,y=200+15)
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton).place(x=316,y=344+15)
-Button(ventana,text="=",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=resultadoo).place(x=316,y=392+15)
+Button(ventana,text="=",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=operaciooon).place(x=316,y=392+15)
 Button(ventana,text="MEM1",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem).place(x=21,y=166+15)
 Button(ventana,text="MEM2",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem).place(x=80,y=166+15)
 Button(ventana,text="MEM3",bg="gray48",fg=cn,width=ancho_mem,height=alto_mem).place(x=139,y=166+15)
