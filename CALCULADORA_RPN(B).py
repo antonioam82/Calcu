@@ -56,6 +56,7 @@ def coma():
         input_text.set(numero)
         comas+=1
 
+
 def enter():
     global numero
     global l_numeros
@@ -91,14 +92,13 @@ def operacion(s):
         except:
             input_text.set("ERROR")
             l_numeros=[]
-        #prev_sign=""
-        numero=""
+        #numero=""
     elif len(l_numeros)==1 and prev_sign==s:
         numero=eval(l_numeros[0]+s+reep)
         input_text.set(numero)
         l_numeros[0]=str(numero)
         print(l_numeros)
-        numero=""
+    numero=""
 
 def funci(s):
     global numero
@@ -108,6 +108,7 @@ def funci(s):
             numero=str(eval(s+"("+l_numeros[0]+")"))#[0]
             input_text.set(numero)
             l_numeros[0]=numero
+            prev_sign=s
         except:
             input_text.set("ERROR")
             l_numeros=[]
