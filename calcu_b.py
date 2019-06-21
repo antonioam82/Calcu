@@ -6,6 +6,7 @@ miFrame.pack()
 #operacion=""
 #resultado=0
 oper=False
+prime_ope=True
 
 numeroPantalla=StringVar()
 pantalla=Entry(miFrame, textvariable=numeroPantalla)
@@ -15,20 +16,29 @@ pantalla.config(bg="black", fg="#03f943", justify="right")
 def numeroPulsado(num):
     global operacion
     global oper
+    global prime_ope
     if oper==True:
         numeroPantalla.set(num)
         oper=False
     else:
-        numeroPantalla.set(numeroPantalla.get()+num)
+        if prime_ope==True:
+            num=num.replace(numeroPantalla.get(),num)
+            prime_ope=False
+            numeroPantalla.set(num)
+        else:
+            numeroPantalla.set(numeroPantalla.get()+num)
 
 def clear():
     global operacion
     global resultado
     global oper
+    global prime_ope
     operacion=""
     resultado=0
     oper=False
     numeroPantalla.set(resultado)
+    if prime_ope==False:
+        prime_ope=True
     
 def division(num):
     global resultado
