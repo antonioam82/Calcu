@@ -92,13 +92,13 @@ def operacion(s):
         except:
             input_text.set("ERROR")
             l_numeros=[]
-        #numero=""
-    elif len(l_numeros)==1 and prev_sign==s:
+            numero=""
+    elif len(l_numeros)==1 and prev_sign==s: 
         numero=eval(l_numeros[0]+s+reep)
         input_text.set(numero)
         l_numeros[0]=str(numero)
         print(l_numeros)
-    numero=""
+        numero=""
 
 def funci(s):
     global numero
@@ -198,8 +198,6 @@ Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:operacion("**")).place(x=316,y=324)
 Button(ventana,text="ENTER",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=enter).place(x=316,y=372)
 
-
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
-
 
 ventana.mainloop()
