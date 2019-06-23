@@ -99,7 +99,7 @@ Button(ventana,text="7",width=7,fg="white",bg="gray13",height=2,command=lambda:n
 Button(ventana,text="8",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("8")).place(x=80,y=180)
 Button(ventana,text="9",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("9")).place(x=152,y=180)
 Button(ventana,text="CE",width=7,bg="DarkOrange2",height=2).place(x=224,y=180)
-Button(ventana,text="C",width=7,bg="DarkOrange2",height=2).place(x=296,y=180)
+Button(ventana,text="C",width=7,bg="DarkOrange2",height=2,command=clear).place(x=296,y=180)
 Button(ventana,text="4",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("4")).place(x=4,y=238)
 Button(ventana,text="5",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("5")).place(x=80,y=238)
 Button(ventana,text="6",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("6")).place(x=152,y=238)
