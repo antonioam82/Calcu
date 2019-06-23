@@ -56,7 +56,6 @@ def coma():
         input_text.set(numero)
         comas+=1
 
-
 def enter():
     global numero
     global l_numeros
