@@ -4,7 +4,7 @@ ventana.title("CALCULADORA INFIJA")
 ventana.configure(background="gray36")
 ventana.geometry("360x490")
 
-Text(ventana,font=('Arial',20,"bold"),height=2,width=23,bd=2,bg="PaleGreen3").place(x=4,y=30)
+Entry(ventana,font=('Arial',30,"bold"),width=16,bd=2,bg="PaleGreen3",justify="right").place(x=1,y=30)
 
 Button(ventana,text="7",width=7,fg="white",bg="gray13",height=2).place(x=4,y=180)
 Button(ventana,text="8",width=7,fg="white",bg="gray13",height=2).place(x=80,y=180)
