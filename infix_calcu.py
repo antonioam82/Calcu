@@ -112,7 +112,7 @@ Button(ventana,text="+",width=7,fg="white",bg="gray13",height=2,command=lambda:s
 Button(ventana,text="-",width=7,fg="white",bg="gray13",height=2,command=lambda:resta(numeroPantalla.get())).place(x=296,y=296)
 Button(ventana,text="0",width=7,fg="white",bg="gray13",height=2).place(x=4,y=354)
 Button(ventana,text="+/-",width=7,fg="white",bg="gray13",height=2).place(x=80,y=354)
-Button(ventana,text=".",width=7,fg="white",bg="gray13",height=2).place(x=152,y=354)
+Button(ventana,text=".",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado(".")).place(x=152,y=354)
 Button(ventana,text="EXP",width=7,fg="white",bg="gray13",height=2).place(x=224,y=354)
 Button(ventana,text="=",width=7,fg="white",bg="gray13",height=2,command=lambda:el_resultado()).place(x=296,y=354)
 ventana.mainloop()
