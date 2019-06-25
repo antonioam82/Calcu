@@ -14,6 +14,11 @@ def numeroPulsado(n):
     numero=numero+n
     numeroPantalla.set(numero)
 
+def cambio_signo():
+    global numero
+    numero=float(numero)*(-1)
+    numeroPantalla.set(numero)
+
 def calculo(o):
     global resultado
     global numero
@@ -112,7 +117,7 @@ Entry(ventana,font=('Arial',30,"bold"),textvariable=numeroPantalla,width=16,bd=2
 Button(ventana,text="7",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("7")).place(x=4,y=180)
 Button(ventana,text="8",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("8")).place(x=80,y=180)
 Button(ventana,text="9",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("9")).place(x=152,y=180)
-Button(ventana,text="CE",width=7,bg="DarkOrange2",height=2).place(x=224,y=180)
+Button(ventana,text="CE",width=7,bg="DarkOrange2",height=2,command=clear).place(x=224,y=180)
 Button(ventana,text="C",width=7,bg="DarkOrange2",height=2,command=clear).place(x=296,y=180)
 Button(ventana,text="4",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("4")).place(x=4,y=238)
 Button(ventana,text="5",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("5")).place(x=80,y=238)
@@ -129,6 +134,7 @@ Button(ventana,text="/",width=7,fg="white",bg="gray13",height=2,command=lambda:c
 Button(ventana,text=".",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado(".")).place(x=152,y=354)
 Button(ventana,text="EXP",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("**")).place(x=224,y=354)
 Button(ventana,text="=",width=7,fg="white",bg="gray13",height=2,command=result).place(x=296,y=354)
+Button(ventana,text="+/-",width=6,fg="white",bg="gray6",height=1,command=cambio_signo).place(x=4,y=90)
 
 ventana.mainloop()
 
