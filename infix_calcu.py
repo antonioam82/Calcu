@@ -29,12 +29,7 @@ def calculo(o):
         primr=False
     else:
         try:
-            if o==prev_sign or operacion=="":
-                print(prev_sign)
-                print(operacion)
-                print(resultado)
-                print(o)
-                print(numero)
+            if o==prev_sign:
                 if o=="+":
                     resultado+=float(numero)######
                 elif o=="-":
@@ -46,6 +41,7 @@ def calculo(o):
                 elif o=="**":
                     resultado**=float(numero)
             else:
+                print(prev_sign)
                 if prev_sign=="+":
                     resultado+=float(numero)######
                 elif prev_sign=="-":
@@ -58,7 +54,7 @@ def calculo(o):
                     resultado**=float(numero)
                 prev_sign=o
             numeroPantalla.set(resultado)
-            operacion=o
+            #operacion=o
         except:
             numeroPantalla.set("ERROR")
             resultado=0
@@ -101,7 +97,7 @@ def result():
         prev_sign=operacion
     except:
         numeroPantalla.set("ERROR")
-    numero=0
+    numero=""
 
 clear()
 
@@ -129,5 +125,4 @@ Button(ventana,text="EXP",width=7,fg="white",bg="gray13",height=2,command=lambda
 Button(ventana,text="=",width=7,fg="white",bg="gray13",height=2,command=result).place(x=296,y=354)
 
 ventana.mainloop()
-
 
