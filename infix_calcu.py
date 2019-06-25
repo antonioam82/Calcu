@@ -20,6 +20,8 @@ def calculo(o):
     global primr
     global prev_sign
     global operacion
+    global op
+    op=o
     if primr==True:
         resultado+=float(numero)
         prev_sign=o
@@ -27,64 +29,78 @@ def calculo(o):
         primr=False
         print(resultado)
     else:
-        if o==prev_sign:
-            if o=="+":
-                resultado+=float(numero)######
-                print(resultado)
-            elif o=="-":
-                resultado-=float(numero)
-                print(resultado)
-            elif o=="*":
-                resultado*=float(numero)
-            elif o=="/":
-                resultado/=float(numero)
-            elif o=="**":
-                resultado=resultado**float(numero)
-        else:
-            if prev_sign=="+":
-                resultado+=float(numero)######
-                print(resultado)
-            elif prev_sign=="-":
-                resultado-=float(numero)
-                print(resultado)
-            elif prev_sign=="*":
-                resultado*=float(numero)
-            elif prev_sign=="/":
-                resultado/=float(numero)
-            elif prev_sign=="**":
-                resultado=resultado**float(numero)
-            prev_sign=o
-    numeroPantalla.set(resultado)
-    operacion=o
-    numero=""
+        try:
+            if o==prev_sign or operacion=="":
+                if o=="+":
+                    resultado+=float(numero)######
+                elif o=="-":
+                    resultado-=float(numero)
+                elif o=="*":
+                    resultado*=float(numero)
+                elif o=="/":
+                    resultado/=float(numero)
+                elif o=="**":
+                    resultado=resultado**float(numero)
+            else:
+                if prev_sign=="+":
+                    resultado+=float(numero)######
+                elif prev_sign=="-":
+                    resultado-=float(numero)
+                elif prev_sign=="*":
+                    resultado*=float(numero)
+                elif prev_sign=="/":
+                    resultado/=float(numero)
+                elif prev_sign=="**":
+                    resultado=resultado**float(numero)
+                prev_sign=o
+            numeroPantalla.set(resultado)
+            operacion=o
+        except:
+            numeroPantalla.set("ERROR")
+            resultado=0
+            primr=True
+        numero=""
 
 def clear():
     global numero
     global resultado
     global primr
     global prev_sign
+    global operacion
+    global op
+    op=""
     numero=""
     resultado=0
     primr=True
     prev_sign=""
+    operacion=""
     numeroPantalla.set(resultado)
 
 def result():
     global numero
     global resultado
     global prev_sign
-    if operacion=="+":
-        resultado+=float(numero)
-    elif operacion=="-":
-        resultado-=float(numero)
-    elif operacion=="*":
-        resultado*=float(numero)
-    elif operacion=="/":
-        resultado/=float(numero)
-    if operacion=="**":
-        resultado=resultado**float(numero)
-    numeroPantalla.set(resultado)
-    prev_sign=operacion
+    global operacion
+    print(resultado)
+    print(operacion)
+    print(numero)
+    try:
+        operacion=op
+        print(operacion)
+        if operacion=="+":
+            resultado+=float(numero)
+        elif operacion=="-":
+            resultado-=float(numero)
+        elif operacion=="*":
+            resultado*=float(numero)
+        elif operacion=="/":
+            resultado/=float(numero)
+        elif operacion=="**":
+            resultado=resultado**float(numero)
+        numeroPantalla.set(resultado)
+        prev_sign=operacion
+    except:
+        numeroPantalla.set("ERROR")
     numero=""
 
 clear()
