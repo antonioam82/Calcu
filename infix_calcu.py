@@ -97,7 +97,7 @@ def result():
         prev_sign=operacion
     except:
         numeroPantalla.set("ERROR")
-    numero=""
+    numero=0
 
 clear()
 
