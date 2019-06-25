@@ -16,8 +16,9 @@ def numeroPulsado(n):
 
 def cambio_signo():
     global numero
-    numero=float(numero)*(-1)
-    numeroPantalla.set(numero)
+    if numero!="":
+        numero=float(numero)*(-1)
+        numeroPantalla.set(numero)
 
 def calculo(o):
     global resultado
