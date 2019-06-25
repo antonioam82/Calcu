@@ -29,7 +29,7 @@ def calculo(o):
         primr=False
     else:
         try:
-            if o==prev_sign:
+            if o==prev_sign and numero!="":
                 if o=="+":
                     resultado+=float(numero)######
                 elif o=="-":
@@ -40,7 +40,7 @@ def calculo(o):
                     resultado/=float(numero)
                 elif o=="**":
                     resultado**=float(numero)
-            else:
+            elif o!=prev_sign and numero!="":
                 print(prev_sign)
                 print(numero)
                 print(resultado)
@@ -131,4 +131,5 @@ Button(ventana,text="EXP",width=7,fg="white",bg="gray13",height=2,command=lambda
 Button(ventana,text="=",width=7,fg="white",bg="gray13",height=2,command=result).place(x=296,y=354)
 
 ventana.mainloop()
+
 
