@@ -37,7 +37,6 @@ def calculo(o):
                 print(numero)
                 if o=="+":
                     resultado+=float(numero)######
-                    
                 elif o=="-":
                     resultado-=float(numero)
                 elif o=="*":
@@ -45,7 +44,7 @@ def calculo(o):
                 elif o=="/":
                     resultado/=float(numero)
                 elif o=="**":
-                    resultado=resultado**float(numero)
+                    resultado**=float(numero)
             else:
                 if prev_sign=="+":
                     resultado+=float(numero)######
@@ -56,7 +55,7 @@ def calculo(o):
                 elif prev_sign=="/":
                     resultado/=float(numero)
                 elif prev_sign=="**":
-                    resultado=resultado**float(numero)
+                    resultado**=float(numero)
                 prev_sign=o
             numeroPantalla.set(resultado)
             operacion=o
@@ -97,7 +96,7 @@ def result():
         elif operacion=="/":
             resultado/=float(numero)
         elif operacion=="**":
-            resultado=resultado**float(numero)
+            resultado**=float(numero)
         numeroPantalla.set(resultado)
         prev_sign=operacion
     except:
