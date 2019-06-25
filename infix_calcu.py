@@ -42,6 +42,9 @@ def calculo(o):
                     resultado**=float(numero)
             else:
                 print(prev_sign)
+                print(numero)
+                print(resultado)
+                print(prev_sign)
                 if prev_sign=="+":
                     resultado+=float(numero)######
                 elif prev_sign=="-":
@@ -97,7 +100,10 @@ def result():
         prev_sign=operacion
     except:
         numeroPantalla.set("ERROR")
-    numero=0
+    if operacion!="/":
+        numero=0
+    else:
+        numero=1
 
 clear()
 
