@@ -14,6 +14,7 @@ def numeroPulsado(n):
     global numero
     print(numero)
     print(n)
+    print(type(numero))
     numero=numero+n
     numeroPantalla.set(numero)
 
@@ -117,10 +118,12 @@ def result():
         numeroPantalla.set("ERROR")
         primr=True
         numero=""
-    if operacion!="/":
-        numero=0
-    else:
-        numero=1
+        resultado=0
+    if primr==False:
+        if operacion!="/":
+            numero=0
+        else:
+            numero=1
 
 clear()
 
@@ -159,7 +162,6 @@ Button(ventana,text="DEL",width=6,fg="black",bg="cornflower blue",height=1).plac
 Button(ventana,text="π",width=6,fg="white",bg="gray6",height=1,command=pee).place(x=187,y=136)
 Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1).place(x=248,y=136)
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1).place(x=309,y=136)
-
 ventana.mainloop()
 
 
