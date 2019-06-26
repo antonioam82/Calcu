@@ -2,8 +2,9 @@ from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA INFIJA")
 ventana.configure(background="gray36")
-ventana.geometry("360x490")
+ventana.geometry("366x490")
 numeroPantalla=StringVar()
+from math import *
 #numero=""
 #resultado=0
 #prev_sign=""
@@ -19,6 +20,11 @@ def cambio_signo():
     if numero!="" and numero!=0:
         numero=float(numero)*(-1)
         numeroPantalla.set(numero)
+
+def pee():
+    global numero
+    numero=pi
+    numeroPantalla.set(numero)
 
 def calculo(o):
     global resultado
@@ -113,38 +119,41 @@ def result():
 
 clear()
 
-Entry(ventana,font=('Arial',30,"bold"),textvariable=numeroPantalla,width=16,bd=2,bg="PaleGreen3",justify="right").place(x=1,y=30)
+Entry(ventana,font=('Arial',23,'bold'),textvariable=numeroPantalla,width=21,bd=2,bg="PaleGreen3",justify="right").place(x=1,y=30)
 
 Button(ventana,text="7",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("7")).place(x=4,y=180)
-Button(ventana,text="8",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("8")).place(x=80,y=180)
+Button(ventana,text="8",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("8")).place(x=78,y=180)
 Button(ventana,text="9",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("9")).place(x=152,y=180)
-Button(ventana,text="CE",width=7,bg="DarkOrange2",height=2,command=clear).place(x=224,y=180)
-Button(ventana,text="C",width=7,bg="DarkOrange2",height=2,command=clear).place(x=296,y=180)
+Button(ventana,text="CE",width=7,bg="DarkOrange2",height=2,command=clear).place(x=227,y=180)
+Button(ventana,text="C",width=7,bg="DarkOrange2",height=2,command=clear).place(x=302,y=180)#302
 Button(ventana,text="4",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("4")).place(x=4,y=238)
-Button(ventana,text="5",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("5")).place(x=80,y=238)
+Button(ventana,text="5",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("5")).place(x=78,y=238)
 Button(ventana,text="6",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("6")).place(x=152,y=238)
-Button(ventana,text="x",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("*")).place(x=224,y=238)
-Button(ventana,text="%",width=7,fg="white",bg="gray13",height=2).place(x=296,y=238)
+Button(ventana,text="x",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("*")).place(x=227,y=238)
+Button(ventana,text="%",width=7,fg="white",bg="gray13",height=2).place(x=302,y=238)
 Button(ventana,text="1",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("1")).place(x=4,y=296)
-Button(ventana,text="2",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("2")).place(x=80,y=296)
+Button(ventana,text="2",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("2")).place(x=78,y=296)
 Button(ventana,text="3",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("3")).place(x=152,y=296)
-Button(ventana,text="+",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("+")).place(x=224,y=296)
-Button(ventana,text="-",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("-")).place(x=296,y=296)
+Button(ventana,text="+",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("+")).place(x=227,y=296)
+Button(ventana,text="-",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("-")).place(x=302,y=296)
 Button(ventana,text="0",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("0")).place(x=4,y=354)
-Button(ventana,text="/",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("/")).place(x=80,y=354)
+Button(ventana,text="/",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("/")).place(x=78,y=354)
 Button(ventana,text=".",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado(".")).place(x=152,y=354)
-Button(ventana,text="EXP",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("**")).place(x=224,y=354)
-Button(ventana,text="=",width=7,fg="white",bg="gray13",height=2,command=result).place(x=296,y=354)
+Button(ventana,text="EXP",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("**")).place(x=227,y=354)
+Button(ventana,text="=",width=7,fg="white",bg="gray13",height=2,command=result).place(x=302,y=354)
 
 Button(ventana,text="+/-",width=6,fg="white",bg="gray6",height=1,command=cambio_signo).place(x=4,y=100)
-Button(ventana,text="sin",width=6,fg="white",bg="gray6",height=1).place(x=64,y=100)
-Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1).place(x=124,y=100)
-Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1).place(x=184,y=100)
-Button(ventana,text="√",width=6,fg="white",bg="gray6",height=1).place(x=244,y=100)
-Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1).place(x=304,y=100)
+Button(ventana,text="sin",width=6,fg="white",bg="gray6",height=1).place(x=65,y=100)
+Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1).place(x=126,y=100)
+Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1).place(x=187,y=100)
+Button(ventana,text="√",width=6,fg="white",bg="gray6",height=1).place(x=248,y=100)
+Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1).place(x=309,y=100)
 Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1).place(x=4,y=136)
-Button(ventana,text="M2",width=6,fg="white",bg="cornflower blue",height=1).place(x=64,y=136)
-Button(ventana,text="M3",width=6,fg="white",bg="cornflower blue",height=1).place(x=124,y=136)
+Button(ventana,text="M2",width=6,fg="white",bg="cornflower blue",height=1).place(x=65,y=136)
+Button(ventana,text="DEL",width=6,fg="black",bg="cornflower blue",height=1).place(x=126,y=136)
+Button(ventana,text="π",width=6,fg="white",bg="gray6",height=1,command=pee).place(x=187,y=136)
+Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1).place(x=248,y=136)
+Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1).place(x=309,y=136)
 ventana.mainloop()
 
 
