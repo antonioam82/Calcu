@@ -91,7 +91,7 @@ def operacion(s):
         except:
             input_text.set("ERROR")
             l_numeros=[]
-            numero=""
+        numero=""
     elif len(l_numeros)==1 and prev_sign==s: 
         numero=eval(l_numeros[0]+s+reep)
         input_text.set(numero)
