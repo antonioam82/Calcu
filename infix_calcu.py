@@ -12,15 +12,21 @@ from math import *
 
 def numeroPulsado(n):
     global numero
+    print(numero)
+    print(n)
     numero=numero+n
     numeroPantalla.set(numero)
 
 def cambio_signo():
     global numero
+    global resultado
     if numero!="" and numero!=0:
         numero=float(numero)*(-1)
         numeroPantalla.set(numero)
-
+    else:
+        resultado=resultado*(-1)
+        numeroPantalla.set(resultado)
+        
 def pee():
     global numero
     numero=pi
@@ -53,10 +59,6 @@ def calculo(o):
                 elif o=="**":
                     resultado**=float(numero)
             elif o!=prev_sign and numero!="":
-                print(prev_sign)
-                print(numero)
-                print(resultado)
-                print(prev_sign)
                 if prev_sign=="+":
                     resultado+=float(numero)######
                 elif prev_sign=="-":
@@ -96,6 +98,7 @@ def result():
     global resultado
     global prev_sign
     global operacion
+    global primr
     try:
         operacion=op
         if operacion=="+":
@@ -112,6 +115,8 @@ def result():
         prev_sign=operacion
     except:
         numeroPantalla.set("ERROR")
+        primr=True
+        numero=""
     if operacion!="/":
         numero=0
     else:
@@ -154,7 +159,10 @@ Button(ventana,text="DEL",width=6,fg="black",bg="cornflower blue",height=1).plac
 Button(ventana,text="π",width=6,fg="white",bg="gray6",height=1,command=pee).place(x=187,y=136)
 Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1).place(x=248,y=136)
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1).place(x=309,y=136)
+
 ventana.mainloop()
+
+
 
 
 
