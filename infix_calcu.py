@@ -135,8 +135,17 @@ Button(ventana,text="/",width=7,fg="white",bg="gray13",height=2,command=lambda:c
 Button(ventana,text=".",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado(".")).place(x=152,y=354)
 Button(ventana,text="EXP",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("**")).place(x=224,y=354)
 Button(ventana,text="=",width=7,fg="white",bg="gray13",height=2,command=result).place(x=296,y=354)
-Button(ventana,text="+/-",width=6,fg="white",bg="gray6",height=1,command=cambio_signo).place(x=4,y=90)
 
+Button(ventana,text="+/-",width=6,fg="white",bg="gray6",height=1,command=cambio_signo).place(x=4,y=100)
+Button(ventana,text="sin",width=6,fg="white",bg="gray6",height=1).place(x=64,y=100)
+Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1).place(x=124,y=100)
+Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1).place(x=184,y=100)
+Button(ventana,text="√",width=6,fg="white",bg="gray6",height=1).place(x=244,y=100)
+Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1).place(x=304,y=100)
+Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1).place(x=4,y=136)
+Button(ventana,text="M2",width=6,fg="white",bg="cornflower blue",height=1).place(x=64,y=136)
+Button(ventana,text="M3",width=6,fg="white",bg="cornflower blue",height=1).place(x=124,y=136)
 ventana.mainloop()
+
 
 
