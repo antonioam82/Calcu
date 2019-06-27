@@ -46,7 +46,7 @@ def calculo(o):
     global blocked_numero
     global op
     op=o
-    blocked_numero=False
+    #blocked_numero=False
     if primr==True:
         resultado+=float(numero)
         prev_sign=o
@@ -139,12 +139,14 @@ def result():
         prev_sign=""
         operacion=""
     blocked_numero=True
+    resultado=0
     if primr==False:
         if operacion!="/" and operacion!="*":
             numero=0
         else:
             numero=1
     
+
 clear()
 
 Entry(ventana,font=('Arial',23,'bold'),textvariable=numeroPantalla,width=21,bd=2,bg="PaleGreen3",justify="right").place(x=1,y=30)
