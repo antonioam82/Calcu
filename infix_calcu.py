@@ -13,12 +13,15 @@ from math import *
 def numeroPulsado(n):
     global numero
     global blocked_numero
+    global blocked_calculo
+    global resultado
     print(numero)
     print(n)
     print(type(numero))
     if blocked_numero==True:
         numero=""
         blocked_numero=False
+        blocked_calculo=True
     numero=numero+n
     numeroPantalla.set(numero)
 
@@ -44,9 +47,12 @@ def calculo(o):
     global prev_sign
     global operacion
     global blocked_numero
+    global blocked_calculo
     global op
     op=o
-    #blocked_numero=False
+    if blocked_calculo==True:
+        resultado=0
+        blocked_calculo=False
     if primr==True:
         resultado+=float(numero)
         prev_sign=o
@@ -65,7 +71,6 @@ def calculo(o):
                 elif o=="/":
                     resultado/=float(numero)
                 elif o=="**":
-                    print("fffff")
                     resultado**=float(numero)
             elif o!=prev_sign and numero!="":
                 print(o)
@@ -99,11 +104,13 @@ def clear():
     global prev_sign
     global operacion
     global blocked_numero
+    global blocked_calculo
     global op
     op=""
     numero=""
     resultado=0
     blocked_numero=False
+    blocked_calculo=False
     primr=True
     prev_sign=""
     operacion=""
@@ -116,6 +123,7 @@ def result():
     global operacion
     global primr
     global blocked_numero
+    global blocked_calculo
     try:
         operacion=op
         if operacion=="+":
@@ -139,7 +147,8 @@ def result():
         prev_sign=""
         operacion=""
     blocked_numero=True
-    resultado=0
+    #blocked_calculo=True
+    #resultado=0
     if primr==False:
         if operacion!="/" and operacion!="*":
             numero=0
