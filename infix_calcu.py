@@ -15,8 +15,9 @@ def numeroPulsado(n):
     print(numero)
     print(n)
     print(type(numero))
-    numero=numero+n
-    numeroPantalla.set(numero)
+    if blocked_numero==False:
+        numero=numero+n
+        numeroPantalla.set(numero)
 
 def cambio_signo():
     global numero
@@ -39,8 +40,10 @@ def calculo(o):
     global primr
     global prev_sign
     global operacion
+    global blocked_numero
     global op
     op=o
+    blocked_numero=False
     if primr==True:
         resultado+=float(numero)
         prev_sign=o
@@ -82,6 +85,7 @@ def calculo(o):
         except:
             numeroPantalla.set("ERROR")
             resultado=0
+            blocked_numero=True
             primr=True
         numero=""
 
@@ -91,10 +95,12 @@ def clear():
     global primr
     global prev_sign
     global operacion
+    global blocked_numero
     global op
     op=""
     numero=""
     resultado=0
+    blocked_numero=False
     primr=True
     prev_sign=""
     operacion=""
@@ -106,6 +112,7 @@ def result():
     global prev_sign
     global operacion
     global primr
+    global blocked_numero
     try:
         operacion=op
         if operacion=="+":
@@ -124,13 +131,16 @@ def result():
     except:
         numeroPantalla.set("ERROR")
         primr=True
-        numero=""
+        numero=0
         resultado=0
+        prev_sign=""
+        operacion=""
     if primr==False:
         if operacion!="/" and operacion!="*":
             numero=0
         else:
             numero=1
+    blocked_numero=True
 
 clear()
 
@@ -169,6 +179,7 @@ Button(ventana,text="DEL",width=6,fg="black",bg="cornflower blue",height=1).plac
 Button(ventana,text="π",width=6,fg="white",bg="gray6",height=1,command=pee).place(x=187,y=136)
 Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1).place(x=248,y=136)
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1).place(x=309,y=136)
+
 ventana.mainloop()
 
 
