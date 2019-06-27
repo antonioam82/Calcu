@@ -12,12 +12,15 @@ from math import *
 
 def numeroPulsado(n):
     global numero
+    global blocked_numero
     print(numero)
     print(n)
     print(type(numero))
-    if blocked_numero==False:
-        numero=numero+n
-        numeroPantalla.set(numero)
+    if blocked_numero==True:
+        numero=""
+        blocked_numero=False
+    numero=numero+n
+    numeroPantalla.set(numero)
 
 def cambio_signo():
     global numero
@@ -135,13 +138,13 @@ def result():
         resultado=0
         prev_sign=""
         operacion=""
+    blocked_numero=True
     if primr==False:
         if operacion!="/" and operacion!="*":
             numero=0
         else:
             numero=1
-    blocked_numero=True
-
+    
 clear()
 
 Entry(ventana,font=('Arial',23,'bold'),textvariable=numeroPantalla,width=21,bd=2,bg="PaleGreen3",justify="right").place(x=1,y=30)
