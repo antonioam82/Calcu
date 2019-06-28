@@ -56,7 +56,7 @@ def calculo(o):
     global op
     op=o
     if primr==True:
-        resultado+=float(numero)
+        resultado=float(numero)
         prev_sign=o
         numero=""
         primr=False
