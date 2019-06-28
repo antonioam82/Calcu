@@ -12,16 +12,7 @@ from math import *
 
 def numeroPulsado(n):
     global numero
-    global blocked_numero
-    global blocked_calculo
     global resultado
-    print(numero)
-    print(n)
-    print(type(numero))
-    if blocked_numero==True:
-        numero=""
-        blocked_numero=False
-        blocked_calculo=True
     numero=numero+n
     numeroPantalla.set(numero)
 
@@ -62,13 +53,8 @@ def calculo(o):
     global primr
     global prev_sign
     global operacion
-    global blocked_numero
-    global blocked_calculo
     global op
     op=o
-    if blocked_calculo==True:
-        resultado=0
-        blocked_calculo=False
     if primr==True:
         resultado+=float(numero)
         prev_sign=o
@@ -79,37 +65,36 @@ def calculo(o):
             if o==prev_sign and numero!="":
                 print(o)
                 if o=="+":
-                    resultado+=float(numero)######
+                    resultado=resultado+float(numero)######
                 elif o=="-":
-                    resultado-=float(numero)
+                    resultado=resultado-float(numero)
                 elif o=="*":
-                    resultado*=float(numero)
+                    resultado=resultado*float(numero)
                 elif o=="/":
-                    resultado/=float(numero)
+                    resultado=resultado/float(numero)
                 elif o=="**":
-                    resultado**=float(numero)
+                    resultado=resultado**float(numero)
             elif o!=prev_sign and numero!="":
                 print(o)
                 print(numero)
                 print(resultado)
                 if prev_sign=="+":
-                    resultado+=float(numero)######
+                    resultado=resultado+float(numero)######
                 elif prev_sign=="-":
-                    resultado-=float(numero)
+                    resultado=resultado-float(numero)######
                 elif prev_sign=="*":
-                    resultado*=float(numero)
+                    resultado=resultado*float(numero)######
                 elif prev_sign=="/":
-                    resultado/=float(numero)
+                    resultado=resultado/float(numero)
                 elif prev_sign=="**":
                     print("bbbb")
-                    resultado**=float(numero)
+                    resultado=resultado**float(numero)
                 prev_sign=o
             numeroPantalla.set(resultado)
             #operacion=o
         except:
             numeroPantalla.set("ERROR")
             resultado=0
-            blocked_numero=True
             primr=True
         numero=""
 
@@ -119,14 +104,10 @@ def clear():
     global primr
     global prev_sign
     global operacion
-    global blocked_numero
-    global blocked_calculo
     global op
     op=""
     numero=""
     resultado=0
-    blocked_numero=False
-    blocked_calculo=False
     primr=True
     prev_sign=""
     operacion=""
@@ -138,21 +119,18 @@ def result():
     global prev_sign
     global operacion
     global primr
-    global blocked_numero
-    global blocked_calculo
     try:
         operacion=op
         if operacion=="+":
-            resultado+=float(numero)
+            resultado=resultado+float(numero)######
         elif operacion=="-":
-            resultado-=float(numero)
+            resultado=resultado-float(numero)######
         elif operacion=="*":
-            resultado*=float(numero)
-            print(resultado)
+            resultado=resultado*float(numero)######
         elif operacion=="/":
-            resultado/=float(numero)
+            resultado=resultado/float(numero)######
         elif operacion=="**":
-            resultado**=float(numero)
+            resultado=resultado**float(numero)######
         numeroPantalla.set(resultado)
         prev_sign=operacion
     except:
@@ -162,15 +140,9 @@ def result():
         resultado=0
         prev_sign=""
         operacion=""
-    blocked_numero=True
-    #blocked_calculo=True
-    #resultado=0
-    if primr==False:
-        if operacion!="/" and operacion!="*":
-            numero=0
-        else:
-            numero=1
-    
+    numero=""
+    operacion=""
+    prev_sign=""
 
 clear()
 
@@ -211,6 +183,7 @@ Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1).place(x=248,y=
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1).place(x=309,y=136)
 
 ventana.mainloop()
+
 
 
 
