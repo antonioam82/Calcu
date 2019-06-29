@@ -12,9 +12,20 @@ from math import *
 
 def numeroPulsado(n):
     global numero
-    global resultado
+    #global resultado
+    global exc
+    if exc==True:
+        clear()
+        exc=False
     numero=numero+n
     numeroPantalla.set(numero)
+
+def clear_error():
+    global numero
+    global resultado
+    numero=""
+    resultado=0
+    numeroPantalla.set("0")
 
 def cambio_signo():
     global numero
@@ -54,15 +65,19 @@ def calculo(o):
     global prev_sign
     global operacion
     global op
+    global exc
     op=o
     if primr==True:
+        print("C")
         resultado=float(numero)
+        print("N",numero)
         prev_sign=o
         numero=""
         primr=False
     else:
         try:
-            if o==prev_sign and numero!="":
+            if o==prev_sign and numero!="" and exc==False:
+                print("A")
                 print(o)
                 if o=="+":
                     resultado=resultado+float(numero)######
@@ -74,7 +89,8 @@ def calculo(o):
                     resultado=resultado/float(numero)
                 elif o=="**":
                     resultado=resultado**float(numero)
-            elif o!=prev_sign and numero!="":
+            elif o!=prev_sign and numero!="" and exc==False:
+                print("B")
                 print(o)
                 print(numero)
                 print(resultado)
@@ -96,7 +112,9 @@ def calculo(o):
             numeroPantalla.set("ERROR")
             resultado=0
             primr=True
+    
         numero=""
+    exc=False
 
 def clear():
     global numero
@@ -105,12 +123,14 @@ def clear():
     global prev_sign
     global operacion
     global op
+    global exc
     op=""
     numero=""
     resultado=0
     primr=True
     prev_sign=""
     operacion=""
+    exc=False
     numeroPantalla.set(resultado)
 
 def result():
@@ -119,6 +139,7 @@ def result():
     global prev_sign
     global operacion
     global primr
+    global exc
     try:
         operacion=op
         if operacion=="+":
@@ -135,14 +156,18 @@ def result():
         prev_sign=operacion
     except:
         numeroPantalla.set("ERROR")
+        print(resultado)
+        print(operacion)
+        print(numero)
         primr=True
         numero=0
         resultado=0
         prev_sign=""
         operacion=""
-    numero=""
-    operacion=""
-    prev_sign=""
+    #numero=""
+    #operacion=""
+    exc=True
+    #prev_sign=""
 
 clear()
 
@@ -151,7 +176,7 @@ Entry(ventana,font=('Arial',23,'bold'),textvariable=numeroPantalla,width=21,bd=2
 Button(ventana,text="7",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("7")).place(x=4,y=180)
 Button(ventana,text="8",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("8")).place(x=78,y=180)
 Button(ventana,text="9",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("9")).place(x=152,y=180)
-Button(ventana,text="CE",width=7,bg="DarkOrange2",height=2,command=clear).place(x=227,y=180)
+Button(ventana,text="CE",width=7,bg="DarkOrange2",height=2,command=clear_error).place(x=227,y=180)
 Button(ventana,text="C",width=7,bg="DarkOrange2",height=2,command=clear).place(x=302,y=180)#302
 Button(ventana,text="4",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("4")).place(x=4,y=238)
 Button(ventana,text="5",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("5")).place(x=78,y=238)
