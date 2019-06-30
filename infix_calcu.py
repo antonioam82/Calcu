@@ -55,9 +55,9 @@ def cosen():
 
 def comas():
     global numero
-    if not "." in numero:
+    if not "." in numero and numero!="":
         numero=numero+"."
-    numeroPantalla.set(numero)
+        numeroPantalla.set(numero)
 
 def clear_error():
     global numero
