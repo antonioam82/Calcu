@@ -25,7 +25,7 @@ def numeroPulsado(n):
 def sen():
     global numero
     global resultado
-    if numeroPantalla.get()==numero:
+    if abs(float(numeroPantalla.get()))==abs(float(numero)):
         numero=sin(float(numero))
         numeroPantalla.set(numero)
     else:
@@ -35,7 +35,7 @@ def sen():
 def tann():
     global numero
     global resultado
-    if numeroPantalla.get()==numero:
+    if abs(float(numeroPantalla.get()))==abs(float(numero)):
         numero=tan(float(numero))
         numeroPantalla.set(numero)
     else:
@@ -46,7 +46,7 @@ def tann():
 def cosen():
     global numero
     global resultado
-    if numeroPantalla.get()==numero:
+    if abs(float(numeroPantalla.get()))==abs(float(numero)):
         numero=cos(float(numero))
         numeroPantalla.set(numero)
     else:
@@ -70,7 +70,7 @@ def cambio_signo():
     global numero
     global resultado
     print(numero)
-    if numeroPantalla.get()==numero:
+    if abs(float(numeroPantalla.get()))==abs(float(numero)):
         numero=float(numero)*(-1)
         numeroPantalla.set(numero)
     else:
@@ -80,6 +80,8 @@ def cambio_signo():
 def raiz_cuadrada():
     global numero
     global resultado
+    print(resultado)
+    print(numero)
     try:
         if abs(float(numeroPantalla.get()))==abs(float(numero)):############
             numero=sqrt(float(numero))
@@ -245,6 +247,7 @@ Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1).place(x=248,y=
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1).place(x=309,y=136)
 
 ventana.mainloop()
+
 
 
 
