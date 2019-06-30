@@ -80,9 +80,8 @@ def cambio_signo():
 def raiz_cuadrada():
     global numero
     global resultado
-    print(resultado)
     try:
-        if numeroPantalla.get()==numero:
+        if abs(float(numeroPantalla.get()))==abs(float(numero)):############
             numero=sqrt(float(numero))
             numeroPantalla.set(numero)
         else:
@@ -90,7 +89,6 @@ def raiz_cuadrada():
             numeroPantalla.set(resultado)
     except:
         numeroPantalla.set("ERROR")
-        numero=""
         
 def pee():
     global numero
