@@ -31,24 +31,24 @@ def cambio_signo():
     global numero
     global resultado
     print(numero)
-    if numero!="" and numero!=0:
-          numero=float(numero)*(-1)
-          numeroPantalla.set(numero)
+    if numeroPantalla.get()==numero:
+        numero=float(numero)*(-1)
+        numeroPantalla.set(numero)
     else:
-          resultado=resultado*(-1)
-          numeroPantalla.set(resultado)
+        resultado=resultado*(-1)
+        numeroPantalla.set(resultado)
 
 def raiz_cuadrada():
     global numero
     global resultado
     print(resultado)
     try:
-        if numero!="":
+        if numeroPantalla.get()==numero:
             numero=sqrt(float(numero))
             numeroPantalla.set(numero)
-        #else:
-            #resultado=sqrt(resultado)
-            #numeroPantalla.set(resultado)
+        else:
+            resultado=sqrt(resultado)
+            numeroPantalla.set(resultado)
     except:
         numeroPantalla.set("ERROR")
         numero=""
