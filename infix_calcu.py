@@ -20,6 +20,37 @@ def numeroPulsado(n):
     numero=numero+n
     numeroPantalla.set(numero)
 
+def sen():
+    global numero
+    global resultado
+    if numeroPantalla.get()==numero:
+        numero=sin(float(numero))
+        numeroPantalla.set(numero)
+    else:
+        resultado=sin(float(resultado))
+        numeroPantalla.set(resultado)
+
+def tann():
+    global numero
+    global resultado
+    if numeroPantalla.get()==numero:
+        numero=tan(float(numero))
+        numeroPantalla.set(numero)
+    else:
+        resultado=tan(float(resultado))
+        numeroPantalla.set(resultado)
+
+
+def cosen():
+    global numero
+    global resultado
+    if numeroPantalla.get()==numero:
+        numero=cos(float(numero))
+        numeroPantalla.set(numero)
+    else:
+        resultado=cos(float(resultado))
+        numeroPantalla.set(resultado)
+
 def clear_error():
     global numero
     global resultado
@@ -195,9 +226,9 @@ Button(ventana,text="EXP",width=7,fg="white",bg="gray13",height=2,command=lambda
 Button(ventana,text="=",width=7,fg="white",bg="gray13",height=2,command=result).place(x=302,y=354)
 
 Button(ventana,text="+/-",width=6,fg="white",bg="gray6",height=1,command=cambio_signo).place(x=4,y=100)
-Button(ventana,text="sin",width=6,fg="white",bg="gray6",height=1).place(x=65,y=100)
-Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1).place(x=126,y=100)
-Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1).place(x=187,y=100)
+Button(ventana,text="sin",width=6,fg="white",bg="gray6",height=1,command=sen).place(x=65,y=100)
+Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1,command=cosen).place(x=126,y=100)
+Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1,command=tann).place(x=187,y=100)
 Button(ventana,text="√",width=6,fg="white",bg="gray6",height=1,command=raiz_cuadrada).place(x=248,y=100)
 Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1).place(x=309,y=100)
 Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1).place(x=4,y=136)
