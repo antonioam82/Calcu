@@ -53,6 +53,12 @@ def cosen():
         resultado=cos(float(resultado))
         numeroPantalla.set(resultado)
 
+def comas():
+    global numero
+    if not "." in numero:
+        numero=numero+"."
+    numeroPantalla.set(numero)
+
 def clear_error():
     global numero
     global resultado
@@ -101,17 +107,17 @@ def calculo(o):
     global exc
     op=o
     if primr==True:
-        #print("C")
+        print("C")
         resultado=float(numero)
-        #print("N",numero)
+        print("N",numero)
         prev_sign=o
         numero=""
         primr=False
     else:
         try:
             if o==prev_sign and numero!="" and exc==False:
-                #print("A")
-                #print(o)
+                print("A")
+                print(o)
                 if o=="+":
                     resultado=resultado+float(numero)######
                 elif o=="-":
@@ -123,10 +129,10 @@ def calculo(o):
                 elif o=="**":
                     resultado=resultado**float(numero)
             elif o!=prev_sign and numero!="" and exc==False:
-                #print("B")
-                #print(o)
-                #print(numero)
-                #print(resultado)
+                print("B")
+                print(o)
+                print(numero)
+                print(resultado)
                 if prev_sign=="+":
                     resultado=resultado+float(numero)######
                 elif prev_sign=="-":
@@ -223,7 +229,7 @@ Button(ventana,text="+",width=7,fg="white",bg="gray13",height=2,command=lambda:c
 Button(ventana,text="-",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("-")).place(x=302,y=296)
 Button(ventana,text="0",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("0")).place(x=4,y=354)
 Button(ventana,text="/",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("/")).place(x=78,y=354)
-Button(ventana,text=".",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado(".")).place(x=152,y=354)
+Button(ventana,text=".",width=7,fg="white",bg="gray13",height=2,command=comas).place(x=152,y=354)
 Button(ventana,text="EXP",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("**")).place(x=227,y=354)
 Button(ventana,text="=",width=7,fg="white",bg="gray13",height=2,command=result).place(x=302,y=354)
 
