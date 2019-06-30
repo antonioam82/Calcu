@@ -107,17 +107,13 @@ def calculo(o):
     global exc
     op=o
     if primr==True:
-        print("C")
         resultado=float(numero)
-        print("N",numero)
         prev_sign=o
         numero=""
         primr=False
     else:
         try:
             if o==prev_sign and numero!="" and exc==False:
-                print("A")
-                print(o)
                 if o=="+":
                     resultado=resultado+float(numero)######
                 elif o=="-":
@@ -129,10 +125,6 @@ def calculo(o):
                 elif o=="**":
                     resultado=resultado**float(numero)
             elif o!=prev_sign and numero!="" and exc==False:
-                print("B")
-                print(o)
-                print(numero)
-                print(resultado)
                 if prev_sign=="+":
                     resultado=resultado+float(numero)######
                 elif prev_sign=="-":
@@ -142,7 +134,6 @@ def calculo(o):
                 elif prev_sign=="/":
                     resultado=resultado/float(numero)
                 elif prev_sign=="**":
-                    print("bbbb")
                     resultado=resultado**float(numero)
                 prev_sign=o
             numeroPantalla.set(resultado)
