@@ -14,7 +14,6 @@ from math import *
 
 def numeroPulsado(n):
     global numero
-    #global resultado
     global exc
     if exc==True:
         clear()
@@ -22,6 +21,21 @@ def numeroPulsado(n):
     numero=numero+n
     numeroPantalla.set(numero)
 
+def onediv():
+    global numero
+    global resultado
+    global exc
+    try:
+        if abs(float(numeroPantalla.get()))==abs(float(numero)):
+            numero=1/(float(numero))
+            numeroPantalla.set(numero)
+        else:
+            resultado=1/float(resultado)
+            numeroPantalla.set(resultado)
+    except:
+        numeroPantalla.set("ERROR")
+    exc=True
+        
 def sen():
     global numero
     global resultado
@@ -75,6 +89,7 @@ def clear_error():
 def cambio_signo():
     global numero
     global resultado
+    print(numero)
     if abs(float(numeroPantalla.get()))==abs(float(numero)):
         numero=float(numero)*(-1)
         numeroPantalla.set(numero)
@@ -85,6 +100,7 @@ def cambio_signo():
 def raiz_cuadrada():
     global numero
     global resultado
+    global exc
     try:
         if abs(float(numeroPantalla.get()))==abs(float(numero)):############
             numero=sqrt(float(numero))
@@ -94,6 +110,7 @@ def raiz_cuadrada():
             numeroPantalla.set(resultado)
     except:
         numeroPantalla.set("ERROR")
+    exc=True
         
 def pee():
     global numero
@@ -117,6 +134,8 @@ def calculo(o):
     else:
         try:
             if o==prev_sign and numero!="" and exc==False:
+                print("A")
+                print(o)
                 if o=="+":
                     resultado=resultado+float(numero)######
                 elif o=="-":
@@ -128,6 +147,10 @@ def calculo(o):
                 elif o=="**":
                     resultado=resultado**float(numero)
             elif o!=prev_sign and numero!="" and exc==False:
+                print("B")
+                print(o)
+                print(numero)
+                print(resultado)
                 if prev_sign=="+":
                     resultado=resultado+float(numero)######
                 elif prev_sign=="-":
@@ -193,6 +216,9 @@ def result():
         prev_sign=operacion
     except:
         numeroPantalla.set("ERROR")
+        print(resultado)
+        print(operacion)
+        print(numero)
         primr=True
         numero=0
         resultado=0
@@ -233,7 +259,7 @@ Button(ventana,text="sin",width=6,fg="white",bg="gray6",height=1,command=sen).pl
 Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1,command=cosen).place(x=126,y=100)
 Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1,command=tann).place(x=187,y=100)
 Button(ventana,text="√",width=6,fg="white",bg="gray6",height=1,command=raiz_cuadrada).place(x=248,y=100)
-Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1).place(x=309,y=100)
+Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1,command=onediv).place(x=309,y=100)
 Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1).place(x=4,y=136)
 Button(ventana,text="M2",width=6,fg="white",bg="cornflower blue",height=1).place(x=65,y=136)
 Button(ventana,text="DEL",width=6,fg="black",bg="cornflower blue",height=1).place(x=126,y=136)
