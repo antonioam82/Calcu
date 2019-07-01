@@ -89,7 +89,6 @@ def clear_error():
 def cambio_signo():
     global numero
     global resultado
-    print(numero)
     if abs(float(numeroPantalla.get()))==abs(float(numero)):
         numero=float(numero)*(-1)
         numeroPantalla.set(numero)
@@ -136,8 +135,6 @@ def calculo(o):
     else:
         try:
             if o==prev_sign and numero!="" and exc==False:
-                print("A")
-                print(o)
                 if o=="+":
                     resultado=resultado+float(numero)######
                 elif o=="-":
@@ -149,10 +146,6 @@ def calculo(o):
                 elif o=="**":
                     resultado=resultado**float(numero)
             elif o!=prev_sign and numero!="" and exc==False:
-                print("B")
-                print(o)
-                print(numero)
-                print(resultado)
                 if prev_sign=="+":
                     resultado=resultado+float(numero)######
                 elif prev_sign=="-":
