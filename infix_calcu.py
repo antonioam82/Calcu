@@ -40,38 +40,41 @@ def sen():
     global numero
     global resultado
     global exc
-    if abs(float(numeroPantalla.get()))==abs(float(numero)):
-        numero=sin(float(numero))
-        numeroPantalla.set(numero)
-    else:
-        resultado=sin(float(resultado))
-        numeroPantalla.set(resultado)
-    exc=True##################################################################
+    if exc==False:
+        if abs(float(numeroPantalla.get()))==abs(float(numero)):
+            numero=sin(float(numero))
+            numeroPantalla.set(numero)
+        else:
+            resultado=sin(float(resultado))
+            numeroPantalla.set(resultado)
+        exc=True##################################################################
 
 def tann():
     global numero
     global resultado
     global exc
-    if abs(float(numeroPantalla.get()))==abs(float(numero)):
-        numero=tan(float(numero))
-        numeroPantalla.set(numero)
-    else:
-        resultado=tan(float(resultado))
-        numeroPantalla.set(resultado)
-    exc=True##############################################################
+    if exc==False:
+        if abs(float(numeroPantalla.get()))==abs(float(numero)):
+            numero=tan(float(numero))
+            numeroPantalla.set(numero)
+        else:
+            resultado=tan(float(resultado))
+            numeroPantalla.set(resultado)
+        exc=True##############################################################
 
 
 def cosen():
     global numero
     global resultado
     global exc
-    if abs(float(numeroPantalla.get()))==abs(float(numero)):
-        numero=cos(float(numero))
-        numeroPantalla.set(numero)
-    else:
-        resultado=cos(float(resultado))
-        numeroPantalla.set(resultado)
-    exc=True################################################################
+    if exc==False:
+        if abs(float(numeroPantalla.get()))==abs(float(numero)):
+            numero=cos(float(numero))
+            numeroPantalla.set(numero)
+        else:
+            resultado=cos(float(resultado))
+            numeroPantalla.set(resultado)
+        exc=True################################################################
 
 def comas():
     global numero
@@ -89,6 +92,7 @@ def clear_error():
 def cambio_signo():
     global numero
     global resultado
+    print(numero)
     if abs(float(numeroPantalla.get()))==abs(float(numero)):
         numero=float(numero)*(-1)
         numeroPantalla.set(numero)
@@ -135,6 +139,8 @@ def calculo(o):
     else:
         try:
             if o==prev_sign and numero!="" and exc==False:
+                print("A")
+                print(o)
                 if o=="+":
                     resultado=resultado+float(numero)######
                 elif o=="-":
@@ -146,6 +152,10 @@ def calculo(o):
                 elif o=="**":
                     resultado=resultado**float(numero)
             elif o!=prev_sign and numero!="" and exc==False:
+                print("B")
+                print(o)
+                print(numero)
+                print(resultado)
                 if prev_sign=="+":
                     resultado=resultado+float(numero)######
                 elif prev_sign=="-":
