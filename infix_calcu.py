@@ -25,33 +25,39 @@ def numeroPulsado(n):
 def sen():
     global numero
     global resultado
+    global exc
     if abs(float(numeroPantalla.get()))==abs(float(numero)):
         numero=sin(float(numero))
         numeroPantalla.set(numero)
     else:
         resultado=sin(float(resultado))
         numeroPantalla.set(resultado)
+    exc=True##################################################################
 
 def tann():
     global numero
     global resultado
+    global exc
     if abs(float(numeroPantalla.get()))==abs(float(numero)):
         numero=tan(float(numero))
         numeroPantalla.set(numero)
     else:
         resultado=tan(float(resultado))
         numeroPantalla.set(resultado)
+    exc=True##############################################################
 
 
 def cosen():
     global numero
     global resultado
+    global exc
     if abs(float(numeroPantalla.get()))==abs(float(numero)):
         numero=cos(float(numero))
         numeroPantalla.set(numero)
     else:
         resultado=cos(float(resultado))
         numeroPantalla.set(resultado)
+    exc=True################################################################
 
 def comas():
     global numero
@@ -106,7 +112,7 @@ def calculo(o):
     global op
     global exc
     op=o
-    if primr==True:
+    if primr==True and numero!="":########################################
         resultado=float(numero)
         prev_sign=o
         numero=""
@@ -114,6 +120,8 @@ def calculo(o):
     else:
         try:
             if o==prev_sign and numero!="" and exc==False:
+                print("A")
+                print(o)
                 if o=="+":
                     resultado=resultado+float(numero)######
                 elif o=="-":
@@ -125,6 +133,10 @@ def calculo(o):
                 elif o=="**":
                     resultado=resultado**float(numero)
             elif o!=prev_sign and numero!="" and exc==False:
+                print("B")
+                print(o)
+                print(numero)
+                print(resultado)
                 if prev_sign=="+":
                     resultado=resultado+float(numero)######
                 elif prev_sign=="-":
@@ -134,6 +146,7 @@ def calculo(o):
                 elif prev_sign=="/":
                     resultado=resultado/float(numero)
                 elif prev_sign=="**":
+                    print("bbbb")
                     resultado=resultado**float(numero)
                 prev_sign=o
             numeroPantalla.set(resultado)
@@ -170,6 +183,9 @@ def result():
     global operacion
     global primr
     global exc
+    if primr==True:###################################################
+        resultado=float(numeroPantalla.get())#########################
+        primr=False###################################################
     try:
         operacion=op
         if operacion=="+":
