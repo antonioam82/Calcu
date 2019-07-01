@@ -114,8 +114,10 @@ def raiz_cuadrada():
         
 def pee():
     global numero
+    global exc
     numero=pi
     numeroPantalla.set(numero)
+    exc=True
 
 def calculo(o):
     global resultado
