@@ -48,6 +48,8 @@ def sen():
             resultado=sin(float(resultado))
             numeroPantalla.set(resultado)
         exc=True##################################################################
+    #if exc==True:
+
 
 def tann():
     global numero
@@ -151,6 +153,10 @@ def calculo(o):
                     resultado=resultado/float(numero)
                 elif o=="**":
                     resultado=resultado**float(numero)
+                elif o=="%":
+                    print("hhhhhhhhhh")
+                    resultado=resultado%float(numero)
+                    print(resultado)
             elif o!=prev_sign and numero!="" and exc==False:
                 print("B")
                 print(o)
@@ -165,8 +171,10 @@ def calculo(o):
                 elif prev_sign=="/":
                     resultado=resultado/float(numero)
                 elif prev_sign=="**":
-                    print("bbbb")
                     resultado=resultado**float(numero)
+                elif prev_sign=="%":
+                    print("dddd")
+                    resultado=resultado%float(numero)
                 prev_sign=o
             numeroPantalla.set(resultado)
             #operacion=o
@@ -217,6 +225,8 @@ def result():
             resultado=resultado/float(numero)######
         elif operacion=="**":
             resultado=resultado**float(numero)######
+        elif operacion=="%":
+            resultado=resultado%float(numero)
         numeroPantalla.set(resultado)
         prev_sign=operacion
     except:
@@ -247,7 +257,7 @@ Button(ventana,text="4",width=7,fg="white",bg="gray13",height=2,command=lambda:n
 Button(ventana,text="5",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("5")).place(x=78,y=238)
 Button(ventana,text="6",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("6")).place(x=152,y=238)
 Button(ventana,text="x",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("*")).place(x=227,y=238)
-Button(ventana,text="%",width=7,fg="white",bg="gray13",height=2).place(x=302,y=238)
+Button(ventana,text="%",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("%")).place(x=302,y=238)
 Button(ventana,text="1",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("1")).place(x=4,y=296)
 Button(ventana,text="2",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("2")).place(x=78,y=296)
 Button(ventana,text="3",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("3")).place(x=152,y=296)
