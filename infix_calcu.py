@@ -36,47 +36,64 @@ def onediv():
         numeroPantalla.set("ERROR")
     exc=True
         
-def sen():
-    global numero
-    global resultado
-    global exc
-    if exc==False:
-        if abs(float(numeroPantalla.get()))==abs(float(numero)):
-            numero=sin(float(numero))
-            numeroPantalla.set(numero)
-        else:
-            resultado=sin(float(resultado))
-            numeroPantalla.set(resultado)
-        exc=True##################################################################
+#def sen():
+    #global numero
+    #global resultado
+    #global exc
+    #if exc==False:
+        #if abs(float(numeroPantalla.get()))==abs(float(numero)):
+            #numero=sin(float(numero))
+            #numeroPantalla.set(numero)
+        #else:
+            #resultado=sin(float(resultado))
+            #numeroPantalla.set(resultado)
+        #exc=True##################################################################
     #if exc==True:
 
-
-def tann():
+def funcis(f):
     global numero
     global resultado
     global exc
-    if exc==False:
+    global prev_func
+    li=["sin","cos","tan"]
+    if exc==False or prev_func in li:
         if abs(float(numeroPantalla.get()))==abs(float(numero)):
-            numero=tan(float(numero))
+            numero=eval(f+"("+str(numero)+")")
             numeroPantalla.set(numero)
         else:
-            resultado=tan(float(resultado))
+            resultado=eval(f+"("+str(resultado)+")")
             numeroPantalla.set(resultado)
-        exc=True##############################################################
+        prev_func=f
+        exc=True
+    
 
 
-def cosen():
-    global numero
-    global resultado
-    global exc
-    if exc==False:
-        if abs(float(numeroPantalla.get()))==abs(float(numero)):
-            numero=cos(float(numero))
-            numeroPantalla.set(numero)
-        else:
-            resultado=cos(float(resultado))
-            numeroPantalla.set(resultado)
-        exc=True################################################################
+#def tann():
+    #global numero
+    #global resultado
+    #global exc
+    #if exc==False:
+        #if abs(float(numeroPantalla.get()))==abs(float(numero)):
+            #numero=tan(float(numero))
+            #numeroPantalla.set(numero)
+        #else:
+            #resultado=tan(float(resultado))
+            #numeroPantalla.set(resultado)
+        #exc=True##############################################################
+
+
+#def cosen():
+    #global numero
+    #global resultado
+    #global exc
+    #if exc==False:
+        #if abs(float(numeroPantalla.get()))==abs(float(numero)):
+            #numero=cos(float(numero))
+            #numeroPantalla.set(numero)
+        #else:
+            #resultado=cos(float(resultado))
+            #numeroPantalla.set(resultado)
+    #exc=True################################################################
 
 def comas():
     global numero
@@ -194,6 +211,7 @@ def clear():
     global operacion
     global op
     global exc
+    global prev_func
     op=""
     numero=""
     resultado=0
@@ -201,6 +219,7 @@ def clear():
     prev_sign=""
     operacion=""
     exc=False
+    prev_func="sin"
     numeroPantalla.set(resultado)
 
 def result():
@@ -270,9 +289,9 @@ Button(ventana,text="EXP",width=7,fg="white",bg="gray13",height=2,command=lambda
 Button(ventana,text="=",width=7,fg="white",bg="gray13",height=2,command=result).place(x=302,y=354)
 
 Button(ventana,text="+/-",width=6,fg="white",bg="gray6",height=1,command=cambio_signo).place(x=4,y=100)
-Button(ventana,text="sin",width=6,fg="white",bg="gray6",height=1,command=sen).place(x=65,y=100)
-Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1,command=cosen).place(x=126,y=100)
-Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1,command=tann).place(x=187,y=100)
+Button(ventana,text="sin",width=6,fg="white",bg="gray6",height=1,command=lambda:funcis("sin")).place(x=65,y=100)
+Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1,command=lambda:funcis("cos")).place(x=126,y=100)
+Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1,command=lambda:funcis("tan")).place(x=187,y=100)
 Button(ventana,text="√",width=6,fg="white",bg="gray6",height=1,command=raiz_cuadrada).place(x=248,y=100)
 Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1,command=onediv).place(x=309,y=100)
 Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1).place(x=4,y=136)
