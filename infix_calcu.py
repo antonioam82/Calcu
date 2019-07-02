@@ -234,6 +234,8 @@ def result():
         primr=False###################################################
     try:
         operacion=op
+        if numero=="":
+            numero=resultado
         if operacion=="+":
             resultado=resultado+float(numero)######
         elif operacion=="-":
@@ -248,11 +250,12 @@ def result():
             resultado=resultado%float(numero)
         numeroPantalla.set(resultado)
         prev_sign=operacion
-    except:
-        numeroPantalla.set("ERROR")
         print(resultado)
         print(operacion)
         print(numero)
+    except:
+        numeroPantalla.set("ERROR")
+        
         primr=True
         numero=0
         resultado=0
