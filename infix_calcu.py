@@ -55,19 +55,18 @@ def funcis(f):
     global resultado
     global exc
     global prev_func
-    li=["sin","cos","tan"]
-    if exc==False or prev_func in li:
-        if abs(float(numeroPantalla.get()))==abs(float(numero)):
-            numero=eval(f+"("+str(numero)+")")
-            numeroPantalla.set(numero)
-        else:
-            resultado=eval(f+"("+str(resultado)+")")
-            numeroPantalla.set(resultado)
-        prev_func=f
-        exc=True
+    if numero!="":
+        li=["sin","cos","tan"]
+        if exc==False or prev_func in li:
+            if abs(float(numeroPantalla.get()))==abs(float(numero)):
+                numero=eval(f+"("+str(numero)+")")
+                numeroPantalla.set(numero)
+            else:
+                resultado=eval(f+"("+str(resultado)+")")
+                numeroPantalla.set(resultado)
+            prev_func=f
+            exc=True
     
-
-
 #def tann():
     #global numero
     #global resultado
