@@ -50,6 +50,22 @@ def onediv():
         #exc=True##################################################################
     #if exc==True:
 
+def loga():
+    global numero
+    global resultado
+    global exc
+    if numero!="":
+        try:
+            if abs(float(numeroPantalla.get()))==abs(float(numero)):
+                numero=log(float(numero))
+                numeroPantalla.set(numero)
+            else:
+                resultado=log(float(resultado))
+                numeroPantalla.set(resultado)
+        except:
+            clear()
+            numeroPantalla.set("ERROR")
+
 def funcis(f):
     global numero
     global resultado
@@ -64,8 +80,10 @@ def funcis(f):
             else:
                 resultado=eval(f+"("+str(resultado)+")")
                 numeroPantalla.set(resultado)
-            prev_func=f
-            exc=True
+        prev_func=f
+        exc=True
+        
+        
     
 #def tann():
     #global numero
@@ -278,7 +296,7 @@ Button(ventana,text="4",width=7,fg="white",bg="gray13",height=2,command=lambda:n
 Button(ventana,text="5",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("5")).place(x=78,y=238)
 Button(ventana,text="6",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("6")).place(x=152,y=238)
 Button(ventana,text="x",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("*")).place(x=227,y=238)
-Button(ventana,text="%",width=7,fg="white",bg="gray13",height=2,command=lambda:calculo("%")).place(x=302,y=238)
+Button(ventana,text="√",width=7,fg="white",bg="gray13",height=2,command=raiz_cuadrada).place(x=302,y=238)
 Button(ventana,text="1",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("1")).place(x=4,y=296)
 Button(ventana,text="2",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("2")).place(x=78,y=296)
 Button(ventana,text="3",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("3")).place(x=152,y=296)
@@ -294,13 +312,13 @@ Button(ventana,text="+/-",width=6,fg="white",bg="gray6",height=1,command=cambio_
 Button(ventana,text="sin",width=6,fg="white",bg="gray6",height=1,command=lambda:funcis("sin")).place(x=65,y=100)
 Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1,command=lambda:funcis("cos")).place(x=126,y=100)
 Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1,command=lambda:funcis("tan")).place(x=187,y=100)
-Button(ventana,text="√",width=6,fg="white",bg="gray6",height=1,command=raiz_cuadrada).place(x=248,y=100)
+Button(ventana,text="%",width=6,fg="white",bg="gray6",height=1,command=lambda:calculo("%")).place(x=248,y=100)
 Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1,command=onediv).place(x=309,y=100)
 Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1).place(x=4,y=136)
 Button(ventana,text="M2",width=6,fg="white",bg="cornflower blue",height=1).place(x=65,y=136)
 Button(ventana,text="DEL",width=6,fg="black",bg="cornflower blue",height=1).place(x=126,y=136)
 Button(ventana,text="π",width=6,fg="white",bg="gray6",height=1,command=pee).place(x=187,y=136)
-Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1).place(x=248,y=136)
+Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1,command=loga).place(x=248,y=136)
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1).place(x=309,y=136)
 
 ventana.mainloop()
