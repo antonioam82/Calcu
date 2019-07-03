@@ -318,8 +318,8 @@ Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1).place
 Button(ventana,text="M2",width=6,fg="white",bg="cornflower blue",height=1).place(x=65,y=136)
 Button(ventana,text="DEL",width=6,fg="black",bg="cornflower blue",height=1).place(x=126,y=136)
 Button(ventana,text="π",width=6,fg="white",bg="gray6",height=1,command=pee).place(x=187,y=136)
-Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1,command=loga).place(x=248,y=136)
-Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1).place(x=309,y=136)
+Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1).place(x=248,y=136)
+Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1,command=loga).place(x=309,y=136)
 
 ventana.mainloop()
 
