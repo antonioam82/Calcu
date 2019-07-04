@@ -12,8 +12,6 @@ from math import *
 #prev_sign=""
 #primr=True
 
-#numero=str(eval("log("+l_numeros[0]+")/log("+l_numeros[1]+")")) #l_numeros[0] es el numero y l_numeros[1] es la base
-
 def numeroPulsado(n):
     global numero
     global exc
