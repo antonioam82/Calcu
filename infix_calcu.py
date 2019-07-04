@@ -12,6 +12,8 @@ from math import *
 #prev_sign=""
 #primr=True
 
+#numero=str(eval("log("+l_numeros[0]+")/log("+l_numeros[1]+")")) #l_numeros[0] es el numero y l_numeros[1] es la base
+
 def numeroPulsado(n):
     global numero
     global exc
@@ -83,8 +85,6 @@ def funcis(f):
         prev_func=f
         exc=True
         
-        
-    
 #def tann():
     #global numero
     #global resultado
@@ -96,7 +96,7 @@ def funcis(f):
         #else:
             #resultado=tan(float(resultado))
             #numeroPantalla.set(resultado)
-        #exc=True##############################################################
+        #exc=True
 
 
 #def cosen():
@@ -110,7 +110,7 @@ def funcis(f):
         #else:
             #resultado=cos(float(resultado))
             #numeroPantalla.set(resultado)
-    #exc=True################################################################
+    #exc=True
 
 def comas():
     global numero
@@ -128,13 +128,14 @@ def clear_error():
 def cambio_signo():
     global numero
     global resultado
-    print(numero)
-    if abs(float(numeroPantalla.get()))==abs(float(numero)):
-        numero=float(numero)*(-1)
-        numeroPantalla.set(numero)
+    if numero!="" and abs(float(numeroPantalla.get()))==abs(float(numero)):
+        if float(numero)!=0:
+            numero=float(numero)*(-1)
+            numeroPantalla.set(numero)
     else:
-        resultado=resultado*(-1)
-        numeroPantalla.set(resultado)
+        if resultado!=0:
+            resultado=resultado*(-1)
+            numeroPantalla.set(resultado)
 
 def raiz_cuadrada():
     global numero
@@ -188,8 +189,9 @@ def calculo(o):
                 elif o=="**":
                     resultado=resultado**float(numero)
                 elif o=="%":
-                    print("hhhhhhhhhh")
                     resultado=resultado%float(numero)
+                elif o=="log":
+                    resultado=log(resultado/log(float(numero)))
                     print(resultado)
             elif o!=prev_sign and numero!="" and exc==False:
                 print("B")
@@ -207,8 +209,9 @@ def calculo(o):
                 elif prev_sign=="**":
                     resultado=resultado**float(numero)
                 elif prev_sign=="%":
-                    print("dddd")
                     resultado=resultado%float(numero)
+                elif prev_sign=="log":
+                    resultado=log(resultado)/log(float(numero))
                 prev_sign=o
             numeroPantalla.set(resultado)
             #operacion=o
@@ -265,6 +268,8 @@ def result():
             resultado=resultado**float(numero)######
         elif operacion=="%":
             resultado=resultado%float(numero)
+        elif operacion=="log":
+            resultado=log(resultado)/log(float(numero))
         numeroPantalla.set(resultado)
         prev_sign=operacion
         print(resultado)
@@ -318,7 +323,7 @@ Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1).place
 Button(ventana,text="M2",width=6,fg="white",bg="cornflower blue",height=1).place(x=65,y=136)
 Button(ventana,text="DEL",width=6,fg="black",bg="cornflower blue",height=1).place(x=126,y=136)
 Button(ventana,text="π",width=6,fg="white",bg="gray6",height=1,command=pee).place(x=187,y=136)
-Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1).place(x=248,y=136)
+Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1,command=lambda:calculo("log")).place(x=248,y=136)
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1,command=loga).place(x=309,y=136)
 
 ventana.mainloop()
