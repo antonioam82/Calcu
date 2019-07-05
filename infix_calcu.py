@@ -54,17 +54,32 @@ def loga():
     global numero
     global resultado
     global exc
-    if numero!="":
-        try:
+    try:
+        if numero!="":
             if abs(float(numeroPantalla.get()))==abs(float(numero)):
                 numero=log(float(numero))
                 numeroPantalla.set(numero)
             else:
                 resultado=log(float(resultado))
                 numeroPantalla.set(resultado)
-        except:
-            clear()
-            numeroPantalla.set("ERROR")
+    except:
+        clear()
+        numeroPantalla.set("ERROR")
+
+def rounde():
+    global numero
+    global resultado
+    try:
+        if abs(float(numeroPantalla.get()))==abs(float(numero)):
+            numero=round(float(numero))
+            numeroPantalla.set(numero)
+        else:
+            resultado=round(float(resultado))
+            numeroPantalla.set(resultado)
+    except:
+        clear()
+        numeroPantalla.set("ERROR")
+    
 
 def funcis(f):
     global numero
@@ -138,7 +153,7 @@ def raiz_cuadrada():
     global resultado
     global exc
     try:
-        if abs(float(numeroPantalla.get()))==abs(float(numero)):############
+        if numero!="" and abs(float(numeroPantalla.get()))==abs(float(numero)):############
             numero=sqrt(float(numero))
             numeroPantalla.set(numero)
         else:
@@ -316,8 +331,8 @@ Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1,command=lambda:
 Button(ventana,text="%",width=6,fg="white",bg="gray6",height=1,command=lambda:calculo("%")).place(x=248,y=100)
 Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1,command=onediv).place(x=309,y=100)
 Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1).place(x=4,y=136)
-Button(ventana,text="M2",width=6,fg="white",bg="cornflower blue",height=1).place(x=65,y=136)
-Button(ventana,text="DEL",width=6,fg="black",bg="cornflower blue",height=1).place(x=126,y=136)
+Button(ventana,text="DEL",width=6,fg="white",bg="cornflower blue",height=1).place(x=65,y=136)
+Button(ventana,text="R",width=6,fg="white",bg="gray6",height=1,command=rounde).place(x=126,y=136)
 Button(ventana,text="π",width=6,fg="white",bg="gray6",height=1,command=pee).place(x=187,y=136)
 Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1,command=lambda:calculo("log")).place(x=248,y=136)
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1,command=loga).place(x=309,y=136)
