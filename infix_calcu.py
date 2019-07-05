@@ -12,8 +12,6 @@ from math import *
 #prev_sign=""
 #primr=True
 
-memo=["",""]
-
 def numeroPulsado(n):
     global numero
     global exc
