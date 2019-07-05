@@ -12,6 +12,10 @@ from math import *
 #prev_sign=""
 #primr=True
 
+#numero=str(eval("log("+l_numeros[0]+")/log("+l_numeros[1]+")")) #l_numeros[0] es el numero y l_numeros[1] es la base
+
+memo=["",""]
+
 def numeroPulsado(n):
     global numero
     global exc
@@ -118,9 +122,7 @@ def comas():
 
 def clear_error():
     global numero
-    global resultado
     numero=""
-    resultado=0
     numeroPantalla.set("0")
 
 def cambio_signo():
