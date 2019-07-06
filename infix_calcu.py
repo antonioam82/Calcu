@@ -11,6 +11,7 @@ from math import *
 #resultado=0
 #prev_sign=""
 #primr=True
+memoria=""
 
 def numeroPulsado(n):
     global numero
@@ -35,6 +36,26 @@ def onediv():
     except:
         numeroPantalla.set("ERROR")
     exc=True
+
+def delete():
+    global memoria
+    if memoria!="":
+        numeroPantalla.set(str(memoria)+"(DELETED)")
+        memoria=""
+    
+
+def memo():
+    global resultado
+    global memoria
+    global numero
+    if exc==True:
+        if memoria=="":
+            memoria=float(resultado)
+            resultado=0
+            numeroPantalla.set(str(memoria)+"(M)")
+        else:
+            numero=memoria
+            numeroPantalla.set(numero)
         
 #def sen():
     #global numero
@@ -330,8 +351,8 @@ Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1,command=lambda:
 Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1,command=lambda:funcis("tan")).place(x=187,y=100)
 Button(ventana,text="%",width=6,fg="white",bg="gray6",height=1,command=lambda:calculo("%")).place(x=248,y=100)
 Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1,command=onediv).place(x=309,y=100)
-Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1).place(x=4,y=136)
-Button(ventana,text="DEL",width=6,fg="white",bg="cornflower blue",height=1).place(x=65,y=136)
+Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1,command=memo).place(x=4,y=136)
+Button(ventana,text="DEL",width=6,fg="white",bg="cornflower blue",height=1,command=delete).place(x=65,y=136)
 Button(ventana,text="R",width=6,fg="white",bg="gray6",height=1,command=rounde).place(x=126,y=136)
 Button(ventana,text="π",width=6,fg="white",bg="gray6",height=1,command=pee).place(x=187,y=136)
 Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1,command=lambda:calculo("log")).place(x=248,y=136)
