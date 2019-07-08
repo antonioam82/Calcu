@@ -41,7 +41,7 @@ def pee():
     global l_numeros
     global comas
     global blocked_ce
-    if len(l_numeros)<2 and numero=="":
+    if (len(l_numeros)<2 and numero=="") or numero=="0":
         numero=str(pi)
         input_text.set(numero)
         comas+=1
