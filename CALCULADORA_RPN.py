@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# -*- coding: latin-1 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA-RPN")
@@ -15,13 +15,12 @@ def digit(n):
     global l_numeros
     global blocked_ce
     blocked_ce=False
+    if numero=="0":
+        numero=""
     long=len(l_numeros)
     if long<2 and numero!=str(pi):
-        if numero=="0":
-            numero=numero.replace("0",n)
-        else:
-            numero=numero+n
-        input_text.set(numero)
+        numero=numero+n
+    input_text.set(numero)
 
 def loga():
     global l_numeros
@@ -69,6 +68,7 @@ def enter():
             active_round=False
         else:
             l_numeros.append(numero)
+        print(l_numeros)
         input_text.set(numero)
         numero=""
         comas=0
@@ -77,15 +77,26 @@ def enter():
 def operacion(s):
     global numero
     global l_numeros
+    global prev_sign
+    global reep
     if len(l_numeros)==2:
         try:
             numero=str(eval(l_numeros[0]+s+l_numeros[1]))
             input_text.set(numero)
             l_numeros[0]=numero
+            reep=l_numeros[1]
             l_numeros.pop()
+            prev_sign=s
+            print(l_numeros)
         except:
             input_text.set("ERROR")
             l_numeros=[]
+        numero=""
+    elif len(l_numeros)==1 and prev_sign==s: 
+        numero=eval(l_numeros[0]+s+reep)
+        input_text.set(numero)
+        l_numeros[0]=str(numero)
+        print(l_numeros)
         numero=""
 
 def funci(s):
@@ -96,6 +107,7 @@ def funci(s):
             numero=str(eval(s+"("+l_numeros[0]+")"))#[0]
             input_text.set(numero)
             l_numeros[0]=numero
+            prev_sign=s
         except:
             input_text.set("ERROR")
             l_numeros=[]
@@ -128,9 +140,9 @@ def clear():
     global numero
     global l_numeros
     global comas
-    numero=""
+    numero="0"
     l_numeros=[]
-    input_text.set("0")
+    input_text.set(numero)
     comas=0
 
 def clear_error():
@@ -145,10 +157,11 @@ def clear_error():
 
 ancho_boton=6
 active_round=False
-numero=("")
 blocked_ce=False
 comas=0
+reep=""
 alto_boton=2
+prev_sign=""
 input_text=StringVar()
 clear()#MUESTRA VALOR "0" AL INICIAR LA CALCULADORA
 bd=10
@@ -183,11 +196,10 @@ Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:operacion("**")).place(x=316,y=324)
 Button(ventana,text="ENTER",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=enter).place(x=316,y=372)
 
-
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
 
-
 ventana.mainloop()
+
 
 
 
