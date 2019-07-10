@@ -128,7 +128,7 @@ def rounded():
 def cambia_signo(): 
     global numero
     global l_numeros
-    if numero!="0" and numero!="":
+    if numero!="0" and numero!="" and numero!=0:
         numero=str(eval(numero+"*(-1)"))
         input_text.set(numero)
     elif numero=="" and len(l_numeros)==1: #nuevo
@@ -198,7 +198,7 @@ Button(ventana,text="ENTER",bg=color_boton,fg=cn,activebackground=actb,width=anc
 
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
 
-ventana.mainloop()
+ventana.mainloop() 
 
 
 
