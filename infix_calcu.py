@@ -173,7 +173,9 @@ def calculo(o):
     global op
     global exc
     op=o
-    if primr==True and numero!="":########################################
+    if primr==True:
+        if numero=="":
+            numero=0
         resultado=float(numero)
         prev_sign=o
         numero=""
