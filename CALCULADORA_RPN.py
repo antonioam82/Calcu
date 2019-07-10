@@ -142,7 +142,7 @@ def clear():
     global comas
     numero="0"
     l_numeros=[]
-    input_text.set(numero)
+    input_text.set("0")
     comas=0
 
 def clear_error():
@@ -198,7 +198,7 @@ Button(ventana,text="ENTER",bg=color_boton,fg=cn,activebackground=actb,width=anc
 
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
 
-ventana.mainloop() 
+ventana.mainloop()
 
 
 
