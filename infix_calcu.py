@@ -74,6 +74,9 @@ def loga():
     global numero
     global resultado
     global exc
+    if primr==True:
+        if numero=="":
+            numero=0
     try:
         if numero!="":
             if abs(float(numeroPantalla.get()))==abs(float(numero)):
@@ -107,6 +110,9 @@ def funcis(f):
     global resultado
     global exc
     global prev_func
+    if primr==True:
+        if numero=="":
+            numero=0
     if numero!="":
         li=["sin","cos","tan"]
         if exc==False or prev_func in li:
@@ -284,6 +290,7 @@ Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1,command=lambda:
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1,command=loga).place(x=309,y=136)
 
 ventana.mainloop()
+
 
 
 
