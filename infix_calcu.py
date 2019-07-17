@@ -118,7 +118,7 @@ def funcis(f):
     if primr==True:
         if numero=="":
             numero=0
-    if numero!="":
+    if numero!="" and numeroPantalla.get()!="ERROR":
         li=["sin","cos","tan"]
         if exc==False or prev_func in li:
             if abs(float(numeroPantalla.get()))==abs(float(numero)):
