@@ -4,7 +4,7 @@ from tkinter import *
 ventana=Tk()
 ventana.title("CALCULADORA INFIJA")
 ventana.configure(background="gray36")
-ventana.geometry("366x470")#490
+ventana.geometry("366x450")#490
 numeroPantalla=StringVar()
 from math import *
 memoria=""
@@ -229,8 +229,11 @@ def result():
     global operacion
     global primr
     global exc
-    if primr==True:###################################################
-        resultado=float(numeroPantalla.get())#########################
+    if primr==True:
+        if numeroPantalla.get()=="ERROR":
+            resultado=0
+        else:
+            resultado=float(numeroPantalla.get())#########################
         primr=False###################################################
     try:
         operacion=op
@@ -239,9 +242,9 @@ def result():
         opera_calculo(operacion)
         numeroPantalla.set(resultado)
         prev_sign=operacion
-        print(resultado)
-        print(operacion)
-        print(numero)
+        #print(resultado)
+        #print(operacion)
+        #print(numero)
     except:
         numeroPantalla.set("ERROR")
         primr=True
