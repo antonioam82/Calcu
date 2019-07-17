@@ -30,6 +30,7 @@ def onediv():
             resultado=1/float(resultado)
             numeroPantalla.set(resultado)
     except:
+        clear()
         numeroPantalla.set("ERROR")
     exc=True
 
@@ -165,6 +166,7 @@ def raiz_cuadrada():
             resultado=sqrt(resultado)
             numeroPantalla.set(resultado)
     except:
+        clear()#N
         numeroPantalla.set("ERROR")
     exc=True
         
@@ -201,6 +203,7 @@ def calculo(o):
             numeroPantalla.set(resultado)
             #operacion=o
         except:
+            clear()#N
             numeroPantalla.set("ERROR")
             resultado=0
             primr=True
@@ -235,10 +238,10 @@ def result():
     global primr
     global exc
     if primr==True:
-        if numeroPantalla.get()=="ERROR":
-            resultado=0
-        else:
-            resultado=float(numeroPantalla.get())#########################
+        #if numeroPantalla.get()=="ERROR":
+            #resultado=0
+        #else:
+        resultado=float(numeroPantalla.get())#########################
         primr=False###################################################
     try:
         operacion=op
@@ -298,7 +301,6 @@ Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1,command=lambda:
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1,command=loga).place(x=309,y=136)
 
 ventana.mainloop()
-
 
 
 
