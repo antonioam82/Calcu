@@ -51,7 +51,12 @@ def memo():
             numeroPantalla.set(str(memoria)+"(M)")
         else:
             numero=memoria
-            numeroPantalla.set(numero)
+            numeroPantalla.set(0)
+    else:
+        if memoria!="":
+            numero=memoria
+            numeroPantalla.set(memoria)
+        
 
 def opera_calculo(operador):
     global resultado
@@ -293,7 +298,6 @@ Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1,command=lambda:
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1,command=loga).place(x=309,y=136)
 
 ventana.mainloop()
-
 
 
 
