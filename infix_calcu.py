@@ -173,6 +173,8 @@ def raiz_cuadrada():
 def pee():
     global numero
     global exc
+    if exc==True:
+        clear()
     numero=pi
     numeroPantalla.set(numero)
     exc=True
