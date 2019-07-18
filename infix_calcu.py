@@ -177,7 +177,7 @@ def pee():
         clear()
     numero=pi
     numeroPantalla.set(numero)
-    exc=True
+    #exc=True
 
 def calculo(o):
     global resultado
