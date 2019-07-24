@@ -9,6 +9,7 @@ numeroPantalla=StringVar()
 from math import *
 memoria=""
 
+
 def numeroPulsado(n):
     global numero
     global exc
@@ -38,6 +39,7 @@ def delete():
     global memoria
     if memoria!="":
         numeroPantalla.set(str(memoria)+"(DEL)")
+        t[0].config(bg="cornflower blue",fg="white")
         memoria=""
     
 
@@ -51,6 +53,7 @@ def memo():
             memoria=float(resultado)
             resultado=0
             numeroPantalla.set(str(memoria)+"(M)")
+            t[0].config(bg="white",fg="cornflower blue")
         else:
             numero=memoria
             numeroPantalla.set(numero)
@@ -265,8 +268,9 @@ def result():
         operacion=""
     exc=True
 
-clear()
 
+
+t=[]
 Entry(ventana,font=('Arial',23,'bold'),textvariable=numeroPantalla,width=21,bd=2,bg="PaleGreen3",justify="right").place(x=1,y=30)
 
 Button(ventana,text="7",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("7")).place(x=4,y=180)
@@ -296,14 +300,17 @@ Button(ventana,text="cos",width=6,fg="white",bg="gray6",height=1,command=lambda:
 Button(ventana,text="tan",width=6,fg="white",bg="gray6",height=1,command=lambda:funcis("tan")).place(x=187,y=100)
 Button(ventana,text="%",width=6,fg="white",bg="gray6",height=1,command=lambda:calculo("%")).place(x=248,y=100)
 Button(ventana,text="1/x",width=6,fg="white",bg="gray6",height=1,command=onediv).place(x=309,y=100)
-Button(ventana,text="M1",width=6,fg="white",bg="cornflower blue",height=1,command=memo).place(x=4,y=136)
 Button(ventana,text="DEL",width=6,fg="white",bg="cornflower blue",height=1,command=delete).place(x=65,y=136)
 Button(ventana,text="R",width=6,fg="white",bg="gray6",height=1,command=rounde).place(x=126,y=136)
 Button(ventana,text="π",width=6,fg="white",bg="gray6",height=1,command=pee).place(x=187,y=136)
 Button(ventana,text="log",width=6,fg="white",bg="gray6",height=1,command=lambda:calculo("log")).place(x=248,y=136)
 Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1,command=loga).place(x=309,y=136)
-
+bton_memoria=Button(ventana,text="MEM",width=6,fg="white",bg="cornflower blue",height=1,command=memo)
+t.append(bton_memoria)
+bton_memoria.place(x=4,y=136)
+clear()
 ventana.mainloop()
+
 
 
 
