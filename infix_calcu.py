@@ -37,7 +37,7 @@ def onediv():
 def delete():
     global memoria
     if memoria!="":
-        numeroPantalla.set(str(memoria)+"(DELETED)")
+        numeroPantalla.set(str(memoria)+"(DEL)")
         memoria=""
     
 
@@ -46,13 +46,14 @@ def memo():
     global memoria
     global numero
     if exc==True:
+        print(memoria)
         if memoria=="":
             memoria=float(resultado)
             resultado=0
             numeroPantalla.set(str(memoria)+"(M)")
         else:
             numero=memoria
-            numeroPantalla.set(0)
+            numeroPantalla.set(numero)
     else:
         if memoria!="":
             numero=memoria
