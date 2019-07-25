@@ -48,6 +48,7 @@ def memo():
     global memoria
     global numero
     if exc==True:
+        print(numero)
         print(memoria)
         if memoria=="":
             memoria=float(resultado)
@@ -149,14 +150,19 @@ def clear_error():
 def cambio_signo():
     global numero
     global resultado
-    if numero!="" and abs(float(numeroPantalla.get()))==abs(float(numero)):
-        if float(numero)!=0:
-            numero=float(numero)*(-1)
-            numeroPantalla.set(numero)
-    else:
-        if resultado!=0:
-            resultado=resultado*(-1)
-            numeroPantalla.set(resultado)
+    print(numero)
+    try:
+        if numero!="" and abs(float(numeroPantalla.get()))==abs(float(numero)):
+            if float(numero)!=0:
+                numero=float(numero)*(-1)
+                numeroPantalla.set(numero)
+            else:
+                if resultado!=0:
+                    resultado=resultado*(-1)
+                    numeroPantalla.set(resultado)
+    except:
+        clear()
+        numeroPantalla.set("ERROR")
 
 def raiz_cuadrada():
     global numero
@@ -244,9 +250,6 @@ def result():
     global primr
     global exc
     if primr==True:
-        #if numeroPantalla.get()=="ERROR":
-            #resultado=0
-        #else:
         resultado=float(numeroPantalla.get())#########################
         primr=False###################################################
     try:
@@ -256,9 +259,6 @@ def result():
         opera_calculo(operacion)
         numeroPantalla.set(resultado)
         prev_sign=operacion
-        #print(resultado)
-        #print(operacion)
-        #print(numero)
     except:
         numeroPantalla.set("ERROR")
         primr=True
@@ -267,8 +267,6 @@ def result():
         prev_sign=""
         operacion=""
     exc=True
-
-
 
 t=[]
 Entry(ventana,font=('Arial',23,'bold'),textvariable=numeroPantalla,width=21,bd=2,bg="PaleGreen3",justify="right").place(x=1,y=30)
