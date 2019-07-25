@@ -51,7 +51,7 @@ def memo():
         print(numero)
         print(memoria)
         if memoria=="":
-            memoria=float(resultado)
+            memoria=float(numeroPantalla.get())
             resultado=0
             numeroPantalla.set(str(memoria)+"(M)")
             t[0].config(bg="white",fg="cornflower blue")
