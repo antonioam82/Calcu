@@ -38,9 +38,11 @@ def onediv():
 def delete():
     global memoria
     if memoria!="":
+        clear()
         numeroPantalla.set(str(memoria)+"(D)")
         t[0].config(bg="cornflower blue",fg="white")
         memoria=""
+        
     
 
 def memo():
@@ -309,7 +311,6 @@ t.append(bton_memoria)
 bton_memoria.place(x=4,y=136)
 clear()
 ventana.mainloop()
-
 
 
 
