@@ -38,7 +38,7 @@ def onediv():
 def delete():
     global memoria
     if memoria!="":
-        numeroPantalla.set(str(memoria)+"(DEL)")
+        numeroPantalla.set(str(memoria)+"(D)")
         t[0].config(bg="cornflower blue",fg="white")
         memoria=""
     
@@ -151,15 +151,16 @@ def cambio_signo():
     global numero
     global resultado
     print(numero)
+    print(resultado)
     try:
         if numero!="" and abs(float(numeroPantalla.get()))==abs(float(numero)):
             if float(numero)!=0:
                 numero=float(numero)*(-1)
                 numeroPantalla.set(numero)
-            else:
-                if resultado!=0:
-                    resultado=resultado*(-1)
-                    numeroPantalla.set(resultado)
+        else:
+            if resultado!=0:
+                resultado=resultado*(-1)
+                numeroPantalla.set(resultado)
     except:
         clear()
         numeroPantalla.set("ERROR")
