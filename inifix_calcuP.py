@@ -87,6 +87,7 @@ def opera_calculo(operador):
             resul_parent=log(resul_parent)/log(float(numero))
         else:
             resultado=log(resultado)/log(float(numero))
+    print(resul_parent)
 
 def loga():
     global numero
@@ -206,6 +207,7 @@ def calculo(o):
     global op
     global exc
     global primr_parent
+    global resul_parent
     op=o
     if act_parent==True and primr_parent==True:
         if numero=="":
