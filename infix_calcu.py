@@ -82,6 +82,7 @@ def opera_calculo(operador):
         resultado=resultado%float(numero)
     elif operador=="log":
         resultado=log(resultado)/log(float(numero))
+    print(operador)
 
 def loga():
     global numero
@@ -214,7 +215,7 @@ def calculo(o):
                 opera_calculo(o)
             elif o!=prev_sign and numero!="" and exc==False:
                 opera_calculo(prev_sign)
-                prev_sign=o
+            prev_sign=o
             numeroPantalla.set(resultado)
             #operacion=o
         except:
