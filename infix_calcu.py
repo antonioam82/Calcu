@@ -42,16 +42,12 @@ def delete():
         numeroPantalla.set(str(memoria)+"(D)")
         t[0].config(bg="cornflower blue",fg="white")
         memoria=""
-        
-    
-
+ 
 def memo():
     global resultado
     global memoria
     global numero
     if exc==True:
-        print(numero)
-        print(memoria)
         if memoria=="":
             memoria=float(numeroPantalla.get())
             resultado=0
@@ -82,7 +78,6 @@ def opera_calculo(operador):
         resultado=resultado%float(numero)
     elif operador=="log":
         resultado=log(resultado)/log(float(numero))
-    print(operador)
 
 def loga():
     global numero
