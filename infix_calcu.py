@@ -195,9 +195,7 @@ def calculo(o):
     global primr
     global prev_sign
     global operacion
-    #global op
     global exc
-    #prev_sign=o
     if primr==True:
         if numero=="":
             numero=0
@@ -207,13 +205,10 @@ def calculo(o):
         primr=False
     else:
         try:
-            #if o==prev_sign and numero!="" and exc==False:
-                #opera_calculo(o)
             if numero!="" and exc==False:
                 opera_calculo(prev_sign)
             prev_sign=o
             numeroPantalla.set(resultado)
-            #operacion=o
         except:
             clear()#N
             numeroPantalla.set("ERROR")
@@ -229,10 +224,8 @@ def clear():
     global primr
     global prev_sign
     global operacion
-    #global op
     global exc
     global prev_func
-    #op=""
     numero=""
     resultado=0
     primr=True
@@ -261,7 +254,6 @@ def result():
             numero=resultado
         opera_calculo(operacion)
         numeroPantalla.set(resultado)
-        #prev_sign=operacion
     except:
         numeroPantalla.set("ERROR")
         primr=True
