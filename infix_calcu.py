@@ -41,7 +41,9 @@ def delete():
         numeroPantalla.set(str(memoria)+"(D)")
         t[0].config(bg="cornflower blue",fg="white")
         memoria=""
+        
     
+
 def memo():
     global resultado
     global memoria
@@ -195,7 +197,9 @@ def calculo(o):
     global primr
     global prev_sign
     global operacion
+    #global op
     global exc
+    #prev_sign=o
     if primr==True:
         if numero=="":
             numero=0
@@ -205,10 +209,13 @@ def calculo(o):
         primr=False
     else:
         try:
+            #if o==prev_sign and numero!="" and exc==False:
+                #opera_calculo(o)
             if numero!="" and exc==False:
                 opera_calculo(prev_sign)
             prev_sign=o
             numeroPantalla.set(resultado)
+            #operacion=o
         except:
             clear()#N
             numeroPantalla.set("ERROR")
@@ -224,8 +231,10 @@ def clear():
     global primr
     global prev_sign
     global operacion
+    #global op
     global exc
     global prev_func
+    #op=""
     numero=""
     resultado=0
     primr=True
@@ -243,8 +252,11 @@ def result():
     global primr
     global exc
     if primr==True:
-        resultado=float(numeroPantalla.get())#########################
-        primr=False###################################################
+        try:
+            resultado=float(numeroPantalla.get())#########################
+            primr=False###################################################
+        except:
+            numeroPantalla.set(numeroPantalla.get())#!!!!!!!!!!!!!!!!!!!!!!!!!!
     try:
         operacion=prev_sign
         if numero=="":
