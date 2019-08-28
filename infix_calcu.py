@@ -9,7 +9,6 @@ numeroPantalla=StringVar()
 from math import *
 memoria=""
 
-
 def numeroPulsado(n):
     global numero
     global exc
@@ -42,12 +41,16 @@ def delete():
         numeroPantalla.set(str(memoria)+"(D)")
         t[0].config(bg="cornflower blue",fg="white")
         memoria=""
- 
+        
+    
+
 def memo():
     global resultado
     global memoria
     global numero
     if exc==True:
+        print(numero)
+        print(memoria)
         if memoria=="":
             memoria=float(numeroPantalla.get())
             resultado=0
@@ -196,7 +199,7 @@ def calculo(o):
     global operacion
     global op
     global exc
-    op=o
+    #prev_sign=o
     if primr==True:
         if numero=="":
             numero=0
@@ -206,9 +209,9 @@ def calculo(o):
         primr=False
     else:
         try:
-            if o==prev_sign and numero!="" and exc==False:
-                opera_calculo(o)
-            elif o!=prev_sign and numero!="" and exc==False:
+            #if o==prev_sign and numero!="" and exc==False:
+                #opera_calculo(o)
+            if numero!="" and exc==False:
                 opera_calculo(prev_sign)
             prev_sign=o
             numeroPantalla.set(resultado)
@@ -252,12 +255,12 @@ def result():
         resultado=float(numeroPantalla.get())#########################
         primr=False###################################################
     try:
-        operacion=op
+        operacion=prev_sign
         if numero=="":
             numero=resultado
         opera_calculo(operacion)
         numeroPantalla.set(resultado)
-        prev_sign=operacion
+        #prev_sign=operacion
     except:
         numeroPantalla.set("ERROR")
         primr=True
@@ -307,6 +310,7 @@ t.append(bton_memoria)
 bton_memoria.place(x=4,y=136)
 clear()
 ventana.mainloop()
+
 
 
 
