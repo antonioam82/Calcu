@@ -38,6 +38,10 @@ def delete():
     global memoria
     if memoria!="":
         #clear()
+        if "M" in numeroPantalla.get():
+            n=numeroPantalla.get()
+            n=n.replace("M","D")
+            numeroPantalla.set(n)
         #numeroPantalla.set(str(memoria)+"(D)")
         t[0].config(bg="cornflower blue",fg="white")
         memoria=""
@@ -312,6 +316,7 @@ bton_memoria.place(x=4,y=136)
 clear()
 
 ventana.mainloop()
+
 
 
 
