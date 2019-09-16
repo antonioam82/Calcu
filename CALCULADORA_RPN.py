@@ -1,3 +1,4 @@
+  
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from tkinter import *
@@ -15,12 +16,13 @@ def digit(n):
     global l_numeros
     global blocked_ce
     blocked_ce=False
-    if numero=="0":
-        numero=""
     long=len(l_numeros)
     if long<2 and numero!=str(pi):
-        numero=numero+n
-    input_text.set(numero)
+        if numero=="0":
+            numero=numero.replace("0",n)
+        else:
+            numero=numero+n
+        input_text.set(numero)
 
 def loga():
     global l_numeros
@@ -41,7 +43,7 @@ def pee():
     global l_numeros
     global comas
     global blocked_ce
-    if (len(l_numeros)<2 and numero=="") or numero=="0":
+    if len(l_numeros)<2 and numero=="":
         numero=str(pi)
         input_text.set(numero)
         comas+=1
@@ -68,7 +70,6 @@ def enter():
             active_round=False
         else:
             l_numeros.append(numero)
-        print(l_numeros)
         input_text.set(numero)
         numero=""
         comas=0
@@ -128,7 +129,7 @@ def rounded():
 def cambia_signo(): 
     global numero
     global l_numeros
-    if numero!="0" and numero!="" and numero!=0:
+    if numero!="0" and numero!="":
         numero=str(eval(numero+"*(-1)"))
         input_text.set(numero)
     elif numero=="" and len(l_numeros)==1: #nuevo
@@ -140,7 +141,7 @@ def clear():
     global numero
     global l_numeros
     global comas
-    numero="0"
+    numero=""
     l_numeros=[]
     input_text.set("0")
     comas=0
@@ -157,6 +158,7 @@ def clear_error():
 
 ancho_boton=6
 active_round=False
+numero=("")
 blocked_ce=False
 comas=0
 reep=""
