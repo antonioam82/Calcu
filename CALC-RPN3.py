@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from tkinter import *
 ventana=Tk()
-ventana.title("CALCULADORA-RPN")
+ventana.title("CALC-RPN3")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
