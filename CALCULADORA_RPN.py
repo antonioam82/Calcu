@@ -64,7 +64,7 @@ def enter():
     global active_round
     if numero!="" and numero!="0.":
         if active_round==True:
-            numero=str(eval("round("+numero+")"))
+            numero=str(eval("round("+str(numero)+")"))
             l_numeros.append(numero)
             active_round=False
         else:
@@ -120,7 +120,8 @@ def rounded():
     if not numero.endswith("."):
         active_round=True
         if numero!="":
-            input_text.set(eval("round("+numero+")"))
+            numero=eval("round("+str(numero)+")")
+            input_text.set(numero)
         else:
             l_numeros[-1]=str(eval("round("+l_numeros[-1]+")"))
             input_text.set(l_numeros[-1])
@@ -200,6 +201,7 @@ Button(ventana,text="ENTER",bg=color_boton,fg=cn,activebackground=actb,width=anc
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
 
 ventana.mainloop()
+
 
 
 
