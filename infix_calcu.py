@@ -138,7 +138,7 @@ def funcis(f):
 
 def comas():
     global numero
-    if numero!="" and not "." in numero and exc==False:
+    if numero!="" and not "." in str(numero) and exc==False:
         numero=numero+"."
         numeroPantalla.set(numero)
 
