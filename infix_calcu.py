@@ -49,8 +49,8 @@ def memo():
     global resultado
     global memoria
     global numero
-    if exc==True:
-        if memoria=="" and numeroPantalla.get()!="ERROR":
+    if exc==True and numeroPantalla.get()!="ERROR":
+        if memoria=="":
             memoria=float(numeroPantalla.get())
             resultado=0
             numeroPantalla.set(str(memoria)+"(M)")
