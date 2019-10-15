@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from tkinter import *
+from math import *
+
 ventana=Tk()
 ventana.title("CALCULADORA INFIJA")
 ventana.configure(background="gray36")
-ventana.geometry("366x450")#490
+ventana.geometry("366x450")
 numeroPantalla=StringVar()
-from math import *
 memoria=""
 
 def numeroPulsado(n):
@@ -37,12 +40,10 @@ def onediv():
 def delete():
     global memoria
     if memoria!="":
-        #clear()
         if "M" in numeroPantalla.get():
             n=numeroPantalla.get()
             n=n.replace("M","D")
             numeroPantalla.set(n)
-        #numeroPantalla.set(str(memoria)+"(D)")
         t[0].config(bg="cornflower blue",fg="white")
         memoria=""
         
@@ -51,8 +52,6 @@ def memo():
     global memoria
     global numero
     if exc==True:
-        print(numero)
-        print(memoria)
         if memoria=="" and numeroPantalla.get()!="ERROR":
             memoria=float(numeroPantalla.get())
             resultado=0
@@ -70,15 +69,15 @@ def memo():
 def opera_calculo(operador):
     global resultado
     if operador=="+":
-        resultado=resultado+float(numero)######
+        resultado=resultado+float(numero)
     elif operador=="-":
-        resultado=resultado-float(numero)######
+        resultado=resultado-float(numero)
     elif operador=="*":
-        resultado=resultado*float(numero)######
+        resultado=resultado*float(numero)
     elif operador=="/":
-        resultado=resultado/float(numero)######
+        resultado=resultado/float(numero)
     elif operador=="**":
-        resultado=resultado**float(numero)######
+        resultado=resultado**float(numero)
     elif operador=="%":
         resultado=resultado%float(numero)
     elif operador=="log":
@@ -153,8 +152,6 @@ def clear_error():
 def cambio_signo():
     global numero
     global resultado
-    print(numero)
-    print(resultado)
     try:
         if numero!="" and abs(float(numeroPantalla.get()))==abs(float(numero)):
             if float(numero)!=0:
@@ -191,7 +188,6 @@ def pee():
         clear()
     numero=pi
     numeroPantalla.set(numero)
-    #exc=True
 
 def calculo(o):
     global resultado
@@ -214,7 +210,7 @@ def calculo(o):
             prev_sign=o
             numeroPantalla.set(resultado)
         except:
-            clear()#N
+            clear()
             numeroPantalla.set("ERROR")
             resultado=0
             primr=True
@@ -228,10 +224,8 @@ def clear():
     global primr
     global prev_sign
     global operacion
-    #global op
     global exc
     global prev_func
-    #op=""
     numero=""
     resultado=0
     primr=True
@@ -250,10 +244,10 @@ def result():
     global exc
     if primr==True:
         try:
-            resultado=float(numeroPantalla.get())#########################
-            primr=False###################################################
+            resultado=float(numeroPantalla.get())
+            primr=False
         except:
-            numeroPantalla.set(numeroPantalla.get())#!!!!!!!!!!!!!!!!!!!!!!!!!!
+            numeroPantalla.set(numeroPantalla.get())
     try:
         operacion=prev_sign
         if numero=="":
@@ -276,7 +270,7 @@ Button(ventana,text="7",width=7,fg="white",bg="gray13",height=2,command=lambda:n
 Button(ventana,text="8",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("8")).place(x=78,y=180)
 Button(ventana,text="9",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("9")).place(x=152,y=180)
 Button(ventana,text="CE",width=7,bg="DarkOrange2",height=2,command=clear_error).place(x=227,y=180)
-Button(ventana,text="C",width=7,bg="DarkOrange2",height=2,command=clear).place(x=302,y=180)#302
+Button(ventana,text="C",width=7,bg="DarkOrange2",height=2,command=clear).place(x=302,y=180)
 Button(ventana,text="4",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("4")).place(x=4,y=238)
 Button(ventana,text="5",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("5")).place(x=78,y=238)
 Button(ventana,text="6",width=7,fg="white",bg="gray13",height=2,command=lambda:numeroPulsado("6")).place(x=152,y=238)
