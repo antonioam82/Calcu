@@ -1,8 +1,8 @@
-from tkinter import *
+#from tkinter import *
 import Pmw
 import string
 
-Calculadora = Tk()
+Calculadora = Pmw.initialise(fontScheme = 'pmw1')
 Calculadora.title("GRAPH_CALC")
 
 #PANTALLA
@@ -17,3 +17,4 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='dynamic',
 display.pack(padx=1,pady=1)
 
 Calculadora.mainloop()
+
