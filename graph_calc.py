@@ -7,8 +7,8 @@ Calculadora = Tk()
 Calculadora.title("GRAPH_CALC")
 
 #PANTALLA
-display = Pmw.ScrolledText(Calculadora, hscrollmode='dynamic',
-                      vscrollmode='dynamic', hull_relief='sunken',
+display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
+                      vscrollmode='none', hull_relief='sunken',#vscrollmode=dynamic
                       hull_background='gray40', hull_borderwidth=10, 
                       text_background='honeydew4', text_width=26, #ancho pantalla
                       text_foreground='black', text_height=10, #alto pantalla
