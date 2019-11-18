@@ -15,17 +15,26 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
           text_padx=10, text_pady=10, text_relief='groove',
                       text_font=('arial', 12, 'bold'))
 display.pack(padx=0,pady=0)
-buttons = Pmw.ButtonBox(Calculadora)
-buttons.pack(fill='y', expand=1, padx=1, pady=1)
-buttons.alignbuttons()
+buttons1 = Pmw.ButtonBox(Calculadora)
+buttons1.pack(fill='y', expand=1, padx=1, pady=1)
+buttons1.alignbuttons()
 
-buttons.add('2nd')
-buttons.add('Mode')
-buttons.add('Del')
-buttons.add('Alpha')
-buttons.add('Stat')
-#buttons.add('Quit')
+buttons1.add('2nd',width=5)
+buttons1.add('Mode')
+buttons1.add('Del')
+buttons1.add('Alpha')
+buttons1.add('Stat')
 
+buttons2 = Pmw.ButtonBox(Calculadora)
+buttons2.pack(fill='y', expand=1, padx=1, pady=1)
+buttons2.alignbuttons()
+buttons2.add('Quit',width=5)
+buttons2.add("1")
+buttons2.add("2")
+buttons2.add("3")
+buttons2.add("4")
+
+# DX
 
 
 Calculadora.mainloop()
