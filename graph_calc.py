@@ -45,4 +45,7 @@ buttons3.add("^")
 bts = (buttons1,buttons2,buttons3)
 for i in bts:
     i.alignbuttons()
+    
+
+Calculadora.mainloop()
 
