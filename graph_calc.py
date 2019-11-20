@@ -58,8 +58,16 @@ buttons5.add("8")
 buttons5.add("9")
 buttons5.add("X")
 
+buttons6 = Pmw.ButtonBox(Calculadora)
+buttons6.pack(fill='y', expand=1, padx=1, pady=1)
+buttons6.add('Ln',width=5)
+buttons6.add("4")
+buttons6.add("5")
+buttons6.add("6")
+buttons6.add("-")
 
-bts = (buttons1,buttons2,buttons3,buttons4,buttons5)
+
+bts = (buttons1,buttons2,buttons3,buttons4,buttons5,buttons6)
 for i in bts:
     i.alignbuttons()
 
