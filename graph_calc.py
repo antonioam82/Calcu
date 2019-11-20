@@ -42,10 +42,28 @@ buttons3.add("Cos")
 buttons3.add("Tan")
 buttons3.add("^")
 
-bts = (buttons1,buttons2,buttons3)
+buttons4 = Pmw.ButtonBox(Calculadora)
+buttons4.pack(fill='y', expand=1, padx=1, pady=1)
+buttons4.add('X2',width=5)
+buttons4.add(",")
+buttons4.add("(")
+buttons4.add(")")
+buttons4.add("/")
+
+buttons5 = Pmw.ButtonBox(Calculadora)
+buttons5.pack(fill='y', expand=1, padx=1, pady=1)
+buttons5.add('Log',width=5)
+buttons5.add("7")
+buttons5.add("8")
+buttons5.add("9")
+buttons5.add("X")
+
+
+bts = (buttons1,buttons2,buttons3,buttons4,buttons5)
 for i in bts:
     i.alignbuttons()
-    
+
+
 
 Calculadora.mainloop()
 
