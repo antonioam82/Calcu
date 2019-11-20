@@ -28,13 +28,13 @@ buttons1.add('Stat')
 buttons2 = Pmw.ButtonBox(Calculadora)
 buttons2.pack(fill='y', expand=1, padx=1, pady=1)
 buttons2.alignbuttons()
-buttons2.add('Quit',width=5)
-buttons2.add("1")
-buttons2.add("2")
-buttons2.add("3")
-buttons2.add("4")
+buttons2.add('Math',width=5)
+buttons2.add("Mtrx")
+buttons2.add("Pgrm")
+buttons2.add("Vars")
+buttons2.add("Clr")
 
-# DX
+
 
 
 Calculadora.mainloop()
