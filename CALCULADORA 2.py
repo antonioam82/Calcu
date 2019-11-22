@@ -63,5 +63,4 @@ BotonResul=Button(ventana,text="=",bg=color_boton,width=ancho_boton,height=alto_
 
 Salida=Entry(ventana,font=('arial',20,'bold'),width=22,textvariable=input_text,bd=20,insertwidth=4,bg="powder blue",justify="right").place(x=10,y=60)
 
-
 ventana.mainloop()
