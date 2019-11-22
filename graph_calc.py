@@ -66,11 +66,26 @@ buttons6.add("5")
 buttons6.add("6")
 buttons6.add("-")
 
+buttons7 = Pmw.ButtonBox(Calculadora)
+buttons7.pack(fill='y', expand=1, padx=1, pady=1)
+buttons7.add('STO',width=5)
+buttons7.add("1")
+buttons7.add("2")
+buttons7.add("3")
+buttons7.add("+")
 
-bts = (buttons1,buttons2,buttons3,buttons4,buttons5,buttons6)
+buttons8 = Pmw.ButtonBox(Calculadora)
+buttons8.pack(fill='y', expand=1, padx=1, pady=1)
+buttons8.add('Off',width=5)
+buttons8.add("0")
+buttons8.add(".")
+buttons8.add("(-)")
+buttons8.add("Enter")
+
+bts = (buttons1,buttons2,buttons3,buttons4,buttons5,buttons6,
+       buttons7,buttons8)
 for i in bts:
     i.alignbuttons()
-
 
 
 Calculadora.mainloop()
