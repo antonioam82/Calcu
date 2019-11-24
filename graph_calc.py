@@ -87,6 +87,5 @@ bts = (buttons1,buttons2,buttons3,buttons4,buttons5,buttons6,
 for i in bts:
     i.alignbuttons()
 
-
 Calculadora.mainloop()
 
