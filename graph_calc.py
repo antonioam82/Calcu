@@ -21,11 +21,11 @@ buttons1 = Pmw.ButtonBox(Calculadora,
 buttons1.pack(fill='both', expand=1, padx=1, pady=1)
 #buttons1.alignbuttons()
 
-buttons1.add('2nd',width=5)
-buttons1.add('Mode')
-buttons1.add('Del')
-buttons1.add('Alpha')
-buttons1.add('Stat')
+buttons1.add('2nd',width=5,bg='steelblue1',fg='white')
+buttons1.add('Mode',bg='gray30',fg='white')
+buttons1.add('Del',bg='gray30',fg='white')
+buttons1.add('Alpha',bg='gray50',fg='white')
+buttons1.add('Stat',bg='gray30',fg='white')
 
 buttons2 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons2.pack(fill='y', expand=1, padx=1, pady=1)
