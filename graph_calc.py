@@ -17,7 +17,8 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       text_font=('arial', 12, 'bold'))
 display.pack(padx=0,pady=0)
 buttons1 = Pmw.ButtonBox(Calculadora
-                         ,hull_background='gray40')#frame_borderwidth=2
+                         ,hull_background='gray40')
+
 buttons1.pack(fill='both', expand=1, padx=1, pady=1)
 #buttons1.alignbuttons()
 
@@ -90,4 +91,5 @@ for i in bts:
     i.alignbuttons()
 
 Calculadora.mainloop()
+
 
