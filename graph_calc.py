@@ -11,8 +11,8 @@ Calculadora.config(bg='gray40')
 display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       vscrollmode='none', hull_relief='sunken',#vscrollmode=dynamic
                       hull_background='gray40', hull_borderwidth=10, 
-                      text_background='honeydew4', text_width=28, #ancho pantalla
-                      text_foreground='black', text_height=10, #alto pantalla
+                      text_background='honeydew4', text_width=29, #ancho pantalla
+                      text_foreground='black', text_height=9, #alto pantalla
           text_padx=10, text_pady=10, text_relief='groove',
                       text_font=('arial', 12, 'bold'))
 display.pack(padx=0,pady=0)
@@ -90,5 +90,4 @@ for i in bts:
     i.alignbuttons()
 
 Calculadora.mainloop()
-
 
