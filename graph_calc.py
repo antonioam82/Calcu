@@ -29,7 +29,7 @@ buttons1.pack(fill='both', expand=1, padx=1, pady=1)
 
 buttons1.add('2nd',width=5,bg='steelblue3',fg='white')
 buttons1.add('Mode',bg='gray30',fg='white')
-buttons1.add('Del',bg='gray30',fg='white')
+buttons1.add('Del',bg='gray30',fg='white',command=clear)
 buttons1.add('Alpha',bg='gray50',fg='white')
 buttons1.add('Stat',bg='gray30',fg='white')
 
@@ -40,7 +40,7 @@ buttons2.add('Math',width=5,fg='white',bg='gray30')
 buttons2.add("Mtrx",fg='white',bg='gray30')
 buttons2.add("Pgrm",fg='white',bg='gray30',command=escribe)
 buttons2.add("Vars",fg='white',bg='gray30')
-buttons2.add("Clr",fg='white',bg='gray30',command=clear)
+buttons2.add("Clr",fg='white',bg='gray30')
 
 buttons3 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons3.pack(fill='y', expand=1, padx=1, pady=1)
@@ -96,5 +96,4 @@ for i in bts:
     i.alignbuttons()
 
 Calculadora.mainloop()
-
 
