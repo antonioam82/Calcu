@@ -18,6 +18,11 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
 display.pack(padx=0,pady=0)
 buttons1 = Pmw.ButtonBox(Calculadora
                          ,hull_background='gray40')
+def escribe():
+    display.appendtext("Hola")
+    #print("Hola")
+def clear():
+    display.clear()
 
 buttons1.pack(fill='both', expand=1, padx=1, pady=1)
 #buttons1.alignbuttons()
@@ -33,9 +38,9 @@ buttons2.pack(fill='y', expand=1, padx=1, pady=1)
 #buttons2.alignbuttons()
 buttons2.add('Math',width=5,fg='white',bg='gray30')
 buttons2.add("Mtrx",fg='white',bg='gray30')
-buttons2.add("Pgrm",fg='white',bg='gray30')
+buttons2.add("Pgrm",fg='white',bg='gray30',command=escribe)
 buttons2.add("Vars",fg='white',bg='gray30')
-buttons2.add("Clr",fg='white',bg='gray30')
+buttons2.add("Clr",fg='white',bg='gray30',command=clear)
 
 buttons3 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons3.pack(fill='y', expand=1, padx=1, pady=1)
