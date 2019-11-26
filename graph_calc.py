@@ -19,7 +19,7 @@ display.pack(padx=0,pady=0)
 buttons1 = Pmw.ButtonBox(Calculadora
                          ,hull_background='gray40')
 def escribe():
-    display.appendtext("Hola")
+    display.appendtext("Hi there!")
     #print("Hola")
 def clear():
     display.clear()
