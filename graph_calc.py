@@ -1,6 +1,7 @@
 from tkinter import *
 import Pmw
 import string
+import numpy as np
 
 Calculadora = Pmw.initialise(fontScheme = 'pmw1')
 #Calculadora = Tk()
@@ -19,10 +20,15 @@ display.pack(padx=0,pady=0)
 buttons1 = Pmw.ButtonBox(Calculadora
                          ,hull_background='gray40')
 def escribe():
-    display.appendtext("Hi there!")
+    display.appendtext("Hi There!")
     #print("Hola")
 def clear():
     display.clear()
+
+def matr_demo(): #IT'S JUST A DEMO :)
+    a1 = np.array([1,2,3], float)
+    a2 = np.array([4,5,6], float)
+    display.appendtext(a1+a2)
 
 buttons1.pack(fill='both', expand=1, padx=1, pady=1)
 #buttons1.alignbuttons()
@@ -37,7 +43,7 @@ buttons2 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons2.pack(fill='y', expand=1, padx=1, pady=1)
 #buttons2.alignbuttons()
 buttons2.add('Math',width=5,fg='white',bg='gray30')
-buttons2.add("Mtrx",fg='white',bg='gray30')
+buttons2.add("Mtrx",fg='white',bg='gray30',command=matr_demo)
 buttons2.add("Pgrm",fg='white',bg='gray30',command=escribe)
 buttons2.add("Vars",fg='white',bg='gray30')
 buttons2.add("Clr",fg='white',bg='gray30')
