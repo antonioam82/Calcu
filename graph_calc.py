@@ -26,8 +26,8 @@ def clear():
     display.clear()
 
 def matr_demo(): #IT'S JUST A DEMO :)
-    a1 = np.array([1,2,3], float)
-    a2 = np.array([4,5,6], float)
+    a1 = np.array([[1,2,3],[1,2,8]], float)
+    a2 = np.array([[4,5,6],[2,3,4]], float)
     display.appendtext(a1+a2)
 
 buttons1.pack(fill='both', expand=1, padx=1, pady=1)
