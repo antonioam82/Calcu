@@ -7,6 +7,7 @@ Calculadora = Pmw.initialise(fontScheme = 'pmw1')
 #Calculadora = Tk()
 Calculadora.title("GRAPH_CALC")
 Calculadora.config(bg='gray40')
+formula = ""
 
 #PANTALLA
 display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
@@ -19,8 +20,14 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
 display.pack(padx=0,pady=0)
 buttons1 = Pmw.ButtonBox(Calculadora
                          ,hull_background='gray40')
+
+def push(car):
+    global formula
+    formula=formula+str(car)
+    display.appendtext(car)
+
 def escribe():
-    display.appendtext("Hi There!")
+    display.appendtext("Hi There!\nHola")
     #print("Hola")
 def clear():
     display.clear()
@@ -59,40 +66,40 @@ buttons3.add("^",fg='white',bg='gray30')
 buttons4 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons4.pack(fill='y', expand=1, padx=1, pady=1)
 buttons4.add('X2',width=5,fg='white',bg='gray30')
-buttons4.add(",",fg='white',bg='gray30')
-buttons4.add("(",fg='white',bg='gray30')
-buttons4.add(")",fg='white',bg='gray30')
-buttons4.add("/",bg='steelblue3',fg='white')
+buttons4.add(",",fg='white',bg='gray30',command=lambda:push(","))
+buttons4.add("(",fg='white',bg='gray30',command=lambda:push("("))
+buttons4.add(")",fg='white',bg='gray30',command=lambda:push(")"))
+buttons4.add("/",bg='steelblue3',fg='white',command=lambda:push("/"))
 
 buttons5 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons5.pack(fill='y', expand=1, padx=1, pady=1)
 buttons5.add('Log',width=5,bg='gray30',fg='white')
-buttons5.add("7",bg='gray50',fg='white')
-buttons5.add("8",bg='gray50',fg='white')
-buttons5.add("9",bg='gray50',fg='white')
-buttons5.add("x",bg='steelblue3',fg='white')
+buttons5.add("7",bg='gray50',fg='white',command=lambda:push(7))
+buttons5.add("8",bg='gray50',fg='white',command=lambda:push(8))
+buttons5.add("9",bg='gray50',fg='white',command=lambda:push(9))
+buttons5.add("x",bg='steelblue3',fg='white',command=lambda:push("x"))
 
 buttons6 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons6.pack(fill='y', expand=1, padx=1, pady=1)
 buttons6.add('Ln',width=5,bg='gray30',fg='white')
-buttons6.add("4",bg='gray50',fg='white')
-buttons6.add("5",bg='gray50',fg='white')
-buttons6.add("6",bg='gray50',fg='white')
-buttons6.add("-",bg='steelblue3',fg='white')
+buttons6.add("4",bg='gray50',fg='white',command=lambda:push(4))
+buttons6.add("5",bg='gray50',fg='white',command=lambda:push(5))
+buttons6.add("6",bg='gray50',fg='white',command=lambda:push(6))
+buttons6.add("-",bg='steelblue3',fg='white',command=lambda:push("-"))
 
 buttons7 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons7.pack(fill='y', expand=1, padx=1, pady=1)
 buttons7.add('STO',width=5,bg='gray30',fg='white')
-buttons7.add("1",bg='gray50',fg='white')
-buttons7.add("2",bg='gray50',fg='white')
-buttons7.add("3",bg='gray50',fg='white')
-buttons7.add("+",bg='steelblue3',fg='white')
+buttons7.add("1",bg='gray50',fg='white',command=lambda:push(1))
+buttons7.add("2",bg='gray50',fg='white',command=lambda:push(2))
+buttons7.add("3",bg='gray50',fg='white',command=lambda:push(3))
+buttons7.add("+",bg='steelblue3',fg='white',command=lambda:push("+"))
 
 buttons8 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons8.pack(fill='y', expand=1, padx=1, pady=1)
 buttons8.add('Off',width=5,bg='gray30',fg='white')
-buttons8.add("0",bg='gray50',fg='white')
-buttons8.add(".",bg='gray50',fg='white')
+buttons8.add("0",bg='gray50',fg='white',command=lambda:push(0))
+buttons8.add(".",bg='gray50',fg='white',command=lambda:push("."))
 buttons8.add("(-)",bg='gray50',fg='white')
 buttons8.add("Enter",bg='steelblue3',fg='white')
 
