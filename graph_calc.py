@@ -1,4 +1,4 @@
-from tkinter import *
+#from tkinter import *
 import Pmw
 import string
 import numpy as np
