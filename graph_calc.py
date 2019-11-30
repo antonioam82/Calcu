@@ -9,18 +9,6 @@ Calculadora.title("GRAPH_CALC")
 Calculadora.config(bg='gray40')
 formula = ""
 
-#PANTALLA
-display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
-                      vscrollmode='none', hull_relief='sunken',#vscrollmode=dynamic
-                      hull_background='gray40', hull_borderwidth=10, 
-                      text_background='honeydew4', text_width=29, #ancho pantalla
-                      text_foreground='black', text_height=9, #alto pantalla
-          text_padx=10, text_pady=10, text_relief='groove',
-                      text_font=('arial', 12, 'bold'))
-display.pack(padx=0,pady=0)
-buttons1 = Pmw.ButtonBox(Calculadora
-                         ,hull_background='gray40')
-
 def push(car):
     global formula
     formula=formula+str(car)
@@ -36,6 +24,18 @@ def matr_demo(): #IT'S JUST A DEMO :)
     a1 = np.array([[1,2,3],[1,2,8]], float)
     a2 = np.array([[4,5,6],[2,3,4]], float)
     display.appendtext(a1+a2)
+
+#PANTALLA
+display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
+                      vscrollmode='none', hull_relief='sunken',#vscrollmode=dynamic
+                      hull_background='gray40', hull_borderwidth=10, 
+                      text_background='honeydew4', text_width=29, #ancho pantalla
+                      text_foreground='black', text_height=9, #alto pantalla
+          text_padx=10, text_pady=10, text_relief='groove',
+                      text_font=('arial', 12, 'bold'))
+display.pack(padx=0,pady=0)
+buttons1 = Pmw.ButtonBox(Calculadora
+                         ,hull_background='gray40')
 
 buttons1.pack(fill='both', expand=1, padx=1, pady=1)
 #buttons1.alignbuttons()
