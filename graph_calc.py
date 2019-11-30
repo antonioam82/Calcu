@@ -12,7 +12,7 @@ type_op = "math"
 
 def push(car):
     global formula
-    formula=formula+str(car)
+    formula=formula+car
     print(formula)
     display.appendtext(car)
 
