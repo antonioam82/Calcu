@@ -1,6 +1,7 @@
 #from tkinter import *
 import Pmw
 import string
+from math import *
 import numpy as np
 
 Calculadora = Pmw.initialise(fontScheme = 'pmw1')
@@ -41,7 +42,7 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       text_background='honeydew4', text_width=29, #ancho pantalla
                       text_foreground='black', text_height=9, #alto pantalla
           text_padx=10, text_pady=10, text_relief='groove',
-                      text_font=('arial', 12, 'bold') )
+                      text_font=('Arial', 12, 'bold') )
 display.pack(padx=0,pady=0)
 
 buttons1 = Pmw.ButtonBox(Calculadora
@@ -119,4 +120,3 @@ for i in bts:
     i.alignbuttons()
 
 Calculadora.mainloop()
-
