@@ -31,7 +31,10 @@ def matr_demo(): #IT'S JUST A DEMO :)
 def operation():
     global formula
     if type_op=="math":
-        result = eval(formula)
+        try:
+            result = eval(formula)
+        except:
+            result = "ERROR"
         display.appendtext("\n"+str(result)+"\n")
         formula=""
 
