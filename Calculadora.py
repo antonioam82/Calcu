@@ -1,8 +1,30 @@
-#!/usr/bin/python
-# -*- coding: latin-1 -*-
-from VALID import OK, ns, OKP
 from math import *
 import subprocess
+
+def OKP(n): #ESTA FUNCION ES COMO "OK" SOLO QUE ADMITE EL NÚMERO "pi".
+    from math import pi
+    if n!=("pi"):
+        try:
+            n=float(n)
+        except:
+            n=OKP(input("Caracter no válido: "))
+    else:
+        n=pi
+    return n
+
+
+def ns(c):
+    while c!=("s") and c!=("n"):
+        print(chr(7));c=input("Escribe solo \'n\' o \'s\' según su opción: ")
+    return(c)
+
+def OK(n):
+    try:
+        n=float(n)
+    except:
+        n=OK(input("Caracter no valido: "))
+    return n
+
 
 def opera_val(op,p):
     if p==("A"):
@@ -211,8 +233,6 @@ VISUALIZAR RESULTADO                       OPERADOR("=")
             if r==("s"):
                 print(VALOR)
     
-        
-        
         o=opera_val(input("Introduce operador: "),"B")
     print("RESULTADO FINAL: ",VALOR)
     continu=ns(input("¿Desea efectuar mas operaciones?: "))
