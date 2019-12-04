@@ -17,10 +17,10 @@ def push(car):
     print(formula)
     display.appendtext(car)
 
-def typer(m):
-    global type_op
-    type_op = m
-    display.appendtext(type_op+"\n")
+#def typer(m):
+    #global type_op
+    #type_op = m
+    #display.appendtext(type_op+"\n")
     
 def clear():
     display.clear()
@@ -66,8 +66,8 @@ buttons1.add('Stat',bg='gray30',fg='white')
 buttons2 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons2.pack(fill='y', expand=1, padx=1, pady=1)
 #buttons2.alignbuttons()
-buttons2.add('Math',width=5,fg='white',bg='gray30',command=lambda:typer("MATH"))
-buttons2.add("Mtrx",fg='white',bg='gray30',command=lambda:typer("MTRX"))
+buttons2.add('Math',width=5,fg='white',bg='gray30')#,command=lambda:typer("MATH")
+buttons2.add("Mtrx",fg='white',bg='gray30')#,command=lambda:typer("MTRX")
 buttons2.add("Pgrm",fg='white',bg='gray30')
 buttons2.add("Vars",fg='white',bg='gray30')
 buttons2.add("Clr",fg='white',bg='gray30')
