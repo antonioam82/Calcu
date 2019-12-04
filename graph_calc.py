@@ -9,7 +9,7 @@ Calculadora = Pmw.initialise(fontScheme = 'pmw1')
 Calculadora.title("GRAPH_CALC")
 Calculadora.config(bg='gray40')
 formula = ""
-type_op = ""
+type_op = "MATH"
 
 def push(car):
     global formula
