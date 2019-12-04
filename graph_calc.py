@@ -9,7 +9,7 @@ Calculadora = Pmw.initialise(fontScheme = 'pmw1')
 Calculadora.title("GRAPH_CALC")
 Calculadora.config(bg='gray40')
 formula = ""
-type_op = "math"
+type_op = ""
 
 def push(car):
     global formula
@@ -17,20 +17,23 @@ def push(car):
     print(formula)
     display.appendtext(car)
 
-def escribe():
-    display.appendtext("Hi There!\nHola")
-    #print("Hola")
+def typer(m):
+    global type_op
+    type_op = m
+    display.appendtext(type_op+"\n")
+    
 def clear():
     display.clear()
 
-def matr_demo(): #IT'S JUST A DEMO :)
-    a1 = np.array([[1,2,3],[1,2,8]], float)
-    a2 = np.array([[4,5,6],[2,3,4]], float)
-    display.appendtext(a1+a2)
+def matr_demo():
+    if type_op != "MTRX":
+        a1 = np.array([[1,2,3],[1,2,8]], float)
+        a2 = np.array([[4,5,6],[2,3,4]], float)
+        display.appendtext(a1+a2)
 
 def operation():
     global formula
-    if type_op=="math":
+    if type_op=="MATH":
         try:
             result = eval(formula)
         except:
@@ -63,9 +66,9 @@ buttons1.add('Stat',bg='gray30',fg='white')
 buttons2 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons2.pack(fill='y', expand=1, padx=1, pady=1)
 #buttons2.alignbuttons()
-buttons2.add('Math',width=5,fg='white',bg='gray30')
-buttons2.add("Mtrx",fg='white',bg='gray30',command=matr_demo)
-buttons2.add("Pgrm",fg='white',bg='gray30',command=escribe)
+buttons2.add('Math',width=5,fg='white',bg='gray30',command=lambda:typer("MATH"))
+buttons2.add("Mtrx",fg='white',bg='gray30',command=lambda:typer("MTRX"))
+buttons2.add("Pgrm",fg='white',bg='gray30')
 buttons2.add("Vars",fg='white',bg='gray30')
 buttons2.add("Clr",fg='white',bg='gray30')
 
