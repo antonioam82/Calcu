@@ -14,7 +14,7 @@ type_op = "MATH"
 def push(car):
     global formula
     formula=formula+car
-    print(formula)
+    #print(formula)
     display.appendtext(car)
 
 #def typer(m):
@@ -24,12 +24,12 @@ def push(car):
     
 def clear():
     display.clear()
+    
 
 def matr_demo():
-    if type_op != "MTRX":
-        a1 = np.array([[1,2,3],[1,2,8]], float)
-        a2 = np.array([[4,5,6],[2,3,4]], float)
-        display.appendtext(a1+a2)
+    a1 = np.array([[1,2,3],[1,2,8]], float)
+    a2 = np.array([[4,5,6],[2,3,4]], float)
+    display.appendtext(a1+a2)
 
 def operation():
     global formula
@@ -38,7 +38,10 @@ def operation():
             result = eval(formula)
         except:
             result = "ERROR"
-        display.appendtext("\n"+str(result)+"\n")
+        #display.insert(1.6, "Hello")
+        res = 29-len(str(result))#33
+        num_spa=("_"*res) #:P
+        display.appendtext("\n"+num_spa+str(result)+"\n\n")
         formula=""
 
 #PANTALLA
@@ -46,7 +49,7 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       vscrollmode='none', hull_relief='sunken',#vscrollmode=dynamic
                       hull_background='gray40', hull_borderwidth=10, 
                       text_background='honeydew4', text_width=29, #ancho pantalla
-                      text_foreground='black', text_height=9, #alto pantalla
+                      text_foreground='black', text_height=9,#alto pantalla
           text_padx=10, text_pady=10, text_relief='groove',
                       text_font=('Arial', 12, 'bold') )
 display.pack(padx=0,pady=0)
@@ -67,7 +70,7 @@ buttons2 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons2.pack(fill='y', expand=1, padx=1, pady=1)
 #buttons2.alignbuttons()
 buttons2.add('Math',width=5,fg='white',bg='gray30')#,command=lambda:typer("MATH")
-buttons2.add("Mtrx",fg='white',bg='gray30')#,command=lambda:typer("MTRX")
+buttons2.add("Mtrx",fg='white',bg='gray30',command=matr_demo)#,command=lambda:typer("MTRX")
 buttons2.add("Pgrm",fg='white',bg='gray30')
 buttons2.add("Vars",fg='white',bg='gray30')
 buttons2.add("Clr",fg='white',bg='gray30')
