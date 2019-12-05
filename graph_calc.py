@@ -23,6 +23,8 @@ def push(car):
     #display.appendtext(type_op+"\n")
     
 def clear():
+    global formula
+    formula = ""
     display.clear()
     
 
@@ -33,12 +35,13 @@ def matr_demo():
 
 def operation():
     global formula
+    print(formula)
     if type_op=="MATH" and formula!="":
         try:
             result = eval(formula)
-            print(result)
         except:
             result = "ERROR"
+        print(result)
         #display.insert(1.6, "Hello")
         res = 63-(len(str(result)))#33
         num_spa=(" "*(res*2))
