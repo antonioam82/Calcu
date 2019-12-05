@@ -25,7 +25,6 @@ def push(car):
 def clear():
     display.clear()
     
-
 def matr_demo():
     a1 = np.array([[1,2,3],[1,2,8]], float)
     a2 = np.array([[4,5,6],[2,3,4]], float)
@@ -39,17 +38,17 @@ def operation():
         except:
             result = "ERROR"
         #display.insert(1.6, "Hello")
-        res = 62-(len(str(result)))#33
+        res = 61-(len(str(result)))#33
         num_spa=(" "*(res*2))
         print(res)
-        display.appendtext("\n"+num_spa+str(result)+"\n")
+        display.appendtext("\n"+num_spa+str(result)+"\n\n")
         formula=""
 
 #PANTALLA
 display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
-                      vscrollmode='none', hull_relief='sunken',#vscrollmode=dynamic
+                      vscrollmode='dynamic', hull_relief='sunken',#vscrollmode=dynamic
                       hull_background='gray40', hull_borderwidth=10, 
-                      text_background='honeydew4', text_width=29, #ancho pantalla
+                      text_background='honeydew4', text_width=28, #ancho pantalla #29
                       text_foreground='black', text_height=9,#alto pantalla
           text_padx=10, text_pady=10, text_relief='groove',
                       text_font=('Arial', 12, 'bold') )
@@ -58,7 +57,7 @@ display.pack(padx=0,pady=0)
 buttons1 = Pmw.ButtonBox(Calculadora
                          ,hull_background='gray40')
 
-buttons1.pack(fill='both', expand=1, padx=1, pady=1)
+buttons1.pack(fill='y', expand=1, padx=1, pady=1)
 #buttons1.alignbuttons()
 
 buttons1.add('2nd',width=5,bg='steelblue3',fg='white')
