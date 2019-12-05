@@ -42,7 +42,7 @@ def operation():
         res = 62-(len(str(result)))#33
         num_spa=(" "*(res*2))
         print(res)
-        display.appendtext("\n"+num_spa+str(result)+"\n\n")
+        display.appendtext("\n"+num_spa+str(result)+"\n")
         formula=""
 
 #PANTALLA
