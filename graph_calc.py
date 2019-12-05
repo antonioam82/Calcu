@@ -25,6 +25,7 @@ def push(car):
 def clear():
     display.clear()
     
+
 def matr_demo():
     a1 = np.array([[1,2,3],[1,2,8]], float)
     a2 = np.array([[4,5,6],[2,3,4]], float)
@@ -38,7 +39,7 @@ def operation():
         except:
             result = "ERROR"
         #display.insert(1.6, "Hello")
-        res = 60-(len(str(result)))#33
+        res = 63-(len(str(result)))#33
         num_spa=(" "*(res*2))
         print(res)
         display.appendtext("\n"+num_spa+str(result)+"\n")
@@ -48,7 +49,7 @@ def operation():
 display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       vscrollmode='dynamic', hull_relief='sunken',#vscrollmode=dynamic
                       hull_background='gray40', hull_borderwidth=10, 
-                      text_background='honeydew4', text_width=28, #ancho pantalla #29
+                      text_background='honeydew4', text_width=29, #ancho pantalla #29
                       text_foreground='black', text_height=9,#alto pantalla
           text_padx=10, text_pady=10, text_relief='groove',
                       text_font=('Arial', 12, 'bold') )
@@ -129,3 +130,5 @@ for i in bts:
     i.alignbuttons()
 
 Calculadora.mainloop()
+
+
