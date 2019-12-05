@@ -25,7 +25,6 @@ def push(car):
 def clear():
     display.clear()
     
-
 def matr_demo():
     a1 = np.array([[1,2,3],[1,2,8]], float)
     a2 = np.array([[4,5,6],[2,3,4]], float)
@@ -39,10 +38,10 @@ def operation():
         except:
             result = "ERROR"
         #display.insert(1.6, "Hello")
-        res = 61-(len(str(result)))#33
+        res = 60-(len(str(result)))#33
         num_spa=(" "*(res*2))
         print(res)
-        display.appendtext("\n"+num_spa+str(result)+"\n\n")
+        display.appendtext("\n"+num_spa+str(result)+"\n")
         formula=""
 
 #PANTALLA
@@ -130,4 +129,3 @@ for i in bts:
     i.alignbuttons()
 
 Calculadora.mainloop()
-
