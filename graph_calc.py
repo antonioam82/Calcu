@@ -25,6 +25,7 @@ def push(car):
 def clear():
     display.clear()
     
+
 def matr_demo():
     a1 = np.array([[1,2,3],[1,2,8]], float)
     a2 = np.array([[4,5,6],[2,3,4]], float)
@@ -32,15 +33,16 @@ def matr_demo():
 
 def operation():
     global formula
-    if type_op=="MATH":
+    if type_op=="MATH" and formula!="":
         try:
             result = eval(formula)
+            print(result)
         except:
             result = "ERROR"
         #display.insert(1.6, "Hello")
         res = 63-(len(str(result)))#33
         num_spa=(" "*(res*2))
-        print(res)
+        #print(res)
         display.appendtext("\n"+num_spa+str(result)+"\n")
         formula=""
 
