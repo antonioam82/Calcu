@@ -39,8 +39,9 @@ def operation():
         except:
             result = "ERROR"
         #display.insert(1.6, "Hello")
-        res = 29-len(str(result))#33
-        num_spa=("_"*res) #:P
+        res = 29-(len(str(result)))#33
+        num_spa=(" "*(res)) #:P
+        print(res)
         display.appendtext("\n"+num_spa+str(result)+"\n\n")
         formula=""
 
@@ -127,5 +128,3 @@ bts = (buttons1,buttons2,buttons3,buttons4,buttons5,buttons6,
        buttons7,buttons8)
 for i in bts:
     i.alignbuttons()
-
-Calculadora.mainloop()
