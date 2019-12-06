@@ -1,4 +1,3 @@
-#from tkinter import *
 import Pmw
 import string
 from math import *
@@ -27,6 +26,7 @@ def clear():
     formula = ""
     display.clear()
     
+
 def matr_demo():
     a1 = np.array([[1,2,3],[1,2,8]], float)
     a2 = np.array([[4,5,6],[2,3,4]], float)
@@ -40,12 +40,8 @@ def operation():
             result = eval(formula)
         except:
             result = "ERROR"
-        print(result)
-        #display.insert(1.6, "Hello")
-        res = 63-(len(str(result)))#33
-        num_spa=(" "*(res*2))
-        #print(res)
-        display.appendtext("\n"+num_spa+str(result)+"\n")
+        text = '{:^30}'.format(str(result))
+        display.appendtext("\n"+text+"\n")
         formula=""
 
 #PANTALLA
@@ -133,5 +129,6 @@ for i in bts:
     i.alignbuttons()
 
 Calculadora.mainloop()
+
 
 
