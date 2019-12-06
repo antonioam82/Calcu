@@ -26,7 +26,6 @@ def clear():
     formula = ""
     display.clear()
     
-
 def matr_demo():
     a1 = np.array([[1,2,3],[1,2,8]], float)
     a2 = np.array([[4,5,6],[2,3,4]], float)
@@ -41,7 +40,7 @@ def operation():
         except:
             result = "ERROR"
         text = '{:^30}'.format(str(result))
-        display.appendtext("\n"+text+"\n")
+        display.appendtext("\n"+text+"\n\n")
         formula=""
 
 #PANTALLA
