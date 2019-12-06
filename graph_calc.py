@@ -1,3 +1,4 @@
+#from tkinter import *
 import Pmw
 import string
 from math import *
@@ -26,6 +27,7 @@ def clear():
     formula = ""
     display.clear()
     
+
 def matr_demo():
     a1 = np.array([[1,2,3],[1,2,8]], float)
     a2 = np.array([[4,5,6],[2,3,4]], float)
@@ -77,9 +79,9 @@ buttons2.add("Clr",fg='white',bg='gray30')
 buttons3 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons3.pack(fill='both', expand=1, padx=1, pady=1)
 buttons3.add('X-1',width=5,fg='white',bg='gray30')
-buttons3.add("Sin",fg='white',bg='gray30',command=lambda:push("sin"))
-buttons3.add("Cos",fg='white',bg='gray30',command=lambda:push("cos"))
-buttons3.add("Tan",fg='white',bg='gray30',command=lambda:push("tan"))
+buttons3.add("Sin",fg='white',bg='gray30',command=lambda:push("sin("))
+buttons3.add("Cos",fg='white',bg='gray30',command=lambda:push("cos("))
+buttons3.add("Tan",fg='white',bg='gray30',command=lambda:push("tan("))
 buttons3.add("^",fg='white',bg='gray30')
 
 buttons4 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
@@ -92,7 +94,7 @@ buttons4.add("/",bg='steelblue3',fg='white',command=lambda:push("/"))
 
 buttons5 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons5.pack(fill='both', expand=1, padx=1, pady=1)
-buttons5.add('Log',width=5,bg='gray30',fg='white')
+buttons5.add('Log',width=5,bg='gray30',fg='white',command=lambda:push("log("))
 buttons5.add("7",bg='gray50',fg='white',command=lambda:push("7"))
 buttons5.add("8",bg='gray50',fg='white',command=lambda:push("8"))
 buttons5.add("9",bg='gray50',fg='white',command=lambda:push("9"))
