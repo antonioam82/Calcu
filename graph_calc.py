@@ -38,7 +38,8 @@ def change_sign():
     global result
     if result!="ERROR" and result!="":
         result = eval(str(result)+"*(-1)")
-        display.appendtext(str(result)+"\n")
+        text = '{:^29}'.format(str(result))
+        display.appendtext((text)+"\n")
         
 def operation():
     global formula, result
