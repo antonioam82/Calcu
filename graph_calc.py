@@ -9,6 +9,7 @@ Calculadora = Pmw.initialise(fontScheme = 'pmw1')
 Calculadora.title("GRAPH_CALC")
 Calculadora.config(bg='gray40')
 formula = ""
+result = ""
 type_op = "MATH"
 
 def push(car):
@@ -33,8 +34,14 @@ def matr_demo():
     a2 = np.array([[4,5,6],[2,3,4]], float)
     display.appendtext(a1+a2)
 
+def change_sign():
+    global result
+    if result!="ERROR" and result!="":
+        result = eval(str(result)+"*(-1)")
+        display.appendtext(str(result)+"\n")
+        
 def operation():
-    global formula
+    global formula, result
     print(formula)
     if type_op=="MATH" and formula!="":
         try:
@@ -121,7 +128,7 @@ buttons8.pack(fill='both', expand=1, padx=1, pady=1)
 buttons8.add('Off',width=5,bg='gray30',fg='white')
 buttons8.add("0",bg='gray50',fg='white',command=lambda:push("0"))
 buttons8.add(".",bg='gray50',fg='white',command=lambda:push("."))
-buttons8.add("(-)",bg='gray50',fg='white')
+buttons8.add("(-)",bg='gray50',fg='white',command=change_sign)
 buttons8.add("Enter",bg='steelblue3',fg='white',command=operation)
 
 bts = (buttons1,buttons2,buttons3,buttons4,buttons5,buttons6,
@@ -130,6 +137,7 @@ for i in bts:
     i.alignbuttons()
 
 Calculadora.mainloop()
+
 
 
 
