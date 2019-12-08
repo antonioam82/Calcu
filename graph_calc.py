@@ -10,6 +10,7 @@ Calculadora.title("GRAPH_CALC")
 Calculadora.config(bg='gray40')
 formula = ""
 result = ""
+mem = ""
 type_op = "MATH"
 
 def push(car):
@@ -27,8 +28,14 @@ def clear():
     global formula
     formula = ""
     display.clear()
-    
 
+def store():
+    global mem
+    if mem=="":
+        mem = str(result)
+    else:
+        push(mem)
+    
 def matr_demo():
     a1 = np.array([[1,2,3],[1,2,8]], float)
     a2 = np.array([[4,5,6],[2,3,4]], float)
@@ -118,7 +125,7 @@ buttons6.add("-",bg='steelblue3',fg='white',command=lambda:push("-"))
 
 buttons7 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons7.pack(fill='both', expand=1, padx=1, pady=1)
-buttons7.add('STO',width=5,bg='gray30',fg='white')
+buttons7.add('STO',width=5,bg='gray30',fg='white',command=store)
 buttons7.add("1",bg='gray50',fg='white',command=lambda:push("1"))
 buttons7.add("2",bg='gray50',fg='white',command=lambda:push("2"))
 buttons7.add("3",bg='gray50',fg='white',command=lambda:push("3"))
@@ -138,6 +145,7 @@ for i in bts:
     i.alignbuttons()
 
 Calculadora.mainloop()
+
 
 
 
