@@ -25,9 +25,10 @@ def push(car):
     #display.appendtext(type_op+"\n")
     
 def clear():
-    global formula,mem
+    global formula, mem, result
     formula = ""
     mem = ""
+    result = ""
     display.clear()
 
 def store():
