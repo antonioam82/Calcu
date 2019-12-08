@@ -47,7 +47,7 @@ def change_sign():
     global result
     if result!="ERROR" and result!="":
         result = eval(str(result)+"*(-1)")
-        text = '{:^29}'.format(str(result))
+        text = '{:^30}'.format(str(result))
         display.appendtext((text)+"\n")
         
 def operation():
