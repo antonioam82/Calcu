@@ -25,8 +25,9 @@ def push(car):
     #display.appendtext(type_op+"\n")
     
 def clear():
-    global formula
+    global formula,mem
     formula = ""
+    mem = ""
     display.clear()
 
 def store():
@@ -78,7 +79,7 @@ buttons1.pack(fill='both', expand=1, padx=1, pady=1)
 
 buttons1.add('2nd',width=5,bg='steelblue3',fg='white')
 buttons1.add('Mode',bg='gray30',fg='white')
-buttons1.add('Del',bg='gray30',fg='white',command=clear)
+buttons1.add('Del',bg='gray30',fg='white')
 buttons1.add('Alpha',bg='gray50',fg='white')
 buttons1.add('Stat',bg='gray30',fg='white')
 
@@ -133,7 +134,7 @@ buttons7.add("+",bg='steelblue3',fg='white',command=lambda:push("+"))
 
 buttons8 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons8.pack(fill='both', expand=1, padx=1, pady=1)
-buttons8.add('Off',width=5,bg='gray30',fg='white')
+buttons8.add('Off',width=5,bg='gray30',fg='white',command=clear)
 buttons8.add("0",bg='gray50',fg='white',command=lambda:push("0"))
 buttons8.add(".",bg='gray50',fg='white',command=lambda:push("."))
 buttons8.add("(-)",bg='gray50',fg='white',command=change_sign)
