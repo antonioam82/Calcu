@@ -23,6 +23,11 @@ def push(car):
     #global type_op
     #type_op = m
     #display.appendtext(type_op+"\n")
+
+def del_():
+    global mem
+    if mem!="":
+        mem=""
     
 def clear():
     global formula, mem, result
@@ -33,8 +38,9 @@ def clear():
 
 def store():
     global mem
-    if mem=="":
+    if mem=="" and result!="" and result!="ERROR":
         mem = str(result)
+        #display.appendtext("STORED: "+mem+"\n\n")
     else:
         push(mem)
     
@@ -80,7 +86,7 @@ buttons1.pack(fill='both', expand=1, padx=1, pady=1)
 
 buttons1.add('2nd',width=5,bg='steelblue3',fg='white')
 buttons1.add('Mode',bg='gray30',fg='white')
-buttons1.add('Del',bg='gray30',fg='white')
+buttons1.add('Del',bg='gray30',fg='white',command=del_)
 buttons1.add('Alpha',bg='gray50',fg='white')
 buttons1.add('Stat',bg='gray30',fg='white')
 
