@@ -11,6 +11,7 @@ Calculadora.config(bg='gray40')
 formula = ""
 result = ""
 mem = ""
+ndact = False
 type_op = "MATH"
 
 def push(car):
@@ -57,6 +58,17 @@ def change_sign():
         result = eval(str(result)+"*(-1)")
         text = '{:^29}'.format(str(result))
         display.appendtext((text)+"\n")
+
+def nd():
+    global ndact
+    if ndact == False:
+        ndact = True
+
+def pi():
+    if ndact == True:
+        #numb = pi
+        #display.appendtext(pi)
+        push('3.141592653589793')
         
 def operation():
     global formula, result
@@ -80,18 +92,18 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       text_font=('Arial', 12, 'bold') )
 display.pack(padx=0,pady=0)
 
-buttons1 = Pmw.ButtonBox(Calculadora
-                         ,hull_background='gray40')
+buttons1 = Pmw.ButtonBox(Calculadora,
+                         hull_background='gray40')
 
 buttons1.pack(fill='both', expand=1, padx=1, pady=1)
 #buttons1.alignbuttons()
 
-buttons1.add('2nd',width=5,bg='steelblue3',fg='white')
+buttons1.add('2nd',width=5,bg='steelblue3',fg='white',command=nd)
 buttons1.add('Mode',bg='gray30',fg='white')
 buttons1.add('Del',bg='gray30',fg='white',command=del_)
 buttons1.add('Alpha',bg='gray50',fg='white')
 buttons1.add('Stat',bg='gray30',fg='white')
-
+    
 buttons2 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons2.pack(fill='both', expand=1, padx=1, pady=1)
 #buttons2.alignbuttons()
@@ -107,7 +119,7 @@ buttons3.add('X-1',width=5,fg='white',bg='gray30')
 buttons3.add("Sin",fg='white',bg='gray30',command=lambda:push("sin("))
 buttons3.add("Cos",fg='white',bg='gray30',command=lambda:push("cos("))
 buttons3.add("Tan",fg='white',bg='gray30',command=lambda:push("tan("))
-buttons3.add("^",fg='white',bg='gray30')
+buttons3.add("^ π",fg='white',bg='gray30',command=pi)
 
 buttons4 = Pmw.ButtonBox(Calculadora,hull_background='gray40')
 buttons4.pack(fill='both', expand=1, padx=1, pady=1)
@@ -153,6 +165,7 @@ bts = (buttons1,buttons2,buttons3,buttons4,buttons5,buttons6,
        buttons7,buttons8)
 for i in bts:
     i.alignbuttons()
+
 
 Calculadora.mainloop()
 
