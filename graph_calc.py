@@ -95,14 +95,14 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
 display.place(x=0,y=0)
 
 
-
 Label(master=Calculadora,text='Quit',fg='steelblue3',bg='gray40').place(x=69,y=215)
 Label(master=Calculadora,text='Ins',fg='steelblue3',bg='gray40').place(x=133,y=215)
 Label(master=Calculadora,text='Lock',fg='steelblue3',bg='gray40').place(x=197,y=215)
 Label(master=Calculadora,text='List',fg='steelblue3',bg='gray40').place(x=261,y=215)
 Label(Calculadora,text='Test',fg='steelblue3',bg='gray40').place(x=5,y=270)
-#buttons1.pack(fill='both', expand=1, padx=1, pady=1)
-
+Label(Calculadora,text='Angle',fg='steelblue3',bg='gray40').place(x=69,y=270)
+Label(Calculadora,text='Draw',fg='steelblue3',bg='gray40').place(x=133,y=270)
+Label(Calculadora,text='YVars',fg='steelblue3',bg='gray40').place(x=197,y=270)
 
 Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5).place(x=5,y=236) #activebackground="blue".place(x=8,y=243)
 Button(Calculadora,text='Mode',bg='gray30',fg='white',width=5).place(x=69,y=236)
@@ -110,8 +110,11 @@ Button(Calculadora,text='Del',bg='gray30',fg='white',width=5).place(x=133,y=236)
 Button(Calculadora,text='Alpha',bg='gray50',fg='white',width=5).place(x=197,y=236)
 Button(Calculadora,text='Stat',bg='gray30',fg='white',width=5).place(x=261,y=236)
 
-Button(Calculadora,text='X-1',bg='gray30',fg='white',width=5).place(x=5,y=291)
-
+Button(Calculadora,text='Math',bg='gray30',fg='white',width=5).place(x=5,y=291)
+Button(Calculadora,text='Mtrx',bg='gray30',fg='white',width=5).place(x=69,y=291)
+Button(Calculadora,text='Prgm',bg='gray30',fg='white',width=5).place(x=133,y=291)
+Button(Calculadora,text='Vars',bg='gray30',fg='white',width=5).place(x=197,y=291)
+Button(Calculadora,text='Clr',bg='gray30',fg='white',width=5).place(x=261,y=291)
 
 Calculadora.mainloop()
 
