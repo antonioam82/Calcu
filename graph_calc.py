@@ -94,6 +94,8 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       text_font=('Arial', 12, 'bold') )
 display.place(x=0,y=0)
 
+
+
 Label(master=Calculadora,text='Quit',fg='steelblue3',bg='gray40').place(x=69,y=215)
 Label(master=Calculadora,text='Ins',fg='steelblue3',bg='gray40').place(x=133,y=215)
 Label(master=Calculadora,text='Lock',fg='steelblue3',bg='gray40').place(x=197,y=215)
@@ -155,28 +157,29 @@ Button(Calculadora,text=')',bg='gray30',fg='white',width=5).place(x=197,y=401)
 Button(Calculadora,text='/',bg='steelblue3',fg='white',width=5).place(x=261,y=401)
 
 Button(Calculadora,text='Log',bg='gray30',fg='white',width=5).place(x=5,y=456)
-Button(Calculadora,text='7',bg='gray50',fg='white',width=5).place(x=69,y=456)
-Button(Calculadora,text='8',bg='gray50',fg='white',width=5).place(x=133,y=456)
-Button(Calculadora,text='9',bg='gray50',fg='white',width=5).place(x=197,y=456)
+Button(Calculadora,text='7',bg='gray50',fg='white',width=5,command=lambda:push("7")).place(x=69,y=456)
+Button(Calculadora,text='8',bg='gray50',fg='white',width=5,command=lambda:push("8")).place(x=133,y=456)
+Button(Calculadora,text='9',bg='gray50',fg='white',width=5,command=lambda:push("9")).place(x=197,y=456)
 Button(Calculadora,text='x',bg='steelblue3',fg='white',width=5).place(x=261,y=456)
 
 Button(Calculadora,text='Ln',bg='gray30',fg='white',width=5).place(x=5,y=511)
-Button(Calculadora,text='4',bg='gray50',fg='white',width=5).place(x=69,y=511)
-Button(Calculadora,text='5',bg='gray50',fg='white',width=5).place(x=133,y=511)
-Button(Calculadora,text='6',bg='gray50',fg='white',width=5).place(x=197,y=511)
+Button(Calculadora,text='4',bg='gray50',fg='white',width=5,command=lambda:push("4")).place(x=69,y=511)
+Button(Calculadora,text='5',bg='gray50',fg='white',width=5,command=lambda:push("5")).place(x=133,y=511)
+Button(Calculadora,text='6',bg='gray50',fg='white',width=5,command=lambda:push("6")).place(x=197,y=511)
 Button(Calculadora,text='-',bg='steelblue3',fg='white',width=5).place(x=261,y=511)
 
 Button(Calculadora,text='STO',bg='gray30',fg='white',width=5).place(x=5,y=566)
-Button(Calculadora,text='1',bg='gray50',fg='white',width=5).place(x=69,y=566)
-Button(Calculadora,text='2',bg='gray50',fg='white',width=5).place(x=133,y=566)
-Button(Calculadora,text='3',bg='gray50',fg='white',width=5).place(x=197,y=566)
+Button(Calculadora,text='1',bg='gray50',fg='white',width=5,command=lambda:push("1")).place(x=69,y=566)
+Button(Calculadora,text='2',bg='gray50',fg='white',width=5,command=lambda:push("2")).place(x=133,y=566)
+Button(Calculadora,text='3',bg='gray50',fg='white',width=5,command=lambda:push("3")).place(x=197,y=566)
 Button(Calculadora,text='+',bg='steelblue3',fg='white',width=5).place(x=261,y=566)
 
 Button(Calculadora,text='Off',bg='gray30',fg='white',width=5).place(x=5,y=621)
-Button(Calculadora,text='0',bg='gray50',fg='white',width=5).place(x=69,y=621)
+Button(Calculadora,text='0',bg='gray50',fg='white',width=5,command=lambda:push("1")).place(x=69,y=621)
 Button(Calculadora,text='.',bg='gray50',fg='white',width=5).place(x=133,y=621)
 Button(Calculadora,text='(-)',bg='gray50',fg='white',width=5).place(x=197,y=621)
 Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5).place(x=261,y=621)
+
 Calculadora.mainloop()
 
 
