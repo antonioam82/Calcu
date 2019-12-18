@@ -100,6 +100,7 @@ Label(master=Calculadora,text='Quit',fg='steelblue3',bg='gray40').place(x=69,y=2
 Label(master=Calculadora,text='Ins',fg='steelblue3',bg='gray40').place(x=133,y=215)
 Label(master=Calculadora,text='Lock',fg='steelblue3',bg='gray40').place(x=197,y=215)
 Label(master=Calculadora,text='List',fg='steelblue3',bg='gray40').place(x=261,y=215)
+Label(Calculadora,text='Test',fg='steelblue3',bg='gray40').place(x=5,y=270)
 #buttons1.pack(fill='both', expand=1, padx=1, pady=1)
 
 
@@ -108,6 +109,10 @@ Button(Calculadora,text='Mode',bg='gray30',fg='white',width=5).place(x=69,y=236)
 Button(Calculadora,text='Del',bg='gray30',fg='white',width=5).place(x=133,y=236)
 Button(Calculadora,text='Alpha',bg='gray50',fg='white',width=5).place(x=197,y=236)
 Button(Calculadora,text='Stat',bg='gray30',fg='white',width=5).place(x=261,y=236)
+
+Button(Calculadora,text='X-1',bg='gray30',fg='white',width=5).place(x=5,y=291)
+
+
 Calculadora.mainloop()
 
 
