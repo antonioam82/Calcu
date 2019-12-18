@@ -94,7 +94,6 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       text_font=('Arial', 12, 'bold') )
 display.place(x=0,y=0)
 
-
 Label(master=Calculadora,text='Quit',fg='steelblue3',bg='gray40').place(x=69,y=215)
 Label(master=Calculadora,text='Ins',fg='steelblue3',bg='gray40').place(x=133,y=215)
 Label(master=Calculadora,text='Lock',fg='steelblue3',bg='gray40').place(x=197,y=215)
@@ -103,6 +102,11 @@ Label(Calculadora,text='Test',fg='steelblue3',bg='gray40').place(x=5,y=270)
 Label(Calculadora,text='Angle',fg='steelblue3',bg='gray40').place(x=69,y=270)
 Label(Calculadora,text='Draw',fg='steelblue3',bg='gray40').place(x=133,y=270)
 Label(Calculadora,text='YVars',fg='steelblue3',bg='gray40').place(x=197,y=270)
+Label(Calculadora,text='Abs',fg='steelblue3',bg='gray40').place(x=5,y=325)
+Label(Calculadora,text='Sin-1',fg='steelblue3',bg='gray40').place(x=69,y=325)
+Label(Calculadora,text='Cos-1',fg='steelblue3',bg='gray40').place(x=133,y=325)
+Label(Calculadora,text='Tan-1',fg='steelblue3',bg='gray40').place(x=197,y=325)
+Label(Calculadora,text='π',fg='steelblue3',bg='gray40').place(x=261,y=325)
 
 Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5).place(x=5,y=236) #activebackground="blue".place(x=8,y=243)
 Button(Calculadora,text='Mode',bg='gray30',fg='white',width=5).place(x=69,y=236)
@@ -115,6 +119,12 @@ Button(Calculadora,text='Mtrx',bg='gray30',fg='white',width=5).place(x=69,y=291)
 Button(Calculadora,text='Prgm',bg='gray30',fg='white',width=5).place(x=133,y=291)
 Button(Calculadora,text='Vars',bg='gray30',fg='white',width=5).place(x=197,y=291)
 Button(Calculadora,text='Clr',bg='gray30',fg='white',width=5).place(x=261,y=291)
+
+Button(Calculadora,text='x-1',bg='gray30',fg='white',width=5).place(x=5,y=346)
+Button(Calculadora,text='Sin',bg='gray30',fg='white',width=5).place(x=69,y=346)
+Button(Calculadora,text='Cos',bg='gray30',fg='white',width=5).place(x=133,y=346)
+Button(Calculadora,text='Tan',bg='gray30',fg='white',width=5).place(x=197,y=346)
+Button(Calculadora,text='^',bg='gray30',fg='white',width=5).place(x=261,y=346)
 
 Calculadora.mainloop()
 
