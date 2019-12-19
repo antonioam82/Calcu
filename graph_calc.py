@@ -99,8 +99,6 @@ labels = [' ','Quit','Ins','Lock','List','Test','Angle','Draw','Yvar',' ',
           'Un-1','Vn-1','n','[','ex','L4','L5','L6',']','RCL','L1','L2','L3',
           'MEM',' ',' ',':','ANS','Entry']
 
-#64
-#55
 c=5
 f=215
 for l in labels:
