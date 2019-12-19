@@ -94,48 +94,25 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       text_font=('Arial', 12, 'bold') )
 display.place(x=0,y=0)
 
+labels = [' ','Quit','Ins','Lock','List','Test','Angle','Draw','Yvar',' ',
+          'Abs','Sin-1','Cos-1','Tan-1','π','Root','EE','{','}','√','10x',
+          'Un-1','Vn-1','n','[','ex','L4','L5','L6',']','RCL','L1','L2','L3',
+          'MEM',' ',' ',':','ANS','Entry']
 
-
-Label(master=Calculadora,text='Quit',fg='steelblue3',bg='gray40').place(x=69,y=215)
-Label(master=Calculadora,text='Ins',fg='steelblue3',bg='gray40').place(x=133,y=215)
-Label(master=Calculadora,text='Lock',fg='steelblue3',bg='gray40').place(x=197,y=215)
-Label(master=Calculadora,text='List',fg='steelblue3',bg='gray40').place(x=261,y=215)
-Label(Calculadora,text='Test',fg='steelblue3',bg='gray40').place(x=5,y=270)
-Label(Calculadora,text='Angle',fg='steelblue3',bg='gray40').place(x=69,y=270)
-Label(Calculadora,text='Draw',fg='steelblue3',bg='gray40').place(x=133,y=270)
-Label(Calculadora,text='YVars',fg='steelblue3',bg='gray40').place(x=197,y=270)
-Label(Calculadora,text='Abs',fg='steelblue3',bg='gray40').place(x=5,y=325)
-Label(Calculadora,text='Sin-1',fg='steelblue3',bg='gray40').place(x=69,y=325)
-Label(Calculadora,text='Cos-1',fg='steelblue3',bg='gray40').place(x=133,y=325)
-Label(Calculadora,text='Tan-1',fg='steelblue3',bg='gray40').place(x=197,y=325)
-Label(Calculadora,text='π',fg='steelblue3',bg='gray40').place(x=261,y=325)
-Label(Calculadora,text='Root',fg='steelblue3',bg='gray40').place(x=5,y=380)
-Label(Calculadora,text='EE',fg='steelblue3',bg='gray40').place(x=69,y=380)
-Label(Calculadora,text='{',fg='steelblue3',bg='gray40').place(x=133,y=380)
-Label(Calculadora,text='}',fg='steelblue3',bg='gray40').place(x=197,y=380)
-Label(Calculadora,text='10x',fg='steelblue3',bg='gray40').place(x=5,y=435)
-Label(Calculadora,text='Un-1',fg='steelblue3',bg='gray40').place(x=69,y=435)
-Label(Calculadora,text='Vn-1',fg='steelblue3',bg='gray40').place(x=133,y=435)
-Label(Calculadora,text='n',fg='steelblue3',bg='gray40').place(x=197,y=435)
-Label(Calculadora,text='[',fg='steelblue3',bg='gray40').place(x=261,y=435)
-Label(Calculadora,text='ex',fg='steelblue3',bg='gray40').place(x=5,y=490)
-Label(Calculadora,text='L4',fg='steelblue3',bg='gray40').place(x=69,y=490)
-Label(Calculadora,text='L5',fg='steelblue3',bg='gray40').place(x=133,y=490)
-Label(Calculadora,text='L6',fg='steelblue3',bg='gray40').place(x=197,y=490)
-Label(Calculadora,text=']',fg='steelblue3',bg='gray40').place(x=261,y=490)
-Label(Calculadora,text='RCL',fg='steelblue3',bg='gray40').place(x=5,y=545)
-Label(Calculadora,text='L1',fg='steelblue3',bg='gray40').place(x=69,y=545)
-Label(Calculadora,text='L2',fg='steelblue3',bg='gray40').place(x=133,y=545)
-Label(Calculadora,text='L3',fg='steelblue3',bg='gray40').place(x=197,y=545)
-Label(Calculadora,text='MEM',fg='steelblue3',bg='gray40').place(x=261,y=545)
-Label(Calculadora,text=':',fg='steelblue3',bg='gray40').place(x=133,y=600)
-Label(Calculadora,text='ANS',fg='steelblue3',bg='gray40').place(x=197,y=600)
-Label(Calculadora,text='Entry',fg='steelblue3',bg='gray40').place(x=261,y=600)
-Label(Calculadora,text='√',fg='steelblue3',bg='gray40').place(x=261,y=380)
+#64
+#55
+c=5
+f=215
+for l in labels:
+    Label(Calculadora,text=l,bg='gray40',fg='steelblue3').place(x=c,y=f)
+    c+=64
+    if c==325:
+        c=5
+        f+=55
 
 Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5).place(x=5,y=236) #activebackground="blue".place(x=8,y=243)
 Button(Calculadora,text='Mode',bg='gray30',fg='white',width=5).place(x=69,y=236)
-Button(Calculadora,text='Del',bg='gray30',fg='white',width=5).place(x=133,y=236)
+Button(Calculadora,text='Del',bg='gray30',fg='white',width=5,command=del_).place(x=133,y=236)
 Button(Calculadora,text='Alpha',bg='gray50',fg='white',width=5).place(x=197,y=236)
 Button(Calculadora,text='Stat',bg='gray30',fg='white',width=5).place(x=261,y=236)
 
