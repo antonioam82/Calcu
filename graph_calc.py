@@ -131,6 +131,7 @@ Label(Calculadora,text='MEM',fg='steelblue3',bg='gray40').place(x=261,y=545)
 Label(Calculadora,text=':',fg='steelblue3',bg='gray40').place(x=133,y=600)
 Label(Calculadora,text='ANS',fg='steelblue3',bg='gray40').place(x=197,y=600)
 Label(Calculadora,text='Entry',fg='steelblue3',bg='gray40').place(x=261,y=600)
+Label(Calculadora,text='√',fg='steelblue3',bg='gray40').place(x=261,y=325)
 
 Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5).place(x=5,y=236) #activebackground="blue".place(x=8,y=243)
 Button(Calculadora,text='Mode',bg='gray30',fg='white',width=5).place(x=69,y=236)
