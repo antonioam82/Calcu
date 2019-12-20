@@ -33,6 +33,9 @@ def del_():
     global mem
     if mem!="":
         mem=""
+
+def twond_():
+    btDiv.configure(command=lambda:push("sqrt"))##################################################################
     
 def clear():
     global formula, mem, result
@@ -98,7 +101,6 @@ labels = [' ','Quit','Ins','Lock','List','Test','Angle','Draw','Yvar',' ',
           'Abs','Sin-1','Cos-1','Tan-1','π','Root','EE','{','}','√','10x',
           'Un-1','Vn-1','n','[','ex','L4','L5','L6',']','RCL','L1','L2','L3',
           'MEM',' ',' ',':','ANS','Entry']
-
 c=5
 f=215
 for l in labels:
@@ -108,7 +110,7 @@ for l in labels:
         c=5
         f+=55
 
-Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5).place(x=5,y=236) #activebackground="blue".place(x=8,y=243)
+Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5,command=twond_).place(x=5,y=236) #################################activebackground="blue".place(x=8,y=243)
 Button(Calculadora,text='Mode',bg='gray30',fg='white',width=5).place(x=69,y=236)
 Button(Calculadora,text='Del',bg='gray30',fg='white',width=5,command=del_).place(x=133,y=236)
 Button(Calculadora,text='Alpha',bg='gray50',fg='white',width=5).place(x=197,y=236)
@@ -130,7 +132,8 @@ Button(Calculadora,text='x2',bg='gray30',fg='white',width=5).place(x=5,y=401)
 Button(Calculadora,text=',',bg='gray30',fg='white',width=5,command=lambda:push(",")).place(x=69,y=401)
 Button(Calculadora,text='(',bg='gray30',fg='white',width=5,command=lambda:push("(")).place(x=133,y=401)
 Button(Calculadora,text=')',bg='gray30',fg='white',width=5,command=lambda:push(")")).place(x=197,y=401)
-Button(Calculadora,text='/',bg='steelblue3',fg='white',width=5,command=lambda:push("/")).place(x=261,y=401)
+btDiv=Button(Calculadora,text='/',bg='steelblue3',fg='white',width=5,command=lambda:push("/"))
+btDiv.place(x=261,y=401)################################################################################################################
 
 Button(Calculadora,text='Log',bg='gray30',fg='white',width=5).place(x=5,y=456)
 Button(Calculadora,text='7',bg='gray50',fg='white',width=5,command=lambda:push("7")).place(x=69,y=456)
