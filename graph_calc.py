@@ -74,9 +74,13 @@ def nd():
     if ndact == True:
         btDiv.configure(command=lambda:push("sqrt"))
         btPhin.configure(command=pi)
+        btMult.configure(command=lambda:push("["))
+        btRest.configure(command=lambda:push("]"))
     else:
         btDiv.configure(command=lambda:push("/"))
         #btPhin.configure(command...
+        btMult.configure(command=lambda:push("*"))
+        btRest.configure(command=lambda:push("-"))
 
 def pi():
     if ndact == True:
@@ -152,13 +156,15 @@ Button(Calculadora,text='Log',bg='gray30',fg='white',width=5).place(x=5,y=456)
 Button(Calculadora,text='7',bg='gray50',fg='white',width=5,command=lambda:push("7")).place(x=69,y=456)
 Button(Calculadora,text='8',bg='gray50',fg='white',width=5,command=lambda:push("8")).place(x=133,y=456)
 Button(Calculadora,text='9',bg='gray50',fg='white',width=5,command=lambda:push("9")).place(x=197,y=456)
-Button(Calculadora,text='x',bg='steelblue3',fg='white',width=5,command=lambda:push("*")).place(x=261,y=456)
+btMult=Button(Calculadora,text='x',bg='steelblue3',fg='white',width=5,command=lambda:push("*"))
+btMult.place(x=261,y=456)
 
 Button(Calculadora,text='Ln',bg='gray30',fg='white',width=5).place(x=5,y=511)
 Button(Calculadora,text='4',bg='gray50',fg='white',width=5,command=lambda:push("4")).place(x=69,y=511)
 Button(Calculadora,text='5',bg='gray50',fg='white',width=5,command=lambda:push("5")).place(x=133,y=511)
 Button(Calculadora,text='6',bg='gray50',fg='white',width=5,command=lambda:push("6")).place(x=197,y=511)
-Button(Calculadora,text='-',bg='steelblue3',fg='white',width=5,command=lambda:push("-")).place(x=261,y=511)
+btRest=Button(Calculadora,text='-',bg='steelblue3',fg='white',width=5,command=lambda:push("-"))
+btRest.place(x=261,y=511)
 
 Button(Calculadora,text='STO',bg='gray30',fg='white',width=5,command=store).place(x=5,y=566)
 Button(Calculadora,text='1',bg='gray50',fg='white',width=5,command=lambda:push("1")).place(x=69,y=566)
