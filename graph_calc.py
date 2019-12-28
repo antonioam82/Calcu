@@ -35,7 +35,13 @@ def del_():
         mem=""
 
 def twond_():
-    btDiv.configure(command=lambda:push("sqrt"))##################################################################
+    global ndact
+    if ndact == True:
+        ndact = False
+    else:
+        ndact = True
+    nd()
+    ##################################################################
     
 def clear():
     global formula, mem, result
@@ -65,9 +71,12 @@ def change_sign():
         display.appendtext((text)+"\n")
 
 def nd():
-    global ndact
-    if ndact == False:
-        ndact = True
+    if ndact == True:
+        btDiv.configure(command=lambda:push("sqrt"))
+        btPhin.configure(command=pi)
+    else:
+        btDiv.configure(command=lambda:push("/"))
+        #btPhin.configure(command...
 
 def pi():
     if ndact == True:
@@ -101,6 +110,9 @@ labels = [' ','Quit','Ins','Lock','List','Test','Angle','Draw','Yvar',' ',
           'Abs','Sin-1','Cos-1','Tan-1','π','Root','EE','{','}','√','10x',
           'Un-1','Vn-1','n','[','ex','L4','L5','L6',']','RCL','L1','L2','L3',
           'MEM',' ',' ',':','ANS','Entry']
+
+#64
+#55
 c=5
 f=215
 for l in labels:
@@ -126,7 +138,8 @@ Button(Calculadora,text='x-1',bg='gray30',fg='white',width=5).place(x=5,y=346)
 Button(Calculadora,text='Sin',bg='gray30',fg='white',width=5,command=lambda:push("sin(")).place(x=69,y=346)
 Button(Calculadora,text='Cos',bg='gray30',fg='white',width=5,command=lambda:push("cos(")).place(x=133,y=346)
 Button(Calculadora,text='Tan',bg='gray30',fg='white',width=5,command=lambda:push("tan(")).place(x=197,y=346)
-Button(Calculadora,text='^',bg='gray30',fg='white',width=5).place(x=261,y=346)
+btPhin=Button(Calculadora,text='^',bg='gray30',fg='white',width=5)
+btPhin.place(x=261,y=346)
 
 Button(Calculadora,text='x2',bg='gray30',fg='white',width=5).place(x=5,y=401)
 Button(Calculadora,text=',',bg='gray30',fg='white',width=5,command=lambda:push(",")).place(x=69,y=401)
