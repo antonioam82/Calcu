@@ -79,6 +79,7 @@ def nd():
         btRest.configure(command=lambda:push("]"))
         btOpen.configure(command=lambda:push("{"))
         btClose.configure(command=lambda:push("}"))
+        btChang.configure(command=lambda:push("abs"))
     else:
         btDiv.configure(command=lambda:push("/"))
         #btPhin.configure(command...
@@ -86,6 +87,7 @@ def nd():
         btRest.configure(command=lambda:push("-"))
         btOpen.configure(command=lambda:push("("))
         btClose.configure(command=lambda:push(")"))
+        btChang.configure(command=change_sign)
 def pi():
     if ndact == True:
         #numb = pi
@@ -142,7 +144,8 @@ Button(Calculadora,text='Prgm',bg='gray30',fg='white',width=5).place(x=133,y=291
 Button(Calculadora,text='Vars',bg='gray30',fg='white',width=5).place(x=197,y=291)
 Button(Calculadora,text='Clr',bg='gray30',fg='white',width=5).place(x=261,y=291)
 
-Button(Calculadora,text='x-1',bg='gray30',fg='white',width=5).place(x=5,y=346)
+btChang=Button(Calculadora,text='x-1',bg='gray30',fg='white',width=5,command=change_sign)
+btChang.place(x=5,y=346)
 Button(Calculadora,text='Sin',bg='gray30',fg='white',width=5,command=lambda:push("sin(")).place(x=69,y=346)
 Button(Calculadora,text='Cos',bg='gray30',fg='white',width=5,command=lambda:push("cos(")).place(x=133,y=346)
 Button(Calculadora,text='Tan',bg='gray30',fg='white',width=5,command=lambda:push("tan(")).place(x=197,y=346)
@@ -185,6 +188,7 @@ Button(Calculadora,text='(-)',bg='gray50',fg='white',width=5).place(x=197,y=621)
 Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5,command=operation).place(x=261,y=621)
 
 Calculadora.mainloop()
+
 
 
 
