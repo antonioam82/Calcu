@@ -73,13 +73,13 @@ def change_sign():
 
 def nd():
     if ndact == True:
-        btDiv.configure(command=lambda:push("sqrt"))
+        btDiv.configure(command=lambda:push("sqrt("))
         btPhin.configure(command=pi)
         btMult.configure(command=lambda:push("["))
         btRest.configure(command=lambda:push("]"))
         btOpen.configure(command=lambda:push("{"))
         btClose.configure(command=lambda:push("}"))
-        btChang.configure(command=lambda:push("abs"))
+        btChang.configure(command=lambda:push("abs("))
     else:
         btDiv.configure(command=lambda:push("/"))
         #btPhin.configure(command...
