@@ -83,6 +83,7 @@ def nd():
         btSin.configure(command=lambda:push("asin("))
         btCos.configure(command=lambda:push("acos("))
         btTan.configure(command=lambda:push("atan("))
+        btg.configure(command=lambda:push(str(result)))
     else:
         btDiv.configure(command=lambda:push("/"))
         #btPhin.configure(command...
@@ -194,7 +195,8 @@ Button(Calculadora,text='+',bg='steelblue3',fg='white',width=5,command=lambda:pu
 Button(Calculadora,text='Off',bg='gray30',fg='white',width=5,command=clear).place(x=5,y=621)
 Button(Calculadora,text='0',bg='gray50',fg='white',width=5,command=lambda:push("0")).place(x=69,y=621)
 Button(Calculadora,text='.',bg='gray50',fg='white',width=5,command=lambda:push(".")).place(x=133,y=621)
-Button(Calculadora,text='(-)',bg='gray50',fg='white',width=5).place(x=197,y=621)
+btg=Button(Calculadora,text='(-)',bg='gray50',fg='white',width=5)
+btg.place(x=197,y=621)
 Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5,command=operation).place(x=261,y=621)
 
 Calculadora.mainloop()
