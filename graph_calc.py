@@ -98,8 +98,6 @@ def nd():
         
 def pi():
     if ndact == True:
-        #numb = pi
-        #display.appendtext(str(pi))
         push('3.141592653589793')
         
 def operation():
@@ -140,6 +138,11 @@ for l in labels:
         c=5
         f+=55
 
+buttons = ['2nd','Mode','Del','Alpha','Stat','Math','Mtrx','Prgm','Vars','Clr',
+           'x-1','Sin','Cos','Tan','^','x2',',','(',')','/','Log','7','8','9',
+           'x','Ln','4','5','6','-','STO','1','2','3','+','Off','0','.','(-)','Enter']
+
+
 Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5,command=twond_).place(x=5,y=236) #################################activebackground="blue".place(x=8,y=243)
 Button(Calculadora,text='Mode',bg='gray30',fg='white',width=5).place(x=69,y=236)
 Button(Calculadora,text='Del',bg='gray30',fg='white',width=5,command=del_).place(x=133,y=236)
@@ -152,7 +155,7 @@ Button(Calculadora,text='Prgm',bg='gray30',fg='white',width=5).place(x=133,y=291
 Button(Calculadora,text='Vars',bg='gray30',fg='white',width=5).place(x=197,y=291)
 Button(Calculadora,text='Clr',bg='gray30',fg='white',width=5).place(x=261,y=291)
 
-btChang=Button(Calculadora,text='x-1',bg='gray30',fg='white',width=5,command=change_sign)
+btChang=Button(Calculadora,text='x-1',bg='gray30',fg='white',width=5)
 btChang.place(x=5,y=346)
 btSin=Button(Calculadora,text='Sin',bg='gray30',fg='white',width=5)
 btSin.place(x=69,y=346)
