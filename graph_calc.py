@@ -99,7 +99,7 @@ def nd():
 def pi():
     if ndact == True:
         #numb = pi
-        #display.appendtext(pi)
+        #display.appendtext(str(pi))
         push('3.141592653589793')
         
 def operation():
@@ -154,43 +154,43 @@ Button(Calculadora,text='Clr',bg='gray30',fg='white',width=5).place(x=261,y=291)
 
 btChang=Button(Calculadora,text='x-1',bg='gray30',fg='white',width=5,command=change_sign)
 btChang.place(x=5,y=346)
-btSin=Button(Calculadora,text='Sin',bg='gray30',fg='white',width=5,command=lambda:push("sin("))
+btSin=Button(Calculadora,text='Sin',bg='gray30',fg='white',width=5)
 btSin.place(x=69,y=346)
-btCos=Button(Calculadora,text='Cos',bg='gray30',fg='white',width=5,command=lambda:push("cos("))
+btCos=Button(Calculadora,text='Cos',bg='gray30',fg='white',width=5)
 btCos.place(x=133,y=346)
-btTan=Button(Calculadora,text='Tan',bg='gray30',fg='white',width=5,command=lambda:push("tan("))
+btTan=Button(Calculadora,text='Tan',bg='gray30',fg='white',width=5)
 btTan.place(x=197,y=346)
 btPhin=Button(Calculadora,text='^',bg='gray30',fg='white',width=5)
 btPhin.place(x=261,y=346)
 
 Button(Calculadora,text='x2',bg='gray30',fg='white',width=5).place(x=5,y=401)
 Button(Calculadora,text=',',bg='gray30',fg='white',width=5,command=lambda:push(",")).place(x=69,y=401)
-btOpen=Button(Calculadora,text='(',bg='gray30',fg='white',width=5,command=lambda:push("("))
+btOpen=Button(Calculadora,text='(',bg='gray30',fg='white',width=5)
 btOpen.place(x=133,y=401)
-btClose=Button(Calculadora,text=')',bg='gray30',fg='white',width=5,command=lambda:push(")"))
+btClose=Button(Calculadora,text=')',bg='gray30',fg='white',width=5)
 btClose.place(x=197,y=401)
-btDiv=Button(Calculadora,text='/',bg='steelblue3',fg='white',width=5,command=lambda:push("/"))
+btDiv=Button(Calculadora,text='/',bg='steelblue3',fg='white',width=5)
 btDiv.place(x=261,y=401)################################################################################################################
 
 Button(Calculadora,text='Log',bg='gray30',fg='white',width=5).place(x=5,y=456)
 Button(Calculadora,text='7',bg='gray50',fg='white',width=5,command=lambda:push("7")).place(x=69,y=456)
 Button(Calculadora,text='8',bg='gray50',fg='white',width=5,command=lambda:push("8")).place(x=133,y=456)
 Button(Calculadora,text='9',bg='gray50',fg='white',width=5,command=lambda:push("9")).place(x=197,y=456)
-btMult=Button(Calculadora,text='x',bg='steelblue3',fg='white',width=5,command=lambda:push("*"))
+btMult=Button(Calculadora,text='x',bg='steelblue3',fg='white',width=5)
 btMult.place(x=261,y=456)
 
 Button(Calculadora,text='Ln',bg='gray30',fg='white',width=5).place(x=5,y=511)
 Button(Calculadora,text='4',bg='gray50',fg='white',width=5,command=lambda:push("4")).place(x=69,y=511)
 Button(Calculadora,text='5',bg='gray50',fg='white',width=5,command=lambda:push("5")).place(x=133,y=511)
 Button(Calculadora,text='6',bg='gray50',fg='white',width=5,command=lambda:push("6")).place(x=197,y=511)
-btRest=Button(Calculadora,text='-',bg='steelblue3',fg='white',width=5,command=lambda:push("-"))
+btRest=Button(Calculadora,text='-',bg='steelblue3',fg='white',width=5)
 btRest.place(x=261,y=511)
 
 Button(Calculadora,text='STO',bg='gray30',fg='white',width=5,command=store).place(x=5,y=566)
 Button(Calculadora,text='1',bg='gray50',fg='white',width=5,command=lambda:push("1")).place(x=69,y=566)
 Button(Calculadora,text='2',bg='gray50',fg='white',width=5,command=lambda:push("2")).place(x=133,y=566)
 Button(Calculadora,text='3',bg='gray50',fg='white',width=5,command=lambda:push("3")).place(x=197,y=566)
-Button(Calculadora,text='+',bg='steelblue3',fg='white',width=5,command=lambda:push("+")).place(x=261,y=566)
+Button(Calculadora,text='+',bg='steelblue3',fg='white',width=5).place(x=261,y=566)
 
 Button(Calculadora,text='Off',bg='gray30',fg='white',width=5,command=clear).place(x=5,y=621)
 Button(Calculadora,text='0',bg='gray50',fg='white',width=5,command=lambda:push("0")).place(x=69,y=621)
@@ -198,6 +198,8 @@ Button(Calculadora,text='.',bg='gray50',fg='white',width=5,command=lambda:push("
 btg=Button(Calculadora,text='(-)',bg='gray50',fg='white',width=5)
 btg.place(x=197,y=621)
 Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5,command=operation).place(x=261,y=621)
+
+nd()
 
 Calculadora.mainloop()
 
