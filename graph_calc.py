@@ -141,9 +141,9 @@ for l in labels:
         c=5
         f+=55
 
-buttons = ['2nd','Mode','Del','Alpha','Stat','Math','Mtrx','Prgm','Vars','Clr',
-           'x-1','Sin','Cos','Tan','^','x2',',','(',')','/','Log','7','8','9',
-           'x','Ln','4','5','6','-','STO','1','2','3','+','Off','0','.','(-)','Enter']
+#buttons = ['2nd','Mode','Del','Alpha','Stat','Math','Mtrx','Prgm','Vars','Clr',
+           #'x-1','Sin','Cos','Tan','^','x2',',','(',')','/','Log','7','8','9',
+           #'x','Ln','4','5','6','-','STO','1','2','3','+','Off','0','.','(-)','Enter']
 
 
 Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5,command=twond_).place(x=5,y=236) #################################activebackground="blue".place(x=8,y=243)
