@@ -38,8 +38,11 @@ def twond_():
     global ndact
     if ndact == True:
         ndact = False
+        btTwond.config(bg='steelblue3',fg='white')
     else:
         ndact = True
+        btTwond.config(bg='white',fg='steelblue3')
+        
     nd()
     ##################################################################
     
@@ -84,6 +87,7 @@ def nd():
         btCos.configure(command=lambda:push("acos("))
         btTan.configure(command=lambda:push("atan("))
         btg.configure(command=lambda:push(str(result)))
+        btLoga.configure(command=lambda:push("pow("))
         
     else:
         btDiv.configure(command=lambda:push("/"))
@@ -98,6 +102,7 @@ def nd():
         btTan.configure(command=lambda:push("tan("))
         btLoga.configure(command=lambda:push("log("))
         btComa.config(command=lambda:push(","))
+        btSum.config(command=lambda:push("+"))
         
 def pi():
     if ndact == True:
@@ -141,12 +146,13 @@ for l in labels:
         c=5
         f+=55
 
-#buttons = ['2nd','Mode','Del','Alpha','Stat','Math','Mtrx','Prgm','Vars','Clr',
-           #'x-1','Sin','Cos','Tan','^','x2',',','(',')','/','Log','7','8','9',
-           #'x','Ln','4','5','6','-','STO','1','2','3','+','Off','0','.','(-)','Enter']
+buttons = ['2nd','Mode','Del','Alpha','Stat','Math','Mtrx','Prgm','Vars','Clr',
+           'x-1','Sin','Cos','Tan','^','x2',',','(',')','/','Log','7','8','9',
+           'x','Ln','4','5','6','-','STO','1','2','3','+','Off','0','.','(-)','Enter']
 
 
-Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5,command=twond_).place(x=5,y=236) #################################activebackground="blue".place(x=8,y=243)
+btTwond=Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5,command=twond_)
+btTwond.place(x=5,y=236) #################################activebackground="blue".place(x=8,y=243)
 Button(Calculadora,text='Mode',bg='gray30',fg='white',width=5).place(x=69,y=236)
 Button(Calculadora,text='Del',bg='gray30',fg='white',width=5,command=del_).place(x=133,y=236)
 Button(Calculadora,text='Alpha',bg='gray50',fg='white',width=5).place(x=197,y=236)
@@ -198,7 +204,8 @@ Button(Calculadora,text='STO',bg='gray30',fg='white',width=5,command=store).plac
 Button(Calculadora,text='1',bg='gray50',fg='white',width=5,command=lambda:push("1")).place(x=69,y=566)
 Button(Calculadora,text='2',bg='gray50',fg='white',width=5,command=lambda:push("2")).place(x=133,y=566)
 Button(Calculadora,text='3',bg='gray50',fg='white',width=5,command=lambda:push("3")).place(x=197,y=566)
-Button(Calculadora,text='+',bg='steelblue3',fg='white',width=5).place(x=261,y=566)
+btSum=Button(Calculadora,text='+',bg='steelblue3',fg='white',width=5)
+btSum.place(x=261,y=566)
 
 Button(Calculadora,text='Off',bg='gray30',fg='white',width=5,command=clear).place(x=5,y=621)
 Button(Calculadora,text='0',bg='gray50',fg='white',width=5,command=lambda:push("0")).place(x=69,y=621)
