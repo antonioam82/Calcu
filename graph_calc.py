@@ -84,6 +84,7 @@ def nd():
         btCos.configure(command=lambda:push("acos("))
         btTan.configure(command=lambda:push("atan("))
         btg.configure(command=lambda:push(str(result)))
+        
     else:
         btDiv.configure(command=lambda:push("/"))
         #btPhin.configure(command...
@@ -95,6 +96,8 @@ def nd():
         btSin.configure(command=lambda:push("sin("))
         btCos.configure(command=lambda:push("cos("))
         btTan.configure(command=lambda:push("tan("))
+        btLoga.configure(command=lambda:push("log("))
+        btComa.config(command=lambda:push(","))
         
 def pi():
     if ndact == True:
@@ -138,6 +141,11 @@ for l in labels:
         c=5
         f+=55
 
+buttons = ['2nd','Mode','Del','Alpha','Stat','Math','Mtrx','Prgm','Vars','Clr',
+           'x-1','Sin','Cos','Tan','^','x2',',','(',')','/','Log','7','8','9',
+           'x','Ln','4','5','6','-','STO','1','2','3','+','Off','0','.','(-)','Enter']
+
+
 Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5,command=twond_).place(x=5,y=236) #################################activebackground="blue".place(x=8,y=243)
 Button(Calculadora,text='Mode',bg='gray30',fg='white',width=5).place(x=69,y=236)
 Button(Calculadora,text='Del',bg='gray30',fg='white',width=5,command=del_).place(x=133,y=236)
@@ -162,7 +170,8 @@ btPhin=Button(Calculadora,text='^',bg='gray30',fg='white',width=5)
 btPhin.place(x=261,y=346)
 
 Button(Calculadora,text='x2',bg='gray30',fg='white',width=5).place(x=5,y=401)
-Button(Calculadora,text=',',bg='gray30',fg='white',width=5,command=lambda:push(",")).place(x=69,y=401)
+btComa=Button(Calculadora,text=',',bg='gray30',fg='white',width=5)
+btComa.place(x=69,y=401)
 btOpen=Button(Calculadora,text='(',bg='gray30',fg='white',width=5)
 btOpen.place(x=133,y=401)
 btClose=Button(Calculadora,text=')',bg='gray30',fg='white',width=5)
@@ -170,7 +179,8 @@ btClose.place(x=197,y=401)
 btDiv=Button(Calculadora,text='/',bg='steelblue3',fg='white',width=5)
 btDiv.place(x=261,y=401)################################################################################################################
 
-Button(Calculadora,text='Log',bg='gray30',fg='white',width=5).place(x=5,y=456)
+btLoga=Button(Calculadora,text='Log',bg='gray30',fg='white',width=5)
+btLoga.place(x=5,y=456)
 Button(Calculadora,text='7',bg='gray50',fg='white',width=5,command=lambda:push("7")).place(x=69,y=456)
 Button(Calculadora,text='8',bg='gray50',fg='white',width=5,command=lambda:push("8")).place(x=133,y=456)
 Button(Calculadora,text='9',bg='gray50',fg='white',width=5,command=lambda:push("9")).place(x=197,y=456)
@@ -200,6 +210,7 @@ Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5,command=opera
 nd()
 
 Calculadora.mainloop()
+
 
 
 
