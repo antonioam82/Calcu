@@ -19,8 +19,10 @@ type_op = "MATH"
 def push(car):
     global formula
     formula=formula+car
-    #print(formula)
     display.appendtext(car)
+    if type_op=="MATRX" and formula!="":
+        if car=="]":
+            display.appendtext("\n")
 
 def typer(m):
     global type_op
@@ -65,6 +67,7 @@ def store():
 def matr_demo():
     a1 = np.array([[1,2,3],[1,2,8]], float)
     a2 = np.array([[4,5,6],[2,3,4]], float)
+    print(a1)
     display.appendtext(a1+a2)
 
 def change_sign():
@@ -120,6 +123,7 @@ def operation():
         display.appendtext("\n"+text+"\n\n")
         formula=""
 
+
 #PANTALLA
 display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       vscrollmode='dynamic', hull_relief='sunken',#vscrollmode=dynamic
@@ -159,7 +163,7 @@ Button(Calculadora,text='Alpha',bg='gray50',fg='white',width=5).place(x=197,y=23
 Button(Calculadora,text='Stat',bg='gray30',fg='white',width=5).place(x=261,y=236)
 
 Button(Calculadora,text='Math',bg='gray30',fg='white',width=5).place(x=5,y=291)
-Button(Calculadora,text='Mtrx',bg='gray30',fg='white',width=5).place(x=69,y=291)
+Button(Calculadora,text='Mtrx',bg='gray30',fg='white',width=5,command=lambda:typer("MATRX")).place(x=69,y=291)
 Button(Calculadora,text='Prgm',bg='gray30',fg='white',width=5).place(x=133,y=291)
 Button(Calculadora,text='Vars',bg='gray30',fg='white',width=5).place(x=197,y=291)
 Button(Calculadora,text='Clr',bg='gray30',fg='white',width=5).place(x=261,y=291)
