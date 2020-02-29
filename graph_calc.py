@@ -25,7 +25,7 @@ def push(car):
         if car=="]":
             matrix.append(formula)
             display.appendtext("\n")
-            #formula=""
+            #formula=
 
 def typer(m):
     global type_op
@@ -139,10 +139,27 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
                       text_font=('Arial', 12, 'bold') )
 display.place(x=0,y=0)
 
-labels = [' ','Quit','Ins','Lock','List','Test','Angle','Draw','Yvar',' ',
+labels = [' ','Quit','Ins','Lock','List','Test','Angl','Draw','Yvar',' ',
           'Abs','Sin-1','Cos-1','Tan-1','π','Root','EE','{','}','√','10x',
           'Un-1','Vn-1','n','[','ex','L4','L5','L6',']','RCL','L1','L2','L3',
           'MEM',' ',' ',':','ANS','Entry']
+
+alphas =[' ',' ',' ',' ',' ','a','b','c','d',' ','e',' ',' ',' ','f','g','h','i','j','k',
+         'l','m','n','o','p','q','r','s','t','u','v','w','x','y',' ','z',' ',' ','?']
+
+#Label(Calculadora,text="A",bg='gray40',fg='white').place(x=46,y=215)
+#Label(Calculadora,text="B",bg='gray40',fg='white').place(x=110,y=215)
+#Label(Calculadora,text="C",bg='gray40',fg='white').place(x=46,y=271)
+#Label(Calculadora,text="E",bg='gray40',fg='white').place(x=32,y=215)#46 110  174 238 302, 
+
+c=46
+f=215
+for a in alphas:
+    Label(Calculadora,text=a,bg='gray40',fg='white').place(x=c,y=f)
+    c+=64
+    if c==366:
+        c=46
+        f+=55
 
 #64
 #55
@@ -226,7 +243,6 @@ Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5,command=opera
 nd()
 
 Calculadora.mainloop()
-
 
 
 
