@@ -140,17 +140,12 @@ display = Pmw.ScrolledText(Calculadora, hscrollmode='none',#dynamic
 display.place(x=0,y=0)
 
 labels = [' ','Quit','Ins','Lock','List','Test','Angl','Draw','Yvar',' ',
-          'Abs','Sin-1','Cos-1','Tan-1','π','Root','EE','{','}','√','10x',
+          'Abs','ASin','ACs','ATan','π','Root','EE','{','}','√','10x',
           'Un-1','Vn-1','n','[','ex','L4','L5','L6',']','RCL','L1','L2','L3',
           'MEM',' ',' ',':','ANS','Entry']
 
-alphas =[' ',' ',' ',' ',' ','a','b','c','d',' ','e',' ',' ',' ','f','g','h','i','j','k',
-         'l','m','n','o','p','q','r','s','t','u','v','w','x','y',' ','z',' ',' ','?']
-
-#Label(Calculadora,text="A",bg='gray40',fg='white').place(x=46,y=215)
-#Label(Calculadora,text="B",bg='gray40',fg='white').place(x=110,y=215)
-#Label(Calculadora,text="C",bg='gray40',fg='white').place(x=46,y=271)
-#Label(Calculadora,text="E",bg='gray40',fg='white').place(x=32,y=215)#46 110  174 238 302, 
+alphas =[' ',' ',' ',' ',' ','a','b','c','d',' ','e','f','g','h','i','j','k',
+         'l','m','n','o','p','q','r','s','t','u','v','w','x','y',' ',' ',' ',' ','z',' ',' ','?'] 
 
 c=46
 f=215
@@ -160,9 +155,6 @@ for a in alphas:
     if c==366:
         c=46
         f+=55
-
-#64
-#55
 c=5
 f=215
 for l in labels:
@@ -172,9 +164,9 @@ for l in labels:
         c=5
         f+=55
 
-buttons = ['2nd','Mode','Del','Alpha','Stat','Math','Mtrx','Prgm','Vars','Clr',
-           'x-1','Sin','Cos','Tan','^','x2',',','(',')','/','Log','7','8','9',
-           'x','Ln','4','5','6','-','STO','1','2','3','+','Off','0','.','(-)','Enter']
+#buttons = ['2nd','Mode','Del','Alpha','Stat','Math','Mtrx','Prgm','Vars','Clr',
+           #'x-1','Sin','Cos','Tan','^','x2',',','(',')','/','Log','7','8','9',
+           #'x','Ln','4','5','6','-','STO','1','2','3','+','Off','0','.','(-)','Enter']
 
 
 btTwond=Button(Calculadora,text='2nd',bg='steelblue3',fg='white',width=5,command=twond_)
