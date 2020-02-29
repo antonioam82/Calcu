@@ -6,7 +6,6 @@ from math import *
 import numpy as np
 
 Calculadora = Pmw.initialise(fontScheme = 'pmw1')
-#Calculadora = Tk()
 Calculadora.title("GRAPH_CALC")
 Calculadora.config(bg='gray40')
 Calculadora.geometry("321x668")
