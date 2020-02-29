@@ -15,6 +15,7 @@ result = ""
 mem = ""
 ndact = False
 type_op = "MATH"
+matrix=[]
 
 def push(car):
     global formula
@@ -22,7 +23,9 @@ def push(car):
     display.appendtext(car)
     if type_op=="MATRX" and formula!="":
         if car=="]":
+            matrix.append(formula)
             display.appendtext("\n")
+            #formula=""
 
 def typer(m):
     global type_op
@@ -122,6 +125,8 @@ def operation():
         text = '{:^30}'.format(str(result))
         display.appendtext("\n"+text+"\n\n")
         formula=""
+    #elif type_op=="MATRX":
+        
 
 
 #PANTALLA
@@ -221,6 +226,7 @@ Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5,command=opera
 nd()
 
 Calculadora.mainloop()
+
 
 
 
