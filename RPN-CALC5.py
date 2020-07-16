@@ -40,7 +40,7 @@ def loga():
 def pee():
     global numero
     global l_numeros
-    global comas
+    #global comas
     global blocked_ce
     if len(l_numeros)<2 and numero=="":
         numero=str(pi)
@@ -50,16 +50,16 @@ def pee():
 
 def coma():
     global numero
-    global comas
+    #global comas
     if numero!="" and not "." in numero:#and comas==0:
         numero=numero+"."
         input_text.set(numero)
-        comas+=1
+        #comas+=1
 
 def enter():
     global numero
     global l_numeros
-    global comas
+    #global comas
     global blocked_ce
     global active_round
     if numero!="" and numero!="0.":
@@ -71,7 +71,7 @@ def enter():
             l_numeros.append(numero)
         input_text.set(numero)
         numero=""
-        comas=0
+        #comas=0
         blocked_ce=True
 
 def operacion(s):
@@ -140,15 +140,15 @@ def cambia_signo():
 def clear():
     global numero
     global l_numeros
-    global comas
+    #global comas
     numero=""
     l_numeros=[]
     input_text.set("0")
-    comas=0
+    #comas=0
 
 def clear_error():
     global numero
-    global comas
+    #global comas
     global blocked_ce
     if blocked_ce==False and numero != "":
 		lista = list(numero)
@@ -165,7 +165,7 @@ ancho_boton=6
 active_round=False
 numero=("")
 blocked_ce=False
-comas=0
+#comas=0
 reep=""
 alto_boton=2
 prev_sign=""
