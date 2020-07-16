@@ -156,7 +156,6 @@ def clear_error():
 		lista.remove(lista[-1])
 		numero = ("").join(lista)
 		print(numero)
-		#x = "#".join(myTuple)
 		input_text.set(numero)
 		#comas=0
 		#blocked_ce=True
