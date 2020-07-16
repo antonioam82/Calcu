@@ -45,7 +45,7 @@ def pee():
     if len(l_numeros)<2 and numero=="":
         numero=str(pi)
         input_text.set(numero)
-        comas+=1
+        #comas+=1
         blocked_ce=False
 
 def coma():
