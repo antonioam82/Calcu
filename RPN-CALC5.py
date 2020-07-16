@@ -51,7 +51,7 @@ def pee():
 def coma():
     global numero
     global comas
-    if numero!="" and comas==0:
+    if numero!="" and not "." in numero:#and comas==0:
         numero=numero+"."
         input_text.set(numero)
         comas+=1
