@@ -150,7 +150,7 @@ def clear_error():
     global numero
     global comas
     global blocked_ce
-    if blocked_ce==False:
+    if blocked_ce==False and numero != "":
 		lista = list(numero)
 		print(lista)
 		lista.remove(lista[-1])
