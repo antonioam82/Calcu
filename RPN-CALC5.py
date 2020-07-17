@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from tkinter import *
+from Tkinter import *
 ventana=Tk()
-ventana.title("RPN-CALC5")
+ventana.title("RPN-CALC4")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
@@ -40,26 +40,26 @@ def loga():
 def pee():
     global numero
     global l_numeros
-    #global comas
+    global comas
     global blocked_ce
     if len(l_numeros)<2 and numero=="":
         numero=str(pi)
         input_text.set(numero)
-        #comas+=1
+        comas+=1
         blocked_ce=False
 
 def coma():
     global numero
-    #global comas
-    if numero!="" and not "." in numero:#and comas==0:
+    global comas
+    if numero!="" and comas==0:
         numero=numero+"."
         input_text.set(numero)
-        #comas+=1
+        comas+=1
 
 def enter():
     global numero
     global l_numeros
-    #global comas
+    global comas
     global blocked_ce
     global active_round
     if numero!="" and numero!="0.":
@@ -68,11 +68,11 @@ def enter():
             l_numeros.append(numero)
             active_round=False
         else:
-            l_numeros.append(numero)
+            l_numeros.append(numero)######################
         input_text.set(numero)
         numero=""
-        #comas=0
-        blocked_ce=True
+        comas=0
+        #blocked_ce=True
 
 def operacion(s):
     global numero
@@ -140,31 +140,33 @@ def cambia_signo():
 def clear():
     global numero
     global l_numeros
-    #global comas
+    global comas
     numero=""
     l_numeros=[]
     input_text.set("0")
-    #comas=0
+    comas=0
 
 def clear_error():
     global numero
-    #global comas
+    global comas
     global blocked_ce
-    if blocked_ce==False and numero != "":
+    if blocked_ce==False:
 		lista = list(numero)
 		print(lista)
 		lista.remove(lista[-1])
 		numero = ("").join(lista)
 		print(numero)
 		input_text.set(numero)
-		#comas=0
-		#blocked_ce=True
+        #numero=""
+        #input_text.set("0")
+        #comas=0
+        #blocked_ce=True
 
 ancho_boton=6
 active_round=False
 numero=("")
 blocked_ce=False
-#comas=0
+comas=0
 reep=""
 alto_boton=2
 prev_sign=""
@@ -202,7 +204,6 @@ Button(ventana,text="C",bg="red",fg=cn,activebackground="indianred1",width=ancho
 Button(ventana,text="EXP",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=lambda:operacion("**")).place(x=316,y=324)
 Button(ventana,text="ENTER",bg=color_boton,fg=cn,activebackground=actb,width=ancho_boton,height=alto_boton,command=enter).place(x=316,y=372)
 
-e = Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right")
-e.place(x=16,y=60)
+Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
 
 ventana.mainloop()
