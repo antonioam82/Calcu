@@ -153,10 +153,8 @@ def clear_error():
     global blocked_ce
     if blocked_ce==False and numero != "":
 		lista = list(numero)
-		print(lista)
 		lista.remove(lista[-1])
 		numero = ("").join(lista)
-		print(numero)
 		input_text.set(numero)
         #numero=""
         #input_text.set("0")
