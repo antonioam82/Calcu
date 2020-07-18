@@ -157,9 +157,9 @@ def clear_error():
 		lista.remove(lista[-1])
 		numero = ("").join(lista)
 		if numero == "":
-			input_text.set("0")
+		    input_text.set("0")
 		else:
-			input_text.set(numero)
+		    input_text.set(numero)
 
 ancho_boton=6
 active_round=False
