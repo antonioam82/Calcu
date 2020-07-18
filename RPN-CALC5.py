@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from kinter import *
+from Tkinter import *
 ventana=Tk()
-ventana.title("RPN-CALC5")
+ventana.title("RPN-CALC4")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
@@ -16,6 +16,7 @@ def digit(n):
     global blocked_ce
     blocked_ce=False
     long=len(l_numeros)
+    print(long)
     if long<2 and numero!=str(pi):
         if numero=="0":
             numero=numero.replace("0",n)
@@ -150,7 +151,7 @@ def clear_error():
     global numero
     global comas
     global blocked_ce
-    if blocked_ce==False:
+    if blocked_ce==False and numero != "":
 		lista = list(numero)
 		print(lista)
 		lista.remove(lista[-1])
