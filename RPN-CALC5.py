@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from Tkinter import *
+from tkinter import *
 ventana=Tk()
 ventana.title("RPN-CALC5")
 ventana.configure(background="gray20")
