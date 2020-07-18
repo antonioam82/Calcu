@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from tkinter import *
 ventana=Tk()
-ventana.title("RPN-CALC5")
+ventana.title("RPN-CALC4")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
@@ -16,6 +16,7 @@ def digit(n):
     global blocked_ce
     blocked_ce=False
     long=len(l_numeros)
+    print(long)
     if long<2 and numero!=str(pi):
         if numero=="0":
             numero=numero.replace("0",n)
@@ -31,7 +32,7 @@ def loga():
             numero=str(eval("log("+l_numeros[0]+")/log("+l_numeros[1]+")")) #l_numeros[0] es el numero y l_numeros[1] es la base
             input_text.set(numero)
             l_numeros[0]=numero
-            l_numeros.pop() ###
+            l_numeros.pop()
         except:
             input_text.set("ERROR")
             l_numeros=[]
@@ -87,6 +88,7 @@ def operacion(s):
             reep=l_numeros[1]
             l_numeros.pop()
             prev_sign=s
+            print(l_numeros)
         except:
             input_text.set("ERROR")
             l_numeros=[]
@@ -158,6 +160,10 @@ def clear_error():
 			input_text.set("0")
 		else:
 			input_text.set(numero)
+		'''if numero == "":
+			input_text.set("0")
+		else:
+			input_text.set(numero)'''
 
 ancho_boton=6
 active_round=False
