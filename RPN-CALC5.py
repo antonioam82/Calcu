@@ -31,7 +31,7 @@ def loga():
             numero=str(eval("log("+l_numeros[0]+")/log("+l_numeros[1]+")")) #l_numeros[0] es el numero y l_numeros[1] es la base
             input_text.set(numero)
             l_numeros[0]=numero
-            l_numeros.pop() 
+            l_numeros.pop() ###
         except:
             input_text.set("ERROR")
             l_numeros=[]
