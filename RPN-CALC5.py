@@ -87,7 +87,6 @@ def operacion(s):
             reep=l_numeros[1]
             l_numeros.pop()
             prev_sign=s
-            print(l_numeros)
         except:
             input_text.set("ERROR")
             l_numeros=[]
@@ -152,13 +151,13 @@ def clear_error():
     global blocked_ce
     if blocked_ce==False and numero != "":
 		lista = list(numero)
+		print(lista)
 		lista.remove(lista[-1])
 		numero = ("").join(lista)
-		input_text.set(numero)
-        #numero=""
-        #input_text.set("0")
-        #comas=0
-        #blocked_ce=True
+		if numero == "":
+			input_text.set("0")
+		else:
+			input_text.set(numero)
 
 ancho_boton=6
 active_round=False
