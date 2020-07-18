@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from Tkinter import *
 ventana=Tk()
-ventana.title("RPN-CALC4")
+ventana.title("RPN-CALC5")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
