@@ -160,10 +160,6 @@ def clear_error():
 			input_text.set("0")
 		else:
 			input_text.set(numero)
-		'''if numero == "":
-			input_text.set("0")
-		else:
-			input_text.set(numero)'''
 
 ancho_boton=6
 active_round=False
