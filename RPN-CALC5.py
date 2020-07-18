@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from tkinter import *
 ventana=Tk()
-ventana.title("RPN-CALC4")
+ventana.title("RPN-CALC5")
 ventana.configure(background="gray20")
 ventana.geometry("392x488")
 color_boton=("gray50")
@@ -16,7 +16,6 @@ def digit(n):
     global blocked_ce
     blocked_ce=False
     long=len(l_numeros)
-    print(long)
     if long<2 and numero!=str(pi):
         if numero=="0":
             numero=numero.replace("0",n)
@@ -52,7 +51,7 @@ def pee():
 def coma():
     global numero
     global comas
-    if numero!="" and comas==0:
+    if numero!="":
         numero=numero+"."
         input_text.set(numero)
         comas+=1
@@ -88,7 +87,6 @@ def operacion(s):
             reep=l_numeros[1]
             l_numeros.pop()
             prev_sign=s
-            print(l_numeros)
         except:
             input_text.set("ERROR")
             l_numeros=[]
@@ -97,7 +95,6 @@ def operacion(s):
         numero=eval(l_numeros[0]+s+reep)
         input_text.set(numero)
         l_numeros[0]=str(numero)
-        print(l_numeros)
         numero=""
 
 def funci(s):
