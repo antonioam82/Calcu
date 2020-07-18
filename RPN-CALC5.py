@@ -16,6 +16,7 @@ def digit(n):
     global blocked_ce
     blocked_ce=False
     long=len(l_numeros)
+    print(long)
     if long<2 and numero!=str(pi):
         if numero=="0":
             numero=numero.replace("0",n)
@@ -40,26 +41,21 @@ def loga():
 def pee():
     global numero
     global l_numeros
-    global comas
     global blocked_ce
     if len(l_numeros)<2 and numero=="":
         numero=str(pi)
         input_text.set(numero)
-        comas+=1
         blocked_ce=False
 
 def coma():
     global numero
-    global comas
-    if numero!="":
-        numero=numero+"."
+    if numero!="" and not "." in numero:
+        numero=numero+"." 
         input_text.set(numero)
-        comas+=1
 
 def enter():
     global numero
     global l_numeros
-    global comas
     global blocked_ce
     global active_round
     if numero!="" and numero!="0.":
@@ -71,7 +67,6 @@ def enter():
             l_numeros.append(numero)######################
         input_text.set(numero)
         numero=""
-        comas=0
         #blocked_ce=True
 
 def operacion(s):
@@ -87,6 +82,7 @@ def operacion(s):
             reep=l_numeros[1]
             l_numeros.pop()
             prev_sign=s
+            print(l_numeros)
         except:
             input_text.set("ERROR")
             l_numeros=[]
@@ -138,19 +134,15 @@ def cambia_signo():
 def clear():
     global numero
     global l_numeros
-    global comas
     numero=""
     l_numeros=[]
     input_text.set("0")
-    comas=0
 
 def clear_error():
     global numero
-    global comas
     global blocked_ce
     if blocked_ce==False and numero != "":
 		lista = list(numero)
-		print(lista)
 		lista.remove(lista[-1])
 		numero = ("").join(lista)
 		if numero == "":
@@ -162,7 +154,6 @@ ancho_boton=6
 active_round=False
 numero=("")
 blocked_ce=False
-comas=0
 reep=""
 alto_boton=2
 prev_sign=""
