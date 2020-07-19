@@ -4,7 +4,7 @@ from tkinter import *
 from math import *
 
 ventana=Tk()
-ventana.title("INFIX-CALC3")
+ventana.title("CALCULADORA INFIJA")
 ventana.configure(background="gray36")
 ventana.geometry("366x450")
 numeroPantalla=StringVar()
@@ -190,7 +190,7 @@ def pee():
     global exc
     if exc==True:
         clear()
-    numero=pi
+    numero=str(pi)
     numeroPantalla.set(numero)
 
 def calculo(o):
@@ -305,7 +305,6 @@ Button(ventana,text="ln",width=6,fg="white",bg="gray6",height=1,command=loga).pl
 bton_memoria=Button(ventana,text="MEM",width=6,fg="white",bg="cornflower blue",height=1,command=memo)
 t.append(bton_memoria)
 bton_memoria.place(x=4,y=136)
-
 clear()
 
 ventana.mainloop()
