@@ -4,7 +4,7 @@ from Tkinter import *
 from math import *
 
 ventana=Tk()
-ventana.title("CALCULADORA INFIJA")
+ventana.title("INFIX-CALC3")
 ventana.configure(background="gray36")
 ventana.geometry("366x450")
 numeroPantalla=StringVar()
