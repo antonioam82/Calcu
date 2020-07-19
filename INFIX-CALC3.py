@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from tkinter import *
+from Tkinter import *
 from math import *
 
 ventana=Tk()
-ventana.title("INFIX-CALC3")
+ventana.title("CALCULADORA INFIJA")
 ventana.configure(background="gray36")
 ventana.geometry("366x450")
 numeroPantalla=StringVar()
@@ -144,7 +144,7 @@ def comas():
 
 def clear_error():
     global numero
-    if numero != "":
+    if numero != "" and exc == False:
 		lista = list(numero)
 		lista.remove(lista[-1])
 		numero = ("").join(lista)
