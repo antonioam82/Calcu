@@ -25,7 +25,7 @@ def onediv():
     global exc
     try:
         if abs(float(numeroPantalla.get()))==abs(float(numero)):
-            numero=1/(float(numero))
+			numero=1/(float(numero))
             numeroPantalla.set(numero)
         else:
             resultado=1/float(resultado)
