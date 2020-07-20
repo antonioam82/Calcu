@@ -143,13 +143,13 @@ def clear_error():
     global numero
     global blocked_ce
     if blocked_ce==False and numero != "":
-		lista = list(numero)
-		lista.pop()
-		numero = ("").join(lista)
-		if numero == "":
-			input_text.set("0")
-		else:
-			input_text.set(numero)
+	lista = list(numero)
+	lista.pop()
+	numero = ("").join(lista)
+	if numero == "":
+	    input_text.set("0")
+	else:
+	    input_text.set(numero)
 
 ancho_boton=6
 active_round=False
