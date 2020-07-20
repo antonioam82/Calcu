@@ -91,6 +91,7 @@ def operacion(s):
         numero=eval(l_numeros[0]+s+reep)
         input_text.set(numero)
         l_numeros[0]=str(numero)
+        print(l_numeros)
         numero=""
 
 def funci(s):
@@ -143,12 +144,17 @@ def clear_error():
     global blocked_ce
     if blocked_ce==False and numero != "":
 		lista = list(numero)
-		lista.remove(lista[-1])
+		print(lista)
+		lista.pop()
 		numero = ("").join(lista)
 		if numero == "":
-		    input_text.set("0")
+			input_text.set("0")
 		else:
-		    input_text.set(numero)
+			input_text.set(numero)
+		'''if numero == "":
+			input_text.set("0")
+		else:
+			input_text.set(numero)'''
 
 ancho_boton=6
 active_round=False
