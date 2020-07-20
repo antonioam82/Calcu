@@ -147,7 +147,7 @@ def clear_error():
 		lista.pop()
 		numero = ("").join(lista)
 		if numero == "":
-		    input_text.set("0")
+			input_text.set("0")
 		else:
 		    input_text.set(numero)
 
