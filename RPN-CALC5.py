@@ -144,17 +144,12 @@ def clear_error():
     global blocked_ce
     if blocked_ce==False and numero != "":
 		lista = list(numero)
-		print(lista)
 		lista.pop()
 		numero = ("").join(lista)
 		if numero == "":
-			input_text.set("0")
+		    input_text.set("0")
 		else:
-			input_text.set(numero)
-		'''if numero == "":
-			input_text.set("0")
-		else:
-			input_text.set(numero)'''
+		    input_text.set(numero)
 
 ancho_boton=6
 active_round=False
