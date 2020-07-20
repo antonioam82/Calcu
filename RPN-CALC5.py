@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from tkinter import *
+from Tkinter import *
 ventana=Tk()
 ventana.title("RPN-CALC5")
 ventana.configure(background="gray20")
@@ -149,7 +149,7 @@ def clear_error():
 		if numero == "":
 			input_text.set("0")
 		else:
-		    input_text.set(numero)
+			input_text.set(numero)
 
 ancho_boton=6
 active_round=False
