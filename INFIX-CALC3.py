@@ -4,7 +4,7 @@ from tkinter import *
 from math import *
 
 ventana=Tk()
-ventana.title("INFIX-CALC3")
+ventana.title("CALCULADORA INFIJA")
 ventana.configure(background="gray36")
 ventana.geometry("366x450")
 numeroPantalla=StringVar()
@@ -146,7 +146,7 @@ def clear_error():
     global numero
     if numero != "" and exc == False:
 		lista = list(numero)
-		lista.remove(lista[-1])
+		lista.pop()
 		numero = ("").join(lista)
 		if numero == "":
 			numeroPantalla.set("0")
