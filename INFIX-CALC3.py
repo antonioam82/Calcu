@@ -25,7 +25,7 @@ def onediv():
     global exc
     try:
         if abs(float(numeroPantalla.get()))==abs(float(numero)):
-			numero=1/(float(numero))
+            numero=1/(float(numero))
             numeroPantalla.set(numero)
         else:
             resultado=1/float(resultado)
@@ -149,9 +149,8 @@ def clear_error():
 	lista.pop()
 	numero = ("").join(lista)
 	if numero == "":
-	    numeroPantalla.set("0")
-	else:
-	    numeroPantalla.set(numero)
+	    numero = "0"
+	numeroPantalla.set(numero)
 
 def cambio_signo():
     global numero
