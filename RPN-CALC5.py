@@ -16,7 +16,6 @@ def digit(n):
     global blocked_ce
     blocked_ce=False
     long=len(l_numeros)
-    print(long)
     if long<2 and numero!=str(pi):
         if numero=="0":
             numero=numero.replace("0",n)
