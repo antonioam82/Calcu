@@ -145,13 +145,13 @@ def comas():
 def clear_error():
     global numero
     if numero != "" and exc == False:
-		lista = list(numero)
-		lista.pop()
-		numero = ("").join(lista)
-		if numero == "":
-			numeroPantalla.set("0")
-		else:
-			numeroPantalla.set(numero)
+	lista = list(numero)
+	lista.pop()
+	numero = ("").join(lista)
+	if numero == "":
+	    numeroPantalla.set("0")
+	else:
+	    numeroPantalla.set(numero)
 
 def cambio_signo():
     global numero
