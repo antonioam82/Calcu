@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import Pmw
 from tkinter import Button, Label
 import string
@@ -19,15 +21,15 @@ type_op = "MATH"
 matrix=[]
 
 def push(car):
-    global formula
-    formula = formula+car
-    display.appendtext(car)
+	global formula
+	formula = formula+car
+	display.appendtext(car)
 
 def coma():
-    global formula
-    if not "." in formula:
-	formula = formula+"."
-	display.appendtext(".")
+	global formula
+	if not "." in formula:
+		formula = formula+"."
+		display.appendtext(".")
         
 
 
@@ -98,33 +100,33 @@ btPhin.place(x=261,y=346)
 Button(Calculadora,text='x2',bg='gray30',fg='white',width=5).place(x=5,y=401)
 btComa=Button(Calculadora,text=',',bg='gray30',fg='white',width=5)
 btComa.place(x=69,y=401)
-btOpen=Button(Calculadora,text='(',bg='gray30',fg='white',width=5)
+btOpen=Button(Calculadora,text='(',bg='gray30',fg='white',width=5,command=lambda:push("("))
 btOpen.place(x=133,y=401)
-btClose=Button(Calculadora,text=')',bg='gray30',fg='white',width=5)
+btClose=Button(Calculadora,text=')',bg='gray30',fg='white',width=5,command=lambda:push(")"))
 btClose.place(x=197,y=401)
-btDiv=Button(Calculadora,text='/',bg='steelblue3',fg='white',width=5)
+btDiv=Button(Calculadora,text='/',bg='steelblue3',fg='white',width=5,command=lambda:push("/"))
 btDiv.place(x=261,y=401)
 
-btLoga=Button(Calculadora,text='Log',bg='gray30',fg='white',width=5)
+btLoga=Button(Calculadora,text='Log',bg='gray30',fg='white',width=5,command=lambda:push("log"))
 btLoga.place(x=5,y=456)
 Button(Calculadora,text='7',bg='gray50',fg='white',width=5,command=lambda:push("7")).place(x=69,y=456)
 Button(Calculadora,text='8',bg='gray50',fg='white',width=5,command=lambda:push("8")).place(x=133,y=456)
 Button(Calculadora,text='9',bg='gray50',fg='white',width=5,command=lambda:push("9")).place(x=197,y=456)
-btMult=Button(Calculadora,text='x',bg='steelblue3',fg='white',width=5)
+btMult=Button(Calculadora,text='x',bg='steelblue3',fg='white',width=5,command=lambda:push("*"))
 btMult.place(x=261,y=456)
 
 Button(Calculadora,text='Ln',bg='gray30',fg='white',width=5).place(x=5,y=511)
 Button(Calculadora,text='4',bg='gray50',fg='white',width=5,command=lambda:push("4")).place(x=69,y=511)
 Button(Calculadora,text='5',bg='gray50',fg='white',width=5,command=lambda:push("5")).place(x=133,y=511)
 Button(Calculadora,text='6',bg='gray50',fg='white',width=5,command=lambda:push("6")).place(x=197,y=511)
-btRest=Button(Calculadora,text='-',bg='steelblue3',fg='white',width=5)
+btRest=Button(Calculadora,text='-',bg='steelblue3',fg='white',width=5,command=lambda:push("-"))
 btRest.place(x=261,y=511)
 
 Button(Calculadora,text='STO',bg='gray30',fg='white',width=5).place(x=5,y=566)
 Button(Calculadora,text='1',bg='gray50',fg='white',width=5,command=lambda:push("1")).place(x=69,y=566)
 Button(Calculadora,text='2',bg='gray50',fg='white',width=5,command=lambda:push("2")).place(x=133,y=566)
 Button(Calculadora,text='3',bg='gray50',fg='white',width=5,command=lambda:push("3")).place(x=197,y=566)
-btSum=Button(Calculadora,text='+',bg='steelblue3',fg='white',width=5)
+btSum=Button(Calculadora,text='+',bg='steelblue3',fg='white',width=5,command=lambda:push("+"))
 btSum.place(x=261,y=566)
 
 Button(Calculadora,text='Off',bg='gray30',fg='white',width=5).place(x=5,y=621)
@@ -135,3 +137,4 @@ btg.place(x=197,y=621)
 Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5).place(x=261,y=621)
 
 Calculadora.mainloop()
+
