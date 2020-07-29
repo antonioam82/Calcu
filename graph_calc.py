@@ -21,15 +21,15 @@ type_op = "MATH"
 matrix=[]
 
 def push(car):
-	global formula
-	formula = formula+car
-	display.appendtext(car)
+    global formula
+    formula = formula+car
+    display.appendtext(car)
 
 def coma():
-	global formula
-	if not "." in formula:
-		formula = formula+"."
-		display.appendtext(".")
+    global formula
+    if not "." in formula:
+	formula = formula+"."
+	display.appendtext(".")
         
 
 
