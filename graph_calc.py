@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import Pmw
-from Tkinter import Button, Label
+from tkinter import Button, Label
 import string
 from math import *
 import numpy as np
