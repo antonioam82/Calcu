@@ -23,6 +23,11 @@ def push(car):
 	formula = formula+car
 	display.appendtext(car)
 
+def coma():
+	global formula
+	if not "." in formula:
+		formula = formula+"."
+		display.appendtext(".")
         
 
 
@@ -124,7 +129,7 @@ btSum.place(x=261,y=566)
 
 Button(Calculadora,text='Off',bg='gray30',fg='white',width=5).place(x=5,y=621)
 Button(Calculadora,text='0',bg='gray50',fg='white',width=5,command=lambda:push("0")).place(x=69,y=621)
-Button(Calculadora,text='.',bg='gray50',fg='white',width=5,command=lambda:push(".")).place(x=133,y=621)
+Button(Calculadora,text='.',bg='gray50',fg='white',width=5,command=coma).place(x=133,y=621)
 btg=Button(Calculadora,text='(-)',bg='gray50',fg='white',width=5)
 btg.place(x=197,y=621)
 Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5).place(x=261,y=621)
