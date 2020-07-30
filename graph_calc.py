@@ -19,9 +19,9 @@ type_op = "MATH"
 matrix=[]
 
 def push(car):
-	global formula
-	formula = formula+car
-	display.appendtext(car)
+    global formula
+    formula = formula+car
+    display.appendtext(car)
         
 
 
