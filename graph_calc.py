@@ -19,10 +19,22 @@ type_op = "MATH"
 matrix=[]
 
 def push(car):
-    global formula
-    formula = formula+car
-    display.appendtext(car)
+	global formula
+	formula = formula+car
+	display.appendtext(car)
         
+        
+def operation():
+    global formula, result
+    print(formula)
+    if type_op=="MATH" and formula!="":
+        try:
+            result = eval(formula)
+        except:
+            result = "ERROR"
+        text = '{:^30}'.format(str(result))
+        display.appendtext("\n"+text+"\n\n")
+        formula=""
 
 
 #PANTALLA
@@ -126,7 +138,6 @@ Button(Calculadora,text='0',bg='gray50',fg='white',width=5,command=lambda:push("
 Button(Calculadora,text='.',bg='gray50',fg='white',width=5,command=lambda:push(".")).place(x=133,y=621)
 btg=Button(Calculadora,text='(-)',bg='gray50',fg='white',width=5)
 btg.place(x=197,y=621)
-Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5).place(x=261,y=621)
+Button(Calculadora,text='Enter',bg='steelblue3',fg='white',width=5,command=operation).place(x=261,y=621)
 
 Calculadora.mainloop()
-
