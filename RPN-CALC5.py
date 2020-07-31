@@ -142,12 +142,12 @@ def clear_error():
     global numero
     global blocked_ce
     if blocked_ce==False and numero != "":
-	lista = list(numero)
-	lista.pop()
-	numero = ("").join(lista)
-	if numero == "":
-	    numero = "0"
-	input_text.set(numero)
+        lista = list(numero)
+        lista.pop()
+        numero = ("").join(lista)
+        if numero == "":
+            numero = "0"
+        input_text.set(numero)
 
 ancho_boton=6
 active_round=False
@@ -193,3 +193,4 @@ Button(ventana,text="ENTER",bg=color_boton,fg=cn,activebackground=actb,width=anc
 Entry(ventana,font=('Arial',20,"bold"),width=21,textvariable=input_text,bd=20,insertwidth=4,bg="lavender",justify="right").place(x=16,y=60)
 
 ventana.mainloop()
+
