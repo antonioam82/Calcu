@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 from tkinter import *
 from math import *
-
+ 
 #VISUALIZAR LA OPERACION EN LA PANTALLA
 def btnClik(num):
     global operador
     operador=operador+str(num)
     input_text.set(operador)
-
+ 
 #CÁLCULO Y MUESTRA DE RESULTADOS.
 def resultado():
     global operador
@@ -17,30 +17,30 @@ def resultado():
         input_text.set(opera)
     except:
         input_text.set("ERROR")
-        operador = ""
-
+    operador = ""
+ 
 #LIMPIEZA DE PANTALLA.
 def clear():
     global operador
     operador=("")
     input_text.set("0")
-    
-
+ 
+ 
 ventana=Tk()
 ventana.title("CALCULADORA")
 ventana.geometry("392x600")
 ventana.configure(background="SkyBlue4")
 color_boton=("gray77")
-
+ 
 ancho_boton=11
 alto_boton=3
 input_text=StringVar()
 operador=""
-
+ 
 Salida=Entry(ventana,font=('arial',20,'bold'),width=22,
 textvariable=input_text,bd=20,insertwidth=4,bg="powder blue",justify="right")
 Salida.place(x=10,y=60)
-
+ 
 #AÑADIR BOTONES.
 #CREAMOS NUESTROS BOTONES
 Button(ventana,text="0",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik(0)).place(x=17,y=180)
@@ -67,7 +67,7 @@ Button(ventana,text="ln",bg=color_boton,width=ancho_boton,height=alto_boton,comm
 Button(ventana,text="C",bg=color_boton,width=ancho_boton,height=alto_boton,command=clear).place(x=107,y=420)
 Button(ventana,text="EXP",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("**")).place(x=197,y=420)
 Button(ventana,text="=",bg=color_boton,width=ancho_boton,height=alto_boton,command=resultado).place(x=287,y=420)
-
+ 
 clear()
-
+ 
 ventana.mainloop()
