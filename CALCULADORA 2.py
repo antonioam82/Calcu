@@ -70,4 +70,5 @@ Button(ventana,text="=",bg=color_boton,width=ancho_boton,height=alto_boton,comma
 
 input_text.set("0")
 
+
 ventana.mainloop()
