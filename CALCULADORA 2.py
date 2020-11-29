@@ -14,10 +14,10 @@ def resultado():
     global operador
     try:
         opera=str(eval(operador))
+        input_text.set(opera)
     except:
-        clear()
-        opera=("ERROR")
-    input_text.set(opera)
+        input_text.set("ERROR")
+        operador = ""
 
 #LIMPIEZA DE PANTALLA.
 def clear():
@@ -68,6 +68,6 @@ Button(ventana,text="C",bg=color_boton,width=ancho_boton,height=alto_boton,comma
 Button(ventana,text="EXP",bg=color_boton,width=ancho_boton,height=alto_boton,command=lambda:btnClik("**")).place(x=197,y=420)
 Button(ventana,text="=",bg=color_boton,width=ancho_boton,height=alto_boton,command=resultado).place(x=287,y=420)
 
-input_text.set("0")
+clear()
 
 ventana.mainloop()
