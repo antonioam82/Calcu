@@ -5,9 +5,24 @@ class calc:
     def __init__(self):
         self.root = Tk()
         self.root.title("SCTFC CALCULATOR")
-        self.root.geometry("860x400")
+        self.root.geometry("653x400")
 
-        self.root.mainloop()
+        self.display=StringVar()
+        self.display.set("0")
+
+        self.screen=Entry(self.root,textvariable=self.display,font=('Arial', 35, 'bold'),width=23,bd=16,justify="right")
+        self.screen.place(x=10,y=11)
+        Rad_btn=Button(self.root,text="Rad",width=11,height=2)
+        Rad_btn.place(x=12,y=108)
+        Deg_btn=Button(self.root,text="Deg",width=11,height=2)
+        Deg_btn.place(x=102,y=108)
+        Button(self.root,text="X!",width=11,height=2).place(x=192,y=108)
+        Button(self.root,text="(",width=11,height=2).place(x=282,y=108)
+        Button(self.root,text=")",width=11,height=2).place(x=372,y=108)
+        Button(self.root,text="%",width=11,height=2).place(x=462,y=108)
+        Button(self.root,text="AC",width=11,height=2).place(x=552,y=108)
+
+        self.root.mainloop()#
 
 if __name__=="__main__":
     calc()
