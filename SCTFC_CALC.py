@@ -21,7 +21,16 @@ class calc:
         Button(self.root,text=")",width=11,height=2).place(x=372,y=108)
         Button(self.root,text="%",width=11,height=2).place(x=462,y=108)
         Button(self.root,text="AC",width=11,height=2).place(x=552,y=108)
-
+        Button(self.root,text="Inv",width=11,height=2).place(x=12,y=152)
+        sin_btn=Button(self.root,text="sin",width=11,height=2)
+        sin_btn.place(x=102,y=152)
+        ln_btn=Button(self.root,text="ln",width=11,height=2)
+        ln_btn.place(x=192,y=152)
+        Button(self.root,text="7",width=11,height=2).place(x=282,y=152)
+        Button(self.root,text="8",width=11,height=2).place(x=372,y=152)
+        Button(self.root,text="9",width=11,height=2).place(x=462,y=152)
+        Button(self.root,text="/",width=11,height=2).place(x=552,y=152)
+        
         self.root.mainloop()#
 
 if __name__=="__main__":
