@@ -30,6 +30,16 @@ class calc:
         Button(self.root,text="8",width=11,height=2).place(x=372,y=152)
         Button(self.root,text="9",width=11,height=2).place(x=462,y=152)
         Button(self.root,text="/",width=11,height=2).place(x=552,y=152)
+        Button(self.root,text="π",width=11,height=2).place(x=12,y=196)
+        cos_btn=Button(self.root,text="cos",width=11,height=2)
+        cos_btn.place(x=102,y=196)
+        log_btn=Button(self.root,text="log",width=11,height=2)
+        log_btn.place(x=192,y=196)
+        Button(self.root,text="4",width=11,height=2).place(x=282,y=196)
+        Button(self.root,text="5",width=11,height=2).place(x=372,y=196)
+        Button(self.root,text="6",width=11,height=2).place(x=462,y=196)
+        Button(self.root,text="X",width=11,height=2).place(x=552,y=196)
+        
         
         self.root.mainloop()#
 
