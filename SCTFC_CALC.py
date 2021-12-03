@@ -5,7 +5,7 @@ class calc:
     def __init__(self):
         self.root = Tk()
         self.root.title("SCTFC CALCULATOR")
-        self.root.geometry("653x400")
+        self.root.geometry("653x342")
 
         self.display=StringVar()
         self.display.set("0")
@@ -48,7 +48,15 @@ class calc:
         Button(self.root,text="2",width=11,height=2).place(x=372,y=240)
         Button(self.root,text="3",width=11,height=2).place(x=462,y=240)
         Button(self.root,text="-",width=11,height=2).place(x=552,y=240)
-        
+        self.ans_btn=Button(self.root,text="Ans",width=11,height=2)
+        self.ans_btn.place(x=12,y=284)
+        Button(self.root,text="EXP",width=11,height=2).place(x=102,y=284)
+        self.e_btn=Button(self.root,text="x**y",width=11,height=2)
+        self.e_btn.place(x=192,y=284)
+        Button(self.root,text="0",width=11,height=2).place(x=282,y=284)
+        Button(self.root,text=".",width=11,height=2).place(x=372,y=284)
+        Button(self.root,text="=",width=11,height=2).place(x=462,y=284)
+        Button(self.root,text="+",width=11,height=2).place(x=552,y=284)
         
         self.root.mainloop()#
 
