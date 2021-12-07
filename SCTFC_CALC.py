@@ -6,6 +6,7 @@ class calc:
         self.root = Tk()
         self.root.title("SCTFC CALCULATOR")
         self.root.geometry("653x342")
+        self.root.configure(bg="gray40")
 
         self.inverted = False
         self.display=StringVar()
@@ -21,7 +22,7 @@ class calc:
         Button(self.root,text="(",width=11,height=2).place(x=282,y=108)
         Button(self.root,text=")",width=11,height=2).place(x=372,y=108)
         Button(self.root,text="%",width=11,height=2).place(x=462,y=108)
-        Button(self.root,text="AC",width=11,height=2).place(x=552,y=108)
+        Button(self.root,text="AC",width=11,height=2,bg="red",fg="white").place(x=552,y=108)
         Button(self.root,text="Inv",width=11,height=2,command=self.inv).place(x=12,y=152)
         self.sin_btn=Button(self.root,text="sin",width=11,height=2)
         self.sin_btn.place(x=102,y=152)
@@ -68,6 +69,8 @@ class calc:
             self.ln_btn.configure(text="ex")
             self.log_btn.configure(text="10x")
             self.tan_btn.configure(text="atan")
+            self.sqrt_btn.configure(text="x**2")
+            self.e_btn.configure(text="y√x")
             self.inverted = True
         else:
             self.sin_btn.configure(text="sin")
@@ -75,6 +78,8 @@ class calc:
             self.ln_btn.configure(text="ln")
             self.log_btn.configure(text="log")
             self.tan_btn.configure(text="tan")
+            self.sqrt_btn.configure(text="√")
+            self.e_btn.configure(text="x**y")
             self.inverted = False
         
 
