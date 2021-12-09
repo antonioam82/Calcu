@@ -25,7 +25,7 @@ class calc:
         Button(self.root,text="%",width=11,height=2,bg="gray25",fg="white").place(x=462,y=108)
         Button(self.root,text="AC",width=11,height=2,bg="red",fg="white").place(x=552,y=108)
         Button(self.root,text="Inv",width=11,height=2,bg="gray25",fg="white",command=self.inv).place(x=12,y=152)
-        self.sin_btn=Button(self.root,text="sin",width=11,height=2,bg="gray25",fg="white")
+        self.sin_btn=Button(self.root,text="sin",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("sin("))
         self.sin_btn.place(x=102,y=152)
         self.ln_btn=Button(self.root,text="ln",width=11,height=2,bg="gray25",fg="white")
         self.ln_btn.place(x=192,y=152)
@@ -34,7 +34,7 @@ class calc:
         Button(self.root,text="9",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("9")).place(x=462,y=152)
         Button(self.root,text="/",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("/")).place(x=552,y=152)
         Button(self.root,text="π",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input(str(pi))).place(x=12,y=196)
-        self.cos_btn=Button(self.root,text="cos",width=11,height=2,bg="gray25",fg="white")
+        self.cos_btn=Button(self.root,text="cos",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("cos("))
         self.cos_btn.place(x=102,y=196)
         self.log_btn=Button(self.root,text="log",width=11,height=2,bg="gray25",fg="white")
         self.log_btn.place(x=192,y=196)
@@ -43,7 +43,7 @@ class calc:
         Button(self.root,text="6",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("6")).place(x=462,y=196)
         Button(self.root,text="X",width=11,height=2,bg="gray25",fg="white").place(x=552,y=196)
         Button(self.root,text="e",width=11,height=2,bg="gray25",fg="white").place(x=12,y=240)
-        self.tan_btn=Button(self.root,text="tan",width=11,height=2,bg="gray25",fg="white")
+        self.tan_btn=Button(self.root,text="tan",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("tan("))
         self.tan_btn.place(x=102,y=240)
         self.sqrt_btn=Button(self.root,text="√",width=11,height=2,bg="gray25",fg="white")
         self.sqrt_btn.place(x=192,y=240)
@@ -78,20 +78,20 @@ class calc:
 
     def inv(self):
         if self.inverted == False:
-            self.sin_btn.configure(text="asin")
-            self.cos_btn.configure(text="acos")
+            self.sin_btn.configure(text="asin",command=lambda:self.input("asin("))
+            self.cos_btn.configure(text="acos",command=lambda:self.input("acos("))
             self.ln_btn.configure(text="ex")
             self.log_btn.configure(text="10x")
-            self.tan_btn.configure(text="atan")
+            self.tan_btn.configure(text="atan",command=lambda:self.input("atan("))
             self.sqrt_btn.configure(text="x**2")
             self.e_btn.configure(text="y√x")
             self.inverted = True
         else:
-            self.sin_btn.configure(text="sin")
-            self.cos_btn.configure(text="cos")
+            self.sin_btn.configure(text="sin",command=lambda:self.input("sin("))
+            self.cos_btn.configure(text="cos",command=lambda:self.input("cos("))
             self.ln_btn.configure(text="ln")
             self.log_btn.configure(text="log")
-            self.tan_btn.configure(text="tan")
+            self.tan_btn.configure(text="tan",command=lambda:self.input("tan("))
             self.sqrt_btn.configure(text="√")
             self.e_btn.configure(text="x**y")
             self.inverted = False
