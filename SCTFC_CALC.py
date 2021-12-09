@@ -20,8 +20,8 @@ class calc:
         self.Deg_btn=Button(self.root,text="Deg",width=11,height=2,bg="gray25",fg="white")
         self.Deg_btn.place(x=102,y=108)
         Button(self.root,text="X!",width=11,height=2,bg="gray25",fg="white").place(x=192,y=108)
-        Button(self.root,text="(",width=11,height=2,bg="gray25",fg="white").place(x=282,y=108)
-        Button(self.root,text=")",width=11,height=2,bg="gray25",fg="white").place(x=372,y=108)
+        Button(self.root,text="(",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("(")).place(x=282,y=108)
+        Button(self.root,text=")",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input(")")).place(x=372,y=108)
         Button(self.root,text="%",width=11,height=2,bg="gray25",fg="white").place(x=462,y=108)
         Button(self.root,text="AC",width=11,height=2,bg="red",fg="white").place(x=552,y=108)
         Button(self.root,text="Inv",width=11,height=2,bg="gray25",fg="white",command=self.inv).place(x=12,y=152)
@@ -50,7 +50,7 @@ class calc:
         Button(self.root,text="1",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("1")).place(x=282,y=240)
         Button(self.root,text="2",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("2")).place(x=372,y=240)
         Button(self.root,text="3",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("3")).place(x=462,y=240)
-        Button(self.root,text="-",width=11,height=2,bg="gray25",fg="white").place(x=552,y=240)
+        Button(self.root,text="-",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("-")).place(x=552,y=240)
         self.ans_btn=Button(self.root,text="Ans",width=11,height=2,bg="gray25",fg="white")
         self.ans_btn.place(x=12,y=284)
         Button(self.root,text="EXP",width=11,height=2,bg="gray25",fg="white").place(x=102,y=284)
@@ -58,14 +58,23 @@ class calc:
         self.e_btn.place(x=192,y=284)
         Button(self.root,text="0",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("0")).place(x=282,y=284)
         Button(self.root,text=".",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input(".")).place(x=372,y=284)
-        Button(self.root,text="=",width=11,height=2,bg="gray40",fg="white").place(x=462,y=284)
-        Button(self.root,text="+",width=11,height=2,bg="gray25",fg="white").place(x=552,y=284)
+        Button(self.root,text="=",width=11,height=2,bg="gray40",fg="white",command=self.resolve).place(x=462,y=284)
+        Button(self.root,text="+",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("+")).place(x=552,y=284)
         
         self.root.mainloop()#
 
     def input(self,c):
         self.calc_string = self.calc_string + c
         self.display.set(self.calc_string)
+
+    def resolve(self):
+        if self.calc_string != "":
+            try:
+                self.result = eval(self.calc_string)
+                self.display.set(self.result)
+            except:
+                self.display.set("ERROR")
+            
 
     def inv(self):
         if self.inverted == False:
