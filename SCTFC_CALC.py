@@ -42,7 +42,7 @@ class calc:
         Button(self.root,text="5",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("5")).place(x=372,y=196)
         Button(self.root,text="6",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("6")).place(x=462,y=196)
         Button(self.root,text="X",width=11,height=2,bg="gray25",fg="white").place(x=552,y=196)
-        Button(self.root,text="e",width=11,height=2,bg="gray25",fg="white").place(x=12,y=240)
+        Button(self.root,text="e",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("e")).place(x=12,y=240)
         self.tan_btn=Button(self.root,text="tan",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("tan("))
         self.tan_btn.place(x=102,y=240)
         self.sqrt_btn=Button(self.root,text="√",width=11,height=2,bg="gray25",fg="white")
