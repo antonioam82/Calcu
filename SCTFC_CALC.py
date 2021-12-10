@@ -12,18 +12,19 @@ class calc:
         self.display=StringVar()
         self.display.set("0")
         self.calc_string = ""
+        self.mode = "d"
 
         self.screen=Entry(self.root,textvariable=self.display,bg="lavender",font=('Arial', 35, 'bold'),width=23,bd=16,justify="right")
         self.screen.place(x=10,y=11)
-        self.Rad_btn=Button(self.root,text="Rad",width=11,height=2,bg="gray25",fg="white")
-        self.Rad_btn.place(x=12,y=108)
-        self.Deg_btn=Button(self.root,text="Deg",width=11,height=2,bg="gray25",fg="white")
-        self.Deg_btn.place(x=102,y=108)
-        Button(self.root,text="X!",width=11,height=2,bg="gray25",fg="white").place(x=192,y=108)
-        Button(self.root,text="(",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("(")).place(x=282,y=108)
-        Button(self.root,text=")",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input(")")).place(x=372,y=108)
-        Button(self.root,text="%",width=11,height=2,bg="gray25",fg="white").place(x=462,y=108)
-        Button(self.root,text="AC",width=11,height=2,bg="red",fg="white").place(x=552,y=108)
+        self.md_btn=Button(self.root,text="Deg",width=11,height=2,bg="gray25",fg="white",command=self.change_mod)
+        self.md_btn.place(x=12,y=108)
+        self.Deg_btn=Button(self.root,text="X!",width=11,height=2,bg="gray25",fg="white")#
+        self.Deg_btn.place(x=102,y=108)#
+        Button(self.root,text="(",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("(")).place(x=192,y=108)
+        Button(self.root,text=")",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input(")")).place(x=282,y=108)
+        Button(self.root,text="%",width=11,height=2,bg="gray25",fg="white").place(x=372,y=108)
+        Button(self.root,text="AC",width=11,height=2,bg="red",fg="white").place(x=462,y=108)
+        Button(self.root,text="C",width=11,height=2,bg="red",fg="white",command=self.clear).place(x=552,y=108)
         Button(self.root,text="Inv",width=11,height=2,bg="gray25",fg="white",command=self.inv).place(x=12,y=152)
         self.sin_btn=Button(self.root,text="sin",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("sin("))
         self.sin_btn.place(x=102,y=152)
@@ -41,7 +42,7 @@ class calc:
         Button(self.root,text="4",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("4")).place(x=282,y=196)
         Button(self.root,text="5",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("5")).place(x=372,y=196)
         Button(self.root,text="6",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("6")).place(x=462,y=196)
-        Button(self.root,text="X",width=11,height=2,bg="gray25",fg="white").place(x=552,y=196)
+        Button(self.root,text="X",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("*")).place(x=552,y=196)
         Button(self.root,text="e",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("e")).place(x=12,y=240)
         self.tan_btn=Button(self.root,text="tan",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("tan("))
         self.tan_btn.place(x=102,y=240)
@@ -67,6 +68,15 @@ class calc:
         self.calc_string = self.calc_string + c
         self.display.set(self.calc_string)
 
+    def change_mod(self):
+        if self.mode == "d":
+            self.md_btn.configure(text="Rdn")
+            self.mode = "r"
+        else:
+            self.md_btn.configure(text="Deg")
+            self.mode = "d"
+            
+
     def resolve(self):
         if self.calc_string != "":
             try:
@@ -74,6 +84,10 @@ class calc:
                 self.display.set(self.result)
             except:
                 self.display.set("ERROR")
+
+    def clear(self):
+        self.display.set("0")
+        self.calc_string = ""
             
 
     def inv(self):
