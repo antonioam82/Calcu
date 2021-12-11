@@ -34,7 +34,7 @@ class calc:
         Button(self.root,text="8",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("8")).place(x=372,y=152)
         Button(self.root,text="9",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("9")).place(x=462,y=152)
         Button(self.root,text="/",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("/")).place(x=552,y=152)
-        Button(self.root,text="π",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input(str(pi))).place(x=12,y=196)
+        Button(self.root,text="π",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input('pi')).place(x=12,y=196)
         self.cos_btn=Button(self.root,text="cos",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("cos("))
         self.cos_btn.place(x=102,y=196)
         self.log_btn=Button(self.root,text="log",width=11,height=2,bg="gray25",fg="white")
@@ -84,6 +84,7 @@ class calc:
                 self.display.set(self.result)
             except:
                 self.display.set("ERROR")
+                self.calc_string = ""
 
     def clear(self):
         self.display.set("0")
