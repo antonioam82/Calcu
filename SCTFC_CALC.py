@@ -39,7 +39,7 @@ class calc:
         Button(self.root,text="π",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input('pi')).place(x=12,y=196)
         self.cos_btn=Button(self.root,text="cos",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("cos("))
         self.cos_btn.place(x=102,y=196)
-        self.log_btn=Button(self.root,text="log",width=11,height=2,bg="gray25",fg="white")
+        self.log_btn=Button(self.root,text="log",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input('log('))
         self.log_btn.place(x=192,y=196)
         Button(self.root,text="4",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("4")).place(x=282,y=196)
         Button(self.root,text="5",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("5")).place(x=372,y=196)
