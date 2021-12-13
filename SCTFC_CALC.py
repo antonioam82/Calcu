@@ -23,7 +23,7 @@ class calc:
         Button(self.root,text="(",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("(")).place(x=192,y=108)
         Button(self.root,text=")",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input(")")).place(x=282,y=108)
         Button(self.root,text="%",width=11,height=2,bg="gray25",fg="white").place(x=372,y=108)
-        Button(self.root,text="AC",width=11,height=2,bg="red",fg="white").place(x=462,y=108)
+        Button(self.root,text="AC",width=11,height=2,bg="red",fg="white",command=self.deletion).place(x=462,y=108)
         Button(self.root,text="C",width=11,height=2,bg="red",fg="white",command=self.clear).place(x=552,y=108)
         Button(self.root,text="Inv",width=11,height=2,bg="gray25",fg="white",command=self.inv).place(x=12,y=152)
         self.sin_btn=Button(self.root,text="sin",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("sin("))
@@ -89,6 +89,10 @@ class calc:
     def clear(self):
         self.display.set("0")
         self.calc_string = ""
+
+    def deletion(self):
+        self.calc_string = self.calc_string.replace(self.calc_string[-1],"",1)
+        self.display.set(self.calc_string)
             
 
     def inv(self):
