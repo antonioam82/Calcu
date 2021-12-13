@@ -91,8 +91,14 @@ class calc:
         self.calc_string = ""
 
     def deletion(self):
-        self.calc_string = self.calc_string.replace(self.calc_string[-1],"",1)
-        self.display.set(self.calc_string)
+        if len(self.calc_string) > 0:
+            self.calc_string = self.calc_string.replace(self.calc_string[-1],"",1)
+            self.display.set(self.calc_string)
+            if len(self.calc_string) <= 0:
+                self.display.set("0")
+            else:
+                self.display.set(self.calc_string)
+        print(self.calc_string)
             
 
     def inv(self):
