@@ -48,7 +48,7 @@ class calc:
         Button(self.root,text="e",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("e")).place(x=12,y=240)
         self.tan_btn=Button(self.root,text="tan",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("tan("))
         self.tan_btn.place(x=102,y=240)
-        self.sqrt_btn=Button(self.root,text="√",width=11,height=2,bg="gray25",fg="white")
+        self.sqrt_btn=Button(self.root,text="√",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("sqrt("))
         self.sqrt_btn.place(x=192,y=240)
         Button(self.root,text="1",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("1")).place(x=282,y=240)
         Button(self.root,text="2",width=11,height=2,bg="gray40",fg="white",command=lambda:self.input("2")).place(x=372,y=240)
@@ -119,7 +119,7 @@ class calc:
             self.ln_btn.configure(text="ln")
             self.log_btn.configure(text="log")
             self.tan_btn.configure(text="tan",command=lambda:self.input("tan("))
-            self.sqrt_btn.configure(text="√")
+            self.sqrt_btn.configure(text="√",command=lambda:self.input("sqrt("))
             self.e_btn.configure(text="x**y")
             self.inverted = False
         
