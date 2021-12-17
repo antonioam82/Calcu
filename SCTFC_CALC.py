@@ -91,9 +91,8 @@ class calc:
             try:
                 self.result = eval(self.calc_string)
                 self.display.set(self.result)
-            except Exception as e:
-                #self.display.set("ERROR")
-                print(str(e))
+            except:
+                self.display.set("ERROR")
                 self.calc_string = ""
 
     def clear(self):
@@ -134,4 +133,5 @@ class calc:
 
 if __name__=="__main__":
     calc()
+
 
