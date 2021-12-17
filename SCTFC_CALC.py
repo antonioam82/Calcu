@@ -20,7 +20,7 @@ class calc:
         self.screen.place(x=10,y=11)
         self.md_btn=Button(self.root,text="Deg",width=11,height=2,bg="gray25",fg="white",command=self.change_mod)
         self.md_btn.place(x=12,y=108)
-        self.Deg_btn=Button(self.root,text="X!",width=11,height=2,bg="gray25",fg="white")#
+        self.Deg_btn=Button(self.root,text="X!",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("self.factorial("))#
         self.Deg_btn.place(x=102,y=108)#
         Button(self.root,text="(",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input("(")).place(x=192,y=108)
         Button(self.root,text=")",width=11,height=2,bg="gray25",fg="white",command=lambda:self.input(")")).place(x=282,y=108)
@@ -70,6 +70,13 @@ class calc:
         self.calc_string = self.calc_string + c
         self.display.set(self.calc_string)
 
+    def factorial(self,n):
+        if n==0 or n==1:
+            result=1
+        elif n>1:
+            result=n*factorial(n-1)
+        return result
+
     def change_mod(self):
         if self.mode == "d":
             self.md_btn.configure(text="Rdn")
@@ -84,8 +91,9 @@ class calc:
             try:
                 self.result = eval(self.calc_string)
                 self.display.set(self.result)
-            except:
-                self.display.set("ERROR")
+            except Exception as e:
+                #self.display.set("ERROR")
+                print(str(e))
                 self.calc_string = ""
 
     def clear(self):
@@ -110,7 +118,7 @@ class calc:
             self.ln_btn.configure(text="ex")
             self.log_btn.configure(text="10x")
             self.tan_btn.configure(text="atan",command=lambda:self.input("atan("))
-            self.sqrt_btn.configure(text="x**2")
+            self.sqrt_btn.configure(text="x**2",command=lambda:self.input("**2"))
             self.e_btn.configure(text="y√x")
             self.inverted = True
         else:
@@ -126,3 +134,4 @@ class calc:
 
 if __name__=="__main__":
     calc()
+
