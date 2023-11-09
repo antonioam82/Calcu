@@ -22,9 +22,11 @@ class Currency_calc:
         currency_selector2 = ttk.Combobox(self.root,width=50)
         currency_selector2.place(x=420, y=80)
 
+        amount_entry = tk.Entry(self.root,width=120)
+        amount_entry.place(x=20, y=110)
+
         self.root.mainloop()
 
 
 if __name__ == '__main__':
     Currency_calc()
-
