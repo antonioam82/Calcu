@@ -17,6 +17,8 @@ class Currency_calc:
 
         entry_dir = tk.Entry(self.root,textvariable=self.current_dir,width=149)
         entry_dir.place(x=0,y=0)
+        currency_selector = ttk.Combobox(self.root,width=50)
+        currency_selector.place(x=20, y=80)
 
         self.root.mainloop()
 
