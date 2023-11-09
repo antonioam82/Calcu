@@ -9,7 +9,7 @@ class Currency_calc:
     def __init__(self):
         self.root = Tk()
         self.root.title("Currency Calculator")
-        self.root.geometry("900x500")
+        self.root.geometry("768x500")
         self.root.resizable(height=tk.FALSE,width=tk.FALSE)
 
         self.current_dir = tk.StringVar()
