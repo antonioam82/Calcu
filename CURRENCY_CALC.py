@@ -22,8 +22,8 @@ class Currency_calc:
         currency_selector2 = ttk.Combobox(self.root,width=50)
         currency_selector2.place(x=420, y=80)
 
-        amount_entry = tk.Entry(self.root,width=120)
-        amount_entry.place(x=20, y=110)
+        amount_entry = tk.Entry(self.root,width=48,font=('Arial',20,"bold"))
+        amount_entry.place(x=20, y=140)
 
         self.root.mainloop()
 
