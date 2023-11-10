@@ -26,21 +26,23 @@ class Currency_calc:
         amount_entry.place(x=20, y=140)
         result_label = tk.Label(self.root,width=29,font=('Arial',20,"bold"),bg="blue")
         result_label.place(x=20,y=190)
-        '''tk.Button(self.root,text="7",width=10,height=2).place(x=20,y=245)
-        tk.Button(self.root,text="8",width=10,height=2).place(x=100,y=245)
-        tk.Button(self.root,text="9",width=10,height=2).place(x=180,y=245)
-        tk.Button(self.root,text="4",width=10,height=2).place(x=20,y=285)
-        tk.Button(self.root,text="5",width=10,height=2).place(x=100,y=285)
-        tk.Button(self.root,text="6",width=10,height=2).place(x=180,y=285)'''
+
         tk.Button(self.root,text="7",width=21,height=2).place(x=20,y=245)
         tk.Button(self.root,text="8",width=21,height=2).place(x=192,y=245)
         tk.Button(self.root,text="9",width=21,height=2).place(x=362,y=245)
+        tk.Button(self.root,text="4",width=21,height=2).place(x=20,y=300)
+        tk.Button(self.root,text="5",width=21,height=2).place(x=192,y=300)
+        tk.Button(self.root,text="6",width=21,height=2).place(x=362,y=300)
+        tk.Button(self.root,text="1",width=21,height=2).place(x=20,y=355)
+        tk.Button(self.root,text="2",width=21,height=2).place(x=192,y=355)
+        tk.Button(self.root,text="3",width=21,height=2).place(x=362,y=355)
+        tk.Button(self.root,text="<<",width=21,height=2).place(x=20,y=410)
+        tk.Button(self.root,text="0",width=21,height=2).place(x=192,y=410)
+        tk.Button(self.root,text="=",width=21,height=2).place(x=362,y=410)
 
         self.root.mainloop()
 
-
 if __name__ == '__main__':
     Currency_calc()
-
 
 
