@@ -9,7 +9,7 @@ class Currency_calc:
     def __init__(self):
         self.root = Tk()
         self.root.title("Currency Calculator")
-        self.root.geometry("768x500")
+        self.root.geometry("541x500")
         self.root.resizable(height=tk.FALSE,width=tk.FALSE)
 
         self.current_dir = tk.StringVar()
@@ -17,12 +17,12 @@ class Currency_calc:
 
         entry_dir = tk.Entry(self.root,textvariable=self.current_dir,width=149)
         entry_dir.place(x=0,y=0)
-        currency_selector = ttk.Combobox(self.root,width=50)
+        currency_selector = ttk.Combobox(self.root,width=30)
         currency_selector.place(x=20, y=80)
-        currency_selector2 = ttk.Combobox(self.root,width=50)
-        currency_selector2.place(x=420, y=80)
+        currency_selector2 = ttk.Combobox(self.root,width=30)
+        currency_selector2.place(x=317, y=80)
 
-        amount_entry = tk.Entry(self.root,width=48,font=('Arial',20,"bold"))
+        amount_entry = tk.Entry(self.root,width=33,font=('Arial',20,"bold"))
         amount_entry.place(x=20, y=140)
 
         self.root.mainloop()
@@ -30,3 +30,4 @@ class Currency_calc:
 
 if __name__ == '__main__':
     Currency_calc()
+
