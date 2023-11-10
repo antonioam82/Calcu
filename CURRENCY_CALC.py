@@ -15,7 +15,7 @@ class Currency_calc:
         self.current_dir = tk.StringVar()
         self.current_dir.set(os.getcwd())
 
-        entry_dir = tk.Entry(self.root,textvariable=self.current_dir,width=149)
+        entry_dir = tk.Entry(self.root,textvariable=self.current_dir,width=90)
         entry_dir.place(x=0,y=0)
         currency_selector = ttk.Combobox(self.root,width=30)
         currency_selector.place(x=20, y=80)
@@ -24,10 +24,13 @@ class Currency_calc:
 
         amount_entry = tk.Entry(self.root,width=33,font=('Arial',20,"bold"))
         amount_entry.place(x=20, y=140)
+        result_label = tk.Label(self.root,width=29,font=('Arial',20,"bold"),bg="white")
+        result_label.place(x=20,y=190)
 
         self.root.mainloop()
 
 
 if __name__ == '__main__':
     Currency_calc()
+
 
