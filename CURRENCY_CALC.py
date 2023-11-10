@@ -9,7 +9,7 @@ class Currency_calc:
     def __init__(self):
         self.root = Tk()
         self.root.title("Currency Calculator")
-        self.root.geometry("541x500")
+        self.root.geometry("541x530")
         self.root.resizable(height=tk.FALSE,width=tk.FALSE)
 
         self.current_dir = tk.StringVar()
@@ -38,7 +38,9 @@ class Currency_calc:
         tk.Button(self.root,text="3",width=21,height=2).place(x=362,y=355)
         tk.Button(self.root,text="<<",width=21,height=2).place(x=20,y=410)
         tk.Button(self.root,text="0",width=21,height=2).place(x=192,y=410)
-        tk.Button(self.root,text="=",width=21,height=2).place(x=362,y=410)
+        tk.Button(self.root,text=".",width=21,height=2).place(x=362,y=410)
+
+        tk.Button(self.root,text="CALCULATE",width=70,height=2).place(x=20,y=465)
 
         self.root.mainloop()
 
