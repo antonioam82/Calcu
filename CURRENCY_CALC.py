@@ -24,8 +24,14 @@ class Currency_calc:
 
         amount_entry = tk.Entry(self.root,width=33,font=('Arial',20,"bold"))
         amount_entry.place(x=20, y=140)
-        result_label = tk.Label(self.root,width=29,font=('Arial',20,"bold"),bg="white")
+        result_label = tk.Label(self.root,width=29,font=('Arial',20,"bold"),bg="blue")
         result_label.place(x=20,y=190)
+        tk.Button(self.root,text="7",width=10,height=2).place(x=20,y=245)
+        tk.Button(self.root,text="8",width=10,height=2).place(x=100,y=245)
+        tk.Button(self.root,text="9",width=10,height=2).place(x=180,y=245)
+        tk.Button(self.root,text="4",width=10,height=2).place(x=20,y=285)
+        tk.Button(self.root,text="5",width=10,height=2).place(x=100,y=285)
+        tk.Button(self.root,text="6",width=10,height=2).place(x=180,y=285)
 
         self.root.mainloop()
 
