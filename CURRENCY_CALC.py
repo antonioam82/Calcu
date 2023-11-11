@@ -20,7 +20,7 @@ class Currency_calc:
 
         self.current_dir = tk.StringVar()
         self.amount = tk.StringVar()
-        #self.amount.set(" ")
+        self.amount.set("")
         self.current_dir.set(os.getcwd())
 
         entry_dir = tk.Entry(self.root,textvariable=self.current_dir,width=90)
@@ -46,7 +46,7 @@ class Currency_calc:
         tk.Button(self.root,text="1",width=21,height=2,command=lambda:self.btnClick('1')).place(x=20,y=355)
         tk.Button(self.root,text="2",width=21,height=2,command=lambda:self.btnClick('2')).place(x=192,y=355)
         tk.Button(self.root,text="3",width=21,height=2,command=lambda:self.btnClick('3')).place(x=362,y=355)
-        tk.Button(self.root,text="<<",width=21,height=2).place(x=20,y=410)
+        tk.Button(self.root,text="RESET",width=21,height=2,command=self.reset_display).place(x=20,y=410)
         tk.Button(self.root,text="0",width=21,height=2,command=lambda:self.btnClick('0')).place(x=192,y=410)
         tk.Button(self.root,text=".",width=21,height=2,command=lambda:self.btnClick('.')).place(x=362,y=410)
 
@@ -56,6 +56,9 @@ class Currency_calc:
 
     def btnClick(self,num):
         self.amount.set(self.amount_entry.get() + num)
+
+    def reset_display(self):
+        self.amount.set("")
         
 
 if __name__ == '__main__':
