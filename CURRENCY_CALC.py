@@ -55,6 +55,8 @@ class Currency_calc:
         self.root.mainloop()
 
     def btnClick(self,num):
+        if num == "." and "." in self.amount_entry.get():
+            return
         self.amount.set(self.amount_entry.get() + num)
 
     def reset_display(self):
