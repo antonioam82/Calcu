@@ -11,7 +11,12 @@ class Currency_calc:
         self.root.title("Currency Calculator")
         self.root.geometry("541x530")
         self.root.resizable(height=tk.FALSE,width=tk.FALSE)
-        self.currencies = {'US Dollar':'USD','Euro':'EUR'}
+        self.currencies = {'US Dollar':'USD','Euro':'EUR','Canadian Dollar':'CAD','Pound':'GBP',
+                           'Japanese Yen':'JPY','Australian Dollar':'AUD','New Zeland Dollar':'NZD',
+                           'Swiss Franc':'CHF','Singapur Dollar':'SGD','Hong Kong Dollar':'HKD',
+                           'Swedish Crown':'SEK','Norwegian Crown':'NOR','Dannish Crown':'DKK'}
+        
+        sorted_currencies = sorted(self.currencies.keys())
 
         self.current_dir = tk.StringVar()
         self.current_dir.set(os.getcwd())
@@ -19,7 +24,7 @@ class Currency_calc:
         entry_dir = tk.Entry(self.root,textvariable=self.current_dir,width=90)
         entry_dir.place(x=0,y=0)
         currency_selector = ttk.Combobox(self.root,width=30)
-        currency_selector["values"] = list(self.currencies.keys())
+        currency_selector["values"] = sorted_currencies
         currency_selector.place(x=20, y=80)
         currency_selector2 = ttk.Combobox(self.root,width=30)
         currency_selector2["values"] = list(self.currencies.keys())
