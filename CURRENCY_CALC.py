@@ -15,7 +15,7 @@ class Currency_calc:
         self.currencies = {'US Dollar':'USD','Euro':'EUR','Canadian Dollar':'CAD','Pound':'GBP',
                            'Japanese Yen':'JPY','Australian Dollar':'AUD','New Zeland Dollar':'NZD',
                            'Swiss Franc':'CHF','Singapur Dollar':'SGD','Hong Kong Dollar':'HKD',
-                           'Swedish Crown':'SEK','Norwegian Crown':'NOK','Dannish Crown':'DKK'}
+                           'Swedish Crown':'SEK','Norwegian Crown':'NOK','Dannish Crown':'DKK','Yuan':'CNY'}
         
         sorted_currencies = sorted(self.currencies.keys())
 
@@ -36,7 +36,7 @@ class Currency_calc:
 
         self.amount_entry = tk.Entry(self.root,textvariable=self.amount,width=33,font=('Arial',20,"bold"))
         self.amount_entry.place(x=20, y=140)
-        self.result_label = tk.Label(self.root,width=29,font=('Arial',20,"bold"),bg="blue")
+        self.result_label = tk.Label(self.root,width=29,font=('Arial',20,"bold"),bg="bisque")
         self.result_label.place(x=20,y=190)
 
         tk.Button(self.root,text="7",width=21,height=2,command=lambda:self.btnClick('7')).place(x=20,y=245)
@@ -72,13 +72,15 @@ class Currency_calc:
     def calculate(self):
         try:
             ticker = self.create_ticker()
-            self.exchange = yf.download(ticker, period="1d", interval="1m")["Adj Close"].iloc[-1]
+            self.exchange = yf.download(ticker, period="1d", interval="1m")["Close"].iloc[-1]
             total = float(self.amount.get()) * self.exchange
-            self.result_label.configure(text=str(round(total,4)))
+            self.result_label.configure(text=str(round(total,6)))
         except Exception as e:
             messagebox.showwarning("ERROR",str(e))
+            self.result_label.configure(text="")
 
     def init_task(self):
+        self.result_label.configure(text="CALCULATING...")
         task = threading.Thread(target=self.calculate)
         task.start()
 
