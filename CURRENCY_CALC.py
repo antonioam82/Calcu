@@ -29,7 +29,7 @@ class Currency_calc:
         self.currency_selector["values"] = sorted_currencies
         self.currency_selector.place(x=20, y=80)
         self.currency_selector2 = ttk.Combobox(self.root,width=30)
-        self.currency_selector2["values"] = list(self.currencies.keys())
+        self.currency_selector2["values"] = sorted_currencies
         self.currency_selector2.place(x=317, y=80)
 
         self.amount_entry = tk.Entry(self.root,textvariable=self.amount,width=33,font=('Arial',20,"bold"))
