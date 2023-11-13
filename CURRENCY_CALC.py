@@ -69,11 +69,13 @@ class Currency_calc:
         return tick1+tick2+"=X"
 
     def calculate(self):
-        ticker = self.create_ticker()
-        self.exchange = yf.download(ticker, period="1d", interval="1m")["Adj Close"].iloc[-1]
-        total = float(self.amount.get()) * self.exchange
-        self.result_label.configure(text=str(round(total,4)))
-        print(total)
+        try:
+            ticker = self.create_ticker()
+            self.exchange = yf.download(ticker, period="1d", interval="1m")["Adj Close"].iloc[-1]
+            total = float(self.amount.get()) * self.exchange
+            self.result_label.configure(text=str(round(total,4)))
+        except Exception as e:
+            messagebox.showwarning("ERROR",str(e))
 
     def init_task(self):
         task = threading.Thread(target=self.calculate)
