@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import Tk, filedialog, messagebox, ttk
 import yfinance as yf
 import os
+import threading
 
 class Currency_calc:
     def __init__(self):
@@ -50,7 +51,7 @@ class Currency_calc:
         tk.Button(self.root,text="0",width=21,height=2,command=lambda:self.btnClick('0')).place(x=192,y=410)
         tk.Button(self.root,text=".",width=21,height=2,command=lambda:self.btnClick('.')).place(x=362,y=410)
 
-        tk.Button(self.root,text="CALCULATE",width=70,height=2,command=self.calculate).place(x=20,y=465)
+        tk.Button(self.root,text="CALCULATE",width=70,height=2,command=self.init_task).place(x=20,y=465)
 
         self.root.mainloop()
 
@@ -71,9 +72,12 @@ class Currency_calc:
         ticker = self.create_ticker()
         print(ticker)
         self.exchange = yf.download(ticker, period="1d", interval="1m")["Adj Close"].iloc[-1]
-        print(self.exchange)
-        
-        
+        total = float(self.amount.get()) * self.exchange
+        print(total)
+
+    def init_task(self):
+        task = threading.Thread(target=self.calculate)
+        task.start()
 
 if __name__ == '__main__':
     Currency_calc()
