@@ -25,12 +25,12 @@ class Currency_calc:
 
         entry_dir = tk.Entry(self.root,textvariable=self.current_dir,width=90)
         entry_dir.place(x=0,y=0)
-        currency_selector = ttk.Combobox(self.root,width=30)
-        currency_selector["values"] = sorted_currencies
-        currency_selector.place(x=20, y=80)
-        currency_selector2 = ttk.Combobox(self.root,width=30)
-        currency_selector2["values"] = list(self.currencies.keys())
-        currency_selector2.place(x=317, y=80)
+        self.currency_selector = ttk.Combobox(self.root,width=30)
+        self.currency_selector["values"] = sorted_currencies
+        self.currency_selector.place(x=20, y=80)
+        self.currency_selector2 = ttk.Combobox(self.root,width=30)
+        self.currency_selector2["values"] = list(self.currencies.keys())
+        self.currency_selector2.place(x=317, y=80)
 
         self.amount_entry = tk.Entry(self.root,textvariable=self.amount,width=33,font=('Arial',20,"bold"))
         self.amount_entry.place(x=20, y=140)
@@ -50,7 +50,7 @@ class Currency_calc:
         tk.Button(self.root,text="0",width=21,height=2,command=lambda:self.btnClick('0')).place(x=192,y=410)
         tk.Button(self.root,text=".",width=21,height=2,command=lambda:self.btnClick('.')).place(x=362,y=410)
 
-        tk.Button(self.root,text="CALCULATE",width=70,height=2).place(x=20,y=465)
+        tk.Button(self.root,text="CALCULATE",width=70,height=2,command=self.calculate).place(x=20,y=465)
 
         self.root.mainloop()
 
@@ -61,9 +61,15 @@ class Currency_calc:
 
     def reset_display(self):
         self.amount.set("")
-        
+
+    def create_ticker(self):
+        tick1 = self.currencies[self.currency_selector.get()]
+        tick2 = self.currencies[self.currency_selector2.get()]
+        return tick1+tick2+"=X"
+
+    def calculate(self):
+        ticker = self.create_ticker()
+        print(ticker)
 
 if __name__ == '__main__':
     Currency_calc()
-
-
