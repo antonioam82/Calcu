@@ -70,6 +70,10 @@ class Currency_calc:
     def calculate(self):
         ticker = self.create_ticker()
         print(ticker)
+        self.exchange = yf.download(ticker, period="1d", interval="1m")["Adj Close"].iloc[-1]
+        print(self.exchange)
+        
+        
 
 if __name__ == '__main__':
     Currency_calc()
