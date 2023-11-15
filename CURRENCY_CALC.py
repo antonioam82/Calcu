@@ -15,17 +15,17 @@ class Currency_calc:
         self.currencies = {'US Dollar':'USD','Euro':'EUR','Canadian Dollar':'CAD','Pound':'GBP',
                            'Japanese Yen':'JPY','Australian Dollar':'AUD','New Zeland Dollar':'NZD',
                            'Swiss Franc':'CHF','Singapur Dollar':'SGD','Hong Kong Dollar':'HKD',
-                           'Swedish Crown':'SEK','Norwegian Crown':'NOK','Dannish Crown':'DKK','Yuan':'CNY'}
+                           'Swedish Crown':'SEK','Norwegian Crown':'NOK','Dannish Crown':'DKK','Chinese Yuan':'CNY'}
         
-        sorted_currencies = sorted(self.currencies.keys())
+        sorted_currencies = sorted(self.currencies.keys()) # EN ORDEN ALFABETICO
 
+        # Mostrar directorio de ejecución
         self.current_dir = tk.StringVar()
-        self.amount = tk.StringVar()
-        self.amount.set("")
         self.current_dir.set(os.getcwd())
-
         entry_dir = tk.Entry(self.root,textvariable=self.current_dir,width=90)
         entry_dir.place(x=0,y=0)
+
+        # Listas desplegables
         self.currency_selector = ttk.Combobox(self.root,width=30)
         self.currency_selector["values"] = sorted_currencies
         self.currency_selector.place(x=20, y=80)
@@ -34,11 +34,15 @@ class Currency_calc:
         self.currency_selector2["values"] = sorted_currencies
         self.currency_selector2.place(x=317, y=80)
 
+        # Entrada de cantidad y etiqueta para resultado
+        self.amount = tk.StringVar()
+        self.amount.set("")        
         self.amount_entry = tk.Entry(self.root,textvariable=self.amount,width=33,font=('Arial',20,"bold"))
         self.amount_entry.place(x=20, y=140)
         self.result_label = tk.Label(self.root,width=29,font=('Arial',20,"bold"),bg="bisque")
         self.result_label.place(x=20,y=190)
 
+        # Botones
         tk.Button(self.root,text="7",width=21,height=2,command=lambda:self.btnClick('7')).place(x=20,y=245)
         tk.Button(self.root,text="8",width=21,height=2,command=lambda:self.btnClick('8')).place(x=192,y=245)
         tk.Button(self.root,text="9",width=21,height=2,command=lambda:self.btnClick('9')).place(x=362,y=245)
@@ -56,29 +60,34 @@ class Currency_calc:
 
         self.root.mainloop()
 
+    # Definir cantidad y mostrarl en el entry
     def btnClick(self,num):
         if num == "." and "." in self.amount_entry.get():
             return
         self.amount.set(self.amount_entry.get() + num)
 
+    # Resetear display
     def reset_display(self):
         self.amount.set("")
 
+    # Define ticker
     def create_ticker(self):
         tick1 = self.currencies[self.currency_selector.get()]
         tick2 = self.currencies[self.currency_selector2.get()]
         return tick1+tick2+"=X"
 
+    # Descarga tipo de cambio actualizado y realiza multiplicación
     def calculate(self):
         try:
             ticker = self.create_ticker()
             self.exchange = yf.download(ticker, period="1d", interval="1m")["Close"].iloc[-1]
             total = float(self.amount.get()) * self.exchange
-            self.result_label.configure(text=str(round(total,6)))
+            self.result_label.configure(text=str(round(total,2)))
         except Exception as e:
             messagebox.showwarning("ERROR",str(e))
             self.result_label.configure(text="")
 
+    # Inicia la ejecución de la función 'calculate()'
     def init_task(self):
         self.result_label.configure(text="CALCULATING...")
         task = threading.Thread(target=self.calculate)
