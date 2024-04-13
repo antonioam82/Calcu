@@ -86,12 +86,19 @@ class Currency_calc:
         except Exception as e:
             messagebox.showwarning("ERROR",str(e))
             self.result_label.configure(text="")
+        
 
     # Inicia la ejecución de la función 'calculate()'
     def init_task(self):
-        self.result_label.configure(text="CALCULATING...")
-        task = threading.Thread(target=self.calculate)
-        task.start()
+        if self.currency_selector.get() != "" and  self.currency_selector2.get() != "":
+            if self.amount_entry.get() != "":
+                self.result_label.configure(text="CALCULATING...")
+                task = threading.Thread(target=self.calculate)
+                task.start()
+            else:
+                messagebox.showwarning("ERROR","Enter amount for conversion") 
+        else:
+             messagebox.showwarning("ERROR","No currencies selected") 
 
 if __name__ == '__main__':
     Currency_calc()
