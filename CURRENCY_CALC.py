@@ -32,6 +32,8 @@ class Currency_calc:
         self.currency_selector["values"] = sorted_currencies
         self.currency_selector.place(x=20, y=80)
         tk.Label(self.root,text="TO",width=5,font=('Arial',10,"bold")).place(x=246,y=80)
+        self.ex_label = tk.Label(self.root,text="",width=30,font=('Arial',10),fg="red")
+        self.ex_label.place(x=0,y=120)
         self.currency_selector2 = ttk.Combobox(self.root,width=30)
         self.currency_selector2["values"] = sorted_currencies
         self.currency_selector2.place(x=317, y=80)
@@ -84,6 +86,7 @@ class Currency_calc:
             ticker = self.create_ticker()
             self.exchange = yf.download(ticker, period="1d", interval="1m")["Close"].iloc[-1]
             total = float(self.amount.get()) * self.exchange
+            self.ex_label.configure(text=ticker+'('+str(self.exchange)+')')
             self.result_label.configure(text=str(round(total,2)))
         except Exception as e:
             messagebox.showwarning("ERROR",str(e))
