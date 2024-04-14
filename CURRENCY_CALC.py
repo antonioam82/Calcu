@@ -97,9 +97,12 @@ class Currency_calc:
     def init_task(self):
         if self.currency_selector.get() != "" and  self.currency_selector2.get() != "":
             if self.amount_entry.get() != "":
-                self.result_label.configure(text="CALCULATING...")
-                task = threading.Thread(target=self.calculate)
-                task.start()
+                if self.currency_selector.get() != self.currency_selector2.get():
+                    self.result_label.configure(text="CALCULATING...")
+                    task = threading.Thread(target=self.calculate)
+                    task.start()
+                else:
+                    self.result_label.configure(text=self.amount_entry.get())
             else:
                 messagebox.showwarning("ERROR","Enter amount for conversion") 
         else:
