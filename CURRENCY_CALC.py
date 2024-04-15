@@ -17,7 +17,7 @@ class Currency_calc:
                            'Swiss Franc':'CHF','Singapur Dollar':'SGD','Hong Kong Dollar':'HKD',
                            'Swedish Crown':'SEK','Norwegian Crown':'NOK','Dannish Crown':'DKK','Chinese Yuan':'CNY',
                            'Peso Mexicano':'MXN','Turkish Lira':'TRY','South African Rand':'ZAR','Polish Zloty':'PLN',
-                           'Hungarian Forint':'HUF','Taiwan Dollar':'TWD'}
+                           'Hungarian Forint':'HUF','Taiwan Dollar':'TWD','Argentine Peso':'ARS'}
         
         sorted_currencies = sorted(self.currencies.keys()) # EN ORDEN ALFABETICO
 
@@ -76,6 +76,7 @@ class Currency_calc:
 
     # Define ticker
     def create_ticker(self):
+        global tick2
         tick1 = self.currencies[self.currency_selector.get()]
         tick2 = self.currencies[self.currency_selector2.get()]
         return tick1+tick2+"=X"
@@ -87,7 +88,7 @@ class Currency_calc:
             self.exchange = yf.download(ticker, period="1d", interval="1m")["Close"].iloc[-1]
             total = float(self.amount.get()) * self.exchange
             self.ex_label.configure(text=ticker+' ('+str(self.exchange)+')')
-            self.result_label.configure(text=str(round(total,2)))
+            self.result_label.configure(text=str(round(total,4))+" "+tick2)
         except Exception as e:
             messagebox.showwarning("ERROR",str(e))
             self.result_label.configure(text="")
