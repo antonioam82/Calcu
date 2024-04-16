@@ -30,12 +30,14 @@ class Currency_calc:
         # Listas desplegables
         self.currency_selector = ttk.Combobox(self.root,width=30)
         self.currency_selector["values"] = sorted_currencies
+        self.currency_selector.set('US Dollar')
         self.currency_selector.place(x=20, y=80)
         tk.Label(self.root,text="TO",width=5,font=('Arial',10,"bold")).place(x=246,y=80)
         self.ex_label = tk.Label(self.root,text="",width=30,font=('Arial',10),fg="red",anchor="w")
         self.ex_label.place(x=16,y=120)
         self.currency_selector2 = ttk.Combobox(self.root,width=30)
         self.currency_selector2["values"] = sorted_currencies
+        self.currency_selector2.set('Euro')
         self.currency_selector2.place(x=317, y=80)
 
         # Entrada de cantidad y etiqueta para resultado
