@@ -95,7 +95,6 @@ class Currency_calc:
             messagebox.showwarning("ERROR",str(e))
             self.result_label.configure(text="")
         
-
     # Inicia la ejecución de la función 'calculate()'
     def init_task(self):
         self.ex_label.configure(text="")
