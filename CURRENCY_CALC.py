@@ -105,7 +105,7 @@ class Currency_calc:
                     task = threading.Thread(target=self.calculate)
                     task.start()
                 else:
-                    self.result_label.configure(text=self.amount_entry.get())
+                    self.result_label.configure(text=self.amount_entry.get() + " " + self.currencies[self.currency_selector2.get()])
             else:
                 messagebox.showwarning("ERROR","Enter amount for conversion") 
         else:
@@ -113,3 +113,4 @@ class Currency_calc:
 
 if __name__ == '__main__':
     Currency_calc()
+
