@@ -91,8 +91,9 @@ class Currency_calc:
 
             amount = float(self.amount.get())
             ticker1, ticker2 = self.create_ticker()
+            ticker2_symbol = self.symbols.get_symbol(ticker2)
             total = self.rates.convert(ticker1, ticker2, amount)
-            self.result_label.configure(text=str(round(total,4))+" "+t2)
+            self.result_label.configure(text=str(round(total,4))+ticker2_symbol)
             '''ticker = self.create_ticker()
             self.exchange = yf.download(ticker, period="1d", interval="1m")["Adj Close"].iloc[-1]
             total = float(self.amount.get()) * self.exchange
@@ -107,12 +108,9 @@ class Currency_calc:
         self.ex_label.configure(text="")
         if self.currency_selector.get() != "" and  self.currency_selector2.get() != "":
             if self.amount_entry.get() != "":
-                if self.currency_selector.get() != self.currency_selector2.get():
-                    self.result_label.configure(text="CALCULATING...")
-                    task = threading.Thread(target=self.calculate)
-                    task.start()
-                else:
-                    self.result_label.configure(text=self.amount_entry.get() + " " + self.currencies[self.currency_selector2.get()])
+                self.result_label.configure(text="CALCULATING...")
+                task = threading.Thread(target=self.calculate)
+                task.start()
             else:
                 messagebox.showwarning("ERROR","Enter amount for conversion") 
         else:
