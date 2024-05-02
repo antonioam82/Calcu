@@ -93,7 +93,7 @@ class Currency_calc:
             ticker1, ticker2 = self.create_ticker()
             ticker2_symbol = self.symbols.get_symbol(ticker2)
             total = self.rates.convert(ticker1, ticker2, amount)
-            self.result_label.configure(text=str(round(total,4))+ticker2_symbol)
+            self.result_label.configure(text=str(round(total,4))+" "+ticker2_symbol)
             '''ticker = self.create_ticker()
             self.exchange = yf.download(ticker, period="1d", interval="1m")["Adj Close"].iloc[-1]
             total = float(self.amount.get()) * self.exchange
