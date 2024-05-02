@@ -92,13 +92,11 @@ class Currency_calc:
             amount = float(self.amount.get())
             ticker1, ticker2 = self.create_ticker()
             ticker2_symbol = self.symbols.get_symbol(ticker2)
+            currency_rate = str(self.rates.get_rate(ticker1,ticker2))
+            self.ex_label.configure(text=f'RATE ({ticker1}/{ticker2}) = {currency_rate}')
             total = self.rates.convert(ticker1, ticker2, amount)
             self.result_label.configure(text=str(round(total,4))+" "+ticker2_symbol)
-            '''ticker = self.create_ticker()
-            self.exchange = yf.download(ticker, period="1d", interval="1m")["Adj Close"].iloc[-1]
-            total = float(self.amount.get()) * self.exchange
-            self.ex_label.configure(text=ticker+' ('+str(self.exchange)+')')
-            self.result_label.configure(text=str(round(total,4))+" "+tick2)'''
+
         except Exception as e:
             messagebox.showwarning("ERROR",str(e))
             self.result_label.configure(text="")
