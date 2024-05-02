@@ -80,7 +80,6 @@ class Currency_calc:
 
     # Define ticker
     def create_ticker(self):
-        global t2
         t1 = self.currencies[self.currency_selector.get()]
         t2 = self.currencies[self.currency_selector2.get()]
         return t1, t2
