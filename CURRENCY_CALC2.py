@@ -20,7 +20,7 @@ class Currency_calc:
                            'Swedish Crown':'SEK','Norwegian Crown':'NOK','Dannish Crown':'DKK','Chinese Yuan':'CNY',
                            'Peso Mexicano':'MXN','Turkish Lira':'TRY','South African Rand':'ZAR','Polish Zloty':'PLN',
                            'Hungarian Forint':'HUF','Taiwan Dollar':'TWD','Indian rupee':'INR','Singapore dollar':'SGD',
-                           'Philippine peso':'PHP','Brazilian real':'BRL','Indonesian rupiah':'IDR'}
+                           'Philippine peso':'PHP','Brazilian real':'BRL','Indonesian rupiah':'IDR','Thai baht':'THB'}
         
         sorted_currencies = sorted(self.currencies.keys()) # EN ORDEN ALFABETICO
 
