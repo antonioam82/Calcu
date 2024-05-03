@@ -19,7 +19,8 @@ class Currency_calc:
                            'Swiss Franc':'CHF','Singapur Dollar':'SGD','Hong Kong Dollar':'HKD',
                            'Swedish Crown':'SEK','Norwegian Crown':'NOK','Dannish Crown':'DKK','Chinese Yuan':'CNY',
                            'Peso Mexicano':'MXN','Turkish Lira':'TRY','South African Rand':'ZAR','Polish Zloty':'PLN',
-                           'Hungarian Forint':'HUF','Taiwan Dollar':'TWD'}
+                           'Hungarian Forint':'HUF','Taiwan Dollar':'TWD','Indian rupee':'INR','Singapore dollar':'SGD',
+                           'Philippine peso':'PHP','Brazilian real':'BRL','Indonesian rupiah':'IDR'}
         
         sorted_currencies = sorted(self.currencies.keys()) # EN ORDEN ALFABETICO
 
