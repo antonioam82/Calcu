@@ -16,11 +16,12 @@ class Currency_calc:
         self.root.resizable(height=tk.FALSE,width=tk.FALSE)
         self.currencies = {'US Dollar':'USD','Euro':'EUR','Canadian Dollar':'CAD','Pound':'GBP',
                            'Japanese Yen':'JPY','Australian Dollar':'AUD','New Zeland Dollar':'NZD',
-                           'Swiss Franc':'CHF','Singapur Dollar':'SGD','Hong Kong Dollar':'HKD',
-                           'Swedish Crown':'SEK','Norwegian Crown':'NOK','Dannish Crown':'DKK','Chinese Yuan':'CNY',
-                           'Peso Mexicano':'MXN','Turkish Lira':'TRY','South African Rand':'ZAR','Polish Zloty':'PLN',
-                           'Hungarian Forint':'HUF','Taiwan Dollar':'TWD','Indian rupee':'INR','Singapore dollar':'SGD',
-                           'Philippine peso':'PHP','Brazilian real':'BRL','Indonesian rupiah':'IDR','Thai baht':'THB'}
+                           'Swiss Franc':'CHF','Hong Kong Dollar':'HKD','Swedish Crown':'SEK',
+                           'Norwegian Crown':'NOK','Dannish Crown':'DKK','Chinese Yuan':'CNY',
+                           'Mexican Peso':'MXN','Turkish Lira':'TRY','South African Rand':'ZAR',
+                           'Polish Zloty':'PLN','Hungarian Forint':'HUF','Taiwan Dollar':'TWD',
+                           'Indian Rupee':'INR','Singapore Dollar':'SGD','Philippine Peso':'PHP',
+                           'Brazilian Real':'BRL','Indonesian Rupiah':'IDR','Thai Baht':'THB'}
         
         sorted_currencies = sorted(self.currencies.keys()) # EN ORDEN ALFABETICO
 
@@ -116,3 +117,4 @@ class Currency_calc:
 
 if __name__ == '__main__':
     Currency_calc()
+
